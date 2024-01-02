@@ -1,3 +1,4 @@
+import { SharedModule } from './../../Shared/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -15,7 +16,8 @@ import { ResetPasswordComponent } from './Components/reset-password/reset-passwo
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    SharedModule
   ]
 })
 export class AuthModule { }
