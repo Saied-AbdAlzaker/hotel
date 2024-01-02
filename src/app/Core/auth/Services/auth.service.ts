@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IResetPassword } from '../Model/auth';
 import { Observable } from 'rxjs';
 
 
@@ -11,10 +10,9 @@ export class AuthService {
 
 constructor(private _HttpClient:HttpClient) { }
 
-onRestPassword(data:IResetPassword):Observable<IResetPassword>
+onRestPassword(data:any):Observable<any>
  {
-  return this._HttpClient.post<IResetPassword>('portal/users/reset-password', data)
-
+  return this._HttpClient.post('portal/users/reset-password', data)
  }
 
 }
