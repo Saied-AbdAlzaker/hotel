@@ -1,0 +1,31 @@
+@import "/src/assets/styles/abstracts/_variables.scss";
+
+#signin{
+  height: 100vh;
+  .header-auth{
+    h2{
+      margin-bottom: 2rem;
+    }
+    span{
+      color: $text-secondryColor;
+      font-weight: bold;
+    }
+  }
+  .signin-content{
+    height: calc(100vh - 71px);
+
+    .cover{
+      background-image: url(../../../images/signin.jpeg);
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      border-radius: 0.9375rem;
+      color: $text-whiteColor;
+      h3{
+        // margin-top: 35rem;
+      }
+    }
+  }
+}
+
+
