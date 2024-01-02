@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthModule } from './Core/auth/auth.module';
-import { SigninComponent } from './Core/auth/Components/signin/signin.component';
+import { ToastrModule } from 'ngx-toastr';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { GlobalInterceptor } from './Core/Interceptors/global.interceptor';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,21 @@ import { SigninComponent } from './Core/auth/Components/signin/signin.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // AuthModule
+    HttpClientModule,
+    ToastrModule.forRoot({
+      closeButton: true,
+      timeOut: 4000,
+      progressBar: true,
+    }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: GlobalInterceptor,
+      multi: true
+    },
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
