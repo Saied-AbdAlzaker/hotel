@@ -5,7 +5,6 @@ import { ForgetPasswordComponent } from 'src/app/Core/auth/Components/forget-pas
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
-  {path:'Forget', component:ForgetPasswordComponent},
 
 
 ];
