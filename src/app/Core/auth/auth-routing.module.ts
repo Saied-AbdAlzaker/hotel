@@ -1,15 +1,20 @@
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './Components/login/login.component';
+import { SigninComponent } from './Components/signin/signin.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'login',pathMatch:'full'},
-  {path:'login',component:LoginComponent},
+  {path:'login',component:SigninComponent},
   {path:'signup',component:SignupComponent},
   {path:'Forget', component:ForgetPasswordComponent},
 
+{path:'',redirectTo:'signin',pathMatch:'full'},
+{path:'signin',component:SigninComponent},
+{path:'signup',component:SignupComponent},
+{path:'resetPassword', component:ResetPasswordComponent},
 
 ];
 

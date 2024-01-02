@@ -1,6 +1,6 @@
 @import "/src/assets/styles/abstracts/_variables.scss";
 
-#login{
+#signin{
   height: 100vh;
   .header-auth{
     h2{
@@ -23,9 +23,11 @@
   }
   .login-content{
     height: calc(100vh - 71px);
+  .signin-content{
+    // height: calc(100vh - 71px);
 
     .cover{
-      background-image: url(../../../imgs/login-cover.jpeg);
+      background-image: url(../../../images/signin.jpeg);
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -38,4 +40,4 @@
   }
 }
 
-
+}
