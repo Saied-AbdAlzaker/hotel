@@ -1,0 +1,28 @@
+//shared utilites for all project
+
+.logo {
+  color: $text-mainColor;
+  font-size: 1.625rem;
+  font-style: normal;
+  font-weight: 500;
+  span {
+    color: $text-secondryColor;
+  }
+}
+
+button {
+  border-radius: $border-reduis;
+  padding: .5rem;
+  box-shadow: 0px 8px 15px 0px rgba($text-secondryColor, 0.3);
+  transition: all .3s ease-in;
+  &.primary {
+    background: $bg-mainColor;
+    color: $text-whiteColor;
+  }
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-6px);
+    box-shadow: -4px 13px 7px 0px  rgba($text-secondryColor, 0.3);
+
+  }
+}
