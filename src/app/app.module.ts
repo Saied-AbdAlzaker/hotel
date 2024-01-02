@@ -3,8 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthModule } from './Core/auth/auth.module';
-import { SigninComponent } from './Core/auth/Components/signin/signin.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -14,7 +13,11 @@ import { SigninComponent } from './Core/auth/Components/signin/signin.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // AuthModule
+    ToastrModule.forRoot({
+      closeButton: true,
+      timeOut: 4000,
+      progressBar: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
