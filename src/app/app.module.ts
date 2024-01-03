@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GlobalInterceptor } from './Core/Interceptors/global.interceptor';
+import { SharedModule } from './Shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { GlobalInterceptor } from './Core/Interceptors/global.interceptor';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    SharedModule,
     ToastrModule.forRoot({
       closeButton: true,
       timeOut: 4000,
