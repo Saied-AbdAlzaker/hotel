@@ -10,6 +10,7 @@
     margin: auto;
     margin-top: 1rem;
     .header-auth {
+      margin-bottom: 2rem;
       h2 {
         margin-bottom: 1rem;
         font-weight: 500;
@@ -20,10 +21,10 @@
       }
     }
     .form-group {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.5rem !important;
       label {
         color: $text-secondryColor;
-        margin-left: 10px;
+        margin: 5px;
       }
       input {
         background-color: #f5f6f8;
@@ -40,13 +41,6 @@
       font-weight: 600;
     }
   }
-
-  //   .login-content{
-  //     height: calc(100vh - 71px);
-  //   .signin-content{
-  //      height: calc(100vh - 71px);
-  // }
-  // }
 }
 
 #signin {
@@ -56,16 +50,12 @@
         rgba(23, 33, 33, 0.15) -22.39%,
         rgba(0, 0, 0, 0.2) 50%
       ),
-      url(../../../images/signin.jpeg);
+    url(../../../images/signin.jpeg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     border-radius: 0.9375rem;
     color: $text-whiteColor;
-    .cover-content {
-      margin-top: 35rem;
-      margin-left: 3rem;
-    }
   }
 }
 
@@ -81,24 +71,20 @@
     background-position: center center;
     background-repeat: no-repeat;
     border-radius: 0.9375rem;
-    // .cover-content {
-    //   margin-top: 35rem;
-    //   margin-left: 4rem;
-    // }
   }
 }
 #forgetPassword {
   .cover {
-   background-image: url(../../../../assets/images/Forget.png);
+   background-image: linear-gradient(
+    51deg,
+    rgba(23, 33, 33, 0.15) -22.39%,
+    rgba(0, 0, 0, 0.2) 50%),
+    url(../../../../assets/images/Forget.png);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     border-radius: 0.9375rem;
     color: $text-whiteColor;
-    .cover-content {
-      margin-top: 35rem;
-      margin-left: 3rem;
-    }
   }
 }
 
@@ -110,19 +96,11 @@
       rgba(0, 0, 0, 0.2) 50%
     ),
     url(../../../images/ResetPassword.png);
-    // background-image: url(../../../images/ResetPassword.png);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     border-radius: 0.9375rem;
     color: $text-whiteColor;
-    .cover-content {
-      margin-top: 35rem;
-      margin-left: 3rem;
-      h2 {
-        font-weight: 600;
-      }
-    }
   }
   .eye-icon{
     position: absolute;
