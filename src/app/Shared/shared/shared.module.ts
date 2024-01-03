@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule, ReactiveFormsModule,HttpClientModule,NgxDropzoneModule
   ],
   exports: [
-    FormsModule,ReactiveFormsModule,HttpClientModule,NgxDropzoneModule
+    FormsModule,ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,
      ReactiveFormsModule,HttpClientModule,FormsModule
   ],
   
