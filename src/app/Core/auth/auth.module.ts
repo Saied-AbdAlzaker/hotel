@@ -7,7 +7,7 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 import { SharedModule } from 'src/app/Shared/shared.module';
-SharedModule
+
 
 @NgModule({
   declarations: [
