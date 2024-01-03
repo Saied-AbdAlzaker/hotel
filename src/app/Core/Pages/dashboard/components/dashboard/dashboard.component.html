@@ -1,1 +1,17 @@
-<p>dashboard works!</p>
+<section id="dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="px-0 sidebar col-md-2" >
+                <div class="sticky">
+                    <app-sidebar></app-sidebar>
+                </div>
+            </div>
+            <div  class=col-md-10>
+                <div>
+                    <app-navbar class="sticky"></app-navbar>
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
