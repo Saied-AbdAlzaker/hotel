@@ -1,4 +1,3 @@
-import { SharedModule } from './../../Shared/shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -7,7 +6,8 @@ import { SigninComponent } from './Components/signin/signin.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
-
+import { SharedModule } from 'src/app/Shared/shared.module';
+SharedModule
 
 @NgModule({
   declarations: [
