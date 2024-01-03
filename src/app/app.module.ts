@@ -6,14 +6,10 @@ import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GlobalInterceptor } from './Core/Interceptors/global.interceptor';
-import { NavbarComponent } from './Shared/navbar/navbar.component';
-import { SidebarComponent } from './Shared/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
-    NavbarComponent,
     
   ],
   imports: [
