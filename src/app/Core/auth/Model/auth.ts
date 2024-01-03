@@ -1,4 +1,6 @@
-export interface Auth {
+export interface ISignin {
+    email: string,
+    password: string
 }
 export interface IResetPassword {
     email: string,
