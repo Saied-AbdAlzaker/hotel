@@ -12,7 +12,7 @@ const routes: Routes = [
 {path:'signin',component:SigninComponent},
 {path:'signup',component:SignupComponent},
 {path:'reset-password', component:ResetPasswordComponent},
-{path:'forget',component:ForgetPasswordComponent}
+{path:'forgot-password',component:ForgetPasswordComponent}
 
 
 ];

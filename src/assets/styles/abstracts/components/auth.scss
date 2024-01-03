@@ -1,111 +1,131 @@
 @import "/src/assets/styles/abstracts/_variables.scss";
 
-.auth{
-  .row{
+.auth {
+  .row {
     height: 100vh;
     padding: 1rem;
   }
-  .card-auth{
+  .card-auth {
     width: 75%;
     margin: auto;
     margin-top: 1rem;
-    .header-auth{
-      h2{
+    .header-auth {
+      h2 {
         margin-bottom: 1rem;
         font-weight: 500;
       }
-      span{
+      span {
         color: $text-secondryColor;
         font-weight: bold;
       }
     }
-    .form-group{
+    .form-group {
       margin-bottom: 1.5rem;
-      label{
+      label {
         color: $text-secondryColor;
         margin-left: 10px;
       }
-      input{
-        background-color: #F5F6F8;
+      input {
+        background-color: #f5f6f8;
       }
-      a{
+      a {
         color: $text-secondryColor;
         font-weight: bold;
       }
     }
   }
-  .caption{
+  .caption {
     color: $text-whiteColor;
-    h2{
+    h2 {
       font-weight: 600;
     }
   }
-  #forget{
-    height: 100vh;
-    .img{
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      border-radius: 0.9375rem;
 
+  //   .login-content{
+  //     height: calc(100vh - 71px);
+  //   .signin-content{
+  //      height: calc(100vh - 71px);
+  // }
+  // }
+}
+
+#signin {
+  .cover {
+    background-image: linear-gradient(
+        51deg,
+        rgba(23, 33, 33, 0.15) -22.39%,
+        rgba(0, 0, 0, 0.2) 50%
+      ),
+      url(../../../images/signin.jpeg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 0.9375rem;
+    color: $text-whiteColor;
+    .cover-content {
+      margin-top: 35rem;
+      margin-left: 3rem;
     }
   }
-//   .login-content{
-//     height: calc(100vh - 71px);
-//   .signin-content{
-//      height: calc(100vh - 71px);
-// }
-// }
 }
 
-#signin{
-    .cover{
-      background-image: linear-gradient(51deg, rgba(23, 33, 33, 0.15) -22.39%, rgba(0, 0, 0, 0.2) 50%),
-       url(../../../images/signin.jpeg);
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      border-radius: 0.9375rem;
-      color: $text-whiteColor;
-      // .cover-content{
-      //   margin-top: 22rem;
-      // }
+#signup {
+  .cover {
+    background-image: linear-gradient(
+        51deg,
+        rgba(23, 33, 33, 0.15) -22.39%,
+        rgba(0, 0, 0, 0.2) 50%
+      ),
+      url(../../../images/signup.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 0.9375rem;
+    // .cover-content {
+    //   margin-top: 35rem;
+    //   margin-left: 4rem;
+    // }
+  }
+}
+#forgetPassword {
+  .cover {
+   background-image: url(../../../../assets/images/Forget.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 0.9375rem;
+    color: $text-whiteColor;
+    .cover-content {
+      margin-top: 35rem;
+      margin-left: 3rem;
     }
-}
-
-#signup{
-  .cover{
-    background-image: linear-gradient(51deg, rgba(23, 33, 33, 0.15) -22.39%, rgba(0, 0, 0, 0.2) 50%),
-     url(../../../images/signup.png);
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      border-radius: 0.9375rem;
-  }
-}
-#forget{
-  .cover{
-    background-image: linear-gradient(51deg, rgba(23, 33, 33, 0.15) -22.39%, rgba(0, 0, 0, 0.2) 50%),
-     url(../../../images/Forget.png);
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      border-radius: 0.9375rem;
   }
 }
 
-#resetPassword{
-  .cover{
-    background-image: url(../../../images/ResetPassword.png);
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      border-radius: 0.9375rem;
-      color: $text-whiteColor;
-      .cover-content{
-        margin-top: 35rem;
-        margin-left: 4rem;
+#resetPassword {
+  .cover {
+    background-image: linear-gradient(
+      51deg,
+      rgba(23, 33, 33, 0.15) -22.39%,
+      rgba(0, 0, 0, 0.2) 50%
+    ),
+    url(../../../images/ResetPassword.png);
+    // background-image: url(../../../images/ResetPassword.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 0.9375rem;
+    color: $text-whiteColor;
+    .cover-content {
+      margin-top: 35rem;
+      margin-left: 3rem;
+      h2 {
+        font-weight: 600;
+      }
+    }
+  }
+  .eye-icon{
+    position: absolute;
+    
   }
 }
-}
-  

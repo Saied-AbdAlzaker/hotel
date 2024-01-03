@@ -6,12 +6,12 @@
             Stay<span>cation.</span>
           </div>
           <div class="card-auth">
-            <div class="header-auth  px-md-5 pt-5">
-              <h2 class="">Sign in</h2>
+            <div class="header-auth">
+              <h2>Sign in</h2>
               <p class="mb-0">If you don’t have an account register</p>
-              <p>You can <a>Register here ! </a></p>
+              <p>You can <a class="text-danger text-decoration-none" routerLink="/auth/signup">Register here ! </a></p>
             </div>
-            <div class="inputs-auth px-md-5 pb-5">
+            <div class="inputs-auth">
               <form [formGroup]="signinForm" (ngSubmit)="onSubmit(signinForm)">
                 <div class="form-group mb-3">
                   <label for="exampleInputEmail1" class="text-secondryColor">Email address</label>
@@ -32,7 +32,7 @@
 
               </div>
               <div class="mb-3 text-end text-lightGrey">
-                <a  routerLink='/auth/forget'> forget password ?</a>
+                <a  routerLink='/auth/forgot-password' class="text-decoration-none text-muted"> forget password ?</a>
               </div>
               <button type="submit" class="primary w-100">Sign in</button>
             </form>
@@ -40,7 +40,7 @@
             </div>
           </div>
           
-        <div class="col-md-6 cover d-none d-md-flex flex-column justify-content-end col-md-6 p-5">
+        <div class="col-md-6 cover d-none d-md-flex flex-column justify-content-end p-5">
           <div class="caption">
             <h3>Sign in to Roamhome</h3>
             <p>Homes as unique as you.</p>

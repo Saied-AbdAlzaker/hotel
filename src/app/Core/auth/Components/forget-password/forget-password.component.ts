@@ -14,7 +14,7 @@ constructor(private _AuthService:AuthService,private _ToastrService:ToastrServic
 email:string=''
 Message:string='' 
 
-forgetPassword(data:string){
+onSubmit(data:string){
   this._AuthService.onForgetPassword(data).subscribe({
     next:(res)=>{
       console.log(res);
@@ -22,7 +22,7 @@ forgetPassword(data:string){
     },error:(err)=>{
 
     },complete:()=>{
-      this._Router.navigate(['auth/reset-password'])
+      this._Router.navigate(['/auth/reset-password'])
     }
   })
 }
