@@ -22,7 +22,7 @@ forgetPassword(data:string){
     },error:(err)=>{
 
     },complete:()=>{
-      this._Router.navigate(['/auth/restPassword'])
+      this._Router.navigate(['auth/reset-password'])
     }
   })
 }

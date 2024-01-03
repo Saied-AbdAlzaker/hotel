@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ISignUp } from '../Model/auth';
-
 import { IResetPassword, ISignin } from '../Model/auth';
 import { jwtDecode } from 'jwt-decode';
 
@@ -28,8 +26,6 @@ getProfile(){
   localStorage.setItem('userName' , decoded.userName);
   localStorage.setItem('email' , decoded.userEmail);
 
-
-  
   this.getRole()
   
 }
@@ -49,9 +45,9 @@ onSignin(data:ISignin):Observable<ISignin>
   return this._HttpClient.post<ISignin>('portal/users/login', data)
  }
 
-onRestPassword(data:IResetPassword):Observable<IResetPassword>
+onRestPassword(data:IResetPassword):Observable<any>
  {
-  return this._HttpClient.post<IResetPassword>('portal/users/reset-password', data)
+  return this._HttpClient.post('portal/users/reset-password', data)
  }
  onForgetPassword(data:string):Observable<any>
  {
