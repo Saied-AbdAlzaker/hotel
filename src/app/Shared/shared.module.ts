@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedComponent } from './shared.component';
 import { ToastrModule } from 'ngx-toastr';
 import {ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxDropzoneModule } from 'ngx-dropzone';
-
-
 import { FormsModule } from '@angular/forms';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 @NgModule({
   imports: [
@@ -17,9 +17,13 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
     FormsModule,ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,
-     ReactiveFormsModule,HttpClientModule,FormsModule
+     ReactiveFormsModule,HttpClientModule,FormsModule,SidebarComponent,
+     NavbarComponent
   ],
-  
-  declarations: [SharedComponent]
+
+  declarations: [
+    SidebarComponent,
+    NavbarComponent
+  ]
 })
 export class SharedModule { }
