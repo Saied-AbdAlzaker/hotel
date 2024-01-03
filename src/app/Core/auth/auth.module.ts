@@ -19,7 +19,7 @@ import { SharedModule } from 'src/app/Shared/shared.module';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    
+    SharedModule
   ]
 })
 export class AuthModule { }
