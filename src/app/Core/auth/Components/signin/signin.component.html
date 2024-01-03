@@ -12,16 +12,23 @@
               <p>You can <a>Register here ! </a></p>
             </div>
             <div class="inputs-auth px-md-5 pb-5">
-              <form>
+              <form [formGroup]="signinForm" (ngSubmit)="onSubmit(signinForm)">
                 <div class="form-group mb-3">
                   <label for="exampleInputEmail1" class="text-secondryColor">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                  <small id="emailHelp" class="form-text text-danger">validation here</small>
+                  <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small id="emailHelp" class="form-text text-danger" *ngIf="signinForm.controls.email.errors && signinForm.controls.email.touched">
+                    <p *ngIf="signinForm.get('email')?.getError('required')" class="mb-0">Email Is Required</p>
+                    <p *ngIf="signinForm.get('email')?.getError('email')" class="mb-0">Email Is Invalid</p>
+                  </small>
                 </div>
                 <div class="form-group mb-3">
                   <label for="exampleInputPassword1" class="text-secondryColor">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                  <small id="emailHelp" class="form-text text-danger">validation here</small>
+                  <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  <small id="emailHelp" class="form-text text-danger"  *ngIf="signinForm.controls.password.errors && signinForm.controls.password.touched">
+                    <p *ngIf="signinForm.get('password')?.getError('required')" class="mb-0">Password Is Required</p>
+                    <p *ngIf="signinForm.get('password')?.getError('pattern')" class="mb-0">Please must have A,a ,@,%,$,#,
+                      From 8 , 16</p>
+                  </small>
 
                 </div>
                 <div class="mb-3 text-end text-lightGrey">
