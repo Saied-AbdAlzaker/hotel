@@ -34,6 +34,12 @@
         font-weight: bold;
       }
     }
+    .eye-icon{
+      position: absolute;
+      top: 58%;
+      right: 5%;
+      z-index: 100;
+    }
   }
   .caption {
     color: $text-whiteColor;

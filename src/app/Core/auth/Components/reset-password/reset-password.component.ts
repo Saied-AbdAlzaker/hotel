@@ -13,9 +13,13 @@ export class ResetPasswordComponent implements OnInit{
 
   userEmail=localStorage.getItem('email');
   Message:string='';
-  hideConfirm:boolean = true
-  hide:boolean = true
-  constructor(private _AuthService:AuthService, private tostar:ToastrService,private router:Router  ){ }
+  hideConfirm:boolean = true;
+  hide:boolean = true;
+  constructor(
+    private _AuthService:AuthService,
+     private tostar:ToastrService,
+     private router:Router  
+  ){ }
 
   ngOnInit(): void {
     
