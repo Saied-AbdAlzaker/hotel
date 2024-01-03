@@ -8,7 +8,7 @@
   .card-auth{
     width: 75%;
     margin: auto;
-    margin-top: 2rem;
+    margin-top: 1rem;
     .header-auth{
       h2{
         margin-bottom: 2rem;
@@ -57,6 +57,9 @@
       // h3{
       //   // margin-top: 35rem;
       // }
+      .cover-content{
+        margin-top: 22rem;
+      }
     }
 }
 
@@ -71,7 +74,19 @@
   }
 }
 
+#resetPassword{
+  .cover{
+    background-image: url(../../../images/ResetPassword.png);
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      border-radius: 0.9375rem;
+      color: $text-whiteColor;
+      .cover-content{
+        margin-top: 35rem;
+        margin-left: 4rem;
+  }
 }
-
-
+}
+  }
 }
