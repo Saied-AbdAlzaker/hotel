@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../Services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -11,18 +13,22 @@ export class SignupComponent {
   imgSrc: any;
   files: File[] = [];
   signupForm =new FormGroup({
-    userName: new FormControl(null),
-    email: new FormControl(null),
-    phoneNumber: new FormControl(null),
-    country: new FormControl(null),
-    password: new FormControl(null),
-    confirmPassword: new FormControl(null),
+    userName: new FormControl(null,[Validators.required]),
+    email: new FormControl(null,[Validators.required,Validators.email]),
+    phoneNumber: new FormControl(null,[Validators.required,Validators.pattern('^(01|01|00201)[0-2,5]{1}[0-9]{8}')]),
+    country: new FormControl(null,[Validators.required]),
+    password: new FormControl(null,[Validators.required,
+      Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
+    confirmPassword: new FormControl(null,[Validators.required,
+      Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
     role: new FormControl('user')
   })
   userEmail: any;
 
   constructor(
-    private _AuthService:AuthService
+    private _AuthService:AuthService,
+    private toastr:ToastrService,
+    private router:Router
   ){}
 
   onSubmit(data:FormGroup){
@@ -35,10 +41,11 @@ export class SignupComponent {
     this._AuthService.onSignUp(myData).subscribe({
       next:(res:any)=>{
         console.log(res);
-        // this.userEmail = res.email
       },error:(err)=>{
-        console.log(err);
-        
+        this.toastr.error(err.error.message,'error')
+      },complete:()=>{
+        this.toastr.success('account created successfully')
+        this.router.navigate(['/auth/signin'])
       }
     })
   }
