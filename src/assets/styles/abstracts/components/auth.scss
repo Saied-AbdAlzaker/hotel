@@ -50,11 +50,12 @@
 
     }
   }
-  .login-content{
-    height: calc(100vh - 71px);
-  .signin-content{
-     height: calc(100vh - 71px);
-}
+//   .login-content{
+//     height: calc(100vh - 71px);
+//   .signin-content{
+//      height: calc(100vh - 71px);
+// }
+// }
 }
 
 #signin{
@@ -66,9 +67,9 @@
       background-repeat: no-repeat;
       border-radius: 0.9375rem;
       color: $text-whiteColor;
-      .cover-content{
-        margin-top: 22rem;
-      }
+      // .cover-content{
+      //   margin-top: 22rem;
+      // }
     }
 }
 
@@ -97,5 +98,4 @@
   }
 }
 }
-  }
-}
+  

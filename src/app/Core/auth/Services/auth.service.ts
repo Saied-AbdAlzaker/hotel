@@ -29,10 +29,7 @@ getProfile(){
   localStorage.setItem('email' , decoded.userEmail);
 
 
-  onSignUp(data:any):Observable<any>{
-    return this._HttpClient.post('portal/users',data)
-  }
- 
+  
   this.getRole()
   
 }
@@ -43,6 +40,10 @@ getRole(){
   }
 }
 
+onSignUp(data:any):Observable<any>{
+    return this._HttpClient.post('portal/users',data)
+  }
+ 
 onSignin(data:ISignin):Observable<ISignin>
  {
   return this._HttpClient.post<ISignin>('portal/users/login', data)
