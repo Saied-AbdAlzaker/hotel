@@ -14,5 +14,4 @@ onRestPassword(data:any):Observable<any>
  {
   return this._HttpClient.post('portal/users/reset-password', data)
  }
-
 }
