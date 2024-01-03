@@ -45,5 +45,4 @@ onRestPassword(data:IResetPassword):Observable<IResetPassword>
  {
   return this._HttpClient.post<IResetPassword>('portal/users/reset-password', data)
  }
-
 }

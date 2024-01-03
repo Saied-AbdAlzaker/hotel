@@ -29,6 +29,20 @@
       font-weight: bold;
     }
   }
+  #forget{
+    height: 100vh;
+    .img{
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      border-radius: 0.9375rem;
+
+    }
+  }
+  .login-content{
+    height: calc(100vh - 71px);
+  .signin-content{
+     height: calc(100vh - 71px);
 }
 }
 
@@ -40,6 +54,9 @@
       background-repeat: no-repeat;
       border-radius: 0.9375rem;
       color: $text-whiteColor;
+      // h3{
+      //   // margin-top: 35rem;
+      // }
       .cover-content{
         margin-top: 22rem;
       }
@@ -70,6 +87,6 @@
         margin-left: 4rem;
   }
 }
-
 }
-
+  }
+}
