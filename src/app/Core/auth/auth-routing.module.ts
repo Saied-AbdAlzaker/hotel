@@ -11,8 +11,8 @@ const routes: Routes = [
 {path:'',redirectTo:'signin',pathMatch:'full'},
 {path:'signin',component:SigninComponent},
 {path:'signup',component:SignupComponent},
-{path:'resetPassword', component:ResetPasswordComponent},
-{path:'forget',component:ForgetPasswordComponent}
+{path:'reset-password', component:ResetPasswordComponent},
+{path:'forgot-password',component:ForgetPasswordComponent}
 
 
 ];

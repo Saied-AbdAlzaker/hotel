@@ -5,9 +5,8 @@ import {ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { FormsModule } from '@angular/forms';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   imports: [
