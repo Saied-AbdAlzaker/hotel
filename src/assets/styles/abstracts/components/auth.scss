@@ -11,7 +11,7 @@
     margin-top: 1rem;
     .header-auth{
       h2{
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         font-weight: 500;
       }
       span{
@@ -23,10 +23,21 @@
       margin-bottom: 1.5rem;
       label{
         color: $text-secondryColor;
+        margin-left: 10px;
       }
-    a{
-      color: $text-secondryColor;
-      font-weight: bold;
+      input{
+        background-color: #F5F6F8;
+      }
+      a{
+        color: $text-secondryColor;
+        font-weight: bold;
+      }
+    }
+  }
+  .caption{
+    color: $text-whiteColor;
+    h2{
+      font-weight: 600;
     }
   }
   #forget{
@@ -48,15 +59,13 @@
 
 #signin{
     .cover{
-      background-image: url(../../../images/signin.jpeg);
+      background-image: linear-gradient(51deg, rgba(23, 33, 33, 0.15) -22.39%, rgba(0, 0, 0, 0.2) 50%),
+       url(../../../images/signin.jpeg);
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
       border-radius: 0.9375rem;
       color: $text-whiteColor;
-      // h3{
-      //   // margin-top: 35rem;
-      // }
       .cover-content{
         margin-top: 22rem;
       }
@@ -65,12 +74,12 @@
 
 #signup{
   .cover{
-    background-image: url(../../../images/signup.png);
+    background-image: linear-gradient(51deg, rgba(23, 33, 33, 0.15) -22.39%, rgba(0, 0, 0, 0.2) 50%),
+     url(../../../images/signup.png);
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
       border-radius: 0.9375rem;
-      color: $text-whiteColor;
   }
 }
 

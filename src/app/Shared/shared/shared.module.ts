@@ -4,17 +4,22 @@ import { SharedComponent } from './shared.component';
 import { ToastrModule } from 'ngx-toastr';
 import {ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+
+
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     ToastrModule.forRoot({}),
-     ReactiveFormsModule,HttpClientModule,FormsModule
+    FormsModule, ReactiveFormsModule,HttpClientModule,NgxDropzoneModule
   ],
   exports: [
-    ReactiveFormsModule,HttpClientModule,FormsModule
+    FormsModule,ReactiveFormsModule,HttpClientModule,NgxDropzoneModule
+     ReactiveFormsModule,HttpClientModule,FormsModule
   ],
+  
   declarations: [SharedComponent]
 })
 export class SharedModule { }

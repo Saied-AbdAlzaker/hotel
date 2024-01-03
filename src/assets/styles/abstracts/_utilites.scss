@@ -27,6 +27,18 @@ button {
   }
 }
 
+.circle-preview {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 4px dashed $text-secondryColor;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 .pointer {
   cursor: pointer;
 }

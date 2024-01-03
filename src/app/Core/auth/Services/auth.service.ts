@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ISignUp } from '../Model/auth';
+
 import { IResetPassword, ISignin } from '../Model/auth';
 import { jwtDecode } from 'jwt-decode';
 
@@ -26,6 +28,11 @@ getProfile(){
   localStorage.setItem('userName' , decoded.userName);
   localStorage.setItem('email' , decoded.userEmail);
 
+
+  onSignUp(data:any):Observable<any>{
+    return this._HttpClient.post('portal/users',data)
+  }
+ 
   this.getRole()
   
 }
