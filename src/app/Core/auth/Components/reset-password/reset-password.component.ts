@@ -41,19 +41,19 @@ export class ResetPasswordComponent implements OnInit{
   }
   onSubmit(data:FormGroup){
     console.log(data);
-    //  this._AuthService.onRestPassword(data.value).subscribe({
-    //   next:(res:any)=>{
-    //     console.log(res);
-    //     this.Message=res.message;
+     this._AuthService.onRestPassword(data.value).subscribe({
+      next:(res:any)=>{
+        console.log(res);
+        this.Message=res.message;
         
-    //   },error:(err)=>{
-    //    this.tostar.error(err.error.message,'Error');
-    //   },complete:()=>{
-    //     this.tostar.success(this.Message,'Successfully');
-    //     this.router.navigate(['/users/signin'])
+      },error:(err)=>{
+       this.tostar.error(err.error.message,'Error');
+      },complete:()=>{
+        this.tostar.success(this.Message,'Successfully');
+        this.router.navigate(['/auth/signin'])
 
-    //   }
-    // })
+      }
+    })
     
     
   }

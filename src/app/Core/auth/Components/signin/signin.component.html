@@ -1,39 +1,56 @@
 <section id="signin">
   <div class="container">
-      <div class="row signin-content p-3 vh-100">
-        <div class="col-md-6">
-          <div class="logo p-3">
-            Stay<span>cation.</span>
-          </div>
-          <div class="header-auth  px-md-5 pt-5">
-            <h2 class="">Sign in</h2>
-            <p class="mb-0">If you don’t have an account register</p>
-            <p>You can <span>Register here ! </span></p>
-          </div>
-          <div class="inputs-auth px-md-5 pb-5">
-            <form>
-              <div class="form-group mb-3">
-                <label for="exampleInputEmail1" class="text-secondryColor">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-danger">validation here</small>
-              </div>
-              <div class="form-group mb-3">
-                <label for="exampleInputPassword1" class="text-secondryColor">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                <small id="emailHelp" class="form-text text-danger">validation here</small>
-
-              </div>
-              <div class="mb-3 text-end text-lightGrey">
-                <a> forget password ?</a>
-              </div>
-              <button type="submit" class="primary w-100">Sign in</button>
-            </form>
-          </div>
+    <div class="row signin-content p-3 vh-100">
+      <div class="col-md-6">
+        <div class="logo p-3">
+          Stay<span>cation.</span>
         </div>
-        <div class="cover d-none d-md-block col-md-6 p-5">
-            <h3>Sign in to Roamhome</h3>
-            <p>Homes as unique as you.</p>
+        <div class="header-auth  px-md-5 pt-5">
+          <h2 class="">Sign in</h2>
+          <p class="mb-0">If you don’t have an account register</p>
+          <p>You can <a routerLink="/auth/signup" class="text-redColor text-decoration-none pointer">Register here !
+            </a></p>
+        </div>
+        <div class="inputs-auth px-md-5 pb-5">
+          <form [formGroup]="signinForm" (ngSubmit)="onSubmit(signinForm)">
+            <div class="form-group mb-3">
+              <label for="exampleInputEmail1" class="text-secondryColor">Email address</label>
+              <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="Enter email" aria-label="email">
+              <small id="emailHelp" class="form-text text-danger"
+                *ngIf="signinForm.controls.email.errors && signinForm.controls.email.touched">
+                <span *ngIf="signinForm.get('email')?.errors?.['required']">Email Is Required</span>
+                <span *ngIf="signinForm.get('email')?.errors?.['pattern']">Email must have capital,small
+                  letters,sympols,number and pass length(2)</span>
+              </small>
+            </div>
+
+            <label for="exampleInputPassword1" class="text-secondryColor">Password</label>
+            <div class="input-group  mb-3">
+              <input formControlName="password" [type]="hide? 'password':'text'" class="form-control"
+                id="exampleInputPassword1" placeholder="Password" >
+              <span class="eye-icon" (click)="hide=!hide"><i class="fa-solid"
+                  [class]="hide?'fa-eye-slash':'fa-eye'"></i></span>
+            </div>
+            <small id="emailHelp" class="form-text text-danger"
+              *ngIf="signinForm.controls.password.errors && signinForm.controls.password.touched">
+              <span *ngIf="signinForm.get('password')?.errors?.['required']">Password Is Required</span>
+              <span *ngIf="signinForm.get('password')?.errors?.['pattern']">Password must have capital,small
+                letters,sympols,number and pass length(8-16)</span>
+            </small>
+
+            <div class="mb-3 text-end text-lightGrey">
+              <a routerLink="/auth/forgetPassword" class="text-muted text-decoration-none pointer"> forget password
+                ?</a>
+            </div>
+            <button type="submit" class="primary w-100">Sign in</button>
+          </form>
         </div>
       </div>
+      <div class="cover d-none d-md-block col-md-6 p-5">
+        <h3>Sign in to Roamhome</h3>
+        <p>Homes as unique as you.</p>
+      </div>
+    </div>
   </div>
 </section>
