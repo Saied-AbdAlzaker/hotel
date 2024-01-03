@@ -1,14 +1,59 @@
-<section id="signup">
-    <div class="container">
+<section id="signup" class="auth">
+    <div class="container-fluid">
         <div class="row">
-            <!-- <h2>Staycation.</h2> -->
-            <div class="col-md-6 p-5">
-                <h2>Sign up</h2>
-                <p>If you already have an account register</p>
-                <p>You can <span class="text-danger"> Login here !</span></p>
-            </div>
             <div class="col-md-6">
-                    <img class="w-100 vh-100 py-3" src="../../../../../assets/images/signup.png" alt="">
+                <div class="logo p-3">
+                    Stay<span>cation.</span>
+                </div>
+                <div class="card-auth">
+                    <div class="header-auth">
+                        <h2>Sign up</h2>
+                        <p>If you already have an account register</p>
+                        <p>You can <span class="text-danger pointer" routerLink="/auth/signin"> Login here !</span></p>
+                    </div>
+                    <div class="inputs-auth">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">User Name</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please type here">
+                                <!-- <small id="emailHelp" class="form-text text-danger">validation here</small> -->
+                            </div>
+                            <div class="d-flex">
+                                <div class="form-group w-50 me-3">
+                                    <label for="exampleInputEmail1">Phone Number</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please type here">
+                                    <!-- <small id="emailHelp" class="form-text text-danger">validation here</small> -->
+                                </div>
+                                <div class="form-group w-50">
+                                    <label for="exampleInputEmail1">Country</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please type here">
+                                    <!-- <small id="emailHelp" class="form-text text-danger">validation here</small> -->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please type here">
+                                <!-- <small id="emailHelp" class="form-text text-danger">validation here</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Password</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please type here">
+                                <!-- <small id="emailHelp" class="form-text text-danger">validation here</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Confirm Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <!-- <small id="emailHelp" class="form-text text-danger">validation here</small> -->
+                            </div>
+                            <button type="submit" class="primary w-100">Sign in</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-6 cover">
+                <h2>Sign up to Roamhome</h2>
+                <p>Homes as unique as you.</p>
             </div>
         </div>
     </div>
