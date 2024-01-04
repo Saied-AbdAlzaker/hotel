@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="col-md-4">
-        <button [routerLink]="['/dashboard/admin/recipes/add']" class="primary w-75 mt-5">Add New Room</button>
+        <button routerLink="/dashboard/rooms/add" class="primary w-75 mt-5">Add New Room</button>
       </div>
 
       <div class="col-md-6 mt-3">
@@ -34,12 +34,13 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>room Number</th>
+          <th class="rounded-start">room Number</th>
           <th>Image</th>
           <th>Price</th>
           <th>Discount</th>
           <th>Capacity</th>
           <th>Category</th>
+          <th class="rounded-end">Actions</th>
         </tr>
       </thead>
       <tbody>

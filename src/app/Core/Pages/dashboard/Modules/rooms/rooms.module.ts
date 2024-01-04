@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 import { RoomsComponent } from './rooms.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/Shared/shared.module';
+import { AddEditRoomComponent } from './components/add-edit-room/add-edit-room.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'rooms', pathMatch: 'full'},
-  {path: 'rooms', component: RoomsComponent},
+  // {path: '', redirectTo: 'rooms', pathMatch: 'full'},
+  {path: '', component: RoomsComponent},
+  {path: 'add', component: AddEditRoomComponent},
+
 ]
 
 @NgModule({
@@ -15,6 +18,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedModule
   ],
-  declarations: [RoomsComponent]
+  declarations: [RoomsComponent, AddEditRoomComponent]
 })
 export class RoomsModule { }
