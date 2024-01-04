@@ -6,7 +6,6 @@ import { SharedModule } from 'src/app/Shared/shared.module';
 import { AddEditRoomComponent } from './components/add-edit-room/add-edit-room.component';
 
 const routes: Routes = [
-  // {path: '', redirectTo: 'rooms', pathMatch: 'full'},
   {path: '', component: RoomsComponent},
   {path: 'add', component: AddEditRoomComponent},
 
