@@ -124,8 +124,24 @@
       }
     }
   }
-  .eye-icon{
+  .eye-password{
     position: absolute;
-    
+    left: 41%;
+    top: 66%;
+    color: #ABABAB;
+    cursor: pointer;
+  }
+  .eye-confirm{
+    position: absolute;
+    left: 41%;
+    top: 78%;
+    color: #ABABAB;
+    cursor: pointer;
+
+    // position: absolute;
+    // left: 41%;
+    // top: 78%;
+    // z-index: 100;
+    // transform: translateY(-50%);
   }
 }
