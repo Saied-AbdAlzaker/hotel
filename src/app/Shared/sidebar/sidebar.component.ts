@@ -24,6 +24,11 @@ export class SidebarComponent {
       link: '/dashboard/users',
     },
     {
+      title: 'Rooms',
+      icon: 'fa-solid fa-1x fa-house',
+      link: '/dashboard/rooms',
+    },
+    {
       title: 'Ads',
       icon: 'fa-solid fa-1x fa-house',
       link: '/dashboard/ads',
