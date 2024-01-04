@@ -17,14 +17,10 @@ export class AddEditRoomComponent implements OnInit {
   files: File[] = [];
   imgSrc: any;
   pathHttps: string = 'https://upskilling-egypt.com:443/';
-<<<<<<< HEAD
   facilities: IFacilities[]|undefined=[];
   facilityId:any[]|undefined=[];
 
-=======
-  facilities: IFacilities[]=[];
-  facilityId:any[]=[];
->>>>>>> c42666a8d8d2b397c0d4937829dde7644bd4895a
+
   roomForm = new FormGroup({
     roomNumber: new FormControl(null,[Validators.required]),
     // imgs: new FormControl(null,[Validators.required]),
@@ -37,12 +33,8 @@ export class AddEditRoomComponent implements OnInit {
 
   constructor(
     private _RoomsService:RoomsService,
-<<<<<<< HEAD
     private toastr:ToastrService,
-  ){}
-=======
-    private toastr:ToastrService,private _ActivatedRoute:ActivatedRoute,private router:Router
-     
+    private _ActivatedRoute:ActivatedRoute,private router:Router
   ){
     this.RoomsId=_ActivatedRoute.snapshot.params['id'];
     if(this.RoomsId){
@@ -51,12 +43,19 @@ export class AddEditRoomComponent implements OnInit {
       this.isUpdatePage=false;
     }
   }
->>>>>>> c42666a8d8d2b397c0d4937829dde7644bd4895a
   ngOnInit(): void {
     this.getFacilities()
   }
   
   onSubmit(data: FormGroup) {
+    let myData = new FormData();
+    myData.append('roomNumber', data.value.roomNumber);
+    myData.append('price', data.value.price);
+    myData.append('capacity', data.value.capacity);
+    myData.append('discount', data.value.discount);
+    myData.append('facilities', data.value.facilities[0]);
+    myData.append('facilities', data.value.facilities[1]);
+    myData.append('imgs', this.imgSrc, this.imgSrc.name);
     if (this.RoomsId) {
       this._RoomsService.editRooms(data.value, this.RoomsId).subscribe({
         next: (res) => {
@@ -71,9 +70,8 @@ export class AddEditRoomComponent implements OnInit {
         }
       })
     } else {
-      // Add
-      // console.log(data.value);
-      this._RoomsService.onAddRoom(data.value).subscribe({
+    
+      this._RoomsService.onAddRoom(myData).subscribe({
         next: (res) => {
           console.log(res);
 
@@ -94,12 +92,8 @@ export class AddEditRoomComponent implements OnInit {
     this._RoomsService.onGetFacilities().subscribe({
       next:(res:any)=>{
         console.log(res);
-        this.facilities=res.data.facilities
-        console.log(this.facilities);     
-        this.facilityId = this.facilities?.map(item => item._id);
-        console.log(this.facilityId);
-        
-
+        this.facilities=res.data?.facilities
+        console.log(this.facilities);
       }
     })
   }
