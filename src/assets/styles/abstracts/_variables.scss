@@ -4,6 +4,7 @@ $text-lightGrey: #4D4D4D;
 $text-whiteColor: #FDFFFC;
 $text-greenColor: #1ABC9C;
 $text-blackColor: black;
+$text-blackColorBtn: #1F263E;
 
 $bg-mainColor: #3252DF;
 $bg-secondryColor: #152C5B;
@@ -12,6 +13,7 @@ $bg-whiteColor: #FDFFFC;
 $bg-pinkColor: #FF498B;
 $bg-redColor: #E74C3C;
 $bg-greenColor: #1ABC9C;
+$bg-blueColor: #203FC7;
 
 $border-reduis: 0.25rem;
 
@@ -26,4 +28,12 @@ $border-reduis: 0.25rem;
 }
 .text-redColor{
   color: $bg-redColor;
+}
+
+
+.bg-btn{
+  color: $text-blackColorBtn;
+}
+.bg-icon{
+  color: $bg-blueColor;
 }
