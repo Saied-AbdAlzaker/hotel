@@ -42,3 +42,32 @@ button {
 .pointer {
   cursor: pointer;
 }
+
+// Table 
+th {
+  font-style: normal;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  padding: 25px;
+  background: #E2E5EB;
+  color: #1F263E;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+
+tr {
+  transition: all 0.1s ease;
+}
+tr:hover {
+  box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0,
+    0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  z-index: 2;
+  position: relative;
+}
+
+td {
+  padding: 5px;
+}
