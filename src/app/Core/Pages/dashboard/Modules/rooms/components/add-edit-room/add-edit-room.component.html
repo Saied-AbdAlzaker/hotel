@@ -41,9 +41,16 @@
                             </span> -->
                         </div>
                         <div class="form-group w-50">
-                            <select formControlName="facilities" [(ngModel)]="facilityId" class="form-select" aria-label="facilities">
+                            <mat-form-field>
+                                <mat-label>Toppings</mat-label>
+                                <mat-select formControlName="facilities" multiple>
+                                    <mat-option *ngFor="let item of facilities" [value]="item._id">{{item.name}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                              
+                            <!-- <select formControlName="facilities" role="group" aria-label="Basic checkbox toggle button group" class="form-select" aria-label="facilities">
                                 <option *ngFor="let item of facilities" [value]="item._id">{{item.name}}</option>
-                            </select>
+                            </select> -->
                             <!-- <span class="text-danger  mb-3" 
                             *ngIf="signupForm.get('country')?.errors && signupForm.get('country')?.touched">
                                 <span *ngIf="signupForm.get('country')?.getError('required')">country is required</span>

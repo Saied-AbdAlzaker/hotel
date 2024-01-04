@@ -15,7 +15,8 @@ export class AddEditRoomComponent implements OnInit {
   imgSrc: any;
   pathHttps: string = 'https://upskilling-egypt.com:443/';
   facilities: IFacilities[]|undefined=[];
-  facilityId:any[]=[];
+  facilityId:any[]|undefined=[];
+
   roomForm = new FormGroup({
     roomNumber: new FormControl(null,[Validators.required]),
     // imgs: new FormControl(null,[Validators.required]),
@@ -23,11 +24,12 @@ export class AddEditRoomComponent implements OnInit {
     capacity: new FormControl(null,[Validators.required]),
     discount: new FormControl(null,[Validators.required]),
     facilities: new FormControl(null,[Validators.required]),
+    // facilities: new FormControl(null,[Validators.required])
   })
 
   constructor(
     private _RoomsService:RoomsService,
-    private toastr:ToastrService
+    private toastr:ToastrService,
   ){}
   ngOnInit(): void {
     this.getFacilities()
@@ -55,7 +57,11 @@ export class AddEditRoomComponent implements OnInit {
       next:(res:any)=>{
         console.log(res);
         this.facilities=res.data.facilities
-        console.log(this.facilities);        
+        console.log(this.facilities);     
+        this.facilityId = this.facilities?.map(item => item._id);
+        console.log(this.facilityId);
+        
+
       }
     })
   }

@@ -10,17 +10,19 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterLink } from '@angular/router';
 import { ChangePasswordComponent } from './sidebar/components/change-password/change-password.component';
 import { LogOutComponent } from './sidebar/components/log-out/log-out.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   imports: [
     CommonModule,
     ToastrModule.forRoot({}),
-    FormsModule, ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,RouterLink
+    FormsModule, ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,RouterLink,MatSelectModule,MatFormFieldModule
   ],
   exports: [
     FormsModule,ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,
      ReactiveFormsModule,HttpClientModule,FormsModule,SidebarComponent,RouterLink,
-     NavbarComponent
+     NavbarComponent,MatFormFieldModule,MatSelectModule
   ],
 
   declarations: [
