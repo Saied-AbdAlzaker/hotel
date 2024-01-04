@@ -6,7 +6,7 @@ import { SharedModule } from 'src/app/Shared/shared.module';
 
 const routes: Routes = [
   {path: '', redirectTo: 'booking', pathMatch: 'full'},
-  {path: 'booking', component: BookingsComponent},
+  {path: '', component: BookingsComponent},
 ]
 
 @NgModule({
