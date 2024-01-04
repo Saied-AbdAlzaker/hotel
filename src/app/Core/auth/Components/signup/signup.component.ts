@@ -13,7 +13,7 @@ export class SignupComponent {
   imgSrc: any;
   files: File[] = [];
   signupForm =new FormGroup({
-    userName: new FormControl(null,[Validators.required]),
+    userName: new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z0-9]{3,10}')]),
     email: new FormControl(null,[Validators.required,Validators.email]),
     phoneNumber: new FormControl(null,[Validators.required,Validators.pattern('^(01|01|00201)[0-2,5]{1}[0-9]{8}')]),
     country: new FormControl(null,[Validators.required]),
@@ -22,8 +22,10 @@ export class SignupComponent {
     confirmPassword: new FormControl(null,[Validators.required,
       Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
     role: new FormControl('user')
-  })
+  },{validators: this.passwordMatchValidator,});
   userEmail: any;
+  hide:boolean=true;
+  hideConfirm:boolean = true;
 
   constructor(
     private _AuthService:AuthService,
@@ -31,6 +33,18 @@ export class SignupComponent {
     private router:Router
   ){}
 
+  passwordMatchValidator(control: any) {
+    let password =control.get('password');
+    let confirmPassword=control.get('confirmPassword')
+    if (password.value == confirmPassword.value) {
+      return null;
+    } else {
+      control
+        .get('confirmPassword')
+        ?.setErrors({ invalid: 'password and confirm password not match' });
+      return { invalid: 'password and confirm password not match' };
+    }
+  }
   onSubmit(data:FormGroup){
     let myData = new FormData()
     let myMap = new Map(Object.entries(data.value));

@@ -1,1 +1,50 @@
-<p>navbar works!</p>
+<section id="navbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+      </div>
+        <div
+          class="col-3 ms-auto d-flex justify-content-between align-items-center"
+        >
+          <div class="d-flex align-items-center ">
+            <a routerLink="/dashboard/profile" class="user-avater">
+              <!-- <img class="" 
+              *ngIf="currentUser?.imagePath" 
+              [src]="'https://upskilling-egypt.com/'+currentUser?.imagePath" /> -->
+              <img
+              src="../../../assets/images/profile.png"
+              />
+            </a>
+            <div class="px-2 d-flex user-name">
+              <span>
+                <span class="h5">userName</span>
+                <span class="text-muted d-block">group name</span>
+              </span>
+              <div class="dropdown">
+                <a
+                  class="btn btn-secondary dropdown-toggle"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                ></a>
+                <ul class="dropdown-menu mt-4">
+                  <li><a class="dropdown-item pointer" routerLink="/dashboard/profile">
+                    <span><i class="fa-solid fa-user me-2"></i></span> Profile
+                  </a></li>
+                  <li><a class="dropdown-item pointer">
+                    <span><i class="fa-solid fa-lock me-2"></i></span> Change Password
+                  </a></li>
+                  <li><a class="dropdown-item pointer">
+                    <span><i class="fa-solid fa-right-from-bracket me-2"></i></span> Log Out
+                  </a></li>
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+          
+          <span class="mx-3 fs-4 fw-bold"><i class="fa-solid fa-bell"></i></span>
+        </div>
+      </div>
+    </div>
+  </section>
