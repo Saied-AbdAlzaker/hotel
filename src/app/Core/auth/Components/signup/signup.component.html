@@ -32,36 +32,79 @@
                                 <div class="form-group w-50 me-3">
                                     <label for="userName">User Name</label>
                                     <input type="text" formControlName="userName" class="form-control" id="userName" placeholder="Please type here">
-                                    <!-- <small id="emailHelp" class="form-text text-danger">validation here</small> -->
+                                    <span class="text-danger  mb-3" *ngIf="signupForm.get('userName')?.errors &&
+                                        signupForm.get('userName')?.touched">
+                                        <span *ngIf="signupForm.get('userName')?.getError('required')">userName is required</span>
+                                        <span *ngIf="signupForm.get('userName')?.getError('pattern')">userName must contains at least 3 letters</span>
+                                    </span>
                                 </div>
                                 <div class="form-group w-50">
                                     <label for="email">Email address</label>
                                     <input type="email" formControlName="email" class="form-control" id="email" placeholder="Please type here">
-                                    <!-- <small id="emailHelp" class="form-text text-danger">validation here</small> -->
+                                    <small id="emailHelp" class="form-text text-danger" *ngIf="signupForm.controls.email.errors &&
+                                        signupForm.controls.email.touched">
+                                        <p *ngIf="signupForm.get('email')?.getError('required')" class="mb-0">Email Is Required</p>
+                                        <p *ngIf="signupForm.get('email')?.getError('email')" class="mb-0">Email Is Invalid</p>
+                                    </small>                                
                                 </div>
-                            </div>
-                            <div class="d-flex">
+                                </div>
+                                <div class="d-flex">
                                 <div class="form-group w-50 me-3">
                                     <label for="phoneNumber">Phone Number</label>
                                     <input type="text" formControlName="phoneNumber" class="form-control" id="phoneNumber" placeholder="Please type here">
-                                    <!-- <small id="emailHelp" class="form-text text-danger">validation here</small> -->
+                                    <span *ngIf="signupForm.get('phoneNumber')?.errors && signupForm.get('phoneNumber')?.touched "
+                                        class="text-danger  mb-3">
+                                        <span *ngIf="signupForm.get('phoneNumber')?.errors?.['required']" class="mb-0">phoneNumber is
+                                        required</span>
+                                        <span *ngIf="signupForm.get('phoneNumber')?.errors?.['pattern']" class="mb-0">phoneNumber starts with
+                                        011/012/015/010 and length 11 number </span>
+                                    </span>
                                 </div>
                                 <div class="form-group w-50">
                                     <label for="country">Country</label>
                                     <input type="text" formControlName="country" class="form-control" id="country" placeholder="Please type here">
-                                    <!-- <small id="emailHelp" class="form-text text-danger">validation here</small> -->
+                                    <span class="text-danger  mb-3" 
+                                    *ngIf="signupForm.get('country')?.errors && signupForm.get('country')?.touched">
+                                        <span *ngIf="signupForm.get('country')?.getError('required')">country is required</span>
+                                    </span>
                                 </div>
                             </div>
                             <div class="d-flex">
                                 <div class="form-group w-50 me-3">
-                                    <label for="password">Password</label>
-                                    <input type="password" formControlName="password" class="form-control" id="password" placeholder="Please type here">
-                                    <!-- <small id="emailHelp" class="form-text text-danger">validation here</small> -->
+                                    <div class="pass position-relative">
+                                        <label for="password">Password</label>
+                                        <input [type]="hide?'password':'text'" formControlName="password" class="form-control" id="password" placeholder="Please type here">
+                                        <span (click)="hide=!hide" class="eye-icon pointer"><i class="fa-solid pointer" [class]="hide?'fa-eye-slash':'fa-eye'"></i></span>
+                                    </div>
+                                    <span *ngIf="signupForm.get('password')?.errors &&
+                                        signupForm.get('password')?.touched " class="text-danger mb-3">
+                                        <span *ngIf="signupForm.get('password')?.errors?.['required']">
+                                        password is required
+                                        </span>
+                                        <span *ngIf="signupForm.get('password')?.errors?.['pattern']">
+                                        Password must have capital,small letters,sympols,number and pass length(8-16)
+                                        </span>
+                                    </span>
                                 </div>
                                 <div class="form-group w-50">
-                                    <label for="confirmPassword">Confirm Password</label>
-                                    <input type="password" formControlName="confirmPassword" class="form-control" id="confirmPassword" placeholder="Password">
-                                    <!-- <small id="emailHelp" class="form-text text-danger">validation here</small> -->
+                                    <div class="pass position-relative">
+                                        <label for="confirmPassword">Confirm Password</label>
+                                        <input [type]="hideConfirm?'password':'text'" formControlName="confirmPassword" class="form-control" id="confirmPassword" placeholder="Password">
+                                        <span class="eye-icon pointer" (click)="hideConfirm=!hideConfirm"><i class="fa-solid" [class]="hideConfirm?'fa-eye-slash':'fa-eye'"></i></span>
+                                    </div>
+                                    
+                                    <span class="text-danger mb-3" *ngIf="signupForm.get('confirmPassword')?.errors &&
+                                        signupForm.get('confirmPassword')?.touched ">
+                                        <span *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">
+                                        confirmPassword is required
+                                        </span>
+                                        <span *ngIf="signupForm.get('confirmPassword')?.errors?.['pattern']">
+                                        confirmPassword must have capital,small letters,sympols,number and pass length(8-16)
+                                        </span>
+                                        <span *ngIf="signupForm.get('confirmPassword')?.errors?.['invalid']">
+                                        password and confirm password not match
+                                        </span>
+                                    </span>
                                 </div>
                             </div>
                             <button type="submit" class="primary w-100">Sign up</button>
