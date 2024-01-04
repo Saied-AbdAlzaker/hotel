@@ -1,1 +1,31 @@
-<p>sidebar works!</p>
+<section id="sidebar" class="sticky">
+  <div class="container-fluid px-0">
+
+    <div class="row">
+      <div class="logo m-3 text-secondryColor">
+        Stay<span>cation.</span>
+      </div>
+      <ul>
+        <li *ngFor="let item of menu">
+          <a [routerLink]="item.link"
+            ><i [class]="item.icon"></i>
+            <span routerLinkActive="text-white">{{ item.title }}</span></a
+          >
+        </li>
+
+        <li class="">
+          <a (click)="openDialogCahngePassword()"
+            ><i class="fa-solid fa-unlock-keyhole"></i
+            ><span routerLinkActive="text-white">Change Password</span></a
+          >
+        </li>
+        <li class="">
+          <a (click)="openDialogLogOut()"
+            ><i class="fa-solid fa-right-from-bracket"></i
+            ><span routerLinkActive="text-white">Log out</span></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

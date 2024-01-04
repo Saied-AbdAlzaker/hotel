@@ -1,0 +1,58 @@
+@import "/src/assets/styles/abstracts/variables";
+
+#sidebar {
+  height: 100vh;
+  background-color: $bg-mainColor;
+  .logo{
+    @media (max-width: 769px) {
+      font-size: 1rem;
+    }
+  }
+  ul {
+    padding-left: 0;
+    li {
+      padding: 10px 20px 10px 30px;
+      position: relative;
+      a {
+        text-decoration: none;
+
+        i {
+          margin-right: 10px;
+          width: 1.4375rem;
+          color: white;
+        }
+        span {
+          color: #ffffff81;
+          font-weight: 500;
+          font-size: 15px;
+        }
+      }
+    }
+    li:hover::after {
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 8px;
+      left: 0;
+      top: 0;
+      background-color: $text-secondryColor;
+    }
+    li:hover {
+      background-color: rgba($color: $text-secondryColor, $alpha: 0.1);
+    }
+  }
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1071;
+}
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
