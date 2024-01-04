@@ -9,20 +9,20 @@
         <li *ngFor="let item of menu">
           <a [routerLink]="item.link"
             ><i [class]="item.icon"></i>
-            <span routerLinkActive="text-white">{{ item.title }}</span></a
+            <span routerLinkActive="text-whiteColor">{{ item.title }}</span></a
           >
         </li>
 
         <li class="">
           <a (click)="openDialogCahngePassword()"
             ><i class="fa-solid fa-unlock-keyhole"></i
-            ><span routerLinkActive="text-white">Change Password</span></a
+            ><span routerLinkActive="text-whiteColor">Change Password</span></a
           >
         </li>
         <li class="">
           <a (click)="openDialogLogOut()"
             ><i class="fa-solid fa-right-from-bracket"></i
-            ><span routerLinkActive="text-white">Log out</span></a
+            ><span routerLinkActive="text-whiteColor">Log out</span></a
           >
         </li>
       </ul>

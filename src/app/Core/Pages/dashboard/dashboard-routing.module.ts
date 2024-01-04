@@ -13,23 +13,23 @@ const routes: Routes = [
   {path:'',component:DashboardComponent, children: [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
     {
-      path: 'home', 
+      path: 'home',  data: { title: 'Home' },
       loadChildren: () => import('../dashboard/Modules/home/home.module').then(mod => mod.HomeModule),
     },
     {
-      path: 'users', 
+      path: 'users',  data: { title: 'Users' },
       loadChildren: () => import('../dashboard/Modules/users/users.module').then(mod => mod.UsersModule),
     },
     {
-      path: 'rooms', 
+      path: 'rooms',  data: { title: 'Rooms' },
       loadChildren: () => import('../dashboard/Modules/rooms/rooms.module').then(mod => mod.RoomsModule),
     },
     {
-      path: 'ads', 
+      path: 'ads',  data: { title: 'Ads' },
       loadChildren: () => import('../dashboard/Modules/ads/ads.module').then(mod => mod.AdsModule),
     },
     {
-      path: 'booking', 
+      path: 'booking',  data: { title: 'Booking' },
       loadChildren: () => import('../dashboard/Modules/bookings/bookings.module').then(mod => mod.BookingsModule),
     },
   ]}

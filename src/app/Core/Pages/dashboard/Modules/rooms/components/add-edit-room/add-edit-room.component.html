@@ -2,7 +2,7 @@
     <div class="row">
         <div class="card-auth">
             <div class="inputs-auth">
-                <form [formGroup]="roomForm" (ngSubmit)="AddRoom(roomForm)">
+                <form [formGroup]="roomForm" (ngSubmit)="onSubmit(roomForm)">
                     <div class="form-group">
                         <input type="text" formControlName="roomNumber" class="form-control" id="roomNumber" placeholder="Room Number">
                         <!-- <span class="text-danger  mb-3" *ngIf="signupForm.get('userName')?.errors &&
@@ -41,6 +41,7 @@
                             </span> -->
                         </div>
                         <div class="form-group w-50">
+<<<<<<< HEAD
                             <mat-form-field>
                                 <mat-label>Toppings</mat-label>
                                 <mat-select formControlName="facilities" multiple>
@@ -51,6 +52,11 @@
                             <!-- <select formControlName="facilities" role="group" aria-label="Basic checkbox toggle button group" class="form-select" aria-label="facilities">
                                 <option *ngFor="let item of facilities" [value]="item._id">{{item.name}}</option>
                             </select> -->
+=======
+                            <select formControlName="facilities" [(ngModel)]="facilityId" class="form-select" aria-label="facilities">
+                                <option *ngFor="let item of facilities" [ngValue]="item._id">{{item.name}}</option>
+                            </select>
+>>>>>>> c42666a8d8d2b397c0d4937829dde7644bd4895a
                             <!-- <span class="text-danger  mb-3" 
                             *ngIf="signupForm.get('country')?.errors && signupForm.get('country')?.touched">
                                 <span *ngIf="signupForm.get('country')?.getError('required')">country is required</span>

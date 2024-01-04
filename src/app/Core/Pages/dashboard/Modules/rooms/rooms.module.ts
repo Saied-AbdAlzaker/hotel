@@ -1,3 +1,4 @@
+import { ViewRoomsComponent } from './components/view-rooms/view-rooms.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RoomsComponent } from './rooms.component';
@@ -17,6 +18,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     SharedModule
   ],
-  declarations: [RoomsComponent, AddEditRoomComponent]
+  declarations: [RoomsComponent, AddEditRoomComponent,ViewRoomsComponent]
 })
 export class RoomsModule { }
