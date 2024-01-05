@@ -41,13 +41,12 @@ export class AddEditRoomComponent implements OnInit {
     this.RoomsId=ActivatedRoute.snapshot.params['id'];
     if(this.RoomsId){
       this.isEditMode=true;
-      this.getRoomById(this.RoomsId)
-      this.isAddMode = false;
-      ActivatedRoute.url.subscribe((url: any[]) => {
+      this.getRoomById(this.RoomsId);
+      ActivatedRoute.url.subscribe(url => {
         this.isViewMode = url.some(segment => segment.path === 'view')
         this.disableFormControls()
       })
-      ActivatedRoute.url.subscribe(url => {
+      this.ActivatedRoute.url.subscribe(url => {
         this.isEditMode = url.some(segment => segment.path === 'edit')
         this.enableFormControls()
       })
@@ -133,20 +132,16 @@ export class AddEditRoomComponent implements OnInit {
     this._RoomsService.onGetRoomById(id).subscribe({
       next:(res:any)=>{
         console.log(res);
-        
-        this.roomData = res.data.room;
-        console.log(this.roomData);
-        
+        this.roomData = res.data.room;        
       },
       error:(err)=>{
+        this.toastr.error(err.error.message)
       },
       complete:()=>{   
         console.log(this.roomData.facilities);
-          
          if (this.roomData?.facilities) {
               for (let i = 0; i < this.roomData.facilities.length; i++) {
               const facility = this.roomData.facilities[i];
-              // this.roomForm.get('facilities').at(i).patchValue({})
               }
             };    
         this.imgSrc = 'http://upskilling-egypt.com:3000/' + this.roomData?.imgs,
@@ -157,7 +152,6 @@ export class AddEditRoomComponent implements OnInit {
           discount:this.roomData?.discount,
           facilities:this.roomData?.facility
          }); 
-      
   }
   }
 )}
