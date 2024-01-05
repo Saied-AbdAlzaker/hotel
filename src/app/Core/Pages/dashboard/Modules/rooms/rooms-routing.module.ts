@@ -7,6 +7,7 @@ const routes: Routes = [
   {path: '', component: RoomsComponent},
   {path: 'add', component: AddEditRoomComponent},
   {path: 'edit/:_id', component: AddEditRoomComponent},
+  {path: 'view/:_id', component:AddEditRoomComponent}
 ]
 @NgModule({
   imports: [RouterModule.forChild(routes)],
