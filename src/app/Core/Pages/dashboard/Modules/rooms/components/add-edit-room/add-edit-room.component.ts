@@ -167,4 +167,16 @@ onRemove(event:any) {
   console.log(event);
   this.files.splice(this.files.indexOf(event), 1);
 }
+onFileChange(event: any) {
+  const file=event.target.files[0];
+  const reader = new FileReader();
+  reader.onloadend = () =>{
+    const base64String = reader.result as string;
+    console.log(base64String);
+    
+  };
+  if(file){
+    reader.readAsDataURL(file);
+  }
+}
 }

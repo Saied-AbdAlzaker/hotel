@@ -5,6 +5,7 @@ import { AddEditComponent } from '../add-edit/add-edit.component';
 import { Subject } from 'rxjs';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
 import { FacilitiesService } from '../../Services/facilities.service';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-facilities',
@@ -21,6 +22,7 @@ export class FacilitiesComponent {
   tableResponse:any;
   tableData:any;
   searchValue:string='';
+  totalCount: number=0;
 
   constructor(private dialog: MatDialog, private _facilitiesService:FacilitiesService,
     private _toastrService:ToastrService) {}
@@ -58,6 +60,7 @@ export class FacilitiesComponent {
   getAllFacilities(){
     let parms = {
       name: this.searchValue,
+      totalCount: this.totalCount
     }
 
     this._facilitiesService.getAllFacilities(parms).subscribe({
@@ -109,4 +112,8 @@ export class FacilitiesComponent {
       },
     });
   }
+  // handlePageEvent(e: PageEvent) {
+  //   this.totalCount= this.tableResponse?.totalCount;
+  //   this.getAllFacilities();
+  // }
 }

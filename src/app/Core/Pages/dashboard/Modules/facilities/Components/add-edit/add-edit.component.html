@@ -1,8 +1,8 @@
-<div class="card-auth p-5">
+<div class="card-auth py-5">
     <h4 class="d-flex align-items-center justify-content-between mb-5">
-        <span *ngIf="!data.facilitiesName">Add Facilities</span>
-        <span *ngIf="data.facilitiesName">Edit Facilities</span>
-        <span (click)="onNoClick()"><i class="fa-solid fa-xmark" style="color: #f00a0a;"></i></span>
+        <span *ngIf="!data.facilitiesName">Add Facility</span>
+        <span *ngIf="data.facilitiesName">Edit Facility</span>
+        <span (click)="onNoClick()"><i class="pointer fa-regular fa-circle-xmark text-danger fa-1x position-absolute top-0 right-0 my-4" style="color: #f00a0a;"></i></span>
     </h4>
 
     <div class="input-group mb-3">
