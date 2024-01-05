@@ -1,6 +1,9 @@
+import { RoomsService } from './../../Services/rooms.service';
 import { Component, OnInit } from '@angular/core';
 import { ViewRoomsComponent } from './components/view-rooms/view-rooms.component';
 import { MatDialog } from '@angular/material/dialog';
+import { IRoomsDetails, IRooms } from '../../Model/admin';
+
 
 @Component({
   selector: 'app-rooms',
@@ -8,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./rooms.component.scss']
 })
 export class RoomsComponent implements OnInit {
+
 
   openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(ViewRoomsComponent,
@@ -18,9 +22,35 @@ export class RoomsComponent implements OnInit {
     });
 
   }
-  constructor(private dialog:MatDialog) { }
+  constructor(private dialog:MatDialog,private _roomsService:RoomsService) { }
+  size:number=10;
+  page:number|undefined=1;
+  tableResponse:IRoomsDetails|undefined;
+  tableData:IRooms[]=[]
+  searchValue:string=''
+  imagePath:string = 'https://upskilling-egypt.com/';
+  
+  
 
   ngOnInit() {
+    this.getAllRooms()
+  }
+
+  getAllRooms(){
+    let params = {
+      page: this.page,
+      size: this.size,
+      roomNumber: this.searchValue,
+
+    }
+
+    this._roomsService.onGetAllRooms(params).subscribe({
+      next: (res: IRoomsDetails)=>{
+        console.log(res.data);
+        this.tableResponse = res;
+        this.tableData = this.tableResponse?.data;
+      }
+    })
   }
 
 }

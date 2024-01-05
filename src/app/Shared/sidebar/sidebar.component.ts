@@ -20,22 +20,22 @@ export class SidebarComponent {
     },
     {
       title: 'Users',
-      icon: 'fa-solid fa-1x fa-house',
+      icon: 'fa-solid fa-users',
       link: '/dashboard/users',
     },
     {
       title: 'Rooms',
-      icon: 'fa-solid fa-1x fa-house',
+      icon: 'fa-solid fa-list-check',
       link: '/dashboard/rooms',
     },
     {
       title: 'Ads',
-      icon: 'fa-solid fa-1x fa-house',
+      icon: 'fa-solid fa-calendar-days',
       link: '/dashboard/ads',
     },
     {
       title: 'Booking',
-      icon: 'fa-solid fa-1x fa-house',
+      icon: 'fa-solid fa-bookmark',
       link: '/dashboard/booking',
     }
   ];

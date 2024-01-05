@@ -1,0 +1,77 @@
+<div class="container shadow py-5 mt-3">
+    <div class="row">
+        <div class="card-auth">
+            <div class="inputs-auth">
+                <form [formGroup]="roomForm" (ngSubmit)="AddRoom(roomForm)">
+                    <div class="form-group">
+                        <input type="text" formControlName="roomNumber" class="form-control" id="roomNumber" placeholder="Room Number">
+                        <!-- <span class="text-danger  mb-3" *ngIf="signupForm.get('userName')?.errors &&
+                            signupForm.get('userName')?.touched">
+                            <span *ngIf="signupForm.get('userName')?.getError('required')">userName is required</span>
+                            <span *ngIf="signupForm.get('userName')?.getError('pattern')">userName must contains at least 3 letters</span>
+                        </span> -->
+                    </div>
+                    <div class="d-flex">
+                        <div class="form-group w-50 me-3">
+                            <input type="text" formControlName="price" class="form-control" id="price" placeholder="Price">
+                            <!-- <span class="text-danger  mb-3" *ngIf="signupForm.get('userName')?.errors &&
+                                signupForm.get('userName')?.touched">
+                                <span *ngIf="signupForm.get('userName')?.getError('required')">userName is required</span>
+                                <span *ngIf="signupForm.get('userName')?.getError('pattern')">userName must contains at least 3 letters</span>
+                            </span> -->
+                        </div>
+                        <div class="form-group w-50">
+                            <input type="text" formControlName="capacity" class="form-control" id="capacity" placeholder="capacity">
+                            <!-- <small id="emailHelp" class="form-text text-danger" *ngIf="signupForm.controls.email.errors &&
+                                signupForm.controls.email.touched">
+                                <p *ngIf="signupForm.get('email')?.getError('required')" class="mb-0">Email Is Required</p>
+                                <p *ngIf="signupForm.get('email')?.getError('email')" class="mb-0">Email Is Invalid</p>
+                            </small>                                 -->
+                        </div>
+                        </div>
+                        <div class="d-flex">
+                        <div class="form-group w-50 me-3">
+                            <input type="text" formControlName="discount" class="form-control" id="discount" placeholder="Discount">
+                            <!-- <span *ngIf="signupForm.get('phoneNumber')?.errors && signupForm.get('phoneNumber')?.touched "
+                                class="text-danger  mb-3">
+                                <span *ngIf="signupForm.get('phoneNumber')?.errors?.['required']" class="mb-0">phoneNumber is
+                                required</span>
+                                <span *ngIf="signupForm.get('phoneNumber')?.errors?.['pattern']" class="mb-0">phoneNumber starts with
+                                011/012/015/010 and length 11 number </span>
+                            </span> -->
+                        </div>
+                        <div class="form-group w-50">
+                            <select formControlName="facilities" [(ngModel)]="facilityId" class="form-select" aria-label="facilities">
+                                <option *ngFor="let item of facilities" [value]="item._id">{{item.name}}</option>
+                            </select>
+                            <!-- <span class="text-danger  mb-3" 
+                            *ngIf="signupForm.get('country')?.errors && signupForm.get('country')?.touched">
+                                <span *ngIf="signupForm.get('country')?.getError('required')">country is required</span>
+                            </span> -->
+                        </div>
+                    </div>
+                    <div>
+                        <ngx-dropzone  class="mb-3 dropzone" (change)="onSelect($event)" [multiple]="false">
+                          <ngx-dropzone-label >
+                              <i class="fa-solid fa-arrow-up-from-bracket d-block fs-2 pb-3"></i>
+                                Drag & Drop or <span class="text-mainColor">Choose a Item Image</span> to Upload
+                          </ngx-dropzone-label>
+                          <!-- <ngx-dropzone-label *ngIf="imgSrc">
+                            <img [src]="imgSrc" class="w-50" alt="">
+                          </ngx-dropzone-label> -->
+                          <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                               [removable]="true" (removed)="onRemove(f)">
+                          </ngx-dropzone-image-preview>
+                        </ngx-dropzone>
+                      </div>
+                    <div class="d-flex justify-content-end align-items-end mt-5">
+                        <button type="button" routerLink="/dashboard/rooms" class="btn outline-primary">Cancle</button>
+                        <button class=" mx-4 btn primary" [disabled]="roomForm.invalid">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div> 
+    </div>
+</div>
+    
+

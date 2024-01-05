@@ -26,14 +26,22 @@ export class SigninComponent implements OnInit {
 
   onSubmit(data: FormGroup) {
     this._authServices.onSignin(data.value).subscribe({
-      next: (res) => {
+      next: (res:any) => {
         console.log(res);
-        // localStorage.setItem('userToken', res.token)
+        localStorage.setItem('userToken', res.data.token)
+        localStorage.setItem('role',res.data.role)
 
       }, error: (err) => {
         this.toastr.error(err.error.message, 'Error!')
       }, complete: () => {
-        this.router.navigate(['/home']);
+        // if(localStorage.getItem('role')=='admin'){
+          this.router.navigate(['/dashboard'])
+        // }
+        // else{
+        //   this.router.navigate(['/home']);
+        // }
+=======
+        this.router.navigate(['/dashboard']);
         this.toastr.success('Logged In', 'Successfully')
       }
     })

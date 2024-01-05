@@ -13,16 +13,20 @@
 button {
   border-radius: $border-reduis;
   padding: .5rem;
-  box-shadow: 0px 8px 15px 0px rgba($text-secondryColor, 0.3);
+  // box-shadow: 0px 8px 8px 0px rgba($text-secondryColor, 0.3);
   transition: all .3s ease-in;
   &.primary {
     background: $bg-mainColor;
     color: $text-whiteColor;
   }
+  &.outline-primary{
+    color: $text-mainColor;
+    border: 2px solid $text-mainColor;
+  }
   &:hover {
     opacity: 0.9;
-    transform: translateY(-6px);
-    box-shadow: -4px 13px 7px 0px  rgba($text-secondryColor, 0.3);
+    // transform: translateY(-6px);
+    box-shadow: -2px 2px 2px 2px  rgba($text-secondryColor, 0.3);
 
   }
 }
@@ -38,12 +42,16 @@ button {
     object-fit: cover;
   }
 }
-
+.dropzone{
+  border: 2px dashed $text-secondryColor;
+  background-color: #f5f6f8;
+}
 .pointer {
   cursor: pointer;
 }
 
 // Table 
+
 th {
   font-style: normal;
   font-family: Poppins;
@@ -53,15 +61,22 @@ th {
   padding: 25px;
   background: #E2E5EB;
   color: #1F263E;
+  
+}
+.rounded-start{
+  border-radius: 15px 0 0 15px !important;
+}
+.rounded-end{
+  border-radius: 0 15px 15px 0 !important;
 }
 .dropdown-toggle::after {
   display: none;
 }
 
-tr {
+tbody>tr {
   transition: all 0.1s ease;
 }
-tr:hover {
+tbody>tr:hover {
   box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0,
     0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
   z-index: 2;
@@ -69,5 +84,5 @@ tr:hover {
 }
 
 td {
-  padding: 5px;
+  padding: 5px 25px;
 }

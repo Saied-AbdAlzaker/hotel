@@ -6,15 +6,11 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { ForgetPasswordComponent } from './Components/forget-password/forget-password.component';
 
 const routes: Routes = [
-  
-
 {path:'',redirectTo:'signin',pathMatch:'full'},
 {path:'signin',component:SigninComponent},
 {path:'signup',component:SignupComponent},
 {path:'reset-password', component:ResetPasswordComponent},
 {path:'forgot-password',component:ForgetPasswordComponent}
-
-
 ];
 
 @NgModule({
