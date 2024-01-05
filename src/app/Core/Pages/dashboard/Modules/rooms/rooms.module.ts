@@ -9,6 +9,8 @@ import { AddEditRoomComponent } from './components/add-edit-room/add-edit-room.c
 const routes: Routes = [
   {path: '', component: RoomsComponent},
   {path: 'add', component: AddEditRoomComponent},
+  {path:'edit/:id', component:AddEditRoomComponent},
+  {path:'view/:id', component:AddEditRoomComponent}
 
 ]
 

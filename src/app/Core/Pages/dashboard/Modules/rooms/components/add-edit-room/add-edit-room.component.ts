@@ -11,14 +11,16 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./add-edit-room.component.scss']
 })
 export class AddEditRoomComponent implements OnInit {
-
+  isViewMode: boolean = true;
+  isEditMode: boolean = true;
+  isAddMode: boolean = true;
   RoomsId: any;
-  isUpdatePage: boolean = false;
   files: File[] = [];
   imgSrc: any;
   pathHttps: string = 'https://upskilling-egypt.com:443/';
   facilities: IFacilities[]|undefined=[];
   facilityId:any[]|undefined=[];
+  roomData:any;
 
 
   roomForm = new FormGroup({
@@ -28,23 +30,57 @@ export class AddEditRoomComponent implements OnInit {
     capacity: new FormControl(null,[Validators.required]),
     discount: new FormControl(null,[Validators.required]),
     facilities: new FormControl(null,[Validators.required]),
-    // facilities: new FormControl(null,[Validators.required])
   })
 
   constructor(
     private _RoomsService:RoomsService,
     private toastr:ToastrService,
-    private _ActivatedRoute:ActivatedRoute,private router:Router
+    private ActivatedRoute:ActivatedRoute,
+    private router:Router
   ){
-    this.RoomsId=_ActivatedRoute.snapshot.params['id'];
+    this.RoomsId=ActivatedRoute.snapshot.params['id'];
     if(this.RoomsId){
-      this.isUpdatePage=true;
+      this.isEditMode=true;
+      this.getRoomById(this.RoomsId)
+      this.isAddMode = false;
+      ActivatedRoute.url.subscribe((url: any[]) => {
+        this.isViewMode = url.some(segment => segment.path === 'view')
+        this.disableFormControls()
+      })
+      ActivatedRoute.url.subscribe(url => {
+        this.isEditMode = url.some(segment => segment.path === 'edit')
+        this.enableFormControls()
+      })
     }else{
-      this.isUpdatePage=false;
+      this.isAddMode = true;
+      this.isEditMode = false;
+      this.isViewMode = false
     }
   }
+  
   ngOnInit(): void {
     this.getFacilities()
+  }
+  disableFormControls() {
+    if (this.isViewMode) {
+      this.roomForm.get('roomNumber')?.disable();
+      this.roomForm.get('price')?.disable();
+      this.roomForm.get('capacity')?.disable();
+      this.roomForm.get('discount')?.disable();
+      this.roomForm.get('facilities')?.disable();
+      this.roomForm.get('imgs')?.disable();
+    }
+  }
+  enableFormControls() {
+    if (this.isEditMode) {
+      this.roomForm.get('roomNumber')?.enable();
+      this.roomForm.get('price')?.enable();
+      this.roomForm.get('capacity')?.enable();
+      this.roomForm.get('discount')?.enable();
+      this.roomForm.get('facilities')?.enable();
+      this.roomForm.get('imgs')?.enable();
+
+    }
   }
   
   onSubmit(data: FormGroup) {
@@ -53,35 +89,31 @@ export class AddEditRoomComponent implements OnInit {
     myData.append('price', data.value.price);
     myData.append('capacity', data.value.capacity);
     myData.append('discount', data.value.discount);
-    myData.append('facilities', data.value.facilities[0]);
-    myData.append('facilities', data.value.facilities[1]);
+    for (const f of data.value.facilities) {
+      myData.append('facilities', f);
+    }
     myData.append('imgs', this.imgSrc, this.imgSrc.name);
     if (this.RoomsId) {
-      this._RoomsService.editRooms(data.value, this.RoomsId).subscribe({
+      this._RoomsService.editRooms(myData, this.RoomsId).subscribe({
         next: (res) => {
           console.log(res);
         }, error: (err) => {
 
-          this.toastr.error('upate failed');
+          this.toastr.error(err.error.message,'failed');
         }, complete: () => {
-
           this.router.navigate(['/dashboard/rooms'])
           this.toastr.success('Rooms Updated Successfully');
         }
       })
     } else {
-    
       this._RoomsService.onAddRoom(myData).subscribe({
         next: (res) => {
           console.log(res);
-
         }, error: (err) => {
-
-          this.toastr.error(err.error.message, 'Error');
+          this.toastr.error(err.error.message, 'Faild');
         }, complete: () => {
           this.router.navigate(['dashboard/rooms'])
-          this.toastr.success('rooms Added Successfully');
-
+          this.toastr.success('Room Added Successfully');
         }
       })
     }
@@ -97,6 +129,39 @@ export class AddEditRoomComponent implements OnInit {
       }
     })
   }
+  getRoomById(id:string){
+    this._RoomsService.onGetRoomById(id).subscribe({
+      next:(res:any)=>{
+        console.log(res);
+        
+        this.roomData = res.data.room;
+        console.log(this.roomData);
+        
+      },
+      error:(err)=>{
+      },
+      complete:()=>{   
+        console.log(this.roomData.facilities);
+          
+         if (this.roomData?.facilities) {
+              for (let i = 0; i < this.roomData.facilities.length; i++) {
+              const facility = this.roomData.facilities[i];
+              // this.roomForm.get('facilities').at(i).patchValue({})
+              }
+            };    
+        this.imgSrc = 'http://upskilling-egypt.com:3000/' + this.roomData?.imgs,
+        this.roomForm.patchValue({
+          roomNumber:this.roomData?.roomNumber,
+          price:this.roomData?.price,
+          capacity:this.roomData?.capacity,
+          discount:this.roomData?.discount,
+          facilities:this.roomData?.facility
+         }); 
+      
+  }
+  }
+)}
+
 
 onSelect(event:any) {
   console.log(event);
