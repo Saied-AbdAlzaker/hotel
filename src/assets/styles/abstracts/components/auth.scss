@@ -5,6 +5,7 @@
     height: 100vh;
     padding: 1rem;
   }
+}
   .card-auth {
     width: 75%;
     margin: auto;
@@ -26,7 +27,7 @@
         color: $text-secondryColor;
         margin: 5px;
       }
-      input {
+      input,select {
         background-color: #f5f6f8;
       }
       a {
@@ -47,7 +48,7 @@
       font-weight: 600;
     }
   }
-}
+
 
 #signin {
   .cover {
