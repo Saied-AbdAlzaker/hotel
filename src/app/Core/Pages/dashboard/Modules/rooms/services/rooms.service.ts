@@ -15,19 +15,20 @@ export class RoomsService {
   onGetAllRooms(data: any): Observable<any> {
     return this._HttpClient.get('admin/rooms', { params: data })
   }
-  // Add
+// Add
   onAddRoom(data: any): Observable<any> {
     return this._HttpClient.post('admin/rooms', data)
   }
-  onGetFacilities(): Observable<any> {
+  onGetFacilities(): Observable<any>{
     return this._HttpClient.get('admin/room-facilities')
   }
   // Room By Id
-  onGetRoomById(id: string) {
-    return this._HttpClient.get(`admin/rooms/${id}`)
+  onGetRoomById(id:string){
+      return this._HttpClient.get(`admin/rooms/${id}`)
   }
   // Delete
-  ondeletedialog(id: any): Observable<any> {
+  ondeletedialog(id:any):Observable<any>
+  {
     return this._HttpClient.delete(`admin/rooms/${id}`)
   }
   // Edit

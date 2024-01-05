@@ -97,3 +97,12 @@ tbody>tr:hover {
 td {
   padding: 8px 25px;
 }
+
+//sticky  nav and side bar class
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+}
+
+

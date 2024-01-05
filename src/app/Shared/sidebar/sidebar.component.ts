@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { LogOutComponent } from './components/log-out/log-out.component';
@@ -14,20 +14,21 @@ interface IMenu {
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
+  @Output() isOpenedValue = new EventEmitter<boolean>();
+  isOpened: boolean = true;
   constructor(
-    private Router:Router,
+    private Router: Router,
     public dialog: MatDialog,
-    private _userAdminService:UserAdminService,
-    private toastr:ToastrService,
-
-     ) {}
+    private _userAdminService: UserAdminService,
+    private toastr: ToastrService
+  ) {}
   menu: IMenu[] = [
     {
       title: 'Home',
-      icon: 'fa-solid fa-1x fa-house',
+      icon: 'fa-solid  fa-house',
       link: '/dashboard/home',
     },
     {
@@ -52,9 +53,9 @@ export class SidebarComponent {
     },
     {
       title: 'Facilities',
-      icon: 'fa-solid fa-bookmark',
+      icon: 'fa-solid fa-hand-holding-heart',
       link: '/dashboard/Facilities',
-    }
+    },
   ];
   openDialogCahngePassword(): void {
     const dialogRef = this.dialog.open(ChangePasswordComponent, {
@@ -63,38 +64,42 @@ export class SidebarComponent {
       // height: '100%',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
-      if(result){
+      if (result) {
         this.changePasswordAdmin(result);
       }
     });
   }
 
-  changePasswordAdmin(data:IChangePassword){
-this._userAdminService.onChangePassword(data).subscribe({
-  next:(res)=>{
-    console.log(res);
-  },
-  error:(err:any)=>{
-    console.log(err.error.message);
-    this.toastr.error(err.error.message , 'error!');
-  },
-  complete:()=> {
-    this.toastr.success('Password has been updated successfully', 'Done');
-  },
-})
+  changePasswordAdmin(data: IChangePassword) {
+    this._userAdminService.onChangePassword(data).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err: any) => {
+        console.log(err.error.message);
+        this.toastr.error(err.error.message, 'error!');
+      },
+      complete: () => {
+        this.toastr.success('Password has been updated successfully', 'Done');
+      },
+    });
   }
-  openDialogLogOut(): void  {
+  openDialogLogOut(): void {
     const dialogRef = this.dialog.open(LogOutComponent, {
       data: {},
       width: '30%',
       // height: '100%',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
     });
-
+  }
+  onClicked() {
+    this.isOpened = !this.isOpened;
+    this.isOpenedValue.emit(this.isOpened);
+    console.log(this.isOpened)
   }
 }

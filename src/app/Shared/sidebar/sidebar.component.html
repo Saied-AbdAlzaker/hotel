@@ -1,28 +1,70 @@
 <section id="sidebar" class="sticky">
   <div class="container-fluid px-0">
-
-    <div class="row">
-      <div class="logo m-3 text-secondryColor">
+    <div
+      class="d-flex justify-content-between align-items-center px-2 shadow-sm"
+    >
+      <div class="logo m-3 text-secondryColor" *ngIf="!isOpened">
         Stay<span>cation.</span>
       </div>
+      <div class="logo m-3 text-secondryColor" *ngIf="isOpened">
+        S<span>c.</span>
+      </div>
+      <button
+        (click)="onClicked()"
+        [ngClass]="isOpened ? 'position-right' : 'position-left'"
+        mat-icon-button matTooltip="Collapse your side bar"
+        aria-label="Example icon button with a vertical three dot icon"
+      >
+        <mat-icon>{{
+          isOpened ? "arrow_forward_ios" : "arrow_back_ios"
+        }}</mat-icon>
+      </button>
+    </div>
+    <div class="row mt-3">
       <ul>
-        <li *ngFor="let item of menu">
-          <a [routerLink]="item.link"
-            ><i [class]="item.icon"></i>
-            <span routerLinkActive="text-whiteColor">{{ item.title }}</span></a
+        <li *ngFor="let item of menu" [routerLink]="item.link" mat-icon-button [matTooltip]="isOpened?item.title:''" [routerLinkActive]="['bg-active', 'bg-hover']"
+        >
+          <a
+            [class]="
+              isOpened ? 'd-flex justify-content-center align-items-center' : ''
+            "
+
+            routerLinkActive="text-whiteColor"
+            ><i [class]="item.icon"  ></i>
+            <span
+              [ngClass]="isOpened ? 'd-none' : ''"
+              >{{ item.title }}</span
+            ></a
           >
         </li>
 
-        <li class="">
-          <a mat-button (click)="openDialogCahngePassword()"
-            ><i class="fa-solid fa-unlock-keyhole"></i
-            ><span routerLinkActive="text-whiteColor">Change Password</span></a
+        <li mat-button (click)="openDialogCahngePassword()">
+          <a
+            class="p-0"
+            [class]="
+              isOpened
+                ? 'd-flex justify-content-center align-items-center '
+                : ''
+            "
+            ><i class="fa-solid fa-unlock-keyhole" routerLinkActive="text-secondryColor"></i
+            ><span
+              [ngClass]="isOpened ? 'd-none' : ''"
+              routerLinkActive="text-whiteColor"
+              >Change Password</span
+            ></a
           >
         </li>
-        <li class="">
-          <a (click)="openDialogLogOut()"
+        <li mat-button (click)="openDialogLogOut()">
+          <a
+            [class]="
+              isOpened ? 'd-flex justify-content-center align-items-center' : ''
+            "
             ><i class="fa-solid fa-right-from-bracket"></i
-            ><span routerLinkActive="text-whiteColor">Log out</span></a
+            ><span
+              [ngClass]="isOpened ? 'd-none' : ''"
+              routerLinkActive="text-whiteColor"
+              >Log out</span
+            ></a
           >
         </li>
       </ul>
