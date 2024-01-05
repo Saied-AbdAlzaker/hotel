@@ -71,8 +71,17 @@ th {
 .rounded-end{
   border-radius: 0 15px 15px 0 !important;
 }
+
 .dropdown-toggle::after {
   display: none;
+}
+.dropdown-item:hover{
+  background-color: #3252DF !important;
+  color: #fff;
+  cursor: pointer;
+  i{
+    color: #fff;
+  }
 }
 
 tbody>tr {

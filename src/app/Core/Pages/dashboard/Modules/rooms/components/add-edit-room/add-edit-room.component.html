@@ -5,40 +5,35 @@
                 <form [formGroup]="roomForm" (ngSubmit)="onSubmit(roomForm)">
                     <div class="form-group">
                         <input type="text" formControlName="roomNumber" class="form-control" id="roomNumber" placeholder="Room Number">
-                        <!-- <span class="text-danger  mb-3" *ngIf="signupForm.get('userName')?.errors &&
-                            signupForm.get('userName')?.touched">
-                            <span *ngIf="signupForm.get('userName')?.getError('required')">userName is required</span>
-                            <span *ngIf="signupForm.get('userName')?.getError('pattern')">userName must contains at least 3 letters</span>
-                        </span> -->
+                        <span class="text-danger  mb-3" *ngIf="roomForm.get('roomNumber')?.errors &&
+                            roomForm.get('roomNumber')?.touched">
+                            <span *ngIf="roomForm.get('roomNumber')?.getError('required')">roomNumber is required</span>
+                        </span>
                     </div>
                     <div class="d-flex">
                         <div class="form-group w-50 me-3">
-                            <input type="text" formControlName="price" class="form-control" id="price" placeholder="Price">
-                            <!-- <span class="text-danger  mb-3" *ngIf="signupForm.get('userName')?.errors &&
-                                signupForm.get('userName')?.touched">
-                                <span *ngIf="signupForm.get('userName')?.getError('required')">userName is required</span>
-                                <span *ngIf="signupForm.get('userName')?.getError('pattern')">userName must contains at least 3 letters</span>
-                            </span> -->
+                            <input type="text" formControlName="capacity" class="form-control" id="price" placeholder="Price">
+                            <span class="text-danger  mb-3" *ngIf="roomForm.get('price')?.errors &&
+                                roomForm.get('price')?.touched">
+                                <span *ngIf="roomForm.get('price')?.getError('required')">price is required</span>
+                            </span>
                         </div>
                         <div class="form-group w-50">
                             <input type="text" formControlName="capacity" class="form-control" id="capacity" placeholder="capacity">
-                            <!-- <small id="emailHelp" class="form-text text-danger" *ngIf="signupForm.controls.email.errors &&
-                                signupForm.controls.email.touched">
-                                <p *ngIf="signupForm.get('email')?.getError('required')" class="mb-0">Email Is Required</p>
-                                <p *ngIf="signupForm.get('email')?.getError('email')" class="mb-0">Email Is Invalid</p>
-                            </small>                                 -->
+                            <span class="text-danger  mb-3" *ngIf="roomForm.get('capacity')?.errors &&
+                                roomForm.get('capacity')?.touched">
+                                <span *ngIf="roomForm.get('capacity')?.getError('required')">capacity is required</span>
+                            </span>
                         </div>
                         </div>
                         <div class="d-flex">
                         <div class="form-group w-50 me-3">
                             <input type="text" formControlName="discount" class="form-control" id="discount" placeholder="Discount">
-                            <!-- <span *ngIf="signupForm.get('phoneNumber')?.errors && signupForm.get('phoneNumber')?.touched "
+                            <span *ngIf="roomForm.get('discount')?.errors && roomForm.get('discount')?.touched "
                                 class="text-danger  mb-3">
-                                <span *ngIf="signupForm.get('phoneNumber')?.errors?.['required']" class="mb-0">phoneNumber is
+                                <span *ngIf="roomForm.get('discount')?.errors?.['required']" class="mb-0">discount is
                                 required</span>
-                                <span *ngIf="signupForm.get('phoneNumber')?.errors?.['pattern']" class="mb-0">phoneNumber starts with
-                                011/012/015/010 and length 11 number </span>
-                            </span> -->
+                            </span>
                         </div>
                         <div class="form-group w-50">
                             <mat-form-field class="w-100">
@@ -47,13 +42,10 @@
                                     <mat-option *ngFor="let item of facilities" [value]="item._id">{{item.name}}</mat-option>
                                 </mat-select>
                               </mat-form-field>
-                            <!-- <select formControlName="facilities" role="group" aria-label="Basic checkbox toggle button group" class="form-select" aria-label="facilities">
-                                <option *ngFor="let item of facilities" [value]="item._id">{{item.name}}</option>
-                            </select> -->                           
-                            <!-- <span class="text-danger  mb-3" 
-                            *ngIf="signupForm.get('country')?.errors && signupForm.get('country')?.touched">
-                                <span *ngIf="signupForm.get('country')?.getError('required')">country is required</span>
-                            </span> -->
+                            <span class="text-danger  mb-3" 
+                            *ngIf="roomForm.get('facilities')?.errors && roomForm.get('facilities')?.touched">
+                                <span *ngIf="roomForm.get('facilities')?.getError('required')">facilities is required</span>
+                            </span>
                         </div>
                     </div>
                     <div>
