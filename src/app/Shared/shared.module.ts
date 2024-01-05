@@ -14,18 +14,21 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   imports: [
     CommonModule,
     ToastrModule.forRoot({}),
     FormsModule, ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,RouterLink,
-    MatSelectModule,MatFormFieldModule,MatDialogModule
+    MatSelectModule,MatFormFieldModule,MatDialogModule, MatPaginatorModule
   ],
   exports: [
     FormsModule,ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,
-     ReactiveFormsModule,HttpClientModule,FormsModule,SidebarComponent,RouterLink,
-     NavbarComponent,MatFormFieldModule,MatSelectModule,DeleteDialogComponent,MatDialogModule
+    HttpClientModule,SidebarComponent,RouterLink,
+    NavbarComponent,MatFormFieldModule,MatSelectModule,DeleteDialogComponent,MatDialogModule,
+    MatPaginatorModule, NavbarComponent
   ],
 
   declarations: [

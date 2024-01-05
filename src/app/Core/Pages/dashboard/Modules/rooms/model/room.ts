@@ -4,10 +4,10 @@ export interface IRoom {
     price: string,
     capacity: string,
     discount: string,
-    facilities: string,
+    facilities: string[],
 }
 export interface IFacilities {
-    _id: string,
+    _id: any,
     name: string,
 }
 
@@ -18,7 +18,7 @@ export interface IRoomsDetails {
     totalCount:number
 }
 export interface IRooms {
-    _id:number,
+    _id:any,
     roomNumber: string,
     images: string,
     price: number,
@@ -28,3 +28,5 @@ export interface IRooms {
     createdAt: string,
     updatedAt: string,
 }
+
+

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { LogOutComponent } from './components/log-out/log-out.component';
+import { MatDialog } from '@angular/material/dialog';
 interface IMenu {
   title: string;
   icon: string;
@@ -14,7 +15,8 @@ interface IMenu {
 })
 export class SidebarComponent {
   constructor(
-    private Router:Router
+    private Router:Router,
+    public dialog: MatDialog
      ) {}
   menu: IMenu[] = [
     {
@@ -41,17 +43,34 @@ export class SidebarComponent {
       title: 'Booking',
       icon: 'fa-solid fa-bookmark',
       link: '/dashboard/booking',
+    },
+    {
+      title: 'Facilities',
+      icon: 'fa-solid fa-bookmark',
+      link: '/dashboard/Facilities',
     }
   ];
   openDialogCahngePassword(): void {
+    const dialogRef = this.dialog.open(ChangePasswordComponent, {
+      data: {},
+      width: '30%',
+      // height: '100%',
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
-  openDialogLogOut() {
-    localStorage.removeItem('userToken');
-    localStorage.removeItem('role');
-    localStorage.removeItem('userName');
-    localStorage.removeItem('userEmail')
-    localStorage.removeItem('loglevel')
-    this.Router.navigate(['/auth'])
+  openDialogLogOut(): void  {
+    const dialogRef = this.dialog.open(LogOutComponent, {
+      data: {},
+      width: '30%',
+      // height: '100%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+
   }
 }

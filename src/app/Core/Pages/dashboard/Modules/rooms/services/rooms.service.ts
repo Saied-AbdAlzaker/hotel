@@ -24,11 +24,11 @@ export class RoomsService {
   onGetRoomById(id:string){
       return this._HttpClient.get(`admin/rooms/${id}`)
   }
-  ondeletedialog(id:number):Observable<any>
+  ondeletedialog(id:any):Observable<any>
   {
     return this._HttpClient.delete(`admin/rooms/${id}`)
   }
-  editRooms(data: any, id: number): Observable<any> {
+  editRooms(data: any, id: string): Observable<any> {
     return this._HttpClient.put(`admin/rooms/${id}`, data);
   }
 

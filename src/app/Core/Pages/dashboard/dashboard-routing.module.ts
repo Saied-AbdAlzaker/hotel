@@ -1,9 +1,9 @@
 import { UsersModule } from './Modules/users/users.module';
-import { RoomsComponent } from './Modules/rooms/rooms.component';
+import { RoomsComponent } from './Modules/rooms/components/rooms/rooms.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
-import { UsersComponent } from './Modules/users/users.component';
+import { UsersComponent } from './Modules/users/components/users/users.component';
 import { BookingsModule } from './Modules/bookings/bookings.module';
 import { HomeModule } from './Modules/home/home.module';
 import { RoomsModule } from './Modules/rooms/rooms.module';
@@ -31,6 +31,10 @@ const routes: Routes = [
     {
       path: 'booking',  data: { title: 'Booking' },
       loadChildren: () => import('../dashboard/Modules/bookings/bookings.module').then(mod => mod.BookingsModule),
+    },
+    {
+      path: 'Facilities',  data: { title: 'Facilities' },
+      loadChildren: () => import('../dashboard/Modules/facilities/facilities.module').then(mod => mod.FacilitiesModule),
     },
   ]}
 ];

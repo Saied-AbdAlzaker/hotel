@@ -1,0 +1,66 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mt-3">
+        <div>
+          <h4>Facilities Table Details</h4>
+          <p>You can check all details</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <button (click)="openAddDialog()" class="primary w-100 mt-5">Add New Facilities</button>
+      </div>
+
+      <div class="col-md-8 mt-3">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input [(ngModel)]="searchValue" (keyup)="onSearchInputChange()" type="text" placeholder="Search Here...." class="form-control rounded">
+        </div>
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="rounded-start">Facilities Name</th>
+            <!-- <th>Created By</th> -->
+            <th>Created At</th>
+            <th>Update dAt</th>
+            <th class="rounded-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of tableData">
+            <td>{{item.name}}</td>
+            <!-- <td>{{item.createdBy.userName}}</td> -->
+            <td>{{item.createdAt | date: 'dd/mm/yyyy'}}</td>
+            <td>{{item.updatedAt | date: 'dd/mm/yyyy'}}</td>
+
+
+            <td class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="fa-solid fa-ellipsis" style="color: #1f5141;"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <div class="d-flex flex-column align-items-center">
+            <td class=" my-0">
+              <a class="text-decoration-none cursor bg-btn"><i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
+            </td>
+            <td>
+              <a [routerLink]="['/dashboard/Facilities/edit',item._id]" class="text-decoration-none cursor bg-btn"><i
+                  class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
+            </td>
+            <td>
+              <a (click)="openDeleteDialog(item)" class="text-decoration-none cursor bg-btn"><i class="fa-solid fa-trash-can mx-2 bg-icon" ></i>Delete</a>
+            </td>
+    </div>
+    </ul>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+
+  </div>
+  </div>
+</section>
