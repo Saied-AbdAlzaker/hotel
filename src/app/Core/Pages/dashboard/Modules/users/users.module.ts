@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/Shared/shared.module';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'users', pathMatch: 'full'},
   {path: 'users', component: UsersComponent},
 ]
 

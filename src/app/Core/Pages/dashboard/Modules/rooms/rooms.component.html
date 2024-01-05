@@ -1,20 +1,20 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-8 mt-3">
         <div>
           <h4>Rooms Table Details</h4>
           <p>You can check all details</p>
         </div>
       </div>
-      <div class="col-md-4">
-        <button [routerLink]="['/dashboard/admin/recipes/add']" class="primary w-75 mt-5">Add New Room</button>
+      <div class="col-md-4 mt-3">
+        <button [routerLink]="['/dashboard/admin/recipes/add']" class="primary w-75">Add New Room</button>
       </div>
 
       <div class="col-md-6 mt-3">
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-          <input type="text" placeholder="Search Here...." class="form-control rounded">
+          <input [(ngModel)]="searchValue" (keyup)="getAllRooms()" type="text" placeholder="Search Here...." class="form-control rounded">
         </div>
       </div>
       <div class="col-md-3 mt-3">
@@ -42,14 +42,14 @@
           <th>Category</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>Room1</td>
-          <td class="w-25 rounded-2"><img src="../../../../../../assets/images/Forget.png" class="w-25"></td>
-          <td>350.99</td>
-          <td>Double Room</td>
-          <td>tag1</td>
-          <td>Chicken</td>
+      <tbody *ngIf="tableData.length > 0">
+        <tr *ngFor="let item of tableData">
+          <td>{{item.roomNumber}}</td>
+          <td class="w-25 rounded-2"><img [src]="imagePath+item.images" class="w-50"></td>
+          <td>{{item.price}}</td>
+          <td>{{item.discount}}</td>
+          <td>{{item.capacity}}</td>
+          <!-- <td>{{item.}}</td> -->
 
           <td class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
