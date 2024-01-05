@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewRoomsComponent } from './components/view-rooms/view-rooms.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-rooms',
@@ -7,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomsComponent implements OnInit {
 
+  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(ViewRoomsComponent,
+       {
+      width: '60%',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
 
-
-
-  constructor() { }
+  }
+  constructor(private dialog:MatDialog) { }
 
   ngOnInit() {
   }

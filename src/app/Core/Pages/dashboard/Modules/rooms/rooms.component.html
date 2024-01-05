@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="col-md-4">
-        <button [routerLink]="['/dashboard/admin/recipes/add']" class="primary w-75 mt-5">Add New Room</button>
+        <!-- <button [routerLink]="['/dashboard/admin/recipes/add']" class="primary w-75 mt-5">Add New Room</button> -->
       </div>
 
       <div class="col-md-6 mt-3">
@@ -58,7 +58,7 @@
             <ul class="dropdown-menu">
               <div class="d-flex flex-column align-items-center">
           <td class=" my-0">
-            <a class="text-decoration-none cursor bg-btn"><i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
+            <a (click)="openViewDialog('2000ms','2000ms')" class="text-decoration-none cursor bg-btn"><i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
           </td>
           <td>
             <a class="text-decoration-none cursor bg-btn"><i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
