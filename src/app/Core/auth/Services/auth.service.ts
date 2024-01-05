@@ -21,7 +21,7 @@ getProfile(){
   let encoded: any = localStorage.getItem('userToken');
   let decoded: any = jwtDecode(encoded)
   console.log(decoded);
-
+  
   localStorage.setItem('role' , decoded.role);
   localStorage.setItem('userName' , decoded.userName);
   localStorage.setItem('email' , decoded.userEmail);
