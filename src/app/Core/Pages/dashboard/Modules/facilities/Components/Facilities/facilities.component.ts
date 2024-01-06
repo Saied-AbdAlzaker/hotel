@@ -1,4 +1,8 @@
+import { AddEditComponent } from './add-edit/add-edit.component';
+import { FacilitiesService } from './../../Services/facilities.service';
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-facilities',
@@ -12,6 +16,9 @@ export class FacilitiesComponent {
   pageNumber: number | undefined = 1;
   imagePath:string = 'http://upskilling-egypt.com:3000/';
 
+  constructor(private dialog: MatDialog, private _facilitiesService:FacilitiesService,
+    private _toastrService:ToastrService) {}
+
   
   ngOnInit() {
     // this.getAllRooms();
@@ -23,6 +30,31 @@ export class FacilitiesComponent {
     //     this.getAllRooms();
     //   }
     // })
+  }
+
+  openAddDialog(): void {
+    const dialogRef = this.dialog.open(AddEditComponent, {
+      data: {},
+      width: '40%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.onAddNewFacilities(result);
+    });
+  }
+
+  onAddNewFacilities(data: String) {
+    this._facilitiesService.addFacilities(data).subscribe({
+      next: (res) => {
+        console.log(res);
+      }, error: (err) => {
+        console.log(err);
+      }, complete: () => {
+        this._toastrService.success('Facilities Added Successfully', 'Ok');
+        // 
+      }
+    })
   }
 
   // getAllRooms(){
@@ -52,6 +84,7 @@ export class FacilitiesComponent {
   // onSearchInputChange() {
   //   this.searchSubject.next(this.searchValue);
   // }
+
   handlePageEvent(e: any) {
     this.pageSize = e.pageSize;
     this.pageNumber = e.pageIndex + 1;
