@@ -34,8 +34,6 @@ export class RoomsComponent implements OnInit {
   searchValue:string=''
   // imagePath:string = 'http://upskilling-egypt.com:3000/';
   imagePath:string = 'https://upskilling-egypt.com/';
-  
-  // constructor(private _roomsService:RoomsService,) { }
 
   ngOnInit() {
     this.getAllRooms();
