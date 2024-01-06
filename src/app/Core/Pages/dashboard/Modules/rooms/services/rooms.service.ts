@@ -9,13 +9,17 @@ import { IRoom } from '../model/room';
 export class RoomsService {
 
   constructor(
-    private _HttpClient:HttpClient,
+    private _HttpClient: HttpClient,
   ) { }
 
-  onAddRoom(data:any):Observable<any>{
-    return this._HttpClient.post('admin/rooms',data)
+  onGetAllRooms(data: any): Observable<any> {
+    return this._HttpClient.get('admin/rooms', { params: data })
   }
-  onGetFacilities(){
+
+  onAddRoom(data: any): Observable<any> {
+    return this._HttpClient.post('admin/rooms', data)
+  }
+  onGetFacilities() {
     return this._HttpClient.get('admin/room-facilities')
   }
 
