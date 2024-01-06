@@ -1,6 +1,11 @@
 import { RoomsService } from './../../Services/rooms.service';
 import { Component, OnInit } from '@angular/core';
+import { ViewRoomsComponent } from './components/view-rooms/view-rooms.component';
+import { MatDialog } from '@angular/material/dialog';
 import { IRoomsDetails, IRooms } from '../../Model/admin';
+import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-rooms',
@@ -9,6 +14,17 @@ import { IRoomsDetails, IRooms } from '../../Model/admin';
 })
 export class RoomsComponent implements OnInit {
 
+
+  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(ViewRoomsComponent,
+       {
+      width: '60%',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+
+  }
+  constructor(private dialog:MatDialog,private _roomsService:RoomsService,private toastr:ToastrService) { }
   size:number=10;
   page:number|undefined=1;
   tableResponse:IRoomsDetails|undefined;
@@ -16,7 +32,7 @@ export class RoomsComponent implements OnInit {
   searchValue:string=''
   imagePath:string = 'https://upskilling-egypt.com/';
   
-  constructor(private _roomsService:RoomsService) { }
+  
 
   ngOnInit() {
     this.getAllRooms()
@@ -39,4 +55,35 @@ export class RoomsComponent implements OnInit {
     })
   }
 
+
+  openDeleteDialog(tableData: any): void {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      data: tableData,
+      width: '35%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      if (result) {
+        console.log(result.id);
+        this.onDeleteRooms(result.id);
+      }
+    });
+  }
+
+  onDeleteRooms(id: number) {
+    this._roomsService.ondeletedialog(id).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        this.toastr.error(err.error.message, 'Error!');
+        console.log(err);
+      },
+      complete: () => {
+        this.toastr.success('Rooms Deleted Successfully', 'Ok');
+        this.getAllRooms();
+      },
+    });
+  }
 }
