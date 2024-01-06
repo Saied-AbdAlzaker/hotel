@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IFacilities, IRooms, IRoomsDetails } from './model/room';
-import { RoomsService } from './services/rooms.service';
-import { ViewRoomsComponent } from './components/view-rooms/view-rooms.component';
+import { IFacilities, IRooms, IRoomsDetails } from '../../model/room';
+import { RoomsService } from '../../services/rooms.service';
+import { ViewRoomsComponent } from '../view-rooms/view-rooms.component';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';

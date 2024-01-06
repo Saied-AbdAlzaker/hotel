@@ -1,20 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdsComponent } from './ads.component';
-import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from 'src/app/Shared/shared.module';
 
-const routes: Routes = [
-  {path: '', redirectTo: 'ads', pathMatch: 'full'},
-  {path: '', component: AdsComponent},
-]
+import { AdsRoutingModule } from './ads-routing.module';
+
 
 @NgModule({
+  declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
-    SharedModule
-  ],
-  declarations: [AdsComponent]
+    AdsRoutingModule
+  ]
 })
 export class AdsModule { }

@@ -1,23 +1,24 @@
-import { ViewRoomsComponent } from './components/view-rooms/view-rooms.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RoomsComponent } from './rooms.component';
-import { RouterModule, Routes } from '@angular/router';
-import { SharedModule } from 'src/app/Shared/shared.module';
-import { AddEditRoomComponent } from './components/add-edit-room/add-edit-room.component';
 
-const routes: Routes = [
-  {path: '', component: RoomsComponent},
-  {path: 'add', component: AddEditRoomComponent},
-  {path: 'edit/:_id', component: AddEditRoomComponent},
-]
+import { RoomsRoutingModule } from './rooms-routing.module';
+import { RoomsComponent } from './components/rooms/rooms.component';
+import { AddEditRoomComponent } from './components/add-edit-room/add-edit-room.component';
+import { ViewRoomsComponent } from './components/view-rooms/view-rooms.component';
+import { SharedModule } from 'src/app/Shared/shared.module';
+
 
 @NgModule({
+  declarations: [
+    RoomsComponent,
+    AddEditRoomComponent,
+    ViewRoomsComponent,
+
+  ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),
+    RoomsRoutingModule,
     SharedModule
-  ],
-  declarations: [RoomsComponent, AddEditRoomComponent,ViewRoomsComponent]
+  ]
 })
 export class RoomsModule { }
