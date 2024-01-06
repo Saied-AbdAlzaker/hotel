@@ -17,5 +17,8 @@ getAllFacilities(data:any):Observable<any>
 {
   return this._httpClient.get('admin/room-facilities', data )
 }
-
+ondeletedialog(id:any):Observable<any>
+{
+  return this._httpClient.delete(`admin/room-facilities/${id}`)
+}
 }
