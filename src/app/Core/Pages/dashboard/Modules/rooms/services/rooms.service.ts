@@ -18,5 +18,11 @@ export class RoomsService {
   onGetFacilities(){
     return this._HttpClient.get('admin/room-facilities')
   }
-
+  ondeletedialog(id:number):Observable<any>
+  {
+    return this._HttpClient.delete(`admin/rooms/${id}`)
+  }
+  editRooms(data: any, id: number): Observable<any> {
+    return this._HttpClient.put(`admin/rooms/${id}`, data);
+  }
 }
