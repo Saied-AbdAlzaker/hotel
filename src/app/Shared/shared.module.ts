@@ -18,6 +18,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     NavbarComponent,
     ChangePasswordComponent,
     LogOutComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    ProfileComponent
   ]
 })
 export class SharedModule { }
