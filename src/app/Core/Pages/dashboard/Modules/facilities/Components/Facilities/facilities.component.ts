@@ -1,8 +1,8 @@
-import { AddEditComponent } from './add-edit/add-edit.component';
 import { FacilitiesService } from './../../Services/facilities.service';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { AddEditComponent } from '../add-edit/add-edit.component';
 
 @Component({
   selector: 'app-facilities',
@@ -21,15 +21,7 @@ export class FacilitiesComponent {
 
   
   ngOnInit() {
-    // this.getAllRooms();
-    // this.getFacilities();
 
-    // this.searchSubject.pipe(debounceTime(1000)).subscribe({
-    //   next: (res) =>{
-    //     console.log(res);
-    //     this.getAllRooms();
-    //   }
-    // })
   }
 
   openAddDialog(): void {
@@ -85,8 +77,10 @@ export class FacilitiesComponent {
   //   this.searchSubject.next(this.searchValue);
   // }
 
+
   handlePageEvent(e: any) {
     this.pageSize = e.pageSize;
     this.pageNumber = e.pageIndex + 1;
   }
+
 }

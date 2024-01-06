@@ -7,26 +7,26 @@
             <p>You can check all details</p>
           </div>
         </div>
-  
+
         <div class="col-md-4">
           <button (click)="openAddDialog()"class="primary w-75 mt-5">Add New Room</button>
         </div>
-  
+
         <div class="col-md-6 mt-3">
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-            <!-- <input [(ngModel)]="searchValue" (keyup)="onSearchInputChange()" type="text" placeholder="Search Here...." -->
+            <input  type="text" placeholder="Search Here...."
               class="form-control rounded">
           </div>
         </div>
-  
+
         <div class="col-md-3 mt-3">
           <select class="form-select" aria-label="Default select example">
             <option selected>All</option>
             <option></option>
           </select>
         </div>
-  
+
         <div class="col-md-3 mt-3">
           <!-- <select  [(ngModel)]="facilityId" (change)="getAllRooms()" class="form-select" aria-label="facilities">
             <option selected>All</option>
@@ -34,8 +34,8 @@
           </select> -->
         </div>
       </div>
-  
-  
+
+
       <table class="table table-striped">
         <thead>
           <tr>
@@ -56,7 +56,7 @@
             <td>{{item.discount}}</td>
             <td>{{item.capacity}}</td>
             <td>{{item.facilities[0].name}}</td>
-  
+
             <td class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa-solid fa-ellipsis" style="color: #1f5141;"></i>
@@ -80,13 +80,13 @@
     </tr>
     </tbody>
     </table>
-<!--   
+<!--
     <div>
       <mat-paginator [length]="tableResponse?.totalCount" [pageSizeOptions]="[5, 10, 50, 100]"
         [pageSize]="tableResponse?.size" (page)="handlePageEvent($event)" [pageIndex]="pageIndex"
         aria-label="Select page">
       </mat-paginator>
     </div> -->
-  
+
     </div>
   </section>
