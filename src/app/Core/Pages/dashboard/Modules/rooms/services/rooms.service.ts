@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IRoom } from '../model/room';
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +8,17 @@ import { IRoom } from '../model/room';
 export class RoomsService {
 
   constructor(
-    private _HttpClient:HttpClient,
+    private _HttpClient: HttpClient,
   ) { }
 
-  onAddRoom(data:any):Observable<any>{
-    return this._HttpClient.post('admin/rooms',data)
+  onGetAllRooms(data: any): Observable<any> {
+    return this._HttpClient.get('admin/rooms', { params: data })
   }
-  onGetFacilities(){
+
+  onAddRoom(data: any): Observable<any> {
+    return this._HttpClient.post('admin/rooms', data)
+  }
+  onGetFacilities() {
     return this._HttpClient.get('admin/room-facilities')
   }
   ondeletedialog(id:number):Observable<any>

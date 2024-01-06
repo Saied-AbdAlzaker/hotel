@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group w-50">
                             <select formControlName="facilities" [(ngModel)]="facilityId" class="form-select" aria-label="facilities">
-                                <option *ngFor="let item of facilities" [value]="item._id">{{item.name}}</option>
+                                <option *ngFor="let item of facilities" [ngValue]="item._id">{{item.name}}</option>
                             </select>
                             <!-- <span class="text-danger  mb-3" 
                             *ngIf="signupForm.get('country')?.errors && signupForm.get('country')?.touched">

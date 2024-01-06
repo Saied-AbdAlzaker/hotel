@@ -17,7 +17,7 @@ export class AddEditRoomComponent implements OnInit {
   files: File[] = [];
   imgSrc: any;
   pathHttps: string = 'https://upskilling-egypt.com:443/';
-  facilities: IFacilities[]|undefined=[];
+  facilities: IFacilities[]=[];
   facilityId:any[]=[];
   roomForm = new FormGroup({
     roomNumber: new FormControl(null,[Validators.required]),

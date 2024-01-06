@@ -40,6 +40,7 @@ export class SigninComponent implements OnInit {
         // else{
         //   this.router.navigate(['/home']);
         // }
+
         this.router.navigate(['/dashboard']);
         this.toastr.success('Logged In', 'Successfully')
       }
