@@ -33,7 +33,7 @@ export class AddEditRoomComponent implements OnInit {
     private toastr:ToastrService,private _ActivatedRoute:ActivatedRoute,private router:Router
      
   ){
-    this.RoomsId=_ActivatedRoute.snapshot.params['id'];
+    this.RoomsId=_ActivatedRoute.snapshot.params['_id'];
     if(this.RoomsId){
       this.isUpdatePage=true;
     }else{

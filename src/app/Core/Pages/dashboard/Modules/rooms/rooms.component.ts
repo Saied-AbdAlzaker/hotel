@@ -91,22 +91,24 @@ export class RoomsComponent implements OnInit {
   }
 
 
-  openDeleteDialog(tableData: any): void {
+  openDeleteDialog(data:any): void {
+    console.log(data);
+    
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: tableData,
-      width: '35%',
+      data: {data},
+      width: '40%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       if (result) {
-        console.log(result.id);
+        console.log(result);
         this.onDeleteRooms(result.id);
       }
     });
   }
 
-  onDeleteRooms(id: any) {
+  onDeleteRooms(id: string) {
     this._roomsService.ondeletedialog(id).subscribe({
       next: (res) => {
         console.log(res);
