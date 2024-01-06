@@ -32,6 +32,10 @@ const routes: Routes = [
       path: 'booking',  data: { title: 'Booking' },
       loadChildren: () => import('../dashboard/Modules/bookings/bookings.module').then(mod => mod.BookingsModule),
     },
+    {
+      path: 'Facilities',  data: { title: 'Facilities' },
+      loadChildren: () => import('../dashboard/Modules/facilities/facilities.module').then(mod => mod.FacilitiesModule),
+    },
   ]}
 ];
 
