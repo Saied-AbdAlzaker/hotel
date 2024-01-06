@@ -13,7 +13,7 @@
 button {
   border-radius: $border-reduis;
   padding: .5rem;
-  // box-shadow: 0px 8px 8px 0px rgba($text-secondryColor, 0.3);
+  box-shadow: 0px 8px 8px 0px rgba($text-secondryColor, 0.30);
   transition: all .3s ease-in;
   &.primary {
     background: $bg-mainColor;
@@ -25,9 +25,8 @@ button {
   }
   &:hover {
     opacity: 0.9;
-    // transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow: -2px 2px 2px 2px  rgba($text-secondryColor, 0.3);
-
   }
 }
 
@@ -50,7 +49,7 @@ button {
   cursor: pointer;
 }
 
-// Table 
+// Table
 
 th {
   font-style: normal;
@@ -61,7 +60,7 @@ th {
   padding: 25px;
   background: #E2E5EB;
   color: #1F263E;
-  
+
 }
 .rounded-start{
   border-radius: 15px 0 0 15px !important;

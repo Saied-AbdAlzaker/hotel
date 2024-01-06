@@ -29,7 +29,9 @@ $border-reduis: 0.25rem;
 .text-redColor{
   color: $bg-redColor;
 }
-
+.text-whiteColor{
+  color: $text-whiteColor !important;
+}
 
 .bg-btn{
   color: $text-blackColorBtn;

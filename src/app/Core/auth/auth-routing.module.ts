@@ -7,10 +7,10 @@ import { ForgetPasswordComponent } from './Components/forget-password/forget-pas
 
 const routes: Routes = [
 {path:'',redirectTo:'signin',pathMatch:'full'},
-{path:'signin',component:SigninComponent},
-{path:'signup',component:SignupComponent},
-{path:'reset-password', component:ResetPasswordComponent},
-{path:'forgot-password',component:ForgetPasswordComponent}
+{path:'signin',component:SigninComponent, data: { title: 'Sign In' }},
+{path:'signup',component:SignupComponent,data: { title: 'Sign Up' }},
+{path:'reset-password', component:ResetPasswordComponent,data: { title: 'Rest Your Password' }},
+{path:'forgot-password',component:ForgetPasswordComponent,data: { title: 'Forget Your Password' }}
 ];
 
 @NgModule({
