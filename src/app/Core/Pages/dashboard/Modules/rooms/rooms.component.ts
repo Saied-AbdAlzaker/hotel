@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IFacilities, IRooms, IRoomsDetails, Idelete } from './model/room';
+import { IFacilities, IRooms, IRoomsDetails } from './model/room';
 import { RoomsService } from './services/rooms.service';
 import { ViewRoomsComponent } from './components/view-rooms/view-rooms.component';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
@@ -71,7 +71,7 @@ export class RoomsComponent implements OnInit {
   }
 
 
-  openDeleteDialog(data:Idelete): void {
+  openDeleteDialog(data:any): void {
     console.log(data);
     
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
@@ -88,7 +88,7 @@ export class RoomsComponent implements OnInit {
     });
   }
 
-  onDeleteRooms(id: Idelete) {
+  onDeleteRooms(id: string) {
     this._roomsService.ondeletedialog(id).subscribe({
       next: (res) => {
         console.log(res);

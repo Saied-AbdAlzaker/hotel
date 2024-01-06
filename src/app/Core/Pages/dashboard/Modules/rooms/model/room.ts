@@ -29,6 +29,4 @@ export interface IRooms {
     updatedAt: string,
 }
 
-export interface Idelete{
-    id:number;
-}
+
