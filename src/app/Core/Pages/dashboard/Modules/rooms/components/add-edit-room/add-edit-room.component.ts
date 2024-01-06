@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RoomsService } from '../../services/rooms.service';
 import { ToastrService } from 'ngx-toastr';
 import { IFacilities } from '../../model/room';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-edit-room',
@@ -11,10 +12,12 @@ import { IFacilities } from '../../model/room';
 })
 export class AddEditRoomComponent implements OnInit {
 
+  RoomsId: any;
+  isUpdatePage: boolean = false;
   files: File[] = [];
   imgSrc: any;
   pathHttps: string = 'https://upskilling-egypt.com:443/';
-  facilities: IFacilities[]|undefined=[];
+  facilities: IFacilities[]=[];
   facilityId:any[]=[];
   roomForm = new FormGroup({
     roomNumber: new FormControl(null,[Validators.required]),
@@ -27,29 +30,54 @@ export class AddEditRoomComponent implements OnInit {
 
   constructor(
     private _RoomsService:RoomsService,
-    private toastr:ToastrService
-  ){}
+    private toastr:ToastrService,private _ActivatedRoute:ActivatedRoute,private router:Router
+     
+  ){
+    this.RoomsId=_ActivatedRoute.snapshot.params['_id'];
+    if(this.RoomsId){
+      this.isUpdatePage=true;
+    }else{
+      this.isUpdatePage=false;
+    }
+  }
   ngOnInit(): void {
     this.getFacilities()
   }
   
-  AddRoom(data:FormGroup){
-    let myData = new FormData()
-    let myMap = new Map(Object.entries(data.value));
-    for(const [key,val] of myMap){
-      myData.append(key, data.value[key])
+  onSubmit(data: FormGroup) {
+    if (this.RoomsId) {
+      this._RoomsService.editRooms(data.value, this.RoomsId).subscribe({
+        next: (res) => {
+          console.log(res);
+        }, error: (err) => {
+
+          this.toastr.error('upate failed');
+        }, complete: () => {
+
+          this.router.navigate(['/dashboard/rooms'])
+          this.toastr.success('Rooms Updated Successfully');
+        }
+      })
+    } else {
+      // Add
+      // console.log(data.value);
+      this._RoomsService.onAddRoom(data.value).subscribe({
+        next: (res) => {
+          console.log(res);
+
+        }, error: (err) => {
+
+          this.toastr.error(err.error.message, 'Error');
+        }, complete: () => {
+          this.router.navigate(['dashboard/rooms'])
+          this.toastr.success('rooms Added Successfully');
+
+        }
+      })
     }
-    myData.append('imgs', this.imgSrc, this.imgSrc['name']);
-    this._RoomsService.onAddRoom(myData).subscribe({
-      next:(res)=>{
-        console.log(res);
-      },error:(err)=>{
-        this.toastr.error(err.error.message,'error')
-      },complete:()=> {
-        this.toastr.success('room added successfully')
-      },
-    })
   }
+
+ 
   getFacilities(){
     this._RoomsService.onGetFacilities().subscribe({
       next:(res:any)=>{
