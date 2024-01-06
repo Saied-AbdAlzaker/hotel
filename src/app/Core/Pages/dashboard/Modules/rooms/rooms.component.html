@@ -15,7 +15,7 @@
       <div class="col-md-6 mt-3">
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-          <input [(ngModel)]="searchValue" (keyup)="getAllRooms()" type="text" placeholder="Search Here...."
+          <input [(ngModel)]="searchValue" (keyup)="onSearchInputChange()" type="text" placeholder="Search Here...."
             class="form-control rounded">
         </div>
       </div>
@@ -28,7 +28,7 @@
       </div>
 
       <div class="col-md-3 mt-3">
-        <select (change)="getAllRooms()" [(ngModel)]="facilityId" class="form-select" aria-label="facilities">
+        <select  [(ngModel)]="facilityId" (change)="getAllRooms()" class="form-select" aria-label="facilities">
           <option selected>All</option>
           <option *ngFor="let item of facilities" [ngValue]="item._id">{{item.name}}</option>
         </select>
@@ -51,17 +51,11 @@
       <tbody>
         <tr *ngFor="let item of tableData">
           <td>{{item.roomNumber}}</td>
-          <td class="w-25 rounded-2"><img [src]="imagePath+item.images[0]" class="w-50"></td>
+          <td class="w-25 rounded-2"><img [src]="imagePath +item.images" class="w-50"></td>
           <td>{{item.price}}</td>
           <td>{{item.discount}}</td>
           <td>{{item.capacity}}</td>
-          <td>
-            <ng-container *ngIf="item.facilities.length > 0">
-              <span *ngFor="let itemfacilities of item.facilities">{{itemfacilities.name}}</span>
-            </ng-container>
-            <span *ngIf="item.facilities.length == 0">No Facilities </span>
-          </td>
-
+          <td>{{item.facilities[0].name}}</td>
 
           <td class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -70,13 +64,15 @@
             <ul class="dropdown-menu">
               <div class="d-flex flex-column align-items-center">
           <td class=" my-0">
-            <a (click)="openViewDialog('2000ms','2000ms')" class="text-decoration-none cursor bg-btn"><i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
+            <a (click)="openViewDialog('2000ms','2000ms')" class="text-decoration-none cursor bg-btn"><i
+                class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
           </td>
           <td>
             <a [routerLink]="['/dashboard/rooms/edit',item._id]" class="text-decoration-none cursor bg-btn"><i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
           </td>
           <td>
-            <a (click)="openDeleteDialog(item)" class="text-decoration-none cursor bg-btn"><i class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
+            <a (click)="openDeleteDialog(item._id)" class="text-decoration-none cursor bg-btn"><i
+                class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
           </td>
   </div>
   </ul>
@@ -84,5 +80,13 @@
   </tr>
   </tbody>
   </table>
+
+  <div>
+    <mat-paginator [length]="tableResponse?.totalCount" [pageSizeOptions]="[5, 10, 50, 100]"
+      [pageSize]="tableResponse?.size" (page)="handlePageEvent($event)" [pageIndex]="pageIndex"
+      aria-label="Select page">
+    </mat-paginator>
+  </div>
+
   </div>
 </section>
