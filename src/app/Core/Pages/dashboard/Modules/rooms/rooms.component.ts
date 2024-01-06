@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IFacilities, IRooms, IRoomsDetails } from './model/room';
+import { IFacilities, IRooms, IRoomsDetails, Idelete } from './model/room';
 import { RoomsService } from './services/rooms.service';
 import { ViewRoomsComponent } from './components/view-rooms/view-rooms.component';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
@@ -71,22 +71,24 @@ export class RoomsComponent implements OnInit {
   }
 
 
-  openDeleteDialog(tableData: any): void {
+  openDeleteDialog(data:any): void {
+    console.log(data);
+    
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: tableData,
-      width: '35%',
+      data: {data},
+      width: '40%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       if (result) {
-        console.log(result.id);
+        console.log(result);
         this.onDeleteRooms(result.id);
       }
     });
   }
 
-  onDeleteRooms(id: number) {
+  onDeleteRooms(id: Idelete) {
     this._roomsService.ondeletedialog(id).subscribe({
       next: (res) => {
         console.log(res);

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Idelete } from '../model/room';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +22,11 @@ export class RoomsService {
   onGetFacilities() {
     return this._HttpClient.get('admin/room-facilities')
   }
-  ondeletedialog(id:number):Observable<any>
+  ondeletedialog(id:Idelete):Observable<any>
   {
     return this._HttpClient.delete(`admin/rooms/${id}`)
   }
-  editRooms(data: any, id: number): Observable<any> {
+  editRooms(data: any, id: string): Observable<any> {
     return this._HttpClient.put(`admin/rooms/${id}`, data);
   }
 }
