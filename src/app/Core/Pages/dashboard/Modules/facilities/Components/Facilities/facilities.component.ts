@@ -1,7 +1,9 @@
+import { FacilitiesService } from './../../Services/facilities.service';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
+import { AddEditComponent } from '../add-edit/add-edit.component';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-facilities',
@@ -9,41 +11,70 @@ import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialo
   styleUrls: ['./facilities.component.scss']
 })
 export class FacilitiesComponent {
+
+  // pageIndex: number = 0;
+  // pageSize: number = 10;
+  // pageNumber: number | undefined = 1;
+
+  private searchSubject: Subject<string> = new Subject<string>();
+  tableResponse:any;
   tableData:any;
-  pageIndex: number = 0;
-  pageSize: number = 10;
-  pageNumber: number | undefined = 1;
-  imagePath:string = 'http://upskilling-egypt.com:3000/';
+  searchValue:string='';
 
-  constructor(private dialog:MatDialog,private toastr:ToastrService) { }
+  constructor(private dialog: MatDialog, private _facilitiesService:FacilitiesService,
+    private _toastrService:ToastrService) {}
 
+  
   ngOnInit() {
-
+    this.getAllFacilities()
   }
 
-
-  handlePageEvent(e: any) {
-    this.pageSize = e.pageSize;
-    this.pageNumber = e.pageIndex + 1;
-  }
-  openDeleteDialog(facilityData:any): void {
-    console.log(facilityData);
-
-    const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: facilityData,
+  openAddDialog(): void {
+    const dialogRef = this.dialog.open(AddEditComponent, {
+      data: {},
       width: '40%',
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      if (result) {
-        console.log(result);
-        this.onDeleteRooms(result._id);
-      }
+      this.onAddNewFacilities(result);
     });
   }
 
-  onDeleteRooms(id: string) {
-
+  onAddNewFacilities(data: String) {
+    this._facilitiesService.addFacilities(data).subscribe({
+      next: (res) => {
+        console.log(res);
+      }, error: (err) => {
+        this._toastrService.error(err.error.message,'Error!')
+      }, complete: () => {
+        this._toastrService.success('Facilities Added Successfully', 'Ok');
+        this.getAllFacilities()
+      }
+    })
   }
+
+  getAllFacilities(){
+    let parms = {
+      name: this.searchValue,
+    }
+
+    this._facilitiesService.getAllFacilities(parms).subscribe({
+      next: (res)=>{
+        console.log(res);
+        this.tableResponse = res.data;
+        this.tableData = this.tableResponse?.facilities;
+
+
+      }, error: (err) =>{
+        this._toastrService.error(err.error.message, 'Error!')
+      }
+    })
+  }
+
+  // Search
+  onSearchInputChange() {
+    this.searchSubject.next(this.searchValue);
+  }
+
 }
