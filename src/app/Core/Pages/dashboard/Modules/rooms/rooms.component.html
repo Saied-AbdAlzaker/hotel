@@ -10,28 +10,31 @@
 
       <div class="col-md-4">
         <button routerLink="/dashboard/rooms/add" class="primary w-75 mt-5">Add New Room</button>
-
       </div>
 
       <div class="col-md-6 mt-3">
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-          <input [(ngModel)]="searchValue" (keyup)="getAllRooms()" type="text" placeholder="Search Here...." class="form-control rounded">
+          <input [(ngModel)]="searchValue" (keyup)="getAllRooms()" type="text" placeholder="Search Here...."
+            class="form-control rounded">
         </div>
       </div>
+
       <div class="col-md-3 mt-3">
         <select class="form-select" aria-label="Default select example">
           <option selected>All</option>
           <option></option>
         </select>
       </div>
+
       <div class="col-md-3 mt-3">
-        <select class="form-select" aria-label="Default select example">
+        <select (change)="getAllRooms()" [(ngModel)]="facilityId" class="form-select" aria-label="facilities">
           <option selected>All</option>
-          <option></option>
+          <option *ngFor="let item of facilities" [ngValue]="item._id">{{item.name}}</option>
         </select>
       </div>
     </div>
+
 
     <table class="table table-striped">
       <thead>
@@ -45,14 +48,20 @@
           <th class="rounded-end">Actions</th>
         </tr>
       </thead>
-      <tbody *ngIf="tableData.length > 0">
+      <tbody>
         <tr *ngFor="let item of tableData">
           <td>{{item.roomNumber}}</td>
-          <td class="w-25 rounded-2"><img [src]="imagePath+item.images" class="w-50"></td>
+          <td class="w-25 rounded-2"><img [src]="imagePath+item.images[0]" class="w-50"></td>
           <td>{{item.price}}</td>
           <td>{{item.discount}}</td>
           <td>{{item.capacity}}</td>
-          <!-- <td>{{item.}}</td> -->
+          <td>
+            <ng-container *ngIf="item.facilities.length > 0">
+              <span *ngFor="let itemfacilities of item.facilities">{{itemfacilities.name}}</span>
+            </ng-container>
+            <span *ngIf="item.facilities.length == 0">No Facilities </span>
+          </td>
+
 
           <td class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
