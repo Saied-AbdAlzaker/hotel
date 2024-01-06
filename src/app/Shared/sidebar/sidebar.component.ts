@@ -43,6 +43,11 @@ export class SidebarComponent {
       title: 'Booking',
       icon: 'fa-solid fa-bookmark',
       link: '/dashboard/booking',
+    },
+    {
+      title: 'Facilities',
+      icon: 'fa-solid fa-bookmark',
+      link: '/dashboard/Facilities',
     }
   ];
   openDialogCahngePassword(): void {
