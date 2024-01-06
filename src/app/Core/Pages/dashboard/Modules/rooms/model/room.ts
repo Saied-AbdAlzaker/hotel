@@ -28,3 +28,5 @@ export interface IRooms {
     createdAt: string,
     updatedAt: string,
 }
+
+

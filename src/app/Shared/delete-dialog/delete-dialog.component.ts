@@ -9,7 +9,7 @@ import { IRooms } from 'src/app/Core/Pages/dashboard/Modules/rooms/model/room';
 })
 export class DeleteDialogComponent {
 constructor(private dialogRef:MatDialogRef<DeleteDialogComponent>,
-  @Inject(MAT_DIALOG_DATA) public data: any, ){}
+  @Inject(MAT_DIALOG_DATA) public data: any ){}
 
 
   
