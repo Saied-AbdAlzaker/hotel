@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { LogOutComponent } from './components/log-out/log-out.component';
 interface IMenu {
@@ -12,6 +13,9 @@ interface IMenu {
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
+  constructor(
+    private Router:Router
+     ) {}
   menu: IMenu[] = [
     {
       title: 'Home',
@@ -42,8 +46,12 @@ export class SidebarComponent {
   openDialogCahngePassword(): void {
 
   }
-  openDialogLogOut(): void {
-
-
+  openDialogLogOut() {
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('role');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userEmail')
+    localStorage.removeItem('loglevel')
+    this.Router.navigate(['/auth'])
   }
 }

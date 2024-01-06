@@ -2,7 +2,7 @@
     <div class="row">
         <div class="card-auth">
             <div class="inputs-auth">
-                <form [formGroup]="roomForm" (ngSubmit)="AddRoom(roomForm)">
+                <form [formGroup]="roomForm" (ngSubmit)="onSubmit(roomForm)">
                     <div class="form-group">
                         <input type="text" formControlName="roomNumber" class="form-control" id="roomNumber" placeholder="Room Number">
                         <!-- <span class="text-danger  mb-3" *ngIf="signupForm.get('userName')?.errors &&

@@ -5,7 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/Shared/shared.module';
 
 const routes: Routes = [
-  {path: 'ads', component: AdsComponent},
+  {path: '', redirectTo: 'ads', pathMatch: 'full'},
+  {path: '', component: AdsComponent},
 ]
 
 @NgModule({

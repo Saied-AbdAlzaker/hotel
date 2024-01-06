@@ -70,13 +70,13 @@
             <ul class="dropdown-menu">
               <div class="d-flex flex-column align-items-center">
           <td class=" my-0">
-            <a class="text-decoration-none cursor bg-btn"><i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
+            <a (click)="openViewDialog('2000ms','2000ms')" class="text-decoration-none cursor bg-btn"><i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
           </td>
           <td>
             <a class="text-decoration-none cursor bg-btn"><i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
           </td>
           <td>
-            <a class="text-decoration-none cursor bg-btn"><i class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
+            <a (click)="openDeleteDialog(item)" class="text-decoration-none cursor bg-btn"><i class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
           </td>
   </div>
   </ul>
