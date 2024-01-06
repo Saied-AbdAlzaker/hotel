@@ -71,7 +71,7 @@ export class RoomsComponent implements OnInit {
   }
 
 
-  openDeleteDialog(data:any): void {
+  openDeleteDialog(data:Idelete): void {
     console.log(data);
     
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
