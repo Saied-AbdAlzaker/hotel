@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IFacilities, IRooms, IRoomsDetails } from './model/room';
-import { RoomsService } from './services/rooms.service';
-import { ViewRoomsComponent } from './components/view-rooms/view-rooms.component';
+import { IFacilities, IRooms, IRoomsDetails } from '../../model/room';
+import { RoomsService } from '../../services/rooms.service';
+import { ViewRoomsComponent } from '../view-rooms/view-rooms.component';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
@@ -16,30 +16,20 @@ import { debounceTime } from 'rxjs';
 })
 export class RoomsComponent implements OnInit {
 
-
-  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(ViewRoomsComponent,
-       {
-      width: '60%',
-      enterAnimationDuration,
-      exitAnimationDuration,
-    });
-
-  }
-  constructor(private dialog:MatDialog,private _roomsService:RoomsService,private toastr:ToastrService) { }
-
   pageIndex: number = 0;
   pageSize: number = 10;
   pageNumber: number | undefined = 1;
-
   private searchSubject: Subject<string> = new Subject<string>();
-
   tableResponse:IRoomsDetails|undefined;
   tableData:IRooms[]=[];
   facilities: IFacilities[]=[];
   facilityId:IFacilities[]=[];
   searchValue:string=''
   imagePath:string = 'http://upskilling-egypt.com:3000/';
+
+
+  constructor(private dialog:MatDialog,private _roomsService:RoomsService,private toastr:ToastrService) { }
+
 
   ngOnInit() {
     this.getAllRooms();
@@ -91,11 +81,11 @@ export class RoomsComponent implements OnInit {
   }
 
 
-  openDeleteDialog(data:any): void {
-    console.log(data);
-    
+  openDeleteDialog(roomData:any): void {
+    console.log(roomData);
+
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: {data},
+      data: roomData,
       width: '40%',
     });
 
@@ -103,7 +93,7 @@ export class RoomsComponent implements OnInit {
       console.log('The dialog was closed');
       if (result) {
         console.log(result);
-        this.onDeleteRooms(result.id);
+        this.onDeleteRooms(result._id);
       }
     });
   }
@@ -128,5 +118,14 @@ export class RoomsComponent implements OnInit {
     this.pageSize = e.pageSize;
     this.pageNumber = e.pageIndex + 1;
     this.getAllRooms();
+  }
+  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(ViewRoomsComponent,
+       {
+      width: '60%',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+
   }
 }
