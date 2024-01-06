@@ -10,8 +10,6 @@ const routes: Routes = [
   {path: '', component: RoomsComponent},
   {path: 'add', component: AddEditRoomComponent},
   {path: 'edit/:_id', component: AddEditRoomComponent},
-
-
 ]
 
 @NgModule({
