@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { AddEditComponent } from '../add-edit/add-edit.component';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-facilities',
@@ -10,18 +11,22 @@ import { AddEditComponent } from '../add-edit/add-edit.component';
   styleUrls: ['./facilities.component.scss']
 })
 export class FacilitiesComponent {
+
+  // pageIndex: number = 0;
+  // pageSize: number = 10;
+  // pageNumber: number | undefined = 1;
+
+  private searchSubject: Subject<string> = new Subject<string>();
+  tableResponse:any;
   tableData:any;
-  pageIndex: number = 0;
-  pageSize: number = 10;
-  pageNumber: number | undefined = 1;
-  imagePath:string = 'http://upskilling-egypt.com:3000/';
+  searchValue:string='';
 
   constructor(private dialog: MatDialog, private _facilitiesService:FacilitiesService,
     private _toastrService:ToastrService) {}
 
   
   ngOnInit() {
-
+    this.getAllFacilities()
   }
 
   openAddDialog(): void {
@@ -41,46 +46,35 @@ export class FacilitiesComponent {
       next: (res) => {
         console.log(res);
       }, error: (err) => {
-        console.log(err);
+        this._toastrService.error(err.error.message,'Error!')
       }, complete: () => {
         this._toastrService.success('Facilities Added Successfully', 'Ok');
-        // 
+        this.getAllFacilities()
       }
     })
   }
 
-  // getAllRooms(){
-  //   let parms = {
-  //     page: this.pageNumber,
-  //     size: this.pageSize,
-  //     roomNumber: this.searchValue,
-  //     facilityId: this.facilityId,
-  //   }
+  getAllFacilities(){
+    let parms = {
+      name: this.searchValue,
+    }
 
-  //   this._roomsService.onGetAllRooms(parms).subscribe({
-  //     next: (res)=>{
-  //       console.log(res);
-  //       this.tableResponse = res.data;
-  //       // this.tableData = this.tableResponse?.rooms;
+    this._facilitiesService.getAllFacilities(parms).subscribe({
+      next: (res)=>{
+        console.log(res);
+        this.tableResponse = res.data;
+        this.tableData = this.tableResponse?.facilities;
 
-  //       this.tableData = res.data.rooms;
-  //       console.log(this.tableData);
 
-  //     }, error: (err) =>{
-  //       this.toastr.error(err.error.message, 'Error!')
-  //     }
-  //   })
-  // }
+      }, error: (err) =>{
+        this._toastrService.error(err.error.message, 'Error!')
+      }
+    })
+  }
 
   // Search
-  // onSearchInputChange() {
-  //   this.searchSubject.next(this.searchValue);
-  // }
-
-
-  handlePageEvent(e: any) {
-    this.pageSize = e.pageSize;
-    this.pageNumber = e.pageIndex + 1;
+  onSearchInputChange() {
+    this.searchSubject.next(this.searchValue);
   }
 
 }
