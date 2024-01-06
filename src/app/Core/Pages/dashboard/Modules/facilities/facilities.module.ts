@@ -1,3 +1,4 @@
+import { AddEditComponent } from './Components/Facilities/add-edit/add-edit.component';
 import { SharedModule } from 'src/app/Shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,7 +9,8 @@ import { FacilitiesComponent } from './Components/Facilities/facilities.componen
 
 @NgModule({
   declarations: [
-    FacilitiesComponent
+    FacilitiesComponent,
+    AddEditComponent
   ],
   imports: [
     CommonModule,
