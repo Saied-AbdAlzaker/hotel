@@ -12,17 +12,20 @@ import { ChangePasswordComponent } from './sidebar/components/change-password/ch
 import { LogOutComponent } from './sidebar/components/log-out/log-out.component';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   imports: [
     CommonModule,
     ToastrModule.forRoot({}),
-    FormsModule, ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,RouterLink,MatDialogModule
+    FormsModule, ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,RouterLink,
+    MatDialogModule, MatPaginatorModule
   ],
   exports: [
     FormsModule,ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,
-     ReactiveFormsModule,HttpClientModule,FormsModule,SidebarComponent,RouterLink,MatDialogModule
-     ,NavbarComponent
+     ReactiveFormsModule,HttpClientModule,FormsModule,SidebarComponent,RouterLink,
+     MatDialogModule, MatPaginatorModule, NavbarComponent
   ],
 
   declarations: [
