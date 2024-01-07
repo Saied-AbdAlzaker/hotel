@@ -5,9 +5,6 @@
         <h4 class="mb-0">Users Table Details</h4>
         <p class="text-muted">You can check all details</p>
       </div>
-      <div class="col-md-4 mb-3">
-        <button type="button" class="primary w-100 mt-5">Add New User</button>
-      </div>
 
       <table>
         <thead>
@@ -30,14 +27,25 @@
             <td>{{item.country}}</td>
 
             <td>{{item.role}}</td>
+<<<<<<< HEAD
             <td>{{item.createdAt |date:'dd-mm-yyyy'}}</td>
             <td class="rounded-end">{{item.updatedAt |date:'dd-mm-yyyy'}}</td>
+=======
+            <td>{{item.createdAt | date:'dd-MM-yyyy'}}</td>
+            <td class="rounded-start">{{item.updatedAt | date:'dd-MM-yyyy'}}</td>
+>>>>>>> e3de4f844f1d978ac234e0706113d41b770003f7
 
           </tr>
         </tbody>
       </table>
 
+<<<<<<< HEAD
       <div class="p-3 w-50 m-auto">
+=======
+
+      <div class="p-3">
+
+>>>>>>> e3de4f844f1d978ac234e0706113d41b770003f7
         <mat-paginator 
           [length]="tableResponse?.totalCount" 
           [pageSizeOptions]="[10, 50, 100]"
@@ -47,7 +55,17 @@
         </mat-paginator>
       </div>
       <div>
+        
+        <mat-paginator [length]="tableResponse?.totalCount" [pageSizeOptions]="[5, 10, 50, 100]"
+          (page)="handlePageEvent($event)" [pageIndex]="pageIndex" aria-label="Select page">
+        </mat-paginator>
+      </div>
+      <div>
+
       </div>
     </div>
   </div>
+
 </section>
+
+

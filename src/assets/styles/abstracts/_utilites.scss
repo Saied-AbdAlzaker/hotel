@@ -1,3 +1,5 @@
+@import "/src/assets/styles/abstracts/_variables.scss";
+
 //shared utilites for all project
 
 .logo {
@@ -64,7 +66,6 @@ mat-paginator{
 
 th {
   font-style: normal;
-  font-family: Poppins;
   font-size: 16px;
   font-weight: 500;
   line-height: normal;
@@ -117,4 +118,14 @@ td {
 //nowraping for text
 .text-nowrap{
   text-wrap: nowrap;
+}
+
+//override angular material
+.mat-calendar-body-cell-content.mat-focus-indicator{
+  background: $text-mainColor;
+
+}
+.mat-calendar-body-disabled>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical){
+  background: white
+
 }

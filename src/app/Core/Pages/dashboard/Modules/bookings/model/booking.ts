@@ -5,12 +5,12 @@ export interface IBookingsTable {
 }
 export interface IBookings {
     _id: string,
-    startDate: string,
-    endDate: string,
+    startDate: Date,
+    endDate: Date,
     totalPrice: number,
     user: any,
     room: IRooms,
     status: string,
-    createdAt: string,
-    updatedAt: string
+    createdAt: Date,
+    updatedAt: Date
 }

@@ -1,7 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -10,12 +9,21 @@ import { GlobalInterceptor } from './Core/Interceptors/global.interceptor';
 import { SharedModule } from './Shared/shared.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './Core/Interceptors/loading.interceptor';
+<<<<<<< HEAD
 import { DARK_MODE_OPTIONS } from 'angular-dark-mode';
+=======
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { FormsModule } from '@angular/forms';
+>>>>>>> e3de4f844f1d978ac234e0706113d41b770003f7
 
+registerLocaleData(en);
 @NgModule({
   declarations: [
     AppComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -28,6 +36,7 @@ import { DARK_MODE_OPTIONS } from 'angular-dark-mode';
       timeOut: 4000,
       progressBar: true,
     }),
+    FormsModule,
     NgxSpinnerModule,
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
 
@@ -38,6 +47,7 @@ import { DARK_MODE_OPTIONS } from 'angular-dark-mode';
       useClass: GlobalInterceptor,
       multi: true
     },
+    { provide: NZ_I18N, useValue: en_US },
     {
       provide:HTTP_INTERCEPTORS,
       useClass:LoadingInterceptor,
