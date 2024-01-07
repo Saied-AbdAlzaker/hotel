@@ -40,7 +40,7 @@
       <div class="p-3">
         <mat-paginator 
           [length]="tableResponse?.totalCount" 
-          [pageSizeOptions]="[5, 10, 50, 100]"
+          [pageSizeOptions]="[10, 50, 100]"
           (page)="handlePageEvent($event)" 
           [pageIndex]="pageIndex"
           aria-label="Select page">
@@ -48,19 +48,6 @@
       </div>
       <div>
       </div>
-
-
-      <!-- <div>
-        <mat-paginator [length]="tableResponse?.totalCount" 
-              [pageSizeOptions]="[5,10, 50, 100]" 
-              (page)="handlePageEvent($event)" [pageIndex]="pageIndex" 
-              aria-label="Select page">
-          </mat-paginator>
-      </div> -->
-      
     </div>
-
   </div>
-
-
 </section>
