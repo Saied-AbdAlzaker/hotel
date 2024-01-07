@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AddEditComponent } from '../add-edit/add-edit.component';
 import { Subject } from 'rxjs';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
-import { FacilitiesService } from '../../services/facilities.service';
+import { FacilitiesService } from '../../Services/facilities.service';
 
 @Component({
   selector: 'app-facilities',
