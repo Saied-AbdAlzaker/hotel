@@ -10,6 +10,7 @@ import { GlobalInterceptor } from './Core/Interceptors/global.interceptor';
 import { SharedModule } from './Shared/shared.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './Core/Interceptors/loading.interceptor';
+import { DARK_MODE_OPTIONS } from 'angular-dark-mode';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,14 @@ import { LoadingInterceptor } from './Core/Interceptors/loading.interceptor';
       provide:HTTP_INTERCEPTORS,
       useClass:LoadingInterceptor,
       multi: true
-    }
+    },
+    {
+      provide: DARK_MODE_OPTIONS,
+      useValue: {
+          darkModeClass: 'my-dark-mode',
+          lightModeClass: 'my-light-mode'
+      }
+  }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

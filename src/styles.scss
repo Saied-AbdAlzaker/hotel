@@ -38,3 +38,95 @@ $hotel-theme: mat.define-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// dark mode 
+@import '../node_modules/@angular/material/theming';
+
+
+@mixin body-theme($theme) {
+  $_background: map-get($theme, background);
+  $app-background-color: mat-color($_background, background);
+
+  body {
+    background-color: $app-background-color;
+  }
+}
+.dark-theme {
+   body {
+    background-color: #000; 
+    color: #ffffff; 
+    .text-muted{
+      color: #fff !important;
+    }
+    transition: all 0.2s linear;
+   }
+   button{
+    background-color: rgb(60, 62, 64) !important; 
+    border: rgb(255, 255, 255, .5) solid 1px;
+   }
+   #navbar{
+    border: rgb(255, 255, 255, .5) solid 1px;
+    background-color: rgb(60, 62, 64) !important; 
+    span{
+      color: #ffffff !important;
+    }
+    .dropdown{
+      .btn{
+        background-color: rgb(60, 62, 64) !important; 
+        color: #fff !important;
+      }
+    }
+  }
+  #sidebar{
+    background-color: rgb(60, 62, 64) !important; 
+  }
+  select,option{
+    background: #000 !important;
+    color: #fff !important;
+    
+  }
+  .input-group,input,.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating){
+    background: #000 !important;
+    color: #fff !important;
+    .input-group-text {
+      color: #fff !important;
+    }
+  }
+  //table
+  thead>tr{
+    border: rgb(255, 255, 255, .5) solid 1px;
+  }
+  th{
+    background: #000 !important;
+    color: #fff !important;
+  }
+  tr{
+    border-radius: 15px !important;
+    background: #000 !important;
+  }
+  //angular material
+  
+  //paginator
+  mat-paginator{
+    background: #000 !important;
+    border: rgb(255, 255, 255, .5) solid 1px;
+    color: #fff;
+    .mat-mdc-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-mdc-text-field-wrapper {
+      background: #000 !important;
+      border: rgb(255, 255, 255, .5) solid 1px;
+      .mat-mdc-select-value-text , .mat-mdc-select-arrow svg{
+        color: #fff !important;
+      }
+    }
+    .mat-mdc-icon-button {
+      background: #000 !important;
+      border: rgb(255, 255, 255, .5) solid 1px;
+      .mat-mdc-paginator-icon { 
+        background: #fff !important;
+        color: #fff !important;
+      }
+    }
+  }
+
+  
+}

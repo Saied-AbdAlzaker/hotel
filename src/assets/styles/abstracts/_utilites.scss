@@ -51,6 +51,14 @@ button {
 .pointer {
   cursor: pointer;
 }
+//angular material
+.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+  padding: 0 !important;
+  // line-height: normal !important;
+}
+mat-paginator{
+  border-radius: 15px !important;
+}
 
 // Table
 

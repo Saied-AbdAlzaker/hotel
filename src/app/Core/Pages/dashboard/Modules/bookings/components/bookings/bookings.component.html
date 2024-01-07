@@ -6,7 +6,7 @@
           <p class="text-muted">You can check all details</p>
         </div>
 
-        <table class="table table-striped">
+        <table>
           <thead>
             <tr>
               <th class="rounded-start">Room Number</th>
@@ -30,7 +30,7 @@
             </tr>
           </tbody>
       </table>
-      <div>
+      <div class="p-3 w-50 m-auto">
         <mat-paginator [length]="tableResponse?.totalCount" 
               [pageSizeOptions]="[5,10, 50, 100]" 
               (page)="handlePageEvent($event)" [pageIndex]="pageIndex" 

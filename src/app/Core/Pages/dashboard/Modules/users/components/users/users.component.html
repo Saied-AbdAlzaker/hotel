@@ -31,13 +31,13 @@
 
             <td>{{item.role}}</td>
             <td>{{item.createdAt |date:'dd-mm-yyyy'}}</td>
-            <td class="rounded-start">{{item.updatedAt |date:'dd-mm-yyyy'}}</td>
+            <td class="rounded-end">{{item.updatedAt |date:'dd-mm-yyyy'}}</td>
 
           </tr>
         </tbody>
       </table>
 
-      <div class="p-3">
+      <div class="p-3 w-50 m-auto">
         <mat-paginator 
           [length]="tableResponse?.totalCount" 
           [pageSizeOptions]="[10, 50, 100]"

@@ -19,14 +19,17 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ProfileComponent } from './profile/profile.component';
-
+import { DarkComponent } from './dark/dark.component';
+import {MatCardModule} from '@angular/material/card'; 
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   imports: [
     CommonModule,
     ToastrModule.forRoot({}),
     FormsModule, ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,RouterLink,
-    MatDialogModule, MatPaginatorModule,MatButtonModule,MatIconModule, MatTooltipModule,RouterModule,MatSelectModule
+    MatDialogModule, MatPaginatorModule,MatButtonModule,MatIconModule, MatTooltipModule,RouterModule,
+    MatSelectModule,MatCardModule,MatButtonToggleModule,
 
   ],
   exports: [
@@ -42,7 +45,8 @@ import { ProfileComponent } from './profile/profile.component';
     ChangePasswordComponent,
     LogOutComponent,
     DeleteDialogComponent,
-    ProfileComponent
+    ProfileComponent,
+    DarkComponent
   ]
 })
 export class SharedModule { }
