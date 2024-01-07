@@ -26,8 +26,8 @@ export class RoomsComponent implements OnInit {
   tableResponse: any;
   tableData: IRooms[] = [];
   facilities: IFacilities[] | undefined = [];
-  facilityId: IFacilities[] = [];
-  // facilityId: any;
+  // facilityId: IFacilities[] = [];
+  facilityId: any;
   capacityName: string = '';
   imagePath: string = 'http://upskilling-egypt.com:3000/';
 

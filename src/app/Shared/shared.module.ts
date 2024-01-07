@@ -30,11 +30,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   exports: [
     FormsModule,ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,
      ReactiveFormsModule,HttpClientModule,FormsModule,SidebarComponent,RouterLink,
-     MatDialogModule, MatPaginatorModule, NavbarComponent,MatButtonModule,MatIconModule,MatTooltipModule,RouterModule
+     MatDialogModule, MatPaginatorModule, NavbarComponent,MatButtonModule,MatIconModule,MatTooltipModule,RouterModule,
     MatSelectModule,MatFormFieldModule,MatDialogModule, MatPaginatorModule
-  ]
   ],
-
   declarations: [
     SidebarComponent,
     NavbarComponent,
