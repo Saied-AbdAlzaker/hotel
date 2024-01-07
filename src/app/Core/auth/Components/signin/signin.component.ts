@@ -13,16 +13,16 @@ export class SigninComponent implements OnInit {
 
   hide: boolean = true;
   Message: string = ''
+  signinForm = new FormGroup({
+    email: new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')]),
+    password: new FormControl(null, [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
+  })
 
   constructor(private _authServices: AuthService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  signinForm = new FormGroup({
-    email: new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')]),
-    password: new FormControl(null, [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
-  })
 
   onSubmit(data: FormGroup) {
     this._authServices.onSignin(data.value).subscribe({

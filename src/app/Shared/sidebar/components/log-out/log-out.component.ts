@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-log-out',
@@ -8,9 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./log-out.component.scss']
 })
 export class LogOutComponent {
+
   constructor(
     private Router:Router,
-    public dialog: MatDialog
+    private dialogRef: MatDialogRef<LogOutComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    public toastr:ToastrService,
+
      ) {}
 logout(){
   localStorage.removeItem('userToken');
@@ -18,6 +23,11 @@ logout(){
   localStorage.removeItem('userName');
   localStorage.removeItem('userEmail')
   localStorage.removeItem('loglevel')
+  this.onNoClick()
+  this.toastr.success('You Loged out')
   this.Router.navigate(['/auth'])
+}
+onNoClick(): void {
+  this.dialogRef.close();
 }
 }

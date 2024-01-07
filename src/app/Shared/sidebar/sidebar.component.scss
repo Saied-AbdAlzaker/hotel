@@ -1,15 +1,2 @@
 @import "/src/assets/styles/layout.scss";
-.mat-mdc-dialog-container .mdc-dialog__surface{
 
-  display: block;
-  width: 30%;
-  height: 100%;
-  right: 0;
-  position: absolute;
-
-}
-
-.cdk-global-overlay-wrapper{
-  justify-content: flex-end;
-  align-items: flex-start;
-}
