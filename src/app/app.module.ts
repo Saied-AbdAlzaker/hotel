@@ -9,15 +9,11 @@ import { GlobalInterceptor } from './Core/Interceptors/global.interceptor';
 import { SharedModule } from './Shared/shared.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './Core/Interceptors/loading.interceptor';
-<<<<<<< HEAD
-import { DARK_MODE_OPTIONS } from 'angular-dark-mode';
-=======
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
->>>>>>> e3de4f844f1d978ac234e0706113d41b770003f7
 
 registerLocaleData(en);
 @NgModule({
@@ -52,14 +48,7 @@ registerLocaleData(en);
       provide:HTTP_INTERCEPTORS,
       useClass:LoadingInterceptor,
       multi: true
-    },
-    {
-      provide: DARK_MODE_OPTIONS,
-      useValue: {
-          darkModeClass: 'my-dark-mode',
-          lightModeClass: 'my-light-mode'
-      }
-  }
+    }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

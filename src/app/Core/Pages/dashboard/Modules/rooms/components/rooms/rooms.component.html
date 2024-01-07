@@ -82,18 +82,15 @@
         </tr>
       </tbody>
   </table>
+</div>
+
 
   <div class="p-3 w-50 m-auto">
-    <mat-paginator 
-      [length]="tableResponse?.totalCount"
-      [pageSizeOptions]="[10, 50, 100]"
-      [pageSize]="tableResponse?.size" 
-      (page)="handlePageEvent($event)" 
-      [pageIndex]="pageIndex"
+    <mat-paginator [length]="tableResponse?.totalCount" [pageSizeOptions]="[10, 50, 100]"
+      [pageSize]="tableResponse?.size" (page)="handlePageEvent($event)" [pageIndex]="pageIndex"
       aria-label="Select page">
     </mat-paginator>
   </div>
-</div>
 
   </div>
 </section>

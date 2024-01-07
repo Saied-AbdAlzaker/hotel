@@ -14,7 +14,7 @@
               <th>Start Date</th>
               <th>End Date</th>
               <th>User</th>
-              <th class="rounded-end">View</th>
+              <th class="rounded-end">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -30,33 +30,25 @@
                   <i class="fa-solid fa-ellipsis" style="color: #1f5141;"></i>
                 </a>
                 <ul class="dropdown-menu">
-                  <div class="d-flex flex-column align-items-center">
-              <td>
+                  <li class="d-flex flex-column align-items-center">
+              <li>
                 <a (click)="openViewDialog(item)"
-                  class="text-decoration-none cursor bg-btn"><i
-                    class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>View</a>
-              </td>
-              <td>
-                <a (click)="openDeleteDialog(item)" class="text-decoration-none cursor bg-btn"><i
+                  class="dropdown-item pointer"><i
+                    class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
+              </li>
+              <li>
+                <a (click)="openDeleteDialog(item)" class="dropdown-item pointer"><i
                     class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
-              </td>
-      </div>
+                </li>
       </ul>
       </td>
             </tr>
           </tbody>
       </table>
-<<<<<<< HEAD
-      <div class="p-3 w-50 m-auto">
-        <mat-paginator [length]="tableResponse?.totalCount" 
-              [pageSizeOptions]="[5,10, 50, 100]" 
-              (page)="handlePageEvent($event)" [pageIndex]="pageIndex" 
-=======
-      <div>
+      <div class="p-3 w-50 m-auto mt-3">
         <mat-paginator [length]="tableResponse?.totalCount"
               [pageSizeOptions]="[5,10, 50, 100]"
               (page)="handlePageEvent($event)" [pageIndex]="pageIndex"
->>>>>>> e3de4f844f1d978ac234e0706113d41b770003f7
               aria-label="Select page">
           </mat-paginator>
       </div>

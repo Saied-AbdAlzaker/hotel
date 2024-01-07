@@ -23,49 +23,33 @@
 
             <td class="rounded-start">{{item.userName}}</td>
             <td>{{item.email}}</td>
-            <td>{{item.phoneNumber}}</td>
+            <td>{{'0'+item.phoneNumber}}</td>
             <td>{{item.country}}</td>
 
-            <td>{{item.role}}</td>
-<<<<<<< HEAD
-            <td>{{item.createdAt |date:'dd-mm-yyyy'}}</td>
-            <td class="rounded-end">{{item.updatedAt |date:'dd-mm-yyyy'}}</td>
-=======
+            <td><span class="status w-100" [ngClass]="{
+              admin: item.role == 'admin',
+              user: item.role == 'user'}">
+            {{ item.role }}
+          </span></td>
             <td>{{item.createdAt | date:'dd-MM-yyyy'}}</td>
             <td class="rounded-start">{{item.updatedAt | date:'dd-MM-yyyy'}}</td>
->>>>>>> e3de4f844f1d978ac234e0706113d41b770003f7
 
           </tr>
         </tbody>
       </table>
 
-<<<<<<< HEAD
+
       <div class="p-3 w-50 m-auto">
-=======
-
-      <div class="p-3">
-
->>>>>>> e3de4f844f1d978ac234e0706113d41b770003f7
-        <mat-paginator 
-          [length]="tableResponse?.totalCount" 
+        <mat-paginator
+          [length]="tableResponse?.totalCount"
           [pageSizeOptions]="[10, 50, 100]"
-          (page)="handlePageEvent($event)" 
+          (page)="handlePageEvent($event)"
           [pageIndex]="pageIndex"
           aria-label="Select page">
         </mat-paginator>
-      </div>
-      <div>
-        
-        <mat-paginator [length]="tableResponse?.totalCount" [pageSizeOptions]="[5, 10, 50, 100]"
-          (page)="handlePageEvent($event)" [pageIndex]="pageIndex" aria-label="Select page">
-        </mat-paginator>
-      </div>
-      <div>
-
       </div>
     </div>
   </div>
 
 </section>
-
 

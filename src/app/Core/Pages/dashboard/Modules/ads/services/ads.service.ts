@@ -10,8 +10,8 @@ export class AdsService {
   constructor(private _httpClient: HttpClient) {}
 
   //getALL
-  getAllAds(): Observable<any> {
-    return this._httpClient.get('admin/ads');
+  getAllAds(parms:any): Observable<any> {
+    return this._httpClient.get('admin/ads', {params : parms});
   }
   //Delete
   onDeleteAds(id: any): Observable<any> {

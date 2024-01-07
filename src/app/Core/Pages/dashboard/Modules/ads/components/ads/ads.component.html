@@ -10,7 +10,7 @@
           <div class="input-group">
             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
             <input (keyup)="onSearchInputChange()" type="text" placeholder="Search Here...."
-              class="form-control rounded search-bar" />
+              class="form-control rounded" />
           </div>
         </div>
         <div class="col-md-3 mx-auto">
@@ -39,7 +39,9 @@
             <td>{{item.room?.price}}</td>
             <td>{{item.room?.discount}}</td>
             <td>{{item.room?.capacity}}</td>
-            <td>{{item.isActive}}</td>
+            <td class="rounded-start"  ><span class="status w-100" [ngClass]="item.isActive?'active':'notActive'">
+            {{ item.isActive?'active': 'not Active' }}
+          </span>
             <!-- <td class="rounded-start" *ngFor="let itemFacilities of facilities">{{ itemFacilities.name }}</td> -->
 
               <td class="nav-item dropdown rounded-end">
@@ -59,7 +61,7 @@
                       >
                     </li>
                     <li>
-                      <a class="dropdown-item pointer" (click)="openEditDialog(item)" 
+                      <a class="dropdown-item pointer" (click)="openEditDialog(item)"
                         ><i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
                     </li>
                     <li>
@@ -72,15 +74,15 @@
             </tr>
         </tbody>
       </table>
-      <!-- <div class="p-3 w-50 m-auto">
-        <mat-paginator 
-          [length]="tableData?.totalCount" 
+      <div class="p-3 w-50 m-auto">
+        <mat-paginator
+          [length]="tableData?.totalCount"
           [pageSizeOptions]="[5, 10, 50, 100]"
-          (page)="handlePageEvent($event)" 
+          (page)="handlePageEvent($event)"
           [pageIndex]="pageIndex"
           aria-label="Select page">
         </mat-paginator>
-      </div> -->
+      </div>
     </div>
   </div>
 </section>

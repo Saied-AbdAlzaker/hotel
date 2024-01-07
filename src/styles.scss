@@ -61,24 +61,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     transition: all 0.2s linear;
    }
    button{
-    background-color: rgb(60, 62, 64) !important; 
+    background: rgb(30, 31, 31) !important; 
     border: rgb(255, 255, 255, .5) solid 1px;
    }
    #navbar{
     border: rgb(255, 255, 255, .5) solid 1px;
-    background-color: rgb(60, 62, 64) !important; 
+    background: rgb(30, 31, 31) !important; 
     span{
       color: #ffffff !important;
     }
     .dropdown{
       .btn{
-        background-color: rgb(60, 62, 64) !important; 
+        background: rgb(30, 31, 31) !important; 
         color: #fff !important;
       }
     }
   }
   #sidebar{
-    background-color: rgb(60, 62, 64) !important; 
+    background: rgb(30, 31, 31) !important; 
   }
   select,option{
     background: #000 !important;
