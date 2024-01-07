@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { AddEditComponent } from '../add-edit/add-edit.component';
-import { Subject } from 'rxjs';
+import { Subject, debounceTime } from 'rxjs';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
-import { FacilitiesService } from '../../services/facilities.service';
+import { FacilitiesService } from '../../Services/facilities.service';
 
 @Component({
   selector: 'app-facilities',
@@ -13,23 +13,49 @@ import { FacilitiesService } from '../../services/facilities.service';
 })
 export class FacilitiesComponent {
 
-  // pageIndex: number = 0;
-  // pageSize: number = 10;
-  // pageNumber: number | undefined = 1;
-
   private searchSubject: Subject<string> = new Subject<string>();
-  tableResponse:any;
-  tableData:any;
-  searchValue:string='';
+  tableResponse: any;
+  tableData: any;
+  searchValue: string = '';
 
-  constructor(private dialog: MatDialog, private _facilitiesService:FacilitiesService,
-    private _toastrService:ToastrService) {}
-
+  constructor(private dialog: MatDialog, private _facilitiesService: FacilitiesService,
+    private _toastrService: ToastrService) { }
 
   ngOnInit() {
-    this.getAllFacilities()
+    this.getAllFacilities();
+    this.searchSubject.pipe(debounceTime(1000)).subscribe({
+      next: (res) =>{
+        console.log(res);
+        this.getAllFacilities();
+      }
+    })
+
   }
 
+  // All Facilities
+  getAllFacilities() {
+    let parms = {
+      name: this.searchValue,
+    }
+
+    this._facilitiesService.getAllFacilities(parms).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.tableResponse = res.data;
+        this.tableData = this.tableResponse?.facilities;
+
+
+      }, error: (err) => {
+        this._toastrService.error(err.error.message, 'Error!')
+      }
+    })
+  }
+  // Search
+  onSearchInputChange() {
+    this.searchSubject.next(this.searchValue);
+  }
+
+  // Add Facilities
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AddEditComponent, {
       data: {},
@@ -38,7 +64,7 @@ export class FacilitiesComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.onAddNewFacilities(result);
+      this.onAddNewFacilities(result.name);
     });
   }
 
@@ -47,7 +73,7 @@ export class FacilitiesComponent {
       next: (res) => {
         console.log(res);
       }, error: (err) => {
-        this._toastrService.error(err.error.message,'Error!')
+        this._toastrService.error(err.error.message, 'Error!')
       }, complete: () => {
         this._toastrService.success('Facilities Added Successfully', 'Ok');
         this.getAllFacilities()
@@ -55,29 +81,41 @@ export class FacilitiesComponent {
     })
   }
 
-  getAllFacilities(){
-    let parms = {
-      name: this.searchValue,
-    }
+  // Edit Facilities
+  openEditDialog(FacilitiesData: any): void {
+    const dialogRef = this.dialog.open(AddEditComponent, {
+      data: FacilitiesData,
+      width: '40%',
+    });
+    console.log(FacilitiesData.name);
 
-    this._facilitiesService.getAllFacilities(parms).subscribe({
-      next: (res)=>{
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result) {
+        console.log(result);
+
+        this.onEditNewFacilities(result._id, FacilitiesData.name);
+
+      }
+    });
+  }
+
+  onEditNewFacilities(_id: string, data: string) {
+    this._facilitiesService.editFacilities(_id, data).subscribe({
+      next: (res) => {
         console.log(res);
-        this.tableResponse = res.data;
-        this.tableData = this.tableResponse?.facilities;
-
-
-      }, error: (err) =>{
+      }, error: (err) => {
         this._toastrService.error(err.error.message, 'Error!')
+      }, complete: () => {
+        this._toastrService.success('Facilities Updeded Successfully', 'Ok');
+        this.getAllFacilities()
       }
     })
   }
 
-  // Search
-  onSearchInputChange() {
-    this.searchSubject.next(this.searchValue);
-  }
-  openDeleteDialog(facilityData:any): void {
+  // Delete Facilities
+  openDeleteDialog(facilityData: any): void {
     console.log(facilityData);
 
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
@@ -110,3 +148,6 @@ export class FacilitiesComponent {
     });
   }
 }
+
+
+
