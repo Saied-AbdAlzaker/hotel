@@ -18,29 +18,19 @@ export class AddEditRoomComponent implements OnInit {
   files: File[] = [];
   imgSrc: any;
   pathHttps: string = 'https://upskilling-egypt.com:443/';
-  facilities: IFacilities[]|undefined=[];
-  facilityId:any[]|undefined=[];
-  roomData:any;
-
-
-  roomForm = new FormGroup({
-    roomNumber: new FormControl(null,[Validators.required]),
-    // imgs: new FormControl(null,[Validators.required]),
-    price: new FormControl(null,[Validators.required]),
-    capacity: new FormControl(null,[Validators.required]),
-    discount: new FormControl(null,[Validators.required]),
-    facilities: new FormControl(null,[Validators.required]),
-  })
+  facilities: IFacilities[] | undefined = [];
+  facilityId: any[] | undefined = [];
+  roomData: any;
 
   constructor(
-    private _RoomsService:RoomsService,
-    private toastr:ToastrService,
-    private ActivatedRoute:ActivatedRoute,
-    private router:Router
-  ){
-    this.RoomsId=ActivatedRoute.snapshot.params['id'];
-    if(this.RoomsId){
-      this.isEditMode=true;
+    private _RoomsService: RoomsService,
+    private toastr: ToastrService,
+    private ActivatedRoute: ActivatedRoute,
+    private router: Router
+  ) {
+    this.RoomsId = ActivatedRoute.snapshot.params['id'];
+    if (this.RoomsId) {
+      this.isEditMode = true;
       this.getRoomById(this.RoomsId);
       ActivatedRoute.url.subscribe(url => {
         this.isViewMode = url.some(segment => segment.path === 'view')
@@ -50,16 +40,28 @@ export class AddEditRoomComponent implements OnInit {
         this.isEditMode = url.some(segment => segment.path === 'edit')
         this.enableFormControls()
       })
-    }else{
+    } else {
       this.isAddMode = true;
       this.isEditMode = false;
       this.isViewMode = false
     }
   }
-  
+
   ngOnInit(): void {
     this.getFacilities()
   }
+
+   // Form
+   roomForm = new FormGroup({
+    roomNumber: new FormControl(null, [Validators.required]),
+    // imgs: new FormControl(null,[Validators.required]),
+    price: new FormControl(null, [Validators.required]),
+    capacity: new FormControl(null, [Validators.required]),
+    discount: new FormControl(null, [Validators.required]),
+    facilities: new FormControl(null, [Validators.required]),
+  })
+  
+  // Disable Formm
   disableFormControls() {
     if (this.isViewMode) {
       this.roomForm.get('roomNumber')?.disable();
@@ -70,6 +72,7 @@ export class AddEditRoomComponent implements OnInit {
       this.roomForm.get('imgs')?.disable();
     }
   }
+  // Enable Form
   enableFormControls() {
     if (this.isEditMode) {
       this.roomForm.get('roomNumber')?.enable();
@@ -81,7 +84,8 @@ export class AddEditRoomComponent implements OnInit {
 
     }
   }
-  
+
+  // On Submit Form
   onSubmit(data: FormGroup) {
     let myData = new FormData();
     myData.append('roomNumber', data.value.roomNumber);
@@ -98,7 +102,7 @@ export class AddEditRoomComponent implements OnInit {
           console.log(res);
         }, error: (err) => {
 
-          this.toastr.error(err.error.message,'failed');
+          this.toastr.error(err.error.message, 'failed');
         }, complete: () => {
           this.router.navigate(['/dashboard/rooms'])
           this.toastr.success('Rooms Updated Successfully');
@@ -118,53 +122,56 @@ export class AddEditRoomComponent implements OnInit {
     }
   }
 
- 
-  getFacilities(){
+  // Facilities
+  getFacilities() {
     this._RoomsService.onGetFacilities().subscribe({
-      next:(res:any)=>{
+      next: (res: any) => {
         console.log(res);
-        this.facilities=res.data?.facilities
+        this.facilities = res.data?.facilities
         console.log(this.facilities);
       }
     })
   }
-  getRoomById(id:string){
+
+  // Room By Id
+  getRoomById(id: string) {
     this._RoomsService.onGetRoomById(id).subscribe({
-      next:(res:any)=>{
+      next: (res: any) => {
         console.log(res);
-        this.roomData = res.data.room;        
+        this.roomData = res.data.room;
       },
-      error:(err)=>{
+      error: (err) => {
         this.toastr.error(err.error.message)
       },
-      complete:()=>{   
+      complete: () => {
         console.log(this.roomData.facilities);
-         if (this.roomData?.facilities) {
-              for (let i = 0; i < this.roomData.facilities.length; i++) {
-              const facility = this.roomData.facilities[i];
-              }
-            };    
+        if (this.roomData?.facilities) {
+          for (let i = 0; i < this.roomData.facilities.length; i++) {
+            const facility = this.roomData.facilities[i];
+          }
+        };
         this.imgSrc = 'http://upskilling-egypt.com:3000/' + this.roomData?.imgs,
-        this.roomForm.patchValue({
-          roomNumber:this.roomData?.roomNumber,
-          price:this.roomData?.price,
-          capacity:this.roomData?.capacity,
-          discount:this.roomData?.discount,
-          facilities:this.roomData?.facility
-         }); 
+          this.roomForm.patchValue({
+            roomNumber: this.roomData?.roomNumber,
+            price: this.roomData?.price,
+            capacity: this.roomData?.capacity,
+            discount: this.roomData?.discount,
+            facilities: this.roomData?.facility
+          });
+      }
+    }
+    )
   }
+
+  // ngx-dropzone
+  onSelect(event: any) {
+    console.log(event);
+    this.imgSrc = event.addedFiles[0];
+    this.files.push(...event.addedFiles);
   }
-)}
-
-
-onSelect(event:any) {
-  console.log(event);
-  this.imgSrc= event.addedFiles[0];
-  this.files.push(...event.addedFiles);
-}
-
-onRemove(event:any) {
-  console.log(event);
-  this.files.splice(this.files.indexOf(event), 1);
-}
+  onRemove(event: any) {
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
+  }
+  
 }
