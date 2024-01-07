@@ -1,4 +1,3 @@
-import { FacilitiesService } from './../../Services/facilities.service';
 import { Component } from '@angular/core';
 import { MatDialog,MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
@@ -6,6 +5,8 @@ import { AddEditComponent } from '../add-edit/add-edit.component';
 import { Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup } from '@angular/forms';
+import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
+import { FacilitiesService } from '../../services/facilities.service';
 
 @Component({
   selector: 'app-facilities',
@@ -29,7 +30,7 @@ export class FacilitiesComponent {
      
     }
 
-  
+
   ngOnInit() {
     this.getAllFacilities()
   }
@@ -112,6 +113,38 @@ export class FacilitiesComponent {
   // Search
   onSearchInputChange() {
     this.searchSubject.next(this.searchValue);
+  }
+  openDeleteDialog(facilityData:any): void {
+    console.log(facilityData);
+
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      data: facilityData,
+      width: '40%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      if (result) {
+        console.log(result);
+        this.onDeleteFacilities(result._id);
+      }
+    });
+  }
+
+  onDeleteFacilities(id: string) {
+    this._facilitiesService.ondeletedialog(id).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        this._toastrService.error(err.error.message, 'Error!');
+        console.log(err);
+      },
+      complete: () => {
+        this._toastrService.success('Facility Deleted Successfully', 'Ok');
+        this.getAllFacilities();
+      },
+    });
   }
 }
 

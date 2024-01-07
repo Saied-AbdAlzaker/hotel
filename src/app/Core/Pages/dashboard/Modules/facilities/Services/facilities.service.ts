@@ -22,4 +22,8 @@ editFacilities(_id:string,data:any):Observable<any>
   return this._httpClient.put(`admin/room-facilities/${_id}`, {name:data})
 }
 
+ondeletedialog(id:any):Observable<any>
+{
+  return this._httpClient.delete(`admin/room-facilities/${id}`)
+}
 }
