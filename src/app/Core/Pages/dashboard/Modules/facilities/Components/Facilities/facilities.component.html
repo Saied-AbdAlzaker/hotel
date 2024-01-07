@@ -48,7 +48,7 @@
               <a class="text-decoration-none cursor bg-btn"><i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
             </td>
             <td>
-              <a [routerLink]="['/dashboard/Facilities/edit',item._id]" class="text-decoration-none cursor bg-btn"><i
+              <a (click)="openEditDialog(item)" [routerLink]="['/dashboard/Facilities/edit',item._id]" class="text-decoration-none cursor bg-btn"><i
                   class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
             </td>
             <td>

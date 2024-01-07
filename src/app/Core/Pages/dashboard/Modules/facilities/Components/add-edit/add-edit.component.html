@@ -1,4 +1,5 @@
 <div class="card-auth p-5">
+
     <h4 class="d-flex align-items-center justify-content-between mb-5">
         <span *ngIf="!data.facilitiesName">Add Facilities</span>
         <span *ngIf="data.facilitiesName">Edit Facilities</span>
@@ -11,5 +12,4 @@
     </div>
 
     <button [mat-dialog-close]="data.facilitiesName" cdkFocusInitial class="primary  w-100">Save</button>
-
 </div>

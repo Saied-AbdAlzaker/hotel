@@ -1,9 +1,11 @@
 import { FacilitiesService } from './../../Services/facilities.service';
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog,MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { AddEditComponent } from '../add-edit/add-edit.component';
 import { Subject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-facilities',
@@ -22,13 +24,17 @@ export class FacilitiesComponent {
   searchValue:string='';
 
   constructor(private dialog: MatDialog, private _facilitiesService:FacilitiesService,
-    private _toastrService:ToastrService) {}
+    private _toastrService:ToastrService) {
+      
+     
+    }
 
   
   ngOnInit() {
     this.getAllFacilities()
   }
 
+  
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AddEditComponent, {
       data: {},
@@ -49,6 +55,37 @@ export class FacilitiesComponent {
         this._toastrService.error(err.error.message,'Error!')
       }, complete: () => {
         this._toastrService.success('Facilities Added Successfully', 'Ok');
+        this.getAllFacilities()
+      }
+    })
+  }
+  openEditDialog(FacilitiesData:any): void {
+    const dialogRef = this.dialog.open(AddEditComponent, {
+      data: {facilditiesName:FacilitiesData.name},
+      width: '40%',
+    });
+    console.log(FacilitiesData.name);
+    
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if(result){
+        console.log(result);
+        
+        this.onEditNewFacilities(FacilitiesData._id,result);
+
+      }
+    });
+  }
+
+  onEditNewFacilities(_id:string,data:string) {
+    this._facilitiesService.editFacilities(_id,data).subscribe({
+      next: (res) => {
+        console.log(res);
+      }, error: (err) => {
+        this._toastrService.error(err.error.message,'Error!')
+      }, complete: () => {
+        this._toastrService.success('Facilities Updeded Successfully', 'Ok');
         this.getAllFacilities()
       }
     })
