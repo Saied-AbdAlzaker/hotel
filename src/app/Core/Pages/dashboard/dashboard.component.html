@@ -1,11 +1,11 @@
 <section>
   <div class="container-fluid">
     <div class="row">
-      <div  class="col-2 px-0">
+      <div  [class]="receivedBoolean?'col-md-1':'col-md-2'" class="px-0">
 
-        <app-sidebar></app-sidebar>
+        <app-sidebar (isOpenedValue)="handleBooleanChange($event)"></app-sidebar>
       </div>
-      <div class="col-10 px-4">
+      <div class="px-4" [class]="receivedBoolean?'col-md-11':'col-md-10'">
           <app-navbar></app-navbar>
         <router-outlet></router-outlet>
       </div>
