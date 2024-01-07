@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <table class="table table-striped">
+      <table>
         <thead>
           <tr>
             <th class="rounded-start">Facilities Name</th>
@@ -30,14 +30,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of tableData">
-            <td>{{item.name}}</td>
+          <tr *ngFor="let item of tableData; let isEven = even" [class]="isEven ? '':'bg-table' ">
+            <td class="rounded-start">{{item.name}}</td>
             <!-- <td>{{item.createdBy.userName}}</td> -->
             <td>{{item.createdAt | date: 'dd/mm/yyyy'}}</td>
             <td>{{item.updatedAt | date: 'dd/mm/yyyy'}}</td>
 
 
-            <td class="nav-item dropdown">
+            <td class="nav-item dropdown rounded-end">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 <i class="fa-solid fa-ellipsis" style="color: #1f5141;"></i>
