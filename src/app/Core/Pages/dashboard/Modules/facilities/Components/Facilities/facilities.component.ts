@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
-import { FacilitiesService } from '../../services/facilities.service';
+import { FacilitiesService } from '../../Services/facilities.service';
 
 @Component({
   selector: 'app-facilities',

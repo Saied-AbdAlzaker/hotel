@@ -64,11 +64,11 @@
             <ul class="dropdown-menu">
               <div class="d-flex flex-column align-items-center">
           <td class=" my-0">
-            <a (click)="openViewDialog('2000ms','2000ms')" class="text-decoration-none cursor bg-btn"><i
-                class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
+            <a [routerLink]="['/dashboard/rooms/view/', item._id]" class="text-decoration-none cursor bg-btn"><i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
           </td>
           <td>
-            <a [routerLink]="['/dashboard/rooms/edit',item._id]" class="text-decoration-none cursor bg-btn"><i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
+            <a [routerLink]="['/dashboard/rooms/edit/', item._id]" class="text-decoration-none cursor bg-btn"><i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
+
           </td>
           <td>
             <a (click)="openDeleteDialog(item)" class="text-decoration-none cursor bg-btn"><i
