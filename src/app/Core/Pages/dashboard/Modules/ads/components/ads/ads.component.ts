@@ -63,16 +63,7 @@ export class AdsComponent implements OnInit {
     });
   }
   // View Ads
-  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, adsItems: IAds): void {
-    this.dialog.open(ViewAdsComponent,
-      {
-        data: adsItems,
-        width: '60%',
-        enterAnimationDuration,
-        exitAnimationDuration,
-      });
-
-  }
+  
 
   // Search
   onSearchInputChange() {
@@ -170,10 +161,21 @@ export class AdsComponent implements OnInit {
       },
     });
   }
+
   handlePageEvent(e: any) {    
     this.pageSize = e.pageSize;
     this.pageNumber = e.pageIndex + 1;
     this.getAllAds();
   }
-}
+  
+ openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, adsItems: IAds): void {
+  this.dialog.open(ViewAdsComponent,
+    {
+      data: adsItems,
+      width: '40%',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
 
+}
+}

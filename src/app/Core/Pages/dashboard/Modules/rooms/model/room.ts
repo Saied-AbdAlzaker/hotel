@@ -23,7 +23,7 @@ export interface IRooms {
     images: string,
     price: number,
     capacity: string,
-    discount: string,
+    discount: number,
     facilities: IFacilities[],
     createdAt: string,
     updatedAt: string,
