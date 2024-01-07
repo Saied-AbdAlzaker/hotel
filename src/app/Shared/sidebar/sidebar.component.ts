@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { LogOutComponent } from './components/log-out/log-out.component';
 import { MatDialog } from '@angular/material/dialog';
+import { UserAdminService } from '../services/user-admin.service';
+import { IChangePassword } from '../models/iuser-admin';
+import { ToastrService } from 'ngx-toastr';
 interface IMenu {
   title: string;
   icon: string;
@@ -16,7 +19,10 @@ interface IMenu {
 export class SidebarComponent {
   constructor(
     private Router:Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _userAdminService:UserAdminService,
+    private toastr:ToastrService,
+
      ) {}
   menu: IMenu[] = [
     {
@@ -59,7 +65,25 @@ export class SidebarComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      if(result){
+        this.changePasswordAdmin(result);
+      }
     });
+  }
+
+  changePasswordAdmin(data:IChangePassword){
+this._userAdminService.onChangePassword(data).subscribe({
+  next:(res)=>{
+    console.log(res);
+  },
+  error:(err:any)=>{
+    console.log(err.error.message);
+    this.toastr.error(err.error.message , 'error!');
+  },
+  complete:()=> {
+    this.toastr.success('Password has been updated successfully', 'Done');
+  },
+})
   }
   openDialogLogOut(): void  {
     const dialogRef = this.dialog.open(LogOutComponent, {
