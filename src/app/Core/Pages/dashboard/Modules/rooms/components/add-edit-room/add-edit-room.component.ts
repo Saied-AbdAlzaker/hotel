@@ -164,14 +164,28 @@ export class AddEditRoomComponent implements OnInit {
   }
 
   // ngx-dropzone
-  onSelect(event: any) {
-    console.log(event);
-    this.imgSrc = event.addedFiles[0];
-    this.files.push(...event.addedFiles);
+
+
+onSelect(event:any) {
+  console.log(event);
+  this.imgSrc= event.addedFiles[0];
+  this.files.push(...event.addedFiles);
+}
+
+onRemove(event:any) {
+  console.log(event);
+  this.files.splice(this.files.indexOf(event), 1);
+}
+onFileChange(event: any) {
+  const file=event.target.files[0];
+  const reader = new FileReader();
+  reader.onloadend = () =>{
+    const base64String = reader.result as string;
+    console.log(base64String);
+    
+  };
+  if(file){
+    reader.readAsDataURL(file);
   }
-  onRemove(event: any) {
-    console.log(event);
-    this.files.splice(this.files.indexOf(event), 1);
-  }
-  
+}
 }

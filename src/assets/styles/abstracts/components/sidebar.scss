@@ -3,57 +3,99 @@
 #sidebar {
   height: 100vh;
   background-color: $bg-mainColor;
-  .logo{
+  transition: all 100ms ease-in;
+
+  .logo {
     @media (max-width: 769px) {
       font-size: 1rem;
+    }
+    span{
+      color: $text-whiteColor;
+
+    }
+  }
+  button{
+    border-radius: none;
+    padding: .5rem;
+    transition: all .3s ease-in;
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(0);
+      box-shadow: none;
+    }
+    .margin-arrow{
+      margin-left: 60px;
     }
   }
   ul {
     padding-left: 0;
+    list-style: none;
+    padding: 0;
+
     li {
       padding: 10px 20px 10px 30px;
       position: relative;
       a {
         text-decoration: none;
+          color: #ffffff81;
 
         i {
           margin-right: 10px;
           width: 1.4375rem;
-          color: white;
         }
         span {
-          color: #ffffff81;
           font-weight: 500;
           font-size: 15px;
         }
-
       }
-    }
-    li:hover::after {
-      position: absolute;
-      content: "";
-      height: 100%;
-      width: 8px;
-      left: 0;
-      top: 0;
-      background-color: $text-secondryColor;
-    }
-    li:hover {
-      background-color: rgba($color: $text-secondryColor, $alpha: 0.1);
+      &:hover a {
+        color: $text-whiteColor;
+      }
+      li:hover::after {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 8px;
+        left: 0;
+        top: 0;
+        background-color: $text-secondryColor;
+      }
+      li:hover {
+        background-color: rgba($color: $text-secondryColor, $alpha: 0.1);
+      }
+
     }
   }
 }
-.sticky {
-  position: sticky;
-  top: 0;
-  z-index: 500;
-}
+
 .row {
   margin-right: 0;
   margin-left: 0;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+
+.position-right {
+  position: absolute;
+  right: -30px;
+  top: 10px;
+  cursor: pointer;
+  background-color: $bg-secondryColor;
+  color: $text-whiteColor;
+  border: 2px solid rgba($color: $text-secondryColor, $alpha: 0.1);;
+
+}
+
+
+.bg-hover::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 8px;
+  left: 0;
+  top: 0;
+  background-color: $text-secondryColor;
+}
+.bg-active{
+  background-color: rgba($color: $text-secondryColor, $alpha: 0.1);
+
 }

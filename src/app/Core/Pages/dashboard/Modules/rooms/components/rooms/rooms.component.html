@@ -51,11 +51,13 @@
       <tbody>
         <tr *ngFor="let item of tableData">
           <td class="rounded-start">{{item.roomNumber}}</td>
-          <td><img crossorigin="anonymous" class="imgTable" [src]="imagePath + item.images[0]" /></td>
+          <td class="w-25"><img crossorigin="anonymous" class="w-25" [src]="'http://upskilling-egypt.com:3000/' + item.images[0]" /></td>
+          <!-- <td>{{item.roomNumber}}</td>
+          <td><img crossorigin="anonymous" class="imgTable" [src]="imagePath + item.images[0]" /></td> -->
           <td>{{item.price}}</td>
           <td>{{item.discount}}</td>
           <td>{{item.capacity}}</td>
-          <td>{{item.facilities[0].name}}</td>
+          <td>{{item.facilities[0]?.name}}</td>
 
           <td class="nav-item dropdown rounded-end">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
