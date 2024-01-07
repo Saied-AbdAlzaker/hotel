@@ -12,6 +12,10 @@ import { Router } from '@angular/router';
 export class SignupComponent {
   imgSrc: any;
   files: File[] = [];
+  userEmail: any;
+  hide:boolean=true;
+  hideConfirm:boolean = true;
+
   signupForm =new FormGroup({
     userName: new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z0-9]{3,10}')]),
     email: new FormControl(null,[Validators.required,Validators.email]),
@@ -23,9 +27,7 @@ export class SignupComponent {
       Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
     role: new FormControl('user')
   },{validators: this.passwordMatchValidator,});
-  userEmail: any;
-  hide:boolean=true;
-  hideConfirm:boolean = true;
+
 
   constructor(
     private _AuthService:AuthService,

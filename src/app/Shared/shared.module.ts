@@ -10,6 +10,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterLink } from '@angular/router';
 import { ChangePasswordComponent } from './sidebar/components/change-password/change-password.component';
 import { LogOutComponent } from './sidebar/components/log-out/log-out.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -20,12 +22,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     CommonModule,
     ToastrModule.forRoot({}),
     FormsModule, ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,RouterLink,
-    MatDialogModule, MatPaginatorModule
+    MatSelectModule,MatFormFieldModule,MatDialogModule, MatPaginatorModule
   ],
   exports: [
     FormsModule,ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,
-     ReactiveFormsModule,HttpClientModule,FormsModule,SidebarComponent,RouterLink,
-     MatDialogModule, MatPaginatorModule, NavbarComponent
+    HttpClientModule,SidebarComponent,RouterLink,
+    NavbarComponent,MatFormFieldModule,MatSelectModule,DeleteDialogComponent,MatDialogModule,
+    MatPaginatorModule, NavbarComponent
   ],
 
   declarations: [
