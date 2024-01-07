@@ -17,6 +17,7 @@ export class FacilitiesComponent {
   tableResponse: any;
   tableData: any;
   searchValue: string = '';
+  totalCount: number=0;
 
   constructor(private dialog: MatDialog, private _facilitiesService: FacilitiesService,
     private _toastrService: ToastrService) { }
@@ -148,6 +149,5 @@ export class FacilitiesComponent {
     });
   }
 }
-
 
 

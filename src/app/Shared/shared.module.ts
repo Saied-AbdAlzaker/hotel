@@ -26,12 +26,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ToastrModule.forRoot({}),
     FormsModule, ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,RouterLink,
     MatDialogModule, MatPaginatorModule,MatButtonModule,MatIconModule, MatTooltipModule,RouterModule,MatSelectModule
+
   ],
   exports: [
     FormsModule,ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,
      ReactiveFormsModule,HttpClientModule,FormsModule,SidebarComponent,RouterLink,
      MatDialogModule, MatPaginatorModule, NavbarComponent,MatButtonModule,MatIconModule,MatTooltipModule,RouterModule,
     MatSelectModule,MatFormFieldModule,MatDialogModule, MatPaginatorModule
+
   ],
 
   declarations: [

@@ -9,7 +9,7 @@
       </div>
 
       <div class="col-md-4">
-        <button (click)="openAddDialog()" class="primary w-100 mt-5">Add New Facilities</button>
+        <button type="button" (click)="openAddDialog()" class="primary w-100 mt-5">Add New Facilities</button>
       </div>
 
       <div class="col-md-8 mt-3">
@@ -60,6 +60,16 @@
     </tr>
     </tbody>
     </table>
+    <!-- <mat-paginator
+      #paginator
+      (page)="handlePageEvent($event)"
+      [length]="tableResponse?.totalCount"
+      [pageSize]="tableResponse?.pageSize"
+      [pageSizeOptions]="[10, 25, 50]"
+      [pageIndex]="tableResponse?.pageNumber"
+      aria-label="Select page"
+    >
+    </mat-paginator> -->
 
   </div>
   </div>
