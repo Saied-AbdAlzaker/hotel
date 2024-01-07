@@ -1,5 +1,7 @@
 <section class="container shadow py-5 mt-3">
     <div class="row">
+        <h3 *ngIf="!isEditMode && !isViewMode" class="mb-2">Add New Room</h3>
+        <h3 *ngIf="isEditMode" class="mb-2">Edit <span class="text-mainColor">{{roomData.roomNumber}}</span> Room</h3>
         <div class="card-auth">
             <div class="inputs-auth">
                 <form [formGroup]="roomForm" (ngSubmit)="onSubmit(roomForm)">
