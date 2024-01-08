@@ -38,8 +38,8 @@
             <td class="rounded-start">{{ item.room?.roomNumber || 'not available room' }}</td>
             <td class="rounded-start">{{ item.isActive }}</td>
             <td class="rounded-start">{{ item.createdBy.userName }}</td>
-            <td class="rounded-start">{{ item.createdAt }}</td>
-            <td class="rounded-start">{{ item.updatedAt }}</td>
+            <td class="rounded-start">{{ item.createdAt |date:'dd-mm-yyyy' }}</td>
+            <td class="rounded-start">{{ item.updatedAt |date:'dd-mm-yyyy' }}</td>
 
             <td class="nav-item dropdown rounded-end">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
