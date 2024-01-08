@@ -15,7 +15,8 @@
       <div class="col-md-8 mt-3">
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-          <input [(ngModel)]="searchValue" (keyup)="onSearchInputChange()" type="text" placeholder="Search Here...." class="form-control rounded">
+          <input [(ngModel)]="searchValue" (keyup)="onSearchInputChange()" type="text" placeholder="Search Here...."
+            class="form-control rounded">
         </div>
       </div>
 
@@ -45,11 +46,13 @@
               <ul class="dropdown-menu">
                 <div class="d-flex flex-column align-items-center">
             <td>
-              <a (click)="openEditDialog(item)" [routerLink]="['/dashboard/Facilities/edit',item._id]" class="text-decoration-none cursor bg-btn"><i
+              <a (click)="openEditDialog(item)" [routerLink]="['/dashboard/Facilities/edit',item._id]"
+                class="text-decoration-none cursor bg-btn"><i
                   class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
             </td>
             <td>
-              <a (click)="openDeleteDialog(item)" class="text-decoration-none cursor bg-btn"><i class="fa-solid fa-trash-can mx-2 bg-icon" ></i>Delete</a>
+              <a (click)="openDeleteDialog(item)" class="text-decoration-none cursor bg-btn"><i
+                  class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
             </td>
     </div>
     </ul>

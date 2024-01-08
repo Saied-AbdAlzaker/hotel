@@ -2,7 +2,8 @@
     <h4 class="d-flex align-items-center justify-content-between mb-5">
         <span *ngIf="!data.name">Add Facility</span>
         <span *ngIf="data.name">Edit Facility</span>
-        <span (click)="onNoClick()"><i class="pointer fa-regular fa-circle-xmark text-danger fa-1x position-absolute top-0 right-0 my-4" ></i></span>
+        <span (click)="onNoClick()">
+            <i class="pointer fa-regular fa-circle-xmark text-danger fa-1x position-absolute top-0 right-0 my-4" ></i></span>
     </h4>
 
     <div class="input-group mb-3">
