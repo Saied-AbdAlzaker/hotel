@@ -64,8 +64,8 @@
                 <ul class="dropdown-menu">
                   <div class="d-flex flex-column align-items-center">
                     <td class="my-0">
-                      <a class="text-decoration-none cursor bg-btn"
-                        ><i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a
+                      <a [routerLink]="['/dashboard/ads/view/', item._id]" class="text-decoration-none cursor bg-btn"
+                        ><i  class="fa-regular fa-eye mx-2 bg-icon"></i>View</a
                       >
                     </td>
                     <td>

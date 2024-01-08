@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { IAds, IAdsData, IAdsResponse } from '../../models/ads';
 import { Subject, debounceTime } from 'rxjs';
 import { RoomsService } from '../../../rooms/services/rooms.service';
+import { ViewAdsComponent } from '../../view-ads/view-ads.component';
 
 @Component({
   selector: 'app-ads',
@@ -62,6 +63,15 @@ export class AdsComponent implements OnInit {
   //   )
   // }
 
+  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(ViewAdsComponent,
+      {
+        width: '60%',
+        enterAnimationDuration,
+        exitAnimationDuration,
+      });
+
+  }
   openAddDialog() {}
   // Search
   onSearchInputChange() {
