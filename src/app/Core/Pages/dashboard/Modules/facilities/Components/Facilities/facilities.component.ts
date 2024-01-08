@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AddEditComponent } from '../add-edit/add-edit.component';
 import { Subject, debounceTime } from 'rxjs';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
-import { FacilitiesService } from '../../services/facilities.service';
+import { FacilitiesService } from '../../Services/facilities.service';
 
 @Component({
   selector: 'app-facilities',
@@ -40,13 +40,13 @@ export class FacilitiesComponent {
     }
 
     this._facilitiesService.getAllFacilities(parms).subscribe({
-      next: (res) => {
+      next: (res:any) => {
         console.log(res);
         this.tableResponse = res.data;
         this.tableData = this.tableResponse?.facilities;
 
 
-      }, error: (err) => {
+      }, error: (err:any) => {
         this._toastrService.error(err.error.message, 'Error!')
       }
     })
@@ -71,9 +71,9 @@ export class FacilitiesComponent {
 
   onAddNewFacilities(data: String) {
     this._facilitiesService.addFacilities(data).subscribe({
-      next: (res) => {
+      next: (res:any) => {
         console.log(res);
-      }, error: (err) => {
+      }, error: (err:any) => {
         this._toastrService.error(err.error.message, 'Error!')
       }, complete: () => {
         this._toastrService.success('Facilities Added Successfully', 'Ok');
@@ -104,9 +104,9 @@ export class FacilitiesComponent {
 
   onEditNewFacilities(_id: string, data: string) {
     this._facilitiesService.editFacilities(_id, data).subscribe({
-      next: (res) => {
+      next: (res:any) => {
         console.log(res);
-      }, error: (err) => {
+      }, error: (err:any) => {
         this._toastrService.error(err.error.message, 'Error!')
       }, complete: () => {
         this._toastrService.success('Facilities Updeded Successfully', 'Ok');
@@ -135,10 +135,10 @@ export class FacilitiesComponent {
 
   onDeleteFacilities(id: string) {
     this._facilitiesService.ondeletedialog(id).subscribe({
-      next: (res) => {
+      next: (res:any) => {
         console.log(res);
       },
-      error: (err) => {
+      error: (err:any) => {
         this._toastrService.error(err.error.message, 'Error!');
         console.log(err);
       },
