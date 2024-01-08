@@ -19,3 +19,7 @@ export interface IAds {
   createdAt: string;
   updatedAt: string;
 }
+
+// "room": "6586d2cf226912e0754061c9",
+// "discount": 100,
+// "isActive": false

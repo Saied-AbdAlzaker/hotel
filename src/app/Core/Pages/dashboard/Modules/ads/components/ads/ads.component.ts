@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { IAds, IAdsData, IAdsResponse } from '../../models/ads';
 import { Subject, debounceTime } from 'rxjs';
 import { RoomsService } from '../../../rooms/services/rooms.service';
+import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-ads',
@@ -66,5 +67,39 @@ export class AdsComponent implements OnInit {
   // Search
   onSearchInputChange() {
     this.searchSubject.next(this.searchValue);
+  }
+
+  // Delete Ads
+  openDeleteDialog(roomData: any): void {
+    console.log(roomData);
+
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      data: roomData,
+      width: '40%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      if (result) {
+        console.log(result);
+        this.deleteAds(result._id);
+      }
+    });
+  }
+
+  deleteAds(id: string) {
+    this._adsService.onDeleteAds(id).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        this._toastrService.error(err.error.message, 'Error!');
+        console.log(err);
+      },
+      complete: () => {
+        this._toastrService.success('Ads Deleted Successfully', 'Ok');
+        this.getAllAds();
+      },
+    });
   }
 }

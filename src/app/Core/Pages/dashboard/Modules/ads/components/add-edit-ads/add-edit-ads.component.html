@@ -1,0 +1,41 @@
+<section>
+    <div class="row">
+        <div class="card-auth">
+            <div class="inputs-auth">
+                <form [formGroup]="adsForm" (ngSubmit)="onSubmit(adsForm)">
+                    <div class="form-group">
+                        <input type="text" formControlName="room" class="form-control" id="room"
+                            placeholder="Room Number">
+                        <span class="text-danger  mb-3" *ngIf="adsForm.get('room')?.errors &&
+                            adsForm.get('room')?.touched">
+                            <span *ngIf="adsForm.get('room')?.getError('required')">room is required</span>
+                        </span>
+                    </div>
+                    <div class="form-group w-50 me-3">
+                        <input type="text" formControlName="discount" class="form-control" id="discount"
+                            placeholder="Discount">
+                        <span *ngIf="adsForm.get('discount')?.errors && adsForm.get('discount')?.touched "
+                            class="text-danger  mb-3">
+                            <span *ngIf="adsForm.get('discount')?.errors?.['required']" class="mb-0">discount is
+                                required</span>
+                        </span>
+                    </div>
+                    <div class="form-group w-50 me-3">
+                        <input type="text" formControlName="isActive" class="form-control" id="status"
+                            placeholder="status">
+                        <span *ngIf="adsForm.get('isActive')?.errors && adsForm.get('isActive')?.touched "
+                            class="text-danger  mb-3">
+                            <span *ngIf="adsForm.get('isActive')?.errors?.['required']" class="mb-0">status is
+                                required</span>
+                        </span>
+                    </div>
+
+                    <div class="d-flex justify-content-end align-items-end mt-5">
+                        <button type="button" routerLink="/dashboard/ads" class="btn outline-primary">Cancle</button>
+                        <button class="mx-4 btn primary" [ngClass]="{'d-none': isViewMode}" [disabled]="adsForm.invalid">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
