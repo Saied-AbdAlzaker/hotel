@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UsersComponent } from './components/users/users.component';
+import { ViewUserComponent } from './components/view-user/view-user.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'users', pathMatch: 'full'},
   {path: '', component: UsersComponent},
-  {path: 'users', component: UsersComponent},
+  {path: 'view/:id', component: ViewUserComponent},
+
 ]
 @NgModule({
   imports: [RouterModule.forChild(routes)],

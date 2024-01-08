@@ -1,22 +1,31 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserAdminService } from '../services/user-admin.service';
 import { ToastrService } from 'ngx-toastr';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { IChangePassword } from '../models/iuser-admin';
 import { LogOutComponent } from './components/log-out/log-out.component';
+import { UsersService } from 'src/app/Core/Pages/dashboard/Modules/users/services/users.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
+  userName: any = localStorage.getItem('userName');
+  userData: any;
+  currentUserId: any = localStorage.getItem('userId')
   constructor(
     public dialog: MatDialog,
     private _userAdminService: UserAdminService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private _UsersService:UsersService
   ) {}
+  ngOnInit(): void {
+    // this.getUserProfile(this.userData._id)
+  }
+  
   openDialogCahngePassword(): void {
     const dialogRef = this.dialog.open(ChangePasswordComponent, {
       data: {},
@@ -55,5 +64,12 @@ export class NavbarComponent {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
     });
+  }
+  getUserProfile(id:string){
+    this._UsersService.onGetUserProfile(id).subscribe({
+      next:(res:any)=>{
+        this.userData=res.data
+      }
+    })
   }
 }
