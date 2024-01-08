@@ -12,7 +12,7 @@
                     </div>
                     <div class="d-flex">
                         <div class="form-group w-50 me-3">
-                            <input type="text" formControlName="capacity" class="form-control" id="price" placeholder="Price">
+                            <input type="text" formControlName="price" class="form-control" id="price" placeholder="Price">
                             <span class="text-danger  mb-3" *ngIf="roomForm.get('price')?.errors &&
                                 roomForm.get('price')?.touched">
                                 <span *ngIf="roomForm.get('price')?.getError('required')">price is required</span>
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div>
-                        <ngx-dropzone [disabled]="isViewMode" class="mb-3 dropzone" (change)="onSelect($event)" [multiple]="false">
+                        <ngx-dropzone [disabled]="isViewMode" class="mb-3 dropzone" (change)="onSelect($event)" [multiple]="true">
                           <ngx-dropzone-label *ngIf="!imgSrc">
                               <i class="fa-solid fa-arrow-up-from-bracket d-block fs-2 pb-3"></i>
                                 Drag & Drop or <span class="text-mainColor">Choose a Item Image</span> to Upload
