@@ -12,5 +12,9 @@ constructor(private _httpClient:HttpClient) { }
     onGetAllBookings(params:any):Observable<any>{
         return this._httpClient.get('admin/booking',{params:params})
     }
+    ondeletedialog(id:any):Observable<any>
+{
+  return this._httpClient.delete(`admin/booking/${id}`)
+}
 
 }

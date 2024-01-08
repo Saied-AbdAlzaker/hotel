@@ -28,7 +28,7 @@
               <td><a [routerLink]="['/dashboard/booking/view/', item._id]" class="pointer">
                 <i class="fa-regular fa-eye ms-2 bg-icon"></i></a>
               </td>
-              <td><i class="fa-regular fa-trash-can ms-2 text-danger pointer"></i></td>
+              <td><i (click)="openDeleteDialog(item)" class="fa-regular fa-trash-can ms-2 text-danger pointer"></i></td>
             </tr>
           </tbody>
       </table>
