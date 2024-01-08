@@ -1,3 +1,45 @@
-<p>
-  bookings works!
-</p>
+<section id="room">
+  <div class="container">
+    <div class="row">
+        <div class="my-5">
+          <h4 class="mb-0">Booking Table Details</h4>
+          <p class="text-muted">You can check all details</p>
+        </div>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="rounded-start">room Number</th>
+              <th>Price</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>User</th>
+              <th>View</th>
+              <th class="rounded-end">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of listBookings">
+              <td>{{item.room?.roomNumber}}</td>
+              <td>{{item.totalPrice}}</td>
+              <td>{{item.startDate|date:'dd-mm-yyyy'}}</td>
+              <td>{{item.endDate|date:'dd-mm-yyyy'}}</td>
+              <td>{{item.user}}</td>
+              <td><a [routerLink]="['/dashboard/booking/view/', item._id]" class="pointer">
+                <i class="fa-regular fa-eye ms-2 bg-icon"></i></a>
+              </td>
+              <td><i class="fa-regular fa-trash-can ms-2 text-danger pointer"></i></td>
+            </tr>
+          </tbody>
+      </table>
+      <div>
+        <mat-paginator [length]="tableResponse?.totalCount" 
+              [pageSizeOptions]="[5,10, 50, 100]" 
+              (page)="handlePageEvent($event)" [pageIndex]="pageIndex" 
+              aria-label="Select page">
+          </mat-paginator>
+      </div>
+    </div>
+
+  </div>
+</section>
