@@ -62,23 +62,26 @@
               <i class="fa-solid fa-ellipsis" style="color: #1f5141;"></i>
             </a>
             <ul class="dropdown-menu">
-              <div class="d-flex flex-column align-items-center">
-          <td class=" my-0">
-            <a [routerLink]="['/dashboard/rooms/view/', item._id]" class="text-decoration-none cursor bg-btn"><i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
-          </td>
-          <td>
-            <a [routerLink]="['/dashboard/rooms/edit/', item._id]" class="text-decoration-none cursor bg-btn"><i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
+                <li>
+                  <a [routerLink]="['/dashboard/rooms/view/', item._id]"
+                   class="dropdown-item pointer">
+                   <i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
+                </li>
+                <li>
+                  <a [routerLink]="['/dashboard/rooms/edit/', item._id]"
+                   class="dropdown-item pointer">
+                   <i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
 
+                </li>
+                <li>
+                  <a (click)="openDeleteDialog(item)" 
+                  class="dropdown-item">
+                  <i class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
+                </li>
+            </ul>
           </td>
-          <td>
-            <a (click)="openDeleteDialog(item)" class="text-decoration-none cursor bg-btn"><i
-                class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
-          </td>
-  </div>
-  </ul>
-  </td>
-  </tr>
-  </tbody>
+        </tr>
+      </tbody>
   </table>
 
   <div>
