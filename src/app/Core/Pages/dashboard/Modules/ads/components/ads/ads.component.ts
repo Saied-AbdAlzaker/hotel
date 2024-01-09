@@ -62,7 +62,6 @@ export class AdsComponent implements OnInit {
       });
 
   }
-  openAddDialog() {}
 
   // Search
   onSearchInputChange() {
