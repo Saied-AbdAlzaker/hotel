@@ -35,7 +35,13 @@ $border-reduis: 0.25rem;
   color: $text-whiteColor !important;
 }
 .bg-main{
-  background: $bg-blueColor;
+  background: $bg-mainColor;
+}
+.bg-secondary{
+  background: $bg-secondryColor;
+}
+.bg-red{
+  background: $bg-redColor;
 }
 .bg-profile{
   background: #F4CE9B;

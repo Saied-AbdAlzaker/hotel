@@ -1,3 +1,14 @@
 {
-    "hello":"hello landing page"
+    "hello":"hello landing page",
+    "nav-land":"",
+    "home-land":{
+        "header":"header",
+        "most-picked":"",
+        "features":"",
+        "feadback":""
+    },
+    "header":{
+        "header works!":"header works!"
+    }
+    
 }

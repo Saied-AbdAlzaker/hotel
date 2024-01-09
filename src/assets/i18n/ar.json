@@ -1,3 +1,14 @@
 {
-    "hello":"مرحبا"
+    "hello":"مرحبا",
+    "nav-land":"",
+    "home-land":{
+        "header":"القسم الرئيسي",
+        "most-picked":"",
+        "features":"",
+        "feadback":""
+    },
+    "header":{
+        "header works!":"القسم الرئيسي يعمل"
+    }
+    
 }
