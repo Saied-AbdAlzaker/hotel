@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { IAddAds, IAds, IAdsData, IAdsResponse } from '../../models/ads';
 import { Subject, debounceTime } from 'rxjs';
 import { RoomsService } from '../../../rooms/services/rooms.service';
+import { ViewAdsComponent } from '../../view-ads/view-ads.component';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
 import { IFacilities } from '../../../rooms/model/room';
 import { AddEditComponent } from '../add-edit-ads/add-edit-ads.component';
@@ -51,6 +52,17 @@ export class AdsComponent implements OnInit {
       },
     });
   }
+
+  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(ViewAdsComponent,
+      {
+        width: '60%',
+        enterAnimationDuration,
+        exitAnimationDuration,
+      });
+
+  }
+  openAddDialog() {}
 
   // Search
   onSearchInputChange() {

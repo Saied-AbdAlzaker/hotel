@@ -10,4 +10,7 @@ constructor(
     private _HttpClient:HttpClient
 ) { }
 
+geAllUsers(params:any){
+    return this._HttpClient.get('admin/users',{params:params})
+}
 }
