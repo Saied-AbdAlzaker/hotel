@@ -1,10 +1,10 @@
 <section>
   <div class="container">
     <div class="row">
-        <div>
-          <h4>Ads Table Details</h4>
-          <p>You can check all details</p>
-        </div>
+      <div>
+        <h4>Ads Table Details</h4>
+        <p>You can check all details</p>
+      </div>
       <div class="row my-3">
         <div class="col-md-8">
           <div class="input-group">
@@ -14,56 +14,57 @@
           </div>
         </div>
         <div class="col-md-3 mx-auto">
-          <button type="button" [routerLink]="'/dashboard/ads/add'" class="primary w-100">
+          <button type="button" (click)="openAddDialog()" class="primary w-100">
             Add New Ad
           </button>
         </div>
       </div>
-      
+
 
       <table>
         <thead>
           <tr>
             <th class="rounded-start">Room Number</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Capacity</th>
             <th>Status</th>
-            <th>Created By</th>
-            <th>Created Date</th>
-            <th>Updated Date</th>
             <th class="rounded-end">Actions</th>
+            <!-- <th>Category</th> -->
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of adsItems let isEven = even" [class]="isEven ? '':'bg-table'">
-            <td class="rounded-start">{{ item.room?.roomNumber || 'not available room' }}</td>
-            <td class="rounded-start">{{ item.isActive }}</td>
-            <td class="rounded-start">{{ item.createdBy.userName }}</td>
-            <td class="rounded-start">{{ item.createdAt |date:'dd-mm-yyyy' }}</td>
-            <td class="rounded-start">{{ item.updatedAt |date:'dd-mm-yyyy' }}</td>
+            <td class="rounded-start">{{ item.room?.roomNumber }}</td>
+            <td>{{item.room?.price}}</td>
+            <td>{{item.room?.discount}}</td>
+            <td>{{item.room?.capacity}}</td>
+            <td class="rounded-start" >{{item.isActive}}</td>
+            <!-- <td class="rounded-start" *ngFor="let itemFacilities of facilities">{{ itemFacilities.name }}</td> -->
 
             <td class="nav-item dropdown rounded-end">
-              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa-solid fa-ellipsis"></i>
               </a>
               <ul class="dropdown-menu">
-            <li>
-              <a class="dropdown-item pointer" [routerLink]="['/dashboard/rooms/view/', item._id]">
-                <i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
-            </li>
-            <li>
-              <a class="dropdown-item pointer"  [routerLink]="['/dashboard/ads/edit/', item._id]">
-                <i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
-            </li>
-            <li>
-              <a class="dropdown-item pointer" (click)="openDeleteDialog(item)"><i
-                  class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
-            </li>
-    </ul>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-    <!-- <mat-paginator
+                <li>
+                  <a class="dropdown-item pointer" >
+                    <i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
+                </li>
+                <li>
+                  <a class="dropdown-item pointer" >
+                    <i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
+                </li>
+                <li>
+                  <a class="dropdown-item pointer" (click)="openDeleteDialog(item)"><i
+                      class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <mat-paginator
       #paginator
       (page)="handlePageEvent($event)"
       [length]="tableResponse?.totalCount"
@@ -73,6 +74,6 @@
       aria-label="Select page"
     >
     </mat-paginator> -->
-  </div>
+    </div>
   </div>
 </section>

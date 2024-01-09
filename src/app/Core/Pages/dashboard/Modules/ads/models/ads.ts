@@ -1,5 +1,5 @@
 import { IUserAdmin } from 'src/app/Shared/models/iuser-admin';
-import { IRoom } from '../../rooms/model/room';
+import { IRoom, IRooms } from '../../rooms/model/room';
 
 export interface IAdsResponse {
   success: true;
@@ -20,6 +20,9 @@ export interface IAds {
   updatedAt: string;
 }
 
-// "room": "6586d2cf226912e0754061c9",
-// "discount": 100,
-// "isActive": false
+export interface IAddAds {
+  room: IRooms,
+  discount: number,
+  isActive: boolean
+}
+
