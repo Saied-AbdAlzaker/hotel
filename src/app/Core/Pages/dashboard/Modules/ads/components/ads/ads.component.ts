@@ -62,7 +62,6 @@ export class AdsComponent implements OnInit {
       });
 
   }
-  openAddDialog() {}
 
   // Search
   onSearchInputChange() {
@@ -78,15 +77,17 @@ export class AdsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      console.log(result);
+      
       this.onAddNewAds(result);
     });
   }
 
-  onAddNewAds(data: String) {
+    onAddNewAds(data: any) {
     this._adsService.onAddAds(data).subscribe({
       next: (res) => {
-        console.log(res.data.ads);
-        this.adsData = res.data.ads
+        console.log(res);
+
       }, error: (err) => {
         this._toastrService.error(err.error.message, 'Error!');
       }, complete: () => {
@@ -95,6 +96,35 @@ export class AdsComponent implements OnInit {
       }
     })
   }
+  // Edit Ads
+  openEditDialog(adsData: any): void {
+    console.log(adsData);
+    
+    const dialogRef = this.dialog.open(AddEditComponent, {
+      data: adsData,
+      width: '60%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.onEditNewAds(result._id,adsData);
+    });
+  }
+
+  onEditNewAds(_id: string,data: String) {
+    this._adsService.onEditAds(_id,data).subscribe({
+      next: (res) => {
+        console.log(res);
+
+      }, error: (err) => {
+
+        this._toastrService.error(err.error.message, 'failed');
+      }, complete: () => {
+        this._toastrService.success('Rooms Updated Successfully');
+        this.getAllAds();
+      }
+  })
+}
 
   // Delete Ads
   openDeleteDialog(roomData: any): void {
@@ -130,3 +160,4 @@ export class AdsComponent implements OnInit {
     });
   }
 }
+
