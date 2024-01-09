@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AdsService } from '../../services/ads.service';
 import { ToastrService } from 'ngx-toastr';
-import { IAds, IAdsData, IAdsResponse } from '../../models/ads';
+import { IAddAds, IAds, IAdsData, IAdsResponse } from '../../models/ads';
 import { Subject, debounceTime } from 'rxjs';
 import { RoomsService } from '../../../rooms/services/rooms.service';
 import { ViewAdsComponent } from '../../view-ads/view-ads.component';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
+import { IFacilities } from '../../../rooms/model/room';
+import { AddEditComponent } from '../add-edit-ads/add-edit-ads.component';
 
 @Component({
   selector: 'app-ads',
@@ -17,7 +19,9 @@ export class AdsComponent implements OnInit {
   tableResponse: IAdsResponse | undefined;
   tableData: IAdsData | undefined;
   adsItems: IAds[] | undefined;
+  facilities: IFacilities[] | undefined = [];
   searchValue: string = '';
+  adsData:IAddAds|any;
   private searchSubject: Subject<string> = new Subject<string>();
 
   constructor(
@@ -26,6 +30,7 @@ export class AdsComponent implements OnInit {
     private _toastrService: ToastrService,
     private _roomsService: RoomsService
   ) {}
+
   ngOnInit() {
     this.getAllAds();
     this.searchSubject.pipe(debounceTime(1000)).subscribe({
@@ -47,22 +52,6 @@ export class AdsComponent implements OnInit {
       },
     });
   }
-  //  // Room By Id
-  //  getRoomById(id: string) {
-  //   this._roomsService.onGetRoomById(id).subscribe({
-  //     next: (res: any) => {
-  //       console.log(res);
-  //       this.searchValue = res.data.room.roomNumber
-  //     },
-  //     error: (err) => {
-  //       this._toastrService.error(err.error.message)
-  //     },
-  //     complete: () => {
-
-  //     }
-  //   }
-  //   )
-  // }
 
   openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(ViewAdsComponent,
@@ -74,9 +63,37 @@ export class AdsComponent implements OnInit {
 
   }
   openAddDialog() {}
+
   // Search
   onSearchInputChange() {
     this.searchSubject.next(this.searchValue);
+  }
+
+  // Add Ads
+  openAddDialog(): void {
+    const dialogRef = this.dialog.open(AddEditComponent, {
+      data: {},
+      width: '60%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.onAddNewAds(result);
+    });
+  }
+
+  onAddNewAds(data: String) {
+    this._adsService.onAddAds(data).subscribe({
+      next: (res) => {
+        console.log(res.data.ads);
+        this.adsData = res.data.ads
+      }, error: (err) => {
+        this._toastrService.error(err.error.message, 'Error!');
+      }, complete: () => {
+        this._toastrService.success('Ads Added Successfully');
+        this.getAllAds();
+      }
+    })
   }
 
   // Delete Ads
