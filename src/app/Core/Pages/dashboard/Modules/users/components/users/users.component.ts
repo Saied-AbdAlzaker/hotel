@@ -8,31 +8,38 @@ import { IlistTable, IlistUser } from '../../model/users';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-pageNumber:number=1;
-pageSize:number=10;
-listUses:IlistUser[]|undefined=[];
-tableResponse:IlistTable|undefined;
-  constructor(private  _UsersService:UsersService) { }
+  pageIndex: number = 0;
+  pageSize: number = 10;
+  pageNumber: number | undefined = 1;
+  listUses: IlistUser[] | undefined = [];
+  tableResponse: IlistTable | undefined;
+  constructor(private _UsersService: UsersService) { }
 
   ngOnInit() {
     this.onGetAllUsers();
   }
-  onGetAllUsers(){
+  onGetAllUsers() {
 
-let params={
-  pageNumber:this.pageNumber,
-  pageSize:this.pageSize  
-}
+    let params = {
+      pageNumber: this.pageNumber,
+      pageSize: this.pageSize
+    }
     this._UsersService.geAllUsers(params).subscribe({
-      next:(res:any)=>{
-        this.tableResponse=res.data;
+      next: (res: any) => {
+        this.tableResponse = res.data;
 
-      this.listUses=res.data.users;
-      
-        
+        this.listUses = res.data.users;
+
+
       }
     })
   }
- 
+
+  handlePageEvent(e: any) {
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex + 1;
+
+  }
+
 
 }
