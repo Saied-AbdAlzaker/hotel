@@ -9,26 +9,24 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th class="rounded-start">room Number</th>
+              <th class="rounded-start">Room Number</th>
               <th>Price</th>
               <th>Start Date</th>
               <th>End Date</th>
               <th>User</th>
               <th class="rounded-end">View</th>
-              <!-- <th >Delete</th> -->
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let item of listBookings">
-              <td>{{item.room?.roomNumber}}</td>
-              <td>{{item.totalPrice}}</td>
+              <td>{{item.room?.roomNumber || "---"}}</td>
+              <td>{{item.totalPrice|currency:'L.E'}}</td>
               <td>{{item.startDate|date:'dd-mm-yyyy'}}</td>
               <td>{{item.endDate|date:'dd-mm-yyyy'}}</td>
-              <td>{{item.user}}</td>
+              <td>{{item.user || "---"}}</td>
               <td><a [routerLink]="['/dashboard/booking/view/', item._id]" class="pointer">
                 <i class="fa-regular fa-eye ms-2 bg-icon"></i></a>
               </td>
-              <!-- <td><i (click)="openDeleteDialog(item)" class="fa-regular fa-trash-can ms-2 text-danger pointer"></i></td> -->
             </tr>
           </tbody>
       </table>
