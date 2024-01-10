@@ -1,35 +1,40 @@
-<section>
-    <div class="container">
-        <div class="row py-5">
-            <div class="col-md-12 mt-3">
-                <div class="input-group mb-3">
-                  <input type="text" placeholder="roomNumber" class="form-control rounded">
-                </div>
-              </div>
-              <div class="col-md-6 mt-3">
-                <div class="input-group mb-3">
-                  <input type="text" placeholder="isActive" class="form-control rounded">
-                </div>
-              </div>
-              <div class="col-md-6 mt-3">
-                <div class="input-group mb-3">
-                  <input type="text" placeholder="userName" class="form-control rounded">
-                </div>
-              </div>
-              <div class="col-md-6 mt-3">
-                <div class="input-group mb-3">
-                  <input type="text" placeholder="createdAt" class="form-control rounded">
-                </div>
-              </div>
-              <div class="col-md-6 mt-3">
-                <div class="input-group mb-3">
-                  <input type="text" placeholder="updatedAt" class="form-control rounded">
-                </div>
-              </div>
-              <div class="text-center me-auto">
-                <button  type="button" class="primary w-25">Cancel</button>
-              </div>
+<section class="p-3">
+  <div class="container">
+    <h4 class="d-flex align-items-center justify-content-between p-2">
+      <span> View Ad</span>
+      <span (click)="onNoClick()">
+        <i class="pointer fa-regular fa-circle-xmark text-danger fa-1x position-absolute top-0 right-0 my-4 me-5"></i></span>
+    </h4>
+    <div class="row py-5">
+      <div class="col-md-12 mt-3">
+        <div class="input-group mb-3">
+          <input type="text" placeholder="roomNumber" class="form-control rounded">
         </div>
-     
+      </div>
+      <div class="col-md-6 mt-3">
+        <div class="input-group mb-3">
+          <input type="text" placeholder="isActive" class="form-control rounded">
+        </div>
+      </div>
+      <div class="col-md-6 mt-3">
+        <div class="input-group mb-3">
+          <input type="text" placeholder="userName" class="form-control rounded">
+        </div>
+      </div>
+      <div class="col-md-6 mt-3">
+        <div class="input-group mb-3">
+          <input type="text" placeholder="createdAt" class="form-control rounded">
+        </div>
+      </div>
+      <div class="col-md-6 mt-3">
+        <div class="input-group mb-3">
+          <input type="text" placeholder="updatedAt" class="form-control rounded">
+        </div>
+      </div>
+      <div class="text-center me-auto">
+        <button (click)="onNoClick()" type="button" class="primary w-25">Cancel</button>
+      </div>
     </div>
+
+  </div>
 </section>
