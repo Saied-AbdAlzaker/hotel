@@ -53,22 +53,20 @@
                   <i class="fa-solid fa-ellipsis"></i>
                 </a>
                 <ul class="dropdown-menu">
-                  <div class="d-flex flex-column align-items-center">
-                    <td class="my-0">
-                      <a class="text-decoration-none cursor bg-btn" (click)="openViewDialog('2000ms', '2000ms', item)"
+                    <li>
+                      <a class="dropdown-item pointer" (click)="openViewDialog('2000ms', '2000ms', item)"
                         ><i  class="fa-regular fa-eye mx-2 bg-icon"></i>View</a
                       >
-                    </td>
-                    <td>
-                      <a class="text-decoration-none cursor bg-btn" (click)="openEditDialog(item)" 
+                    </li>
+                    <li>
+                      <a class="dropdown-item pointer" (click)="openEditDialog(item)" 
                         ><i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
-                    </td>
-                    <td>
-                      <a class="text-decoration-none cursor bg-btn" (click)="openDeleteDialog(item)"
+                    </li>
+                    <li>
+                      <a class="dropdown-item pointer" (click)="openDeleteDialog(item)"
                         ><i class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a
                       >
-                    </td>
-                  </div>
+                    </li>
                 </ul>
               </td>
             </tr>
