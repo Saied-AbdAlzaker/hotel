@@ -65,7 +65,7 @@ export class FacilitiesComponent {
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AddEditComponent, {
       data: {},
-      width: '40%',
+      width: '30%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
