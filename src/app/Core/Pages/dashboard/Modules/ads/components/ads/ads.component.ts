@@ -64,12 +64,14 @@ export class AdsComponent implements OnInit {
   //   )
   // }
 
-  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string,adsItems:IAds): void {
     this.dialog.open(ViewAdsComponent,
       {
         width: '60%',
+        data:adsItems,
         enterAnimationDuration,
         exitAnimationDuration,
+        
       });
 
   }
