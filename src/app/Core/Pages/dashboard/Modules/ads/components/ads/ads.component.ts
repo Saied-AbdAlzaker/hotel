@@ -53,16 +53,7 @@ export class AdsComponent implements OnInit {
     });
   }
   // View Ads
-  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, adsItems: IAds): void {
-    this.dialog.open(ViewAdsComponent,
-      {
-        data: adsItems,
-        width: '60%',
-        enterAnimationDuration,
-        exitAnimationDuration,
-      });
-
-  }
+  
 
   // Search
   onSearchInputChange() {
@@ -160,6 +151,15 @@ export class AdsComponent implements OnInit {
       },
     });
   }
+  
+ openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, adsItems: IAds): void {
+  this.dialog.open(ViewAdsComponent,
+    {
+      data: adsItems,
+      width: '40%',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
 
 }
-
+}
