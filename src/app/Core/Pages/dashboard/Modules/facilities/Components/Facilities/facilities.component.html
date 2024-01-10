@@ -23,8 +23,7 @@
       <table>
         <thead>
           <tr>
-            <th class="rounded-start">Facilities Name</th>
-            <!-- <th>Created By</th> -->
+            <th class="rounded-start">Name</th>
             <th>Created At</th>
             <th>Update dAt</th>
             <th class="rounded-end">Actions</th>
@@ -33,7 +32,6 @@
         <tbody>
           <tr *ngFor="let item of tableData; let isEven = even" [class]="isEven ? '':'bg-table' ">
             <td class="rounded-start">{{item.name}}</td>
-            <!-- <td>{{item.createdBy.userName}}</td> -->
             <td>{{item.createdAt |date:'dd-mm-yyyy'}}</td>
             <td>{{item.updatedAt |date:'dd-mm-yyyy'}}</td>
 

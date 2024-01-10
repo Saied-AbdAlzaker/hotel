@@ -21,7 +21,7 @@ export class AdsComponent implements OnInit {
   adsItems: IAds[] | undefined;
   facilities: IFacilities[] | undefined = [];
   searchValue: string = '';
-  adsData:IAddAds|any;
+  adsData: IAddAds | any;
   private searchSubject: Subject<string> = new Subject<string>();
 
   constructor(
@@ -29,7 +29,7 @@ export class AdsComponent implements OnInit {
     private _adsService: AdsService,
     private _toastrService: ToastrService,
     private _roomsService: RoomsService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getAllAds();
@@ -47,15 +47,16 @@ export class AdsComponent implements OnInit {
         console.log(res);
         this.tableResponse = res;
         this.tableData = this.tableResponse?.data;
-        this.adsItems= this.tableData?.ads
+        this.adsItems = this.tableData?.ads
         console.log(this.adsItems);
       },
     });
   }
-
-  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+  // View Ads
+  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, adsItems: IAds): void {
     this.dialog.open(ViewAdsComponent,
       {
+        data: adsItems,
         width: '60%',
         enterAnimationDuration,
         exitAnimationDuration,
@@ -78,12 +79,12 @@ export class AdsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result);
-      
+
       this.onAddNewAds(result);
     });
   }
 
-    onAddNewAds(data: any) {
+  onAddNewAds(data: any) {
     this._adsService.onAddAds(data).subscribe({
       next: (res) => {
         console.log(res);
@@ -99,7 +100,7 @@ export class AdsComponent implements OnInit {
   // Edit Ads
   openEditDialog(adsData: any): void {
     console.log(adsData);
-    
+
     const dialogRef = this.dialog.open(AddEditComponent, {
       data: adsData,
       width: '60%',
@@ -107,12 +108,12 @@ export class AdsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.onEditNewAds(result._id,adsData);
+      this.onEditNewAds(result._id, adsData);
     });
   }
 
-  onEditNewAds(_id: string,data: String) {
-    this._adsService.onEditAds(_id,data).subscribe({
+  onEditNewAds(_id: string, data: String) {
+    this._adsService.onEditAds(_id, data).subscribe({
       next: (res) => {
         console.log(res);
 
@@ -123,8 +124,8 @@ export class AdsComponent implements OnInit {
         this._toastrService.success('Rooms Updated Successfully');
         this.getAllAds();
       }
-  })
-}
+    })
+  }
 
   // Delete Ads
   openDeleteDialog(roomData: any): void {
@@ -159,5 +160,6 @@ export class AdsComponent implements OnInit {
       },
     });
   }
+
 }
 

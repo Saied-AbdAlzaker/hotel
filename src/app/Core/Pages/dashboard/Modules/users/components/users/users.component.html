@@ -1,53 +1,43 @@
 <section id="users">
   <div class="container">
     <div class="row">
-        <div class="my-5">
-          <h4 class="mb-0">Users Table Details</h4>
-          <p class="text-muted">You can check all details</p>
-        </div>
+      <div class="col-md-8 mt-3">
+        <h4 class="mb-0">Users Table Details</h4>
+        <p class="text-muted">You can check all details</p>
+      </div>
+      <div class="col-md-4 mb-3">
+        <button type="button" class="primary w-100 mt-5">Add New User</button>
+      </div>
 
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th class="rounded-start">user Name</th>
-              <th>email</th>
-              <th> phoneNumber</th>
-              <th>country</th>
-              <th>Role</th>
-              <th>verified</th>
-              <th>created at</th>
-              <th>updated at</th>
-              <th class="rounded-end">Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of listUses">
-              
-              <td>{{item.userName}}</td>
-              <td>{{item.email}}</td>
-              <td>{{item.phoneNumber}}</td>
-              <td>{{item.country}}</td>
+      <table>
+        <thead>
+          <tr>
+            <th class="rounded-start">user Name</th>
+            <th>email</th>
+            <th> phoneNumber</th>
+            <th>country</th>
+            <th>Role</th>
+            <th>verified</th>
+            <th class="rounded-end">created at</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listUses; let isEven = even" [class]="isEven ? '':'bg-table' ">
 
-              <!-- <td>{{item.endDate|date:'dd-mm-yyyy'}}</td> -->
-              <td>{{item.role}}</td>
-              <td>{{item.createdAt}}</td>
-              <td>{{item.updatedAt}}</td>
+            <td class="rounded-start">{{item.userName}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phoneNumber}}</td>
+            <td>{{item.country}}</td>
 
+            <!-- <td>{{item.endDate|date:'dd-mm-yyyy'}}</td> -->
+            <td>{{item.role}}</td>
+            <td>{{item.createdAt |date:'dd-mm-yyyy'}}</td>
+            <td class="rounded-start">{{item.updatedAt |date:'dd-mm-yyyy'}}</td>
 
-
-              <!-- <td><a [routerLink]="['/dashboardusers/view', item._id]" class="pointer"> -->
-               <td> <a><i class="fa-regular fa-eye ms-2 bg-icon"></i></a>
-              </td>
-              <td><i  class="fa-regular fa-trash-can ms-2 text-danger pointer"></i></td>
-            </tr>
-          </tbody>
+          </tr>
+        </tbody>
       </table>
       <div>
-        <!-- <mat-paginator [length]="tableResponse?.totalCount" 
-              [pageSizeOptions]="[5,10, 50, 100]" 
-              (page)="handlePageEvent($event)" [pageIndex]="pageIndex" 
-              aria-label="Select page">
-          </mat-paginator> -->
       </div>
     </div>
 
