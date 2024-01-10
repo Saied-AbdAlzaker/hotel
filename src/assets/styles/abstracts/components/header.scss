@@ -1,12 +1,17 @@
 @import "/src/assets/styles/abstracts/variables";
 
 #header{
+    .rotate{
+        rotate: y 180deg;
+    }
+    .bg-plus{
+        background: #1ABC9C;
+    }
     .image{
         img{
             border-radius: 100px 15px 15px 15px;
         }
         position: relative;
-        // display: inline-block;
     }
     .image::after{
         content: "";
@@ -15,8 +20,8 @@
         width: 100%;
         height: 100%;
         position: absolute;
-        right: -20px;
-        bottom: -20px;
+        right: -25px;
+        bottom: -25px;
         z-index: -2;
     }
 }
