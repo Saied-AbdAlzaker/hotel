@@ -16,6 +16,11 @@ import { AddEditComponent } from '../add-edit-ads/add-edit-ads.component';
   styleUrls: ['./ads.component.scss'],
 })
 export class AdsComponent implements OnInit {
+  pageIndex: number = 0;
+  pageSize: number = 5;
+  pageNumber: number = 1;
+  totalCount: number=0;
+
   tableResponse: IAdsResponse | undefined;
   tableData: IAdsData | undefined;
   adsItems: IAds[] | undefined;
@@ -42,6 +47,11 @@ export class AdsComponent implements OnInit {
   }
 
   getAllAds() {
+    let parms = {
+      totalCount: this.totalCount,
+      page: this.pageNumber,
+      size: this.pageSize
+    }
     this._adsService.getAllAds().subscribe({
       next: (res) => {
         console.log(res);
@@ -150,6 +160,12 @@ export class AdsComponent implements OnInit {
         this.getAllAds();
       },
     });
+  }
+
+  handlePageEvent(e: any) {    
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex + 1;
+    this.getAllAds();
   }
   
  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, adsItems: IAds): void {
