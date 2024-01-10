@@ -11,7 +11,7 @@ export class UsersComponent implements OnInit {
   pageIndex: number = 0;
 
   pageNumber: number = 1;
-  pageSize: number = 10;
+  pageSize: number = 5;
   listUses: IlistUser[] | undefined = [];
   tableResponse: IlistTable | undefined;
   constructor(private _UsersService: UsersService) { }
