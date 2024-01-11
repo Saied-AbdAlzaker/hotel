@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './Components/home/home.component';
-import { ForgetPasswordComponent } from 'src/app/Core/auth/Components/forget-password/forget-password.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  {path:'', component:HomeComponent},
-
-
+  {path:'',component:HomeComponent}
 ];
 
 @NgModule({

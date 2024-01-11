@@ -39,7 +39,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th class="rounded-start">room Number</th>
+          <th class="rounded-start">Room Number</th>
           <th>Image</th>
           <th>Price</th>
           <th>Discount</th>
@@ -50,7 +50,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of tableData">
-          <td class="rounded-start">{{item.roomNumber}}</td>
+          <td class="rounded-start">{{item.roomNumber || '--'}}</td>
           <td><img crossorigin="anonymous" class="imgTable" [src]="imagePath + item.images[0]" /></td> 
           <td>{{item.price}}</td>
           <td>{{item.discount}}</td>

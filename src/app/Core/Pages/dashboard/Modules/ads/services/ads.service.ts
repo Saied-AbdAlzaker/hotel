@@ -32,4 +32,5 @@ export class AdsService {
   {
     return this._httpClient.put(`admin/ads/${id}`, data)
   }
+
 }

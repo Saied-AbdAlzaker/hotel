@@ -15,6 +15,9 @@ import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 
 registerLocaleData(en);
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { LoadingInterceptor } from './Core/Interceptors/loading.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +35,9 @@ registerLocaleData(en);
       progressBar: true,
     }),
     FormsModule,
+    NgxSpinnerModule,
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
+
   ],
   providers: [
     {
@@ -40,6 +46,11 @@ registerLocaleData(en);
       multi: true
     },
     { provide: NZ_I18N, useValue: en_US },
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:LoadingInterceptor,
+      multi: true
+    }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

@@ -23,7 +23,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatNativeDateModule} from '@angular/material/core';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import {MatDividerModule} from '@angular/material/divider';
-
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -45,7 +45,8 @@ import {MatDividerModule} from '@angular/material/divider';
     NavbarComponent,
     ChangePasswordComponent,
     LogOutComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    ProfileComponent
   ]
 })
 export class SharedModule { }

@@ -14,6 +14,9 @@ import { FacilitiesService } from '../../Services/facilities.service';
 export class FacilitiesComponent {
 
   private searchSubject: Subject<string> = new Subject<string>();
+  pageIndex: number = 0;
+  pageSize: number = 5;
+  pageNumber: number | undefined = 1;
   tableResponse: any;
   tableData: any;
   searchValue: string = '';
@@ -37,6 +40,8 @@ export class FacilitiesComponent {
   getAllFacilities() {
     let parms = {
       name: this.searchValue,
+      page: this.pageNumber,
+      size: this.pageSize
     }
 
     this._facilitiesService.getAllFacilities(parms).subscribe({
@@ -60,7 +65,7 @@ export class FacilitiesComponent {
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AddEditComponent, {
       data: {},
-      width: '40%',
+      width: '30%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -147,6 +152,11 @@ export class FacilitiesComponent {
         this.getAllFacilities();
       },
     });
+  }
+  handlePageEvent(e: any) {
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex + 1;
+    this.getAllFacilities();
   }
 }
 

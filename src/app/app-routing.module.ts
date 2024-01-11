@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeModule } from './Core/Pages/home/home/home.module';
 import { authGuard } from './Core/Guards/auth.guard';
 import { adminGuard } from './Core/Guards/admin.guard';
 
 const routes: Routes = [
-  {path:'', redirectTo: 'home', pathMatch:'full'},
-  {path: 'home',
-  loadChildren: () => import('./Core/Pages/home/home/home.module').then(m => m.HomeModule)},
+  {path:'', redirectTo: 'landingPage', pathMatch:'full'},
+  {path: 'landingPage',
+  loadChildren: () => import('./Core/Pages/landing-page/landing-page.module').then(m => m.LandingPageModule)},
   {path: 'auth',
   loadChildren: () => import('./Core/auth/auth.module').then(m => m.AuthModule)},
   {path: 'dashboard',canActivate: [authGuard,adminGuard],
