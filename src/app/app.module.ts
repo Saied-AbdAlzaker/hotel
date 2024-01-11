@@ -1,7 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -10,11 +9,17 @@ import { GlobalInterceptor } from './Core/Interceptors/global.interceptor';
 import { SharedModule } from './Shared/shared.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './Core/Interceptors/loading.interceptor';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { FormsModule } from '@angular/forms';
 
+registerLocaleData(en);
 @NgModule({
   declarations: [
     AppComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -27,6 +32,7 @@ import { LoadingInterceptor } from './Core/Interceptors/loading.interceptor';
       timeOut: 4000,
       progressBar: true,
     }),
+    FormsModule,
     NgxSpinnerModule,
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
 
@@ -37,6 +43,7 @@ import { LoadingInterceptor } from './Core/Interceptors/loading.interceptor';
       useClass: GlobalInterceptor,
       multi: true
     },
+    { provide: NZ_I18N, useValue: en_US },
     {
       provide:HTTP_INTERCEPTORS,
       useClass:LoadingInterceptor,

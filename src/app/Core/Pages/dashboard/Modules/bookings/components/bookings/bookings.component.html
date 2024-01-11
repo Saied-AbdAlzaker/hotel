@@ -1,7 +1,7 @@
 <section id="room">
   <div class="container">
     <div class="row">
-        <div class="my-5">
+        <div class="my-2">
           <h4 class="mb-0">Booking Table Details</h4>
           <p class="text-muted">You can check all details</p>
         </div>
@@ -21,19 +21,35 @@
             <tr *ngFor="let item of listBookings">
               <td>{{item.room?.roomNumber || "---"}}</td>
               <td>{{item.totalPrice|currency:'L.E'}}</td>
-              <td>{{item.startDate|date:'dd-mm-yyyy'}}</td>
-              <td>{{item.endDate|date:'dd-mm-yyyy'}}</td>
-              <td>{{item.user || "---"}}</td>
-              <td><a [routerLink]="['/dashboard/booking/view/', item._id]" class="pointer">
-                <i class="fa-regular fa-eye ms-2 bg-icon"></i></a>
+              <td>{{item.startDate|date:'dd-MM-yyyy'}}</td>
+              <td>{{item.endDate|date:'dd-MM-yyyy'}}</td>
+              <td>{{item.user?.userName || "---"}}</td>
+              <td class="nav-item dropdown rounded-end">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <i class="fa-solid fa-ellipsis" style="color: #1f5141;"></i>
+                </a>
+                <ul class="dropdown-menu">
+                  <div class="d-flex flex-column align-items-center">
+              <td>
+                <a (click)="openViewDialog(item)"
+                  class="text-decoration-none cursor bg-btn"><i
+                    class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>View</a>
               </td>
+              <td>
+                <a (click)="openDeleteDialog(item)" class="text-decoration-none cursor bg-btn"><i
+                    class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
+              </td>
+      </div>
+      </ul>
+      </td>
             </tr>
           </tbody>
       </table>
       <div>
-        <mat-paginator [length]="tableResponse?.totalCount" 
-              [pageSizeOptions]="[5,10, 50, 100]" 
-              (page)="handlePageEvent($event)" [pageIndex]="pageIndex" 
+        <mat-paginator [length]="tableResponse?.totalCount"
+              [pageSizeOptions]="[5,10, 50, 100]"
+              (page)="handlePageEvent($event)" [pageIndex]="pageIndex"
               aria-label="Select page">
           </mat-paginator>
       </div>

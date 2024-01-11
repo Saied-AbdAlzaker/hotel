@@ -11,10 +11,12 @@ export class UsersComponent implements OnInit {
   pageIndex: number = 0;
   pageSize: number = 10;
   pageNumber: number | undefined = 1;
+
+  pageNumber: number = 1;
+  pageSize: number = 5;
   listUses: IlistUser[] | undefined = [];
   tableResponse: IlistTable | undefined;
   constructor(private _UsersService: UsersService) { }
-
 
   ngOnInit() {
     this.onGetAllUsers();
@@ -32,11 +34,28 @@ export class UsersComponent implements OnInit {
       }
     })
   }
+  
+  onGetAllUsers() {
+    let params = {
+      page: this.pageNumber,
+      size: this.pageSize
+    }
+    this._UsersService.geAllUsers(params).subscribe({
+      next: (res: any) => {
+        this.tableResponse = res.data;
+        this.listUses = res.data.users;
+      }
+    })
+  }
+
   handlePageEvent(e: any) {
     this.pageSize = e.pageSize;
     this.pageNumber = e.pageIndex + 1;
     this.onGetAllUsers();
+
   }
 
- 
+
+  }
+
 }
