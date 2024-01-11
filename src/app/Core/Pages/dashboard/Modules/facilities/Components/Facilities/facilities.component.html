@@ -32,8 +32,8 @@
         <tbody>
           <tr *ngFor="let item of tableData; let isEven = even" [class]="isEven ? '':'bg-table' ">
             <td class="rounded-start">{{item.name}}</td>
-            <td>{{item.createdAt |date:'dd-mm-yyyy'}}</td>
-            <td>{{item.updatedAt |date:'dd-mm-yyyy'}}</td>
+            <td>{{item.createdAt |date: 'dd-MM-yyyy'}}</td>
+            <td>{{item.updatedAt |date: 'dd-MM-yyyy'}}</td>
 
 
             <td class="nav-item dropdown rounded-end">
