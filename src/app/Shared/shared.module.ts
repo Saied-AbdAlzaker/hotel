@@ -18,9 +18,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 import { ProfileComponent } from './profile/profile.component';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
