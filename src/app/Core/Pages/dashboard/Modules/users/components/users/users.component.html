@@ -23,10 +23,14 @@
 
             <td class="rounded-start">{{item.userName}}</td>
             <td>{{item.email}}</td>
-            <td>{{item.phoneNumber}}</td>
+            <td>{{'0'+item.phoneNumber}}</td>
             <td>{{item.country}}</td>
 
-            <td>{{item.role}}</td>
+            <td><span class="status w-100" [ngClass]="{
+              admin: item.role == 'admin',
+              user: item.role == 'user'}">
+            {{ item.role }}
+          </span></td>
             <td>{{item.createdAt | date:'dd-MM-yyyy'}}</td>
             <td class="rounded-start">{{item.updatedAt | date:'dd-MM-yyyy'}}</td>
 
@@ -37,23 +41,20 @@
 
       <div class="p-3">
 
-        <mat-paginator 
-          [length]="tableResponse?.totalCount" 
+        <mat-paginator
+          [length]="tableResponse?.totalCount"
           [pageSizeOptions]="[10, 50, 100]"
-          (page)="handlePageEvent($event)" 
+          (page)="handlePageEvent($event)"
           [pageIndex]="pageIndex"
           aria-label="Select page">
         </mat-paginator>
       </div>
-      <div>
-        
+      <!-- <div>
+
         <mat-paginator [length]="tableResponse?.totalCount" [pageSizeOptions]="[5, 10, 50, 100]"
           (page)="handlePageEvent($event)" [pageIndex]="pageIndex" aria-label="Select page">
         </mat-paginator>
-      </div>
-      <div>
-
-      </div>
+      </div> -->
     </div>
   </div>
 
