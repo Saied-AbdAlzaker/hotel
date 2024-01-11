@@ -14,7 +14,7 @@
               <th>Start Date</th>
               <th>End Date</th>
               <th>User</th>
-              <th class="rounded-end">View</th>
+              <th class="rounded-end">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -30,17 +30,16 @@
                   <i class="fa-solid fa-ellipsis" style="color: #1f5141;"></i>
                 </a>
                 <ul class="dropdown-menu">
-                  <div class="d-flex flex-column align-items-center">
-              <td>
+                  <li class="d-flex flex-column align-items-center">
+              <li>
                 <a (click)="openViewDialog(item)"
-                  class="text-decoration-none cursor bg-btn"><i
-                    class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>View</a>
-              </td>
-              <td>
-                <a (click)="openDeleteDialog(item)" class="text-decoration-none cursor bg-btn"><i
+                  class="dropdown-item pointer"><i
+                    class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
+              </li>
+              <li>
+                <a (click)="openDeleteDialog(item)" class="dropdown-item pointer"><i
                     class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
-              </td>
-      </div>
+                </li>
       </ul>
       </td>
             </tr>
