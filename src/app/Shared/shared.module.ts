@@ -18,6 +18,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ProfileComponent } from './profile/profile.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -25,14 +28,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     CommonModule,
     ToastrModule.forRoot({}),
     FormsModule, ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,RouterLink,
-    MatDialogModule, MatPaginatorModule,MatButtonModule,MatIconModule, MatTooltipModule,RouterModule,MatSelectModule,MatDatepickerModule,MatCardModule,MatNativeDateModule,NzBadgeModule,MatDividerModule
+    MatDialogModule, MatPaginatorModule,MatButtonModule,MatIconModule, MatTooltipModule,RouterModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule
 
   ],
   exports: [
     FormsModule,ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,
      ReactiveFormsModule,HttpClientModule,FormsModule,SidebarComponent,RouterLink,
      MatDialogModule, MatPaginatorModule, NavbarComponent,MatButtonModule,MatIconModule,MatTooltipModule,RouterModule,
-    MatSelectModule,MatFormFieldModule,MatDialogModule, MatPaginatorModule, CommonModule,MatDatepickerModule,MatCardModule,MatNativeDateModule,NzBadgeModule,MatDividerModule
+    MatSelectModule,MatFormFieldModule,MatDialogModule, MatPaginatorModule, CommonModule,MatDatepickerModule,MatNativeDateModule
   ],
   declarations: [
     SidebarComponent,
