@@ -74,7 +74,7 @@ export class AdsComponent implements OnInit {
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AddEditComponent, {
       data: {},
-      width: '30%',
+      width: '60%',
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -160,10 +160,6 @@ export class AddEditComponent implements OnInit {
     });
   }
 
-
-
-
-
   getAllRooms() {
     let parms = {
 
