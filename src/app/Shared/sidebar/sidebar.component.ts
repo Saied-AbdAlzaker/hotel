@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChangePasswordComponent } from './components/change-password/change-password.component';
-import { LogOutComponent } from './components/log-out/log-out.component';
+import { ChangePasswordComponent } from '../navbar/components/change-password/change-password.component';
+import { LogOutComponent } from '../navbar/components/log-out/log-out.component';
 import { MatDialog } from '@angular/material/dialog';
 import { UserAdminService } from '../services/user-admin.service';
 import { IChangePassword } from '../models/iuser-admin';
@@ -57,46 +57,7 @@ export class SidebarComponent {
       link: '/dashboard/Facilities',
     },
   ];
-  openDialogCahngePassword(): void {
-    const dialogRef = this.dialog.open(ChangePasswordComponent, {
-      data: {},
-      width: '30%',
-      // height: '100%',
-    });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-      if (result) {
-        this.changePasswordAdmin(result);
-      }
-    });
-  }
-
-  changePasswordAdmin(data: IChangePassword) {
-    this._userAdminService.onChangePassword(data).subscribe({
-      next: (res) => {
-        console.log(res);
-      },
-      error: (err: any) => {
-        console.log(err.error.message);
-        this.toastr.error(err.error.message, 'error!');
-      },
-      complete: () => {
-        this.toastr.success('Password has been updated successfully', 'Done');
-      },
-    });
-  }
-  openDialogLogOut(): void {
-    const dialogRef = this.dialog.open(LogOutComponent, {
-      data: {},
-      width: '30%',
-      // height: '100%',
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-    });
-  }
   onClicked() {
     this.isOpened = !this.isOpened;
     this.isOpenedValue.emit(this.isOpened);

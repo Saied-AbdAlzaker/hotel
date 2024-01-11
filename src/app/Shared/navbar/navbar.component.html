@@ -7,8 +7,8 @@
           class="col-3 ms-auto d-flex justify-content-between align-items-center" >
           <div class="d-flex align-items-center ">
             <a routerLink="/dashboard/profile" class="user-avater">
-              <!-- <img class="" 
-              *ngIf="currentUser?.imagePath" 
+              <!-- <img class=""
+              *ngIf="currentUser?.imagePath"
               [src]="'https://upskilling-egypt.com/'+currentUser?.imagePath" /> -->
               <img
               src="../../../assets/images/profile.png"
@@ -30,7 +30,7 @@
                   <li><a class="dropdown-item pointer" routerLink="/dashboard/profile">
                     <span><i class="fa-solid fa-user me-2"></i></span> Profile
                   </a></li>
-                  <li><a class="dropdown-item pointer">
+                  <li><a class="dropdown-item pointer" (click)="openDialogCahngePassword()">
                     <span><i class="fa-solid fa-lock me-2"></i></span> Change Password
                   </a></li>
                   <li><a class="dropdown-item pointer">
@@ -39,9 +39,9 @@
                 </ul>
               </div>
             </div>
-            
+
           </div>
-          
+
           <span class="mx-3 fs-4 fw-bold"><i class="fa-solid fa-bell"></i></span>
         </div>
       </div>
