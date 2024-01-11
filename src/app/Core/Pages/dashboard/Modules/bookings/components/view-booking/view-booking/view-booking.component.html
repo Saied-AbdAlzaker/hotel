@@ -1,16 +1,25 @@
-<div class="card-auth py-2 ">
-  <h4 class="d-flex align-items-center justify-content-end mb-5">
-    <span (click)="onNoClick()">
-      <i
-        class="pointer fa-regular fa-circle-xmark text-danger fa-1x position-absolute top-0 right-0 my-4"
-      ></i
-    ></span>
-  </h4>
+<section id="" class="p-4">
+  <div class="container-fluid">
+    <div class="card-auth">
+      <div class="d-flex justify-content-between gap-5">
+        <div class="header-auth logo mb-0">
+          <h2 class="mb-0 text-nowrap">Booking Days For </h2>
+          <p > <span class="text-mainColor"> {{bookingDetails.room?.roomNumber || 'not-available room'}}</span></p>
+        </div>
+        <div >
+          <span (click)="onNoClick()"><i class="pointer fa-regular fa-circle-xmark text-danger fa-2x position-absolute top-0 right-0 my-4" ></i></span>
+         </div>
+      </div>
   <form>
     <div class="row">
-      <h3 class="fw-bold text-nowrap">Booking Days For <span class="text-mainColor"> {{bookingDetails.room?.roomNumber || 'not-available room'}}</span></h3>
-
       <div class="col-3 align-self-center">
+        <label class="text-secondryColor">Room Number</label>
+        <input
+          type="text"
+          class="form-control"
+          disabled
+          [value]="bookingDetails.room?.roomNumber  || '---'"
+        />
         <label class="text-secondryColor">User</label>
         <input
           type="text"
@@ -76,3 +85,5 @@
     </div>
   </form>
 </div>
+  </div>
+</section>
