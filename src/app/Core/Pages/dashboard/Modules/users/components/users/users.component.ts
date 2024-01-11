@@ -9,6 +9,8 @@ import { IlistTable, IlistUser } from '../../model/users';
 })
 export class UsersComponent implements OnInit {
   pageIndex: number = 0;
+  pageSize: number = 10;
+  pageNumber: number | undefined = 1;
 
   pageNumber: number = 1;
   pageSize: number = 5;
@@ -20,6 +22,19 @@ export class UsersComponent implements OnInit {
     this.onGetAllUsers();
   }
 
+  onGetAllUsers(){
+    let params={
+      page:this.pageNumber,
+      size:this.pageSize  
+    }
+    this._UsersService.geAllUsers(params).subscribe({
+      next:(res:any)=>{
+        this.tableResponse=res.data;
+        this.listUses=res.data.users;
+      }
+    })
+  }
+  
   onGetAllUsers() {
     let params = {
       page: this.pageNumber,
@@ -40,5 +55,7 @@ export class UsersComponent implements OnInit {
 
   }
 
+
+  }
 
 }
