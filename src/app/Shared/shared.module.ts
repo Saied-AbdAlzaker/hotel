@@ -18,12 +18,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatCardModule} from '@angular/material/card';
-import {MatNativeDateModule} from '@angular/material/core';
-import { NzBadgeModule } from 'ng-zorro-antd/badge';
-import {MatDividerModule} from '@angular/material/divider';
-
 
 
 @NgModule({
@@ -45,7 +39,8 @@ import {MatDividerModule} from '@angular/material/divider';
     NavbarComponent,
     ChangePasswordComponent,
     LogOutComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    ProfileComponent
   ]
 })
 export class SharedModule { }

@@ -8,6 +8,7 @@ import { BookingsModule } from './Modules/bookings/bookings.module';
 import { HomeModule } from './Modules/home/home.module';
 import { RoomsModule } from './Modules/rooms/rooms.module';
 import { AdsModule } from './Modules/ads/ads.module';
+import { ProfileComponent } from 'src/app/Shared/profile/profile.component';
 
 const routes: Routes = [
   {path:'',component:DashboardComponent, children: [
@@ -36,6 +37,7 @@ const routes: Routes = [
       path: 'Facilities',  data: { title: 'Facilities' },
       loadChildren: () => import('../dashboard/Modules/facilities/facilities.module').then(mod => mod.FacilitiesModule),
     },
+    {path:'profile', component:ProfileComponent}
   ]}
 ];
 
