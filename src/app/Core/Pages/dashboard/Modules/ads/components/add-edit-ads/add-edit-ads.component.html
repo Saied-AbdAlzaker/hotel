@@ -1,72 +1,19 @@
 <section class="p-5">
 
     <h4 class="d-flex align-items-center justify-content-between mb-3">
-        <span class="add">Add </span>
+        <span *ngIf="isAddMode">Add</span>
+        <span *ngIf="isEditMode">Edit</span>
         <span (click)="onNoClick()">
-
-            <i
-                class="pointer fa-regular fa-circle-xmark text-danger fa-1x position-absolute top-0 right-0 my-4"></i></span>
+            <i class="pointer fa-regular fa-circle-xmark text-danger fa-1x position-absolute top-0 right-0 my-4"></i></span>
     </h4>
 
     <div class="row">
 
         <div class="card-auth">
             <div class="inputs-auth">
-
                 <form [formGroup]="adsForm" (ngSubmit)="onSubmit(adsForm)">
 
-
-                            <div class="form-group w-100">
-
-                                <select [(ngModel)]="data.room"  placeholder="Room Name" formControlName="room" type="text" class="form-control form-select" aria-label="Small select example">
-                                    <ng-container *ngFor="let item of tableData" >
-                                        <!-- <option *ngIf="item.discount == '0'" [ngValue]="item._id">{{item.roomNumber}}</option> -->
-                                        <option [ngValue]="item._id">{{item.roomNumber}}</option>
-                                    </ng-container>
-
-                                  </select>
-                                <!-- <span class="text-danger  mb-3"
-                                    *ngIf="adsForm.get('room')?.errors && adsForm.get('room')?.touched">
-                                    <span *ngIf="adsForm.get('room')?.getError('required')">Room is required</span>
-                                </span> -->
-                            </div>
-
-                                <div class="form-group w-100  ">
-                                    <input [(ngModel)]="data.discount" formControlName="discount" type="number" class="form-control" id="discount"
-                                        placeholder="Discount">
-                                    <!-- <span *ngIf="adsForm.get('discount')?.errors && adsForm.get('discount')?.touched "
-                                        class="text-danger  mb-3">
-                                        <span *ngIf="adsForm.get('discount')?.errors?.['required']" class="mb-0">discount is
-                                            required</span>
-                                    </span> -->
-                                </div>
-
-                                <!-- <div class="form-group w-50  me-3">
-                                    <select  class="form-control form-select" aria-label="Small select example">
-                                        <option [value]="data._id">{{data.room.discount}}</option>
-                                      </select>
-                                    <span class="text-danger  mb-3"
-                                        *ngIf="adsForm.get('discount')?.errors && adsForm.get('discount')?.touched">
-                                        <span *ngIf="adsForm.get('discount')?.getError('required')">discount is required</span>
-                                    </span>
-                                </div> -->
-
-                                <div class="form-group w-100 ">
-                                    <select [(ngModel)]="data.isActive" placeholder="Active" formControlName="isActive" type="boolean" class="form-control form-select" aria-label="Small select example">
-                                        <option value="true">Yes</option>
-                                        <option value="false">No</option>
-                                      </select>
-                                    <!-- <span class="text-danger  mb-3"
-                                        *ngIf="adsForm.get('isActive')?.errors && adsForm.get('isActive')?.touched">
-                                        <span *ngIf="adsForm.get('isActive')?.getError('required')">Status is required</span>
-                                    </span> -->
-                                </div>
-
-
-                        <button class="float-end btn primary w-25"
-                        [mat-dialog-close]="data"      cdkFocusInitial  >Save</button>
-
-                    <!-- <div class="form-group w-100">
+                    <div class="form-group w-100">
                         <select [(ngModel)]="data.room" formControlName="room" type="text"
                             class="form-control form-select" aria-label="Small select example">
                             <ng-container *ngFor="let item of tableData">
@@ -90,9 +37,8 @@
 
 
                     <div class="d-flex justify-content-center mt-2">
-                        <button type="button" (click)="onNoClick()" class="btn outline-primary">Cancle</button>
-                        <button class="mx-4 btn primary w-25" [mat-dialog-close]="data" cdkFocusInitial>Save</button>
-                    </div> -->
+                        <button class="mx-4 btn primary w-50" [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+                    </div>
 
                 </form>
             </div>
