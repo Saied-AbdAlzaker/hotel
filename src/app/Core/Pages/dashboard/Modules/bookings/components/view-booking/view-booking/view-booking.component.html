@@ -1,1 +1,78 @@
-<p>view-booking works!</p>
+<div class="card-auth py-2 ">
+  <h4 class="d-flex align-items-center justify-content-end mb-5">
+    <span (click)="onNoClick()">
+      <i
+        class="pointer fa-regular fa-circle-xmark text-danger fa-1x position-absolute top-0 right-0 my-4"
+      ></i
+    ></span>
+  </h4>
+  <form>
+    <div class="row">
+      <h3 class="fw-bold text-nowrap">Booking Days For <span class="text-mainColor"> {{bookingDetails.room?.roomNumber || 'not-available room'}}</span></h3>
+
+      <div class="col-3 align-self-center">
+        <label class="text-secondryColor">User</label>
+        <input
+          type="text"
+          class="form-control"
+          disabled
+          [value]="bookingDetails.user?.userName || '---'"
+        />
+        <label class="text-secondryColor">Status</label>
+        <input
+          type="text"
+          class="form-control"
+          disabled
+          [value]="bookingDetails.status"
+        />
+        <label class="text-secondryColor">Created at</label>
+        <input
+          type="text"
+          class="form-control"
+          disabled
+          [value]="bookingDetails.createdAt | date : 'dd-MM-yyyy'"
+        />
+        <label class="text-secondryColor">Started at</label>
+
+        <input
+          type="text"
+          class="form-control"
+          disabled
+          [value]="bookingDetails.startDate | date : 'dd-MM-yyyy'"
+        />
+        <label class="text-secondryColor">Ended at</label>
+
+        <input
+          type="text"
+          class="form-control"
+          disabled
+          [value]="bookingDetails.endDate | date : 'dd-MM-yyyy'"
+        />
+        <label class="text-secondryColor">Updated at</label>
+
+        <input
+          type="text"
+          class="form-control"
+          disabled
+          [value]="bookingDetails.updatedAt | date : 'dd-MM-yyyy'"
+        />
+      </div>
+      <div class="col-9">
+         <!-- <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            <mat-card-title>Shiba Inu</mat-card-title>
+          </mat-card-header>
+          <mat-card-content> -->
+            <mat-calendar
+              [minDate]="bookingDetails.startDate"
+              [maxDate]="bookingDetails.endDate"
+            ></mat-calendar>
+            <!-- <mat-divider></mat-divider>
+          </mat-card-content>
+        </mat-card> -->
+
+      </div>
+    </div>
+  </form>
+</div>

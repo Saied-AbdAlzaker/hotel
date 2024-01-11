@@ -4,6 +4,7 @@ import { IBookings, IBookingsTable } from '../../model/booking';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
+import { ViewBookingComponent } from '../view-booking/view-booking/view-booking.component';
 
 @Component({
   selector: 'app-bookings',
@@ -35,16 +36,16 @@ export class BookingsComponent implements OnInit {
         this.tableResponse=res.data
         this.listBookings= res?.data?.booking
         console.log(this.listBookings);
-        
+
       }
     })
   }
 
-  openDeleteDialog(facilityData: any): void {
-    console.log(facilityData);
+  openDeleteDialog(bookingData: any): void {
+    console.log(bookingData);
 
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      data: facilityData,
+      data: bookingData,
       width: '40%',
     });
 
@@ -52,12 +53,12 @@ export class BookingsComponent implements OnInit {
       console.log('The dialog was closed');
       if (result) {
         console.log(result);
-        this.onDeleteFacilities(result._id);
+        this.onDeleteBooking(result._id);
       }
     });
   }
 
-  onDeleteFacilities(id: string) {
+  onDeleteBooking(id: string) {
     this._BookingService.ondeletedialog(id).subscribe({
       next: (res:any) => {
         console.log(res);
@@ -76,5 +77,17 @@ export class BookingsComponent implements OnInit {
     this.pageSize = e.pageSize;
     this.pageNumber = e.pageIndex + 1;
     // this.getAllRooms();
+  }
+  openViewDialog(bookingData:any){
+    console.log(bookingData);
+
+    const dialogRef = this.dialog.open(ViewBookingComponent, {
+      data: bookingData,
+      width: '60%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+    });
   }
 }
