@@ -29,30 +29,30 @@ export class AddEditComponent implements OnInit {
      private _adsService:AdsService,  private router: Router,
     private _toastrService: ToastrService, private _roomsService:RoomsService ) {
 
-      // this.adsId = ActivatedRoute.snapshot.params['id'];
-      // console.log(this.adsId);
+      this.adsId = ActivatedRoute.snapshot.params['id'];
+      console.log(this.adsId);
   
-      // if(this.adsId){
-      //   this.isAddMode = false;
-      //   this.getAdsById(this.adsId);
-      //   ActivatedRoute.url.subscribe(url=> {
-      //     this.isViewMode = url.some(segment=> segment.path === 'view');
-      //     this.disableFormControls()
-      //   })
-      //   ActivatedRoute.url.subscribe(url=>{
-      //     this.isEditMode = url.some(segment=> segment.path === 'edit');
-      //     this.enableFormControls();
-      //   })
-      // } else{
-      //   this.isAddMode = true;
-      //   this.isEditMode = false;
-      //   this.isViewMode = false;
-      // }
+      if(this.adsId){
+        this.isAddMode = false;
+        this.getAdsById(this.adsId);
+        ActivatedRoute.url.subscribe(url=> {
+          this.isViewMode = url.some(segment=> segment.path === 'view');
+          this.disableFormControls()
+        })
+        ActivatedRoute.url.subscribe(url=>{
+          this.isEditMode = url.some(segment=> segment.path === 'edit');
+          this.enableFormControls();
+        })
+      } else{
+        this.isAddMode = true;
+        this.isEditMode = false;
+        this.isViewMode = false;
+      }
     }
      
 
   ngOnInit(): void {
-    this.getAllAds();
+    // this.getAllAds();
     this.getAllRooms();
   }
 
@@ -70,22 +70,21 @@ export class AddEditComponent implements OnInit {
   })
 
   // //  // Disable Formm
-  //  disableFormControls() {
-  //   if (this.isViewMode) {
-  //     this.adsForm.get('room')?.disable();
-  //     this.adsForm.get('discount')?.disable();
-  //     this.adsForm.get('isActive')?.disable();
-  //   }
-  // }
-  // // Enable Form
-  // enableFormControls() {
-  //   if (this.isEditMode) {
-  //     this.adsForm.get('room')?.enable();
-  //     this.adsForm.get('discount')?.enable();
-  //     this.adsForm.get('isActive')?.enable();
-
-  //   }
-  // }
+   disableFormControls() {
+    if (this.isViewMode) {
+      this.adsForm.get('room')?.disable();
+      this.adsForm.get('discount')?.disable();
+      this.adsForm.get('isActive')?.disable();
+    }
+  }
+  // Enable Form
+  enableFormControls() {
+    if (this.isEditMode) {
+      this.adsForm.get('room')?.enable();
+      this.adsForm.get('discount')?.enable();
+      this.adsForm.get('isActive')?.enable();
+    }
+  }
 
   // On Submit Form
   onSubmit(data: FormGroup) {
@@ -113,14 +112,13 @@ export class AddEditComponent implements OnInit {
         next: (res) => {
           console.log(res);
           // this.adsData = res.data.ads;
-          
   
         }, error: (err) => {
           this._toastrService.error(err.error.message, 'Error!');
         }, complete: () => {
           this.router.navigate(['/dashboard/ads'])
           this._toastrService.success('Ads Added Successfully');
-          this.getAllAds();
+          // this.getAllAds();
         }
       })
     }
@@ -146,32 +144,28 @@ export class AddEditComponent implements OnInit {
     })
   }
 
-  getAllAds() {
-    this._adsService.getAllAds().subscribe({
-      next: (res) => {
-        console.log(res);
-        // this.tableResponse = res;
-        // this.tableData = this.tableResponse?.data;
-        this.adsData= res.data.ads;
-        console.log(this.adsData);
+  // getAllAds() {
+  //   this._adsService.getAllAds().subscribe({
+  //     next: (res) => {
+  //       console.log(res);
+  //       // this.tableResponse = res;
+  //       // this.tableData = this.tableResponse?.data;
+  //       this.adsData= res.data.ads;
+  //       console.log(this.adsData);
 
 
-      },
-    });
-  }
+  //     },
+  //   });
+  // }
 
   getAllRooms() {
-    let parms = {
-
-    }
+    let parms = { }
 
     this._roomsService.onGetAllRooms(parms).subscribe({
       next: (res) => {
         console.log(res);
         this.tableResponse = res.data;
         this.tableData = this.tableResponse?.rooms;
-
-
 
       }, error: (err) => {
         this._toastrService.error(err.error.message, 'Error!')

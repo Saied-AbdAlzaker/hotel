@@ -45,7 +45,7 @@ export class AdsComponent implements OnInit {
       },
     });
   }
-
+// All Ads
   getAllAds() {
     let parms = {
       totalCount: this.totalCount,
@@ -62,19 +62,15 @@ export class AdsComponent implements OnInit {
       },
     });
   }
-  // View Ads
-  
-
   // Search
   onSearchInputChange() {
     this.searchSubject.next(this.searchValue);
   }
-
   // Add Ads
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AddEditComponent, {
       data: {},
-      width: '60%',
+      width: '40%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -104,7 +100,7 @@ export class AdsComponent implements OnInit {
 
     const dialogRef = this.dialog.open(AddEditComponent, {
       data: adsData,
-      width: '60%',
+      width: '40%',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -161,12 +157,6 @@ export class AdsComponent implements OnInit {
       },
     });
   }
-
-  handlePageEvent(e: any) {    
-    this.pageSize = e.pageSize;
-    this.pageNumber = e.pageIndex + 1;
-    this.getAllAds();
-  }
   
  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, adsItems: IAds): void {
   this.dialog.open(ViewAdsComponent,
@@ -176,6 +166,12 @@ export class AdsComponent implements OnInit {
       enterAnimationDuration,
       exitAnimationDuration,
     });
-
 }
+
+handlePageEvent(e: any) {    
+  this.pageSize = e.pageSize;
+  this.pageNumber = e.pageIndex + 1;
+  this.getAllAds();
+}
+
 }
