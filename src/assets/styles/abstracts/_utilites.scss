@@ -121,3 +121,23 @@ td {
   background: white
 
 }
+//classes for table
+.status{
+  padding: 8px 15px;
+  border-radius: 16px;
+  color: white;
+  &.admin{
+      background-color: $text-greenColor;
+  }
+  &.user{
+      background-color: $text-mainColor;
+  }
+  &.notActive{
+    background-color: $text-mainColor;
+
+  }
+  &.active{
+    background-color: $text-greenColor;
+
+  }
+}

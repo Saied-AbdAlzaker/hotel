@@ -28,6 +28,7 @@ export class UsersComponent implements OnInit {
       next:(res:any)=>{
         this.tableResponse=res.data;
         this.listUses=res.data.users;
+        console.log( this.listUses)
       }
     })
   }
