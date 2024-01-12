@@ -1,22 +1,22 @@
 <section>
   <div class="container">
     <div class="row">
-      <div class="col-md-8 mt-3">
-        <div>
-          <h4>Facilities Table Details</h4>
-          <p>You can check all details</p>
+      <div>
+        <h4>Facilities Table Details</h4>
+        <p>You can check all details</p>
+      </div>
+      <div class="row my-3">
+        <div class="col-md-8">
+          <div class="input-group">
+            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input (keyup)="onSearchInputChange()" type="text" placeholder="Search Here...."
+              class="form-control rounded" />
+          </div>
         </div>
-      </div>
-
-      <div class="col-md-4">
-        <button type="button" (click)="openAddDialog()" class="primary w-100 mt-5">Add New Facilities</button>
-      </div>
-
-      <div class="col-md-8 mt-3">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-          <input [(ngModel)]="searchValue" (keyup)="getAllFacilities()" type="text" placeholder="Search Here...."
-            class="form-control rounded">
+        <div class="col-md-3 mx-auto">
+          <button type="button" (click)="openAddDialog()" class="primary w-100">
+            Add New Faciity
+          </button>
         </div>
       </div>
 
@@ -42,15 +42,15 @@
               </a>
               <ul class="dropdown-menu">
                 <ul class="d-flex flex-column align-items-center">
-                <li>
-                  <a (click)="openEditDialog(item)" [routerLink]="['/dashboard/Facilities/edit',item._id]"
-                    class="dropdown-item pointer"><i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
-                </li>
-                <li>
-                  <a (click)="openDeleteDialog(item)" class="dropdown-item pointer"><i
-                      class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
-                </li>
-              </ul>
+                  <li>
+                    <a (click)="openEditDialog(item)" [routerLink]="['/dashboard/Facilities/edit',item._id]"
+                      class="dropdown-item pointer"><i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
+                  </li>
+                  <li>
+                    <a (click)="openDeleteDialog(item)" class="dropdown-item pointer"><i
+                        class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
+                  </li>
+                </ul>
               </ul>
             </td>
 
@@ -63,8 +63,8 @@
           (page)="handlePageEvent($event)" [pageIndex]="pageIndex" aria-label="Select page">
         </mat-paginator>
       </div>
+    </div>
 
 
     </div>
-  </div>
 </section>

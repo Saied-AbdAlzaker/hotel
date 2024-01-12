@@ -23,6 +23,7 @@ export class AddEditComponent implements OnInit {
 
   tableResponse: any;
   tableData: IRooms[] = [];
+  totalCount: number = 0;
 
   constructor(public dialogRef: MatDialogRef<AddEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private ActivatedRoute:ActivatedRoute,
@@ -30,7 +31,15 @@ export class AddEditComponent implements OnInit {
     private _toastrService: ToastrService, private _roomsService:RoomsService ) {
 
       this.adsId = ActivatedRoute.snapshot.params['id'];
-      console.log(this.adsId);
+      // console.log(this.adsId);
+      // if(this.adsId){
+      //   this.isEditMode=true;
+      //   this.isAddMode=false;
+      // }else{
+      //   this.isEditMode=false;
+      //   this.isAddMode=true;
+      // }
+      // console.log(this.adsId);
   
       if(this.adsId){
         this.isAddMode = false;
@@ -144,19 +153,22 @@ export class AddEditComponent implements OnInit {
     })
   }
 
-  // getAllAds() {
-  //   this._adsService.getAllAds().subscribe({
-  //     next: (res) => {
-  //       console.log(res);
-  //       // this.tableResponse = res;
-  //       // this.tableData = this.tableResponse?.data;
-  //       this.adsData= res.data.ads;
-  //       console.log(this.adsData);
+  getAllAds() {
+    let parms = {
+      totalCount: this.totalCount,
+    }
+    this._adsService.getAllAds(parms).subscribe({
+      next: (res) => {
+        console.log(res);
+        // this.tableResponse = res;
+        // this.tableData = this.tableResponse?.data;
+        this.adsData= res.data.ads;
+        console.log(this.adsData);
 
 
-  //     },
-  //   });
-  // }
+      },
+    });
+  }
 
   getAllRooms() {
     let parms = { }
