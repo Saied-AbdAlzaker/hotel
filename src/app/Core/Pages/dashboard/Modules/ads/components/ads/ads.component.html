@@ -34,10 +34,10 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of adsItems let isEven = even" [class]="isEven ? '':'bg-table'">
-            <td class="rounded-start">{{ item.room?.roomNumber }}</td>
-            <td>{{item.room?.price}}</td>
-            <td>{{item.room?.discount}}</td>
-            <td>{{item.room?.capacity}}</td>
+            <td class="rounded-start">{{ item.room?.roomNumber||'---' }}</td>
+            <td>{{item.room?.price||'---'}}</td>
+            <td>{{item.room?.discount ||'---'}}</td>
+            <td>{{item.room?.capacity ||'---'}}</td>
             <td class="rounded-start"  ><span class="status w-100" [ngClass]="item.isActive?'active':'notActive'">
             {{ item.isActive?'active': 'not Active' }}
           </span>
