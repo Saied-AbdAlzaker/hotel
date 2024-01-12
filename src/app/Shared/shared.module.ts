@@ -21,6 +21,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { ProfileComponent } from './profile/profile.component';
+import { DarkComponent } from './dark/dark.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
 
 
 @NgModule({
@@ -28,7 +31,8 @@ import { ProfileComponent } from './profile/profile.component';
     CommonModule,
     ToastrModule.forRoot({}),
     FormsModule, ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,RouterLink,
-    MatDialogModule, MatPaginatorModule,MatButtonModule,MatIconModule, MatTooltipModule,RouterModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule
+    MatDialogModule, MatPaginatorModule,MatButtonModule,MatIconModule, MatTooltipModule,RouterModule,
+    MatSelectModule,MatDatepickerModule,MatNativeDateModule,MatButtonToggleModule
 
   ],
   exports: [
@@ -43,7 +47,8 @@ import { ProfileComponent } from './profile/profile.component';
     ChangePasswordComponent,
     LogOutComponent,
     DeleteDialogComponent,
-    ProfileComponent
+    ProfileComponent,
+    DarkComponent
   ]
 })
 export class SharedModule { }

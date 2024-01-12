@@ -37,10 +37,7 @@
           </tr>
         </tbody>
       </table>
-
-
-      <div class="p-3">
-
+      <div class="p-3 w-50 m-auto">
         <mat-paginator
           [length]="tableResponse?.totalCount"
           [pageSizeOptions]="[10, 50, 100]"
@@ -49,12 +46,7 @@
           aria-label="Select page">
         </mat-paginator>
       </div>
-      <!-- <div>
 
-        <mat-paginator [length]="tableResponse?.totalCount" [pageSizeOptions]="[5, 10, 50, 100]"
-          (page)="handlePageEvent($event)" [pageIndex]="pageIndex" aria-label="Select page">
-        </mat-paginator>
-      </div> -->
     </div>
   </div>
 

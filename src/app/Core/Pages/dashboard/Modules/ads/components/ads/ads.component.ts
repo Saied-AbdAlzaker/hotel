@@ -52,7 +52,7 @@ export class AdsComponent implements OnInit {
       page: this.pageNumber,
       size: this.pageSize
     }
-    this._adsService.getAllAds().subscribe({
+    this._adsService.getAllAds(parms).subscribe({
       next: (res) => {
         console.log(res);
         this.tableResponse = res;

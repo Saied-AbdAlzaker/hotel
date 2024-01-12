@@ -23,6 +23,7 @@ export class AddEditComponent implements OnInit {
 
   tableResponse: any;
   tableData: IRooms[] = [];
+  totalCount: number = 0;
 
   constructor(public dialogRef: MatDialogRef<AddEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, private ActivatedRoute:ActivatedRoute,
@@ -147,7 +148,10 @@ export class AddEditComponent implements OnInit {
   }
 
   getAllAds() {
-    this._adsService.getAllAds().subscribe({
+    let parms = {
+      totalCount: this.totalCount,
+    }
+    this._adsService.getAllAds(parms).subscribe({
       next: (res) => {
         console.log(res);
         // this.tableResponse = res;
