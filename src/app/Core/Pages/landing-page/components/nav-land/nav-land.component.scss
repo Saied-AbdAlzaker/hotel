@@ -1,1 +1,6 @@
 @import "/src/assets/styles/layout.scss";
+nav-item{
+    a{
+        color: $text-secondryColor !important;
+    }
+}
