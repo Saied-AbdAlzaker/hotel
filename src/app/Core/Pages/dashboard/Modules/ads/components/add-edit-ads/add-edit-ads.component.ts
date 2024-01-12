@@ -29,7 +29,14 @@ export class AddEditComponent implements OnInit {
      private _adsService:AdsService,  private router: Router,
     private _toastrService: ToastrService, private _roomsService:RoomsService ) {
 
-      // this.adsId = ActivatedRoute.snapshot.params['id'];
+      this.adsId = ActivatedRoute.snapshot.params['id'];
+      if(this.adsId){
+        this.isEditMode=true;
+        this.isAddMode=false;
+      }else{
+        this.isEditMode=false;
+        this.isAddMode=true;
+      }
       // console.log(this.adsId);
   
       // if(this.adsId){
