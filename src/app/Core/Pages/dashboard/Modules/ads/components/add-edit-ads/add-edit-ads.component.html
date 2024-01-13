@@ -1,46 +1,45 @@
 <section class="p-5">
 
     <h4 class="d-flex align-items-center justify-content-between mb-3">
-        <span *ngIf="isAddMode">Add</span>
-        <span *ngIf="isEditMode">Edit</span>
+        <span *ngIf="!data._id">Add</span>
+        <span *ngIf="data._id">Edit</span>
         <span (click)="onNoClick()">
             <i class="pointer fa-regular fa-circle-xmark text-danger fa-1x position-absolute top-0 right-0 my-4"></i></span>
     </h4>
 
     <div class="row">
-
         <div class="card-auth">
             <div class="inputs-auth">
-                <form [formGroup]="adsForm" (ngSubmit)="onSubmit(adsForm)">
-
-                    <div class="form-group w-100">
-                        <select [(ngModel)]="data.room" formControlName="room" type="text"
+                    <div class="form-group">
+                        <label>Room Numbwe</label>
+                        <select [(ngModel)]="data.room.discount" type="text" *ngIf="!data._id"
                             class="form-control form-select" aria-label="Small select example">
                             <ng-container *ngFor="let item of tableData">
                                 <option *ngIf="item.discount === 0" [ngValue]="item._id">{{item.roomNumber}}</option>
                             </ng-container>
                         </select>
+
+                        <input type="text" *ngIf="data._id" [(ngModel)]="data.room.roomNumber" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <input [(ngModel)]="data.discount" formControlName="discount" type="number" class="form-control"
-                            id="discount" placeholder="Discount">
+                        <label>Discount</label>
+                        <input [(ngModel)]="data.discount" type="number" class="form-control" >
                     </div>
 
                     <div class="form-group">
-                        <select [(ngModel)]="data.isActive" formControlName="isActive" type="boolean"
+                        <label>Status</label>
+                        <select [(ngModel)]="data.isActive" type="boolean"
                             class="form-control form-select" aria-label="Small select example">
                             <option value="true">Yes</option>
                             <option value="false">No</option>
                         </select>
                     </div>
 
-
-                    <div class="d-flex justify-content-center mt-2">
+                    <div class="d-flex justify-content-center mt-3">
                         <button class="mx-4 btn primary w-50" [mat-dialog-close]="data" cdkFocusInitial>Save</button>
                     </div>
 
-                </form>
             </div>
         </div>
     </div>
