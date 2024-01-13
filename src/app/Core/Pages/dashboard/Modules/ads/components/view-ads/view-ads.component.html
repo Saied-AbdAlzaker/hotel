@@ -1,0 +1,38 @@
+<section class="py-3 px-5">
+
+    <h4 class="d-flex align-items-center justify-content-between mb-3">
+        <p>View <span class="text-mainColor">{{data.room.roomNumber}}</span></p>
+        <span (click)="onNoClick()">
+            <i class="pointer fa-regular fa-circle-xmark text-danger fa-1x position-absolute top-0 right-0 my-4"></i></span>
+    </h4>
+
+    <div class="row">
+        <div class="card-auth">
+            <div class="inputs-auth col-8 mx-auto">
+                
+                    <div class="form-group">
+                        <label>Room Number</label>
+                        <input  type="text" [(ngModel)]="data.room.roomNumber" disabled
+                            class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <input type="text" [(ngModel)]="data.isActive" disabled class="form-control" >
+                    </div>
+                    <div class="form-group ">
+                        <label>Created By</label>
+                        <input type="text" [(ngModel)]="data.createdBy.userName" disabled class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label>Created At</label>
+                        <input type="text" [value]="data.createdAt | date : 'dd-MM-yyyy'" disabled class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label>Updated At</label>
+                        <input type="text" [value]="data.updatedAt | date : 'dd-MM-yyyy'" disabled class="form-control" >
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -7,7 +7,6 @@ import { ViewUserComponent } from './components/view-user/view-user.component';
 const routes: Routes = [
   {path: '', component: UsersComponent},
   {path: 'view/:id', component: ViewUserComponent},
-
 ]
 @NgModule({
   imports: [RouterModule.forChild(routes)],
