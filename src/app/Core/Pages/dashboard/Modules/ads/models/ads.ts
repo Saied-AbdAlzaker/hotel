@@ -14,7 +14,8 @@ export interface IAdsData {
 export interface IAds {
   _id: string;
   isActive: boolean;
-  room: IRoom;
+  room: IRooms;
+  discount: number,
   createdBy: IUserAdmin;
   createdAt: string;
   updatedAt: string;

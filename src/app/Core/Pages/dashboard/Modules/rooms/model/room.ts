@@ -3,7 +3,7 @@ export interface IRoom {
     imgs: string,
     price: string,
     capacity: string,
-    discount: string,
+    discount: number,
     facilities: string[],
 }
 export interface IFacilities {

@@ -32,9 +32,8 @@
         <tbody>
           <tr *ngFor="let item of tableData; let isEven = even" [class]="isEven ? '':'bg-table' ">
             <td class="rounded-start">{{item.name}}</td>
-            <td>{{item.createdAt |date:'dd-mm-yyyy'}}</td>
-            <td>{{item.updatedAt |date:'dd-mm-yyyy'}}</td>
-
+            <td>{{item.createdAt |date: 'dd-MM-yyyy'}}</td>
+            <td>{{item.updatedAt |date: 'dd-MM-yyyy'}}</td>
 
             <td class="nav-item dropdown rounded-end">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -42,33 +41,30 @@
                 <i class="fa-solid fa-ellipsis" style="color: #1f5141;"></i>
               </a>
               <ul class="dropdown-menu">
-                <li class="d-flex flex-column align-items-center">
-            <li>
-              <a (click)="openEditDialog(item)" [routerLink]="['/dashboard/Facilities/edit',item._id]"
-                class="dropdown-item pointer"><i
-                  class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
-            </li>
-            <li>
-              <a (click)="openDeleteDialog(item)" class="dropdown-item pointer"><i
-                  class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
-              </li>
-    </ul>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-      
-    <div class="p-3 w-50 m-auto">
-      <mat-paginator 
-        [length]="tableResponse?.totalCount" 
-        [pageSizeOptions]="[5, 10, 50, 100]"
-        (page)="handlePageEvent($event)" 
-        [pageIndex]="pageIndex"
-        aria-label="Select page">
-      </mat-paginator>
+                <ul class="d-flex flex-column align-items-center">
+                  <li>
+                    <a (click)="openEditDialog(item)" [routerLink]="['/dashboard/Facilities/edit',item._id]"
+                      class="dropdown-item pointer"><i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
+                  </li>
+                  <li>
+                    <a (click)="openDeleteDialog(item)" class="dropdown-item pointer"><i
+                        class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
+                  </li>
+                </ul>
+              </ul>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="p-3">
+        <mat-paginator [length]="tableResponse?.totalCount" [pageSizeOptions]="[5, 10, 50, 100]"
+          (page)="handlePageEvent($event)" [pageIndex]="pageIndex" aria-label="Select page">
+        </mat-paginator>
+      </div>
     </div>
 
 
-  </div>
-  </div>
+    </div>
 </section>

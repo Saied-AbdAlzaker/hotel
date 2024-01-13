@@ -33,7 +33,6 @@ export class UsersComponent implements OnInit {
     })
   }
 
-
   handlePageEvent(e: any) {
     this.pageSize = e.pageSize;
     this.pageNumber = e.pageIndex + 1;
@@ -41,6 +40,6 @@ export class UsersComponent implements OnInit {
 
   }
 
-
-  }
+}
+  
 
