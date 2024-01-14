@@ -1,6 +1,7 @@
 @import "./abstracts/components/auth.scss";
 @import "./abstracts/components/home.scss";
 @import "./abstracts/components/sidebar.scss";
+@import "./abstracts/components/dashboardHome.scss";
 @import "./abstracts/components/landing.scss";
 
 
@@ -9,3 +10,8 @@
 
 @import "./base/_typography.scss";
 @import "./base/_base.scss";
+@import "~ng-zorro-antd/date-picker/style/index.min.css";
+@import "~ng-zorro-antd/calendar/style/index.min.css";
+@import "~ng-zorro-antd/timeline/style/index.min.css";
+
+

@@ -10,7 +10,7 @@
   span {
     color: $text-secondryColor;
   }
-  p{
+  p {
     color: $text-secondryColor;
     font-size: 14px;
   }
@@ -18,20 +18,20 @@
 
 button {
   border-radius: $border-reduis;
-  padding: .5rem;
-  transition: all .3s ease-in;
+  padding: 0.5rem;
+  transition: all 0.3s ease-in;
   &.primary {
     background: $bg-mainColor;
     color: $text-whiteColor;
   }
-  &.outline-primary{
+  &.outline-primary {
     color: $text-mainColor;
     border: 2px solid $text-mainColor;
   }
   &:hover {
     opacity: 0.9;
     transform: translateY(-4px);
-    box-shadow: -2px 2px 2px 2px  rgba($text-secondryColor, 0.3);
+    box-shadow: -2px 2px 2px 2px rgba($text-secondryColor, 0.3);
   }
 }
 
@@ -40,20 +40,20 @@ button {
   height: 200px;
   border-radius: 50%;
   border: 4px dashed $text-secondryColor;
-  img{
+  img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 }
-.dropzone{
+.dropzone {
   border: 2px dashed $text-secondryColor;
   background-color: #f5f6f8;
 }
 .pointer {
   cursor: pointer;
 }
-mat-paginator{
+mat-paginator {
   border-radius: 15px !important;
 }
 
@@ -65,33 +65,32 @@ th {
   font-weight: 500;
   line-height: normal;
   padding: 20px;
-  background: #E2E5EB;
-  color: #1F263E;
-
+  background: #e2e5eb;
+  color: #1f263e;
 }
-.rounded-start{
+.rounded-start {
   border-radius: 15px 0 0 15px !important;
 }
-.rounded-end{
+.rounded-end {
   border-radius: 0 15px 15px 0 !important;
 }
 
 .dropdown-toggle::after {
   display: none;
 }
-.dropdown-item:hover{
-  background-color: #3252DF !important;
+.dropdown-item:hover {
+  background-color: #3252df !important;
   color: #fff;
   cursor: pointer;
-  i{
+  i {
     color: #fff;
   }
 }
 
-tbody>tr {
+tbody > tr {
   transition: all 0.1s ease;
 }
-tbody>tr:hover {
+tbody > tr:hover {
   box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0,
     0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
   z-index: 2;
@@ -109,38 +108,64 @@ td {
   z-index: 500;
 }
 
-
 //nowraping for text
-.text-nowrap{
+.text-nowrap {
   text-wrap: nowrap;
 }
 
 //override angular material
-.mat-calendar-body-cell-content.mat-focus-indicator{
-  background:  rgba($text-mainColor, 0.3);
-
+.mat-calendar-body-cell-content.mat-focus-indicator {
+  background: rgba($text-mainColor, 0.3);
 }
-.mat-calendar-body-disabled>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical){
-  background: white
-
+.mat-calendar-body-disabled
+  > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(
+    .mat-calendar-body-comparison-identical
+  ) {
+  background: white;
 }
 //classes for table
-.status{
+.status {
   padding: 8px 15px;
   border-radius: 16px;
   color: white;
-  &.admin{
-      background-color: $text-greenColor;
-  }
-  &.user{
-      background-color: $text-mainColor;
-  }
-  &.notActive{
-    background-color: $text-mainColor;
-
-  }
-  &.active{
+  &.admin {
     background-color: $text-greenColor;
-
   }
+  &.user {
+    background-color: $text-mainColor;
+  }
+  &.notActive {
+    background-color: $text-mainColor;
+  }
+  &.active {
+    background-color: $text-greenColor;
+  }
+}
+
+li {
+  &.ant-picker-ok {
+    display: none;
+  }
+}
+.events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.events .ant-badge-status {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+
+.notes-month {
+  text-align: center;
+  font-size: 28px;
+}
+
+.notes-month section {
+  font-size: 28px;
 }

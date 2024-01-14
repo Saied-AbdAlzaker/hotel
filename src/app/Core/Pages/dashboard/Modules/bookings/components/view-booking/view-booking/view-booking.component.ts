@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Inject, OnInit } from '@angular/core';
 import { IBookings } from '../../../model/booking';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
+import { getISOWeek } from 'date-fns';
 
 
 @Component({
@@ -13,6 +13,7 @@ export class ViewBookingComponent implements OnInit {
   bookingDetails: IBookings;
   mode: any = 'month';
   dateRange: Date[] = [];
+  endaandsratrange: Date[] = [];
 
   constructor(
     public dialogRef: MatDialogRef<ViewBookingComponent>,
@@ -21,6 +22,7 @@ export class ViewBookingComponent implements OnInit {
     console.log(data);
     this.bookingDetails = data;
     this.generateDateRange();
+    this.endAnddate();
   }
   ngOnInit(): void {}
 
@@ -42,6 +44,13 @@ export class ViewBookingComponent implements OnInit {
     console.log(this.dateRange);
 
   }
+endAnddate():void{
+  const startDate = new Date(this.bookingDetails.startDate);
+  const endDate = new Date(this.bookingDetails.endDate);
+  this.endaandsratrange.push(startDate);
+  this.endaandsratrange.push(endDate);
+  console.log(this.endaandsratrange);
+}
   onValueChange(value: Date): void {
     value=this.bookingDetails.startDate;
     console.log(`Current value: ${value}`);
@@ -52,25 +61,7 @@ export class ViewBookingComponent implements OnInit {
     console.log(`Current value: ${change.date}`);
     console.log(`Current mode: ${change.mode}`);
   }
-  listDataMap = {
-    eight: [
-      { type: 'warning', content: 'This is warning event.' },
-      { type: 'success', content: 'This is usual event.' }
-    ],
-    ten: [
-      { type: 'warning', content: 'This is warning event.' },
-      { type: 'success', content: 'This is usual event.' },
-      { type: 'error', content: 'This is error event.' }
-    ],
-    eleven: [
-      { type: 'warning', content: 'This is warning event' },
-      { type: 'success', content: 'This is very long usual event........' },
-      { type: 'error', content: 'This is error event 1.' },
-      { type: 'error', content: 'This is error event 2.' },
-      { type: 'error', content: 'This is error event 3.' },
-      { type: 'error', content: 'This is error event 4.' }
-    ]
-  };
+
 
   getMonthData(date: Date): number | null {
     if (date.getMonth() === 8) {
@@ -78,6 +69,16 @@ export class ViewBookingComponent implements OnInit {
     }
     return null;
   }
+  date = null;
+  rangeDate = null;
 
+  onChange(result: Date): void {
+
+    console.log('onChange: ', result);
+  }
+
+  getWeek(result: Date): void {
+    console.log('week: ', getISOWeek(result));
+  }
 
 }

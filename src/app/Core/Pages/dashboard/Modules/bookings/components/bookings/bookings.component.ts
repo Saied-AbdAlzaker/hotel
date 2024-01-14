@@ -83,7 +83,7 @@ export class BookingsComponent implements OnInit {
 
     const dialogRef = this.dialog.open(ViewBookingComponent, {
       data: bookingData,
-      width: '60%',
+      width: '50%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {

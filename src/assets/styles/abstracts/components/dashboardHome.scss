@@ -1,0 +1,43 @@
+@import "/src/assets/styles/abstracts/variables";
+
+#dash-home {
+  // height: calc(100vh - 84px);
+  .card {
+    background-color: #e6f7ff;
+    border: 1px solid #91d5ff;
+  }
+  .items-home {
+    background: #f8f9fb;
+    border-radius: 16px;
+    padding: 20px;
+    .social-icons {
+      a {
+        color: $text-secondryColor;
+        text-decoration: none;
+      }
+      a:hover {
+        color: $text-mainColor;
+      }
+    }
+    .card-home {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 20px 40px;
+      border: 2px dashed $text-mainColor;
+      border-radius: 1rem;
+      box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s ease-in;
+      background-color: #e6f7ff;
+      color: $text-secondryColor;
+      h1 {
+        font-size: 5rem;
+      }
+    }
+    .card-home:hover {
+      transform: scale(0.95);
+      box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
