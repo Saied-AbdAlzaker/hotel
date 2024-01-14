@@ -1,4 +1,5 @@
 import { IRooms } from "../../rooms/model/room";
+import { IlistUser } from "../../users/model/users";
 export interface IBookingsTable {
     totalCount: number,
     booking: IBookings[]
@@ -8,7 +9,7 @@ export interface IBookings {
     startDate: Date,
     endDate: Date,
     totalPrice: number,
-    user: any,
+    user: IlistUser,
     room: IRooms,
     status: string,
     createdAt: Date,

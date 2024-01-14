@@ -23,6 +23,12 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { ProfileComponent } from './profile/profile.component';
 import { DarkComponent } from './dark/dark.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzCalendarModule } from 'ng-zorro-antd/calendar';
+import { NzBadgeModule } from 'ng-zorro-antd/badge';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 
 
 
@@ -32,14 +38,14 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     ToastrModule.forRoot({}),
     FormsModule, ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,RouterLink,
     MatDialogModule, MatPaginatorModule,MatButtonModule,MatIconModule, MatTooltipModule,RouterModule,
-    MatSelectModule,MatDatepickerModule,MatNativeDateModule,MatButtonToggleModule
+    MatSelectModule,MatDatepickerModule,MatNativeDateModule,MatButtonToggleModule,NzDatePickerModule,NzTabsModule,NzCalendarModule,NzBadgeModule,NzAlertModule,NzTimelineModule
 
   ],
   exports: [
     FormsModule,ReactiveFormsModule,HttpClientModule,NgxDropzoneModule,
      ReactiveFormsModule,HttpClientModule,FormsModule,SidebarComponent,RouterLink,
      MatDialogModule, MatPaginatorModule, NavbarComponent,MatButtonModule,MatIconModule,MatTooltipModule,RouterModule,
-    MatSelectModule,MatFormFieldModule,MatDialogModule, MatPaginatorModule, CommonModule,MatDatepickerModule,MatNativeDateModule
+    MatSelectModule,MatFormFieldModule,MatDialogModule, MatPaginatorModule, CommonModule,MatDatepickerModule,MatNativeDateModule,NzDatePickerModule,NzTabsModule,NzCalendarModule,NzBadgeModule,NzAlertModule,NzTimelineModule
   ],
   declarations: [
     SidebarComponent,

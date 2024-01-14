@@ -37,9 +37,9 @@ $hotel-theme: mat.define-light-theme((
 @import "/src/assets/styles/layout.scss";
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0;}
 
-// dark mode 
+// dark mode
 @import '../node_modules/@angular/material/theming';
 
 
@@ -53,37 +53,37 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .dark-theme {
    body {
-    background-color: #000; 
-    color: #ffffff; 
+    background-color: #000;
+    color: #ffffff;
     .text-muted{
       color: #fff !important;
     }
     transition: all 0.2s linear;
    }
    button{
-    background: rgb(30, 31, 31) !important; 
+    background: rgb(30, 31, 31) !important;
     border: rgb(255, 255, 255, .5) solid 1px;
    }
    #navbar{
     border: rgb(255, 255, 255, .5) solid 1px;
-    background: rgb(30, 31, 31) !important; 
+    background: rgb(30, 31, 31) !important;
     span{
       color: #ffffff !important;
     }
     .dropdown{
       .btn{
-        background: rgb(30, 31, 31) !important; 
+        background: rgb(30, 31, 31) !important;
         color: #fff !important;
       }
     }
   }
   #sidebar{
-    background: rgb(30, 31, 31) !important; 
+    background: rgb(30, 31, 31) !important;
   }
   select,option{
     background: #000 !important;
     color: #fff !important;
-    
+
   }
   .input-group,input,.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating){
     background: #000 !important;
@@ -105,7 +105,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background: #000 !important;
   }
   //angular material
-  
+
   //paginator
   mat-paginator{
     background: #000 !important;
@@ -121,12 +121,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     .mat-mdc-icon-button {
       background: #000 !important;
       border: rgb(255, 255, 255, .5) solid 1px;
-      .mat-mdc-paginator-icon { 
+      .mat-mdc-paginator-icon {
         background: #fff !important;
         color: #fff !important;
       }
     }
   }
 
-  
+
 }
