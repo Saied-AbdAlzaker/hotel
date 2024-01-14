@@ -50,8 +50,8 @@
       <tbody>
         <tr *ngFor="let item of tableData">
           <td class="rounded-start">{{item.roomNumber || '--'}}</td>
-          <td><img crossorigin="anonymous" class="imgTable" [src]="imagePath + item.images" /></td> 
-          <td>{{item.price}}</td>
+          <td><img crossorigin="anonymous" class="imgTable" [src]="imagePath + item.images" /></td>
+          <td>{{item.price |currency:'L.E'}}</td>
           <td>{{item.discount}}</td>
           <td>{{item.capacity}}</td>
           <td>{{item.facilities[0]?.name}}</td>
@@ -73,7 +73,7 @@
 
                 </li>
                 <li>
-                  <a (click)="openDeleteDialog(item)" 
+                  <a (click)="openDeleteDialog(item)"
                   class="dropdown-item">
                   <i class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
                 </li>
