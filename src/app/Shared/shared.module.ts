@@ -20,7 +20,6 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
-import { ProfileComponent } from './profile/profile.component';
 import { DarkComponent } from './dark/dark.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
@@ -53,7 +52,6 @@ import { NzTimelineModule } from 'ng-zorro-antd/timeline';
     ChangePasswordComponent,
     LogOutComponent,
     DeleteDialogComponent,
-    ProfileComponent,
     DarkComponent
   ]
 })

@@ -15,7 +15,7 @@ import { debounceTime } from 'rxjs';
 })
 export class RoomsComponent implements OnInit {
   pageIndex: number = 0;
-  pageSize: number = 10;
+  pageSize: number = 5;
   pageNumber: number | undefined = 1;
 
   searchValue: string = '';

@@ -19,13 +19,8 @@ constructor(private _HttpClient:HttpClient) {
 
 getProfile(){
   let encoded: any = localStorage.getItem('userToken');
-  let decoded: any = jwtDecode(encoded)
-  console.log(decoded);
-  
+  let decoded: any = jwtDecode(encoded)  
   localStorage.setItem('role' , decoded.role);
-  localStorage.setItem('userName' , decoded.userName);
-  localStorage.setItem('email' , decoded.userEmail);
-
   this.getRole()
   
 }

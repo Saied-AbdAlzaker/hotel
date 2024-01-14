@@ -14,7 +14,7 @@ import { ViewBookingComponent } from '../view-booking/view-booking/view-booking.
 export class BookingsComponent implements OnInit {
 
   pageIndex: number = 0;
-  pageSize: number = 10;
+  pageSize: number = 5;
   pageNumber: number = 1;
   tableResponse: IBookingsTable|undefined;
   listBookings: IBookings[]|undefined=[];
@@ -76,7 +76,7 @@ export class BookingsComponent implements OnInit {
   handlePageEvent(e: any) {
     this.pageSize = e.pageSize;
     this.pageNumber = e.pageIndex + 1;
-    // this.getAllRooms();
+    this.getAllBookings();
   }
   openViewDialog(bookingData:any){
     console.log(bookingData);

@@ -13,6 +13,4 @@ export interface IlistUser {
         verified: boolean,
         createdAt: string,
         updatedAt: string
-
-
 }

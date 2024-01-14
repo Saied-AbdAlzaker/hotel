@@ -21,7 +21,8 @@ logout(){
   localStorage.removeItem('userToken');
   localStorage.removeItem('role');
   localStorage.removeItem('userName');
-  localStorage.removeItem('userEmail')
+  localStorage.removeItem('email');
+  localStorage.removeItem('userId');
   localStorage.removeItem('loglevel')
   this.onNoClick()
   this.toastr.success('You Loged out')
