@@ -1,5 +1,5 @@
 export interface IlistTable {
-    totalCount: number,
+     totalCount: number,
     listuser:IlistUser[]
 }
 
