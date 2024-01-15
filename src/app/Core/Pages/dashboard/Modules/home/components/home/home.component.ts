@@ -22,12 +22,15 @@ interface IMenu {
   link: string;
   length: any;
 }
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+
   bookingResponse: IBookingsTable | undefined;
   listBookings: IBookings[] = [];
   selectedValue = new Date();
@@ -40,7 +43,10 @@ export class HomeComponent implements OnInit {
   roomsResponse: any;
   roomsData: IRooms[] = [];
   listUses: IlistUser[] | any;
-  usersResponse: IlistTable | undefined;
+   usersResponse:  IlistTable = {
+     totalCount: 2,
+     listuser: []
+   };
   allDates: any[] = [];
   createdDate: TimelineCreatedDate[] = [];
   updatedDate: TimelineUpdatedDate[] = [];
@@ -48,49 +54,60 @@ export class HomeComponent implements OnInit {
   endedBookingData: TimelineEndedDate[] = [];
   showMore = true;
   showMore2=true;
+  
   menu: IMenu[] = [
     {
       title: 'Users',
       icon: 'fa-solid fa-users',
       link: '/dashboard/users',
-      length: 0,
+       length:this.usersResponse?.totalCount 
     },
     {
       title: 'Rooms',
       icon: 'fa-solid fa-list-check',
       link: '/dashboard/rooms',
-      length:  0,
+      length:this.usersResponse.totalCount 
+
     },
     {
       title: 'Facilities',
       icon: 'fa-solid fa-hand-holding-heart',
       link: '/dashboard/Facilities',
-      length:  0,
+      length:this.usersResponse.totalCount 
+
     },
     {
       title: 'Ads',
       icon: 'fa-solid fa-calendar-days',
       link: '/dashboard/ads',
-      length:  0,
+      length:this.usersResponse.totalCount 
+
     },
     {
       title: 'Booking',
       icon: 'fa-solid fa-bookmark',
       link: '/dashboard/booking',
-      length:  0,
+      length:this.usersResponse.totalCount 
 
     },
   ];
-  countUser: number | undefined;
+  
+  // countUser: number | undefined;
   constructor(
+    
+  
+    
     private _BookingService: BookingService,
     private _adsService: AdsService,
     private dialog: MatDialog,
     private _facilitiesService: FacilitiesService,
     private _toastrService: ToastrService,
     private _roomsService: RoomsService,
-    private _UsersService: UsersService
-  ) {}
+    private _UsersService: UsersService,
+
+  ) {
+   
+  }
 
   ngOnInit() {
     this.getAllBookings();
@@ -103,7 +120,9 @@ export class HomeComponent implements OnInit {
     console.log(this.updatedDate);
     console.log(this.startedBokkingDate);
     console.log(this.endedBookingData);
+
   }
+
   getAllBookings() {
     let params = {};
     this._BookingService.onGetAllBookings(params).subscribe({
