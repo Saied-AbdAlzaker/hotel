@@ -29,6 +29,7 @@ import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -56,6 +57,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
     NzAlertModule,
     NzTimelineModule,
     NzSelectModule,
+    TranslateModule
   ],
   exports: [
     FormsModule,
@@ -86,6 +88,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
     NzCalendarModule,
     NzBadgeModule,
     NzAlertModule,
+    TranslateModule,
     NzTimelineModule,
     NzSelectModule,
   ],

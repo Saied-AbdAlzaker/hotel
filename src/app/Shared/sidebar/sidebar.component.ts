@@ -6,6 +6,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserAdminService } from '../services/user-admin.service';
 import { IChangePassword } from '../models/iuser-admin';
 import { ToastrService } from 'ngx-toastr';
+import { HelperService } from 'src/app/Core/services/helper.service';
+
 interface IMenu {
   title: string;
   icon: string;
@@ -17,14 +19,21 @@ interface IMenu {
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
+  isDarkMode: boolean;
+
   @Output() isOpenedValue = new EventEmitter<boolean>();
   isOpened: boolean = true;
   constructor(
     private Router: Router,
     public dialog: MatDialog,
     private _userAdminService: UserAdminService,
-    private toastr: ToastrService
-  ) {}
+    private toastr: ToastrService,
+    private _HelperService:HelperService
+
+  ) {
+    this.isDarkMode = this._HelperService.isDarkMode();
+
+  }
   menu: IMenu[] = [
     {
       title: 'Home',
@@ -63,4 +72,10 @@ export class SidebarComponent {
     this.isOpenedValue.emit(this.isOpened);
     console.log(this.isOpened)
   }
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    this._HelperService.setDarkMode(this.isDarkMode);
+  }
+
 }
