@@ -21,17 +21,27 @@
       </div>
 
       <div class="col-md-3 mt-3">
-        <select [(ngModel)]="capacityName" (change)="getAllRooms()" class="form-select" aria-label="Default select example">
-          <option selected>All</option>
-          <option *ngFor="let item of tableData" [value]="item.capacity">{{item.capacity}}</option>
-        </select>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Capicity</label>
+          </div>
+          <select [(ngModel)]="capacityName" (change)="getAllRooms()" class="form-select" aria-label="Default select example">
+            <option selected>All</option>
+            <option *ngFor="let item of tableData" [value]="item.capacity">{{item.capacity}}</option>
+          </select>
+        </div>
       </div>
 
       <div class="col-md-3 mt-3">
-        <select [(ngModel)]="facilityId" (change)="getAllRooms()" class="form-select" aria-label="facilities">
-          <option selected>All</option>
-          <option *ngFor="let item of facilities" [value]="item._id">{{item.name}}</option>
-        </select>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Facility</label>
+          </div>
+          <select [(ngModel)]="facilityId" (change)="getAllRooms()" class="form-select" aria-label="facilities">
+            <option selected>All</option>
+            <option *ngFor="let item of facilities" [value]="item._id">{{item.name}}</option>
+          </select>
+        </div>
       </div>
 
 
