@@ -63,27 +63,6 @@
             </nz-timeline-item>
             <nz-timeline-item>
               <p class="text-mainColor">what created?</p>
-              <p
-                *ngIf="
-                  createdDate[0].createdDate.getDate() == selectedValue.getDate()
-                "
-              >
-                {{ createdDate[0].name }} {{ createdDate[0].module }} created
-              </p>
-              <p
-                *ngIf="
-                  createdDate[1].createdDate.getDate() == selectedValue.getDate()
-                "
-              >
-                {{ createdDate[1].name }} {{ createdDate[1].module }} created
-              </p>
-              <p
-                *ngIf="
-                  createdDate[2].createdDate.getDate() == selectedValue.getDate()
-                "
-              >
-                {{ createdDate[2].name }} {{ createdDate[2].module }} created
-              </p>
               <ng-container *ngIf="showMore">
                 <ng-container *ngFor="let created of createdDate; let i = index">
                   <!-- <ng-container *ngIf="i < 2"> -->
@@ -103,27 +82,6 @@
             </nz-timeline-item>
             <nz-timeline-item nzColor="gray">
               <p class="text-mainColor">what Updated?</p>
-              <p
-              *ngIf="
-                updatedDate[0].updatedDate.getDate() == selectedValue.getDate()
-              "
-            >
-              {{ updatedDate[0].name }} {{ updatedDate[0].module }} updated
-            </p>
-            <p
-              *ngIf="
-                updatedDate[1].updatedDate.getDate() == selectedValue.getDate()
-              "
-            >
-              {{ updatedDate[1].name }} {{ updatedDate[1].module }} updated
-            </p>
-            <p
-              *ngIf="
-                updatedDate[2].updatedDate.getDate() == selectedValue.getDate()
-              "
-            >
-              {{ updatedDate[2].name }} {{ updatedDate[2].module }} updated
-            </p>
             <ng-container *ngIf="showMore2">
 
               <ng-container *ngFor="let updated of updatedDate; let i = index">
