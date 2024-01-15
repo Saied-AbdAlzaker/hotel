@@ -48,6 +48,8 @@ export class HomeComponent implements OnInit {
   endedBookingData: TimelineEndedDate[] = [];
   showMore = true;
   showMore2=true;
+  userName: any = localStorage.getItem('userName');
+
   menu: IMenu[] = [
     {
       title: 'Users',
