@@ -1,4 +1,12 @@
 @import "/src/assets/styles/abstracts/_variables.scss";
-span{
+#footer{
+
+  span{
+      color: $text-blackColorBtn;
+  }
+}
+.navbar{
+  span{
     color: $text-blackColorBtn;
+}
 }

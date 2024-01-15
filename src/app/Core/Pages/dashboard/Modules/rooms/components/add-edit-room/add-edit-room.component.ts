@@ -18,7 +18,7 @@ export class AddEditRoomComponent implements OnInit {
   files: File[] = [];
   imgSrc: any;
   pathHttps: string = 'https://upskilling-egypt.com:443/';
-  facilities: IFacilities[] | undefined = [];
+  facilities: IFacilities[] | any = [];
   facilityId: any[] | undefined = [];
   roomData: any;
 
@@ -45,10 +45,12 @@ export class AddEditRoomComponent implements OnInit {
       this.isEditMode = false;
       this.isViewMode = false
     }
+
   }
 
   ngOnInit(): void {
-    this.getFacilities()
+    this.getFacilities();
+
   }
 
    // Form
@@ -60,7 +62,7 @@ export class AddEditRoomComponent implements OnInit {
     discount: new FormControl(null, [Validators.required]),
     facilities: new FormControl(null, [Validators.required]),
   })
-  
+
   // Disable Formm
   disableFormControls() {
     if (this.isViewMode) {
@@ -146,18 +148,22 @@ export class AddEditRoomComponent implements OnInit {
       complete: () => {
         console.log(this.roomData.facilities);
         if (this.roomData?.facilities) {
-          for (let i = 0; i < this.roomData.facilities.length; i++) {
-            const facility = this.roomData.facilities[i];
-          }
-        };
-        this.imgSrc = 'http://upskilling-egypt.com:3000/' + this.roomData?.imgs,
-          this.roomForm.patchValue({
-            roomNumber: this.roomData?.roomNumber,
-            price: this.roomData?.price,
-            capacity: this.roomData?.capacity,
-            discount: this.roomData?.discount,
-            facilities: this.roomData?.facility
+          this.roomData.facilities.forEach((facility: any) => {
+            return this.facilities.push(facility);
           });
+          // for (let i = 0; i < this.roomData.facilities.length; i++) {
+          //  this.facilities?.push[this.roomData.facilities[i]]
+          // }
+        };
+        console.log(this.facilities);
+        this.imgSrc = 'http://upskilling-egypt.com:3000/' + this.roomData?.imgs,
+        this.roomForm.patchValue({
+          roomNumber: this.roomData?.roomNumber,
+          price: this.roomData?.price,
+          capacity: this.roomData?.capacity,
+          discount: this.roomData?.discount,
+          facilities: this.facilities
+        });
       }
     }
     )
@@ -182,7 +188,7 @@ onFileChange(event: any) {
   reader.onloadend = () =>{
     const base64String = reader.result as string;
     console.log(base64String);
-    
+
   };
   if(file){
     reader.readAsDataURL(file);
