@@ -61,43 +61,43 @@ export class HomeComponent implements OnInit {
       title: 'Users',
       icon: 'fa-solid fa-users',
       link: '/dashboard/users',
-       length:this.usersResponse?.totalCount 
+       length:localStorage.getItem('usersCount')
     },
     {
       title: 'Rooms',
       icon: 'fa-solid fa-list-check',
       link: '/dashboard/rooms',
-      length:this.usersResponse.totalCount 
+      length:localStorage.getItem('roomsCount')
 
     },
     {
       title: 'Facilities',
       icon: 'fa-solid fa-hand-holding-heart',
       link: '/dashboard/Facilities',
-      length:this.usersResponse.totalCount 
+      length:localStorage.getItem('facilitsCount')
 
     },
     {
       title: 'Ads',
       icon: 'fa-solid fa-calendar-days',
       link: '/dashboard/ads',
-      length:this.usersResponse.totalCount 
+      length:localStorage.getItem('adsCount')
 
     },
     {
       title: 'Booking',
       icon: 'fa-solid fa-bookmark',
       link: '/dashboard/booking',
-      length:this.usersResponse.totalCount 
+      length: localStorage.getItem('bookingCount')
 
     },
   ];
-  
+
   // countUser: number | undefined;
   constructor(
-    
-  
-    
+
+
+
     private _BookingService: BookingService,
     private _adsService: AdsService,
     private dialog: MatDialog,
@@ -107,7 +107,7 @@ export class HomeComponent implements OnInit {
     private _UsersService: UsersService,
 
   ) {
-   
+
   }
 
   ngOnInit() {
@@ -130,6 +130,9 @@ export class HomeComponent implements OnInit {
       next: (res) => {
         this.bookingResponse = res.data;
         this.listBookings = res?.data?.booking;
+        let bookingCount:number |any = this.bookingResponse?.totalCount;
+        console.log(bookingCount);
+        localStorage.setItem('bookingCount', bookingCount?.toLocaleString());
         this.listBookings.forEach((booking) => {
           const createdDate = new Date(booking.createdAt);
           const userName = booking.user?.userName || 'No User';
@@ -184,6 +187,9 @@ export class HomeComponent implements OnInit {
         this.adsResponse = res;
         this.adsData = this.adsResponse?.data;
         this.adsItems = this.adsData?.ads;
+        let adsCount:number |any = this.adsData?.totalCount;
+        console.log(adsCount);
+        localStorage.setItem('adsCount', adsCount?.toLocaleString());
         this.adsItems.forEach(
           (ad: {
             createdAt: string | number | Date;
@@ -225,6 +231,9 @@ export class HomeComponent implements OnInit {
       next: (res: any) => {
         this.facilitesResponse = res.data;
         this.facilitesData = this.facilitesResponse?.facilities;
+        let facilitsCount:number |any = this.facilitesResponse?.totalCount;
+        console.log(facilitsCount);
+        localStorage.setItem('facilitsCount', facilitsCount?.toLocaleString());
         this.facilitesData.forEach(
           (facilities: { createdAt: string | number | Date; name: string }) => {
             const createdDate = new Date(facilities.createdAt);
@@ -266,6 +275,9 @@ export class HomeComponent implements OnInit {
       next: (res) => {
         this.roomsResponse = res.data;
         this.roomsData = this.roomsResponse?.rooms;
+        let roomsCount:number |any = this.roomsResponse?.totalCount;
+        console.log(roomsCount);
+        localStorage.setItem('roomsCount', roomsCount?.toLocaleString());
         this.roomsData.forEach(
           (room) => {
             const createdDate = new Date(room.createdAt);
@@ -300,6 +312,9 @@ export class HomeComponent implements OnInit {
       next: (res: any) => {
         this.usersResponse = res.data;
         this.listUses = res.data.users;
+        let usersCount:number |any = this.usersResponse?.totalCount;
+        console.log(usersCount);
+        localStorage.setItem('usersCount', usersCount?.toLocaleString());
         this.listUses.forEach(
           (user: { createdAt: string | number | Date; userName: string; }) => {
             const createdDate = new Date(user.createdAt);
