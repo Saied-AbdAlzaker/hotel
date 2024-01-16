@@ -33,14 +33,7 @@ registerLocaleData(en);
     HttpClientModule,
     SharedModule,
     
-    TranslateModule.forRoot({
-      
-      loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-      }
-  }),
+  
     ToastrModule.forRoot({
       closeButton: true,
       timeOut: 4000,
@@ -49,8 +42,15 @@ registerLocaleData(en);
     }),
     FormsModule,
     NgxSpinnerModule,
-    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
-
+    NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
+    TranslateModule.forRoot({
+      
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  }),
   ],
   providers: [
     {

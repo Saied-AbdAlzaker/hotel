@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     public translate: TranslateService
 
   ) {
-    translate.setDefaultLang('en');
+    // translate.setDefaultLang('en');
 
   }
 
@@ -43,9 +43,9 @@ export class AppComponent implements OnInit {
         }
       });
   }
-  onchange(lang:string){
-    this.translate.setDefaultLang(lang);
-    this.translate.use(lang);
+  // onchange(lang:string){
+  //   this.translate.setDefaultLang(lang);
+  //   this.translate.use(lang);
   
-  }
+  // }
 }
