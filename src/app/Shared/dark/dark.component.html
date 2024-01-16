@@ -1,4 +1,3 @@
-<mat-button-toggle name="theme" aria-label="Theme Selection" [value]="theme">
-    <mat-button-toggle value="light" (click)="selectLightTheme()">Light</mat-button-toggle>
-    <mat-button-toggle value="dark" (click)="selectDarkTheme()">Dark</mat-button-toggle>
-  </mat-button-toggle>
+  <button type="button" class="p-0 bg-white" mat-icon-button matSuffix (click)="toggleTheme()" >
+  <mat-icon>{{darkMode?'dark_mode':'brightness_7'}}</mat-icon>
+</button>
