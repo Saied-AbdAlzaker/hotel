@@ -27,8 +27,6 @@ export class RoomsComponent implements OnInit {
   facilityId: IFacilities[] = [];
   // facilityId: any;
   capacityName: string = '';
-  imagePath: string = 'http://upskilling-egypt.com:3000/';
-
   constructor(
     private dialog: MatDialog,
     private _roomsService: RoomsService,
