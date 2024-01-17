@@ -1,3 +1,5 @@
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,8 +15,7 @@ import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -43,8 +44,8 @@ registerLocaleData(en);
     FormsModule,
     NgxSpinnerModule,
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
-    TranslateModule.forRoot({
-      
+
+    TranslateModule.forRoot({ 
       loader: {
           provide: TranslateLoader,
           useFactory: HttpLoaderFactory,

@@ -1,5 +1,6 @@
 @import "/src/assets/styles/abstracts/_variables.scss";
 
+
 #footer {
   span {
     color: $text-blackColorBtn;
@@ -10,7 +11,32 @@
     color: $text-blackColorBtn;
   }
 }
-<<<<<<< HEAD
+
+#feadBack {
+  position: relative;
+
+  .feadBack-box {
+    width: 356.131px;
+    height: 486.75px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2px solid #e5e5e5;
+    img {
+      position: absolute;
+      left: 25%;
+      top: 50px;
+      // width: 50%;
+      border-radius: 0 0 20% 0;
+      margin-bottom: 20px;
+    }
+    .icon-box{
+      position: absolute;
+      left: 30%;
+      bottom: -20%;
+    }
+  }
+}
+
 #features{
 
   .paragh{
@@ -19,7 +45,6 @@
   }
       
 }
-=======
 
 #most-picked {
 
@@ -102,5 +127,5 @@
       padding: 20px;
     }
   }
->>>>>>> 0f93c3be54ab90495fa679f06ebf00289cdc61f3
+
 }

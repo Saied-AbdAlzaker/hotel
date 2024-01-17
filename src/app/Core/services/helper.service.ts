@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
-TranslateService
+
 @Injectable({
     providedIn : 'root'
 })

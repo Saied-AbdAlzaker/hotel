@@ -17,6 +17,9 @@ export class AppComponent implements OnInit {
     public translate: TranslateService
 
   ) {
+
+    translate.setDefaultLang('en');
+
     this.onchangeLang('en')
     if(localStorage.getItem('lang')==null){
       localStorage.setItem('lang','en')
