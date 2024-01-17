@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     public translate: TranslateService
 
   ) {
-    // translate.setDefaultLang('en');
+    translate.setDefaultLang('en');
 
   }
 

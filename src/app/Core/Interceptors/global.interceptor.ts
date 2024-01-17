@@ -10,20 +10,20 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class GlobalInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor() { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = localStorage.getItem('userToken');
-    const baseUrl:string = 'http://upskilling-egypt.com:3000/api/v0/';
+    const baseUrl: string = 'http://upskilling-egypt.com:3000/api/v0/';
     let newHeaders = {};
-    if(token!==null){
+    if (token !== null) {
       newHeaders = {
-      'Authorization' : ` ${token}`
+        'Authorization': ` ${token}`
       }
     }
     let newRequest = request.clone({
-       setHeaders:newHeaders, url: request.url.includes('assets')?request.url: baseUrl+request.url
-    })   
+      setHeaders: newHeaders, url: request.url.includes('assets') ? request.url : baseUrl + request.url
+    })
     return next.handle(newRequest);
   }
 }
