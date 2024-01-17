@@ -18,7 +18,7 @@ $bg-whiteColorTable: #F8F9FB;
 $bg-colorGray:#B0B0B0;
 
 $border-reduis: 0.25rem;
-
+$transitoon: all 0.3s ease-in;
 .text-mainColor{
   color: $text-mainColor;
 }
@@ -35,7 +35,13 @@ $border-reduis: 0.25rem;
   color: $text-whiteColor !important;
 }
 .bg-main{
-  background: $bg-blueColor;
+  background: $bg-mainColor;
+}
+.bg-secondary{
+  background: $bg-secondryColor;
+}
+.bg-red{
+  background: $bg-redColor;
 }
 .bg-profile{
   background: #F4CE9B;

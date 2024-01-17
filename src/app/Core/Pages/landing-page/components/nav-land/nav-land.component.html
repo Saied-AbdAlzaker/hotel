@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg bg-body-white">
+<nav class="navbar navbar-expand-lg bg-body-white py-4">
     <div class="container">
-      <div class="logo text-decoration-none" href="#">            Stay<span>cation.</span>
+      <div class="logo text-decoration-none" href="#">Stay<span>cation.</span>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,5 +24,12 @@
         </ul>
        
       </div>
+      <div [class]="_HelperService.textDir === 'ltr'?'ms-5':'me-5'">
+        <button (click)="onChangeLang('en')">En</button>
+        <button (click)="onChangeLang('ar')">Ar</button>
+      </div>
+      
     </div>
+    
+    
   </nav>

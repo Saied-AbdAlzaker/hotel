@@ -36,7 +36,8 @@ $hotel-theme: mat.define-light-theme((
 
 @import "/src/assets/styles/layout.scss";
 
-html, body { height: 100%; }
+html, body { height: 100%;   font-family: 'Poppins', sans-serif;
+}
 body { margin: 0;}
 
 // dark mode
