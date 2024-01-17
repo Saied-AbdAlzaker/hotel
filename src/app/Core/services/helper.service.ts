@@ -15,30 +15,30 @@ constructor(
     public translate:TranslateService
 ) { 
   translate.onLangChange.subscribe((event: LangChangeEvent) => {
-    console.log(event);
-    
-  });
-  
-}
-isDarkMode() {
-    return this.darkMode;
-  }
-  setDarkMode(isDarkMode: boolean) {
-    this.darkMode = isDarkMode;
-    if (isDarkMode) {
-      document.body.classList.add('dark-theme');
-    } else {
-      document.body.classList.remove('dark-theme');
+    if(event.lang==='en'){
+      this.textDir='ltr'
     }
-  }
+    else{
+      this.textDir='rtl'
+    }
+  });
+}
+  onchangeLang(lang:string){    
+      this.translate.setDefaultLang(lang);
+      this.translate.use(lang);
+      localStorage.setItem('lang', lang)
+    }
 
-  
-  onchangeLang(lang:string){
-    console.log(this.translate.currentLang );
-  
-    this.translate.setDefaultLang(lang);
-    this.translate.use(lang);
-  
-  }
+// isDarkMode() {
+//     return this.darkMode;
+//   }
+//   setDarkMode(isDarkMode: boolean) {
+//     this.darkMode = isDarkMode;
+//     if (isDarkMode) {
+//       document.body.classList.add('dark-theme');
+//     } else {
+//       document.body.classList.remove('dark-theme');
+//     }
+//   }
   }  
 
