@@ -17,8 +17,10 @@ export class AppComponent implements OnInit {
     public translate: TranslateService
 
   ) {
-    // translate.setDefaultLang('en');
-
+    this.onchangeLang('en')
+    if(localStorage.getItem('lang')==null){
+      localStorage.setItem('lang','en')
+    }    
   }
 
   ngOnInit() {
@@ -43,9 +45,10 @@ export class AppComponent implements OnInit {
         }
       });
   }
-  // onchange(lang:string){
-  //   this.translate.setDefaultLang(lang);
-  //   this.translate.use(lang);
+  onchangeLang(lang:string){    
+    this.translate.setDefaultLang(lang);
+    this.translate.use(lang);
+    localStorage.setItem('lang', lang)
+  }
   
-  // }
 }

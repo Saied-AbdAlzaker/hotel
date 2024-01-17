@@ -1,0 +1,15 @@
+@import "/src/assets/styles/abstracts/variables";
+
+#header{
+    img{
+        border-radius: 100px 15px 15px 15px;
+        position: relative;
+    }
+    &img::after{
+        content: "";
+        border: 2px solid gray;
+        position: absolute;
+        top: -8px;
+        left: -8px;
+    }
+}
