@@ -1,6 +1,5 @@
 @import "/src/assets/styles/abstracts/_variables.scss";
 
-
 #footer {
   span {
     color: $text-blackColorBtn;
@@ -13,41 +12,30 @@
 }
 
 #feadBack {
-  position: relative;
-
-  .feadBack-box {
+  img {
+    border-radius: 5% 5% 20% 5%;
+    position: relative;
+  }
+  &img::after {
+    content: "";
     width: 356.131px;
     height: 486.75px;
     flex-shrink: 0;
-    border-radius: 15px;
-    border: 2px solid #e5e5e5;
-    img {
-      position: absolute;
-      left: 25%;
-      top: 50px;
-      // width: 50%;
-      border-radius: 0 0 20% 0;
-      margin-bottom: 20px;
-    }
-    .icon-box{
-      position: absolute;
-      left: 30%;
-      bottom: -20%;
-    }
+    // border: 2px solid #e5e5e5;
+    border: 2px solid blue;
+    position: absolute;
+    top: -8px;
+    left: -8px;
   }
 }
 
-#features{
-
-  .paragh{
+#features {
+  .paragh {
     color: $text-secondryColor;
-
   }
-      
 }
 
 #most-picked {
-
   .card-item {
     color: white !important;
     position: relative;
@@ -127,5 +115,4 @@
       padding: 20px;
     }
   }
-
 }

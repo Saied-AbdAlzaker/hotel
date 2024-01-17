@@ -8,6 +8,14 @@
         "feadback":""
     },
     "header":{
+        "header works!":"header works!"
+    },
+
+    "feadback":"Happy Family",
+    "feadbackContent": "What a great trip with my family and I should try again next time soon ...",
+    "feadbackParagraph": "Angga, Product Designer",
+    "feadbackButton": "Read Their Story"
+
         "header works!":"header works!",
         "Forget Busy Work,":"Forget Busy Work,",
         "Start Next Vacation":"Start Next Vacation",
