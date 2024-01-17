@@ -38,10 +38,9 @@
             <td class="nav-item dropdown rounded-end">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                <i class="fa-solid fa-ellipsis" style="color: #1f5141;"></i>
+                <i class="fa-solid fa-ellipsis" style=""></i>
               </a>
               <ul class="dropdown-menu">
-                <ul class="d-flex flex-column align-items-center">
                   <li>
                     <a (click)="openEditDialog(item)" [routerLink]="['/dashboard/Facilities/edit',item._id]"
                       class="dropdown-item pointer"><i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
@@ -51,7 +50,6 @@
                         class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
                   </li>
                 </ul>
-              </ul>
             </td>
 
           </tr>
