@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-white py-4">
+<nav class="navbar navbar-expand-lg bg-body-white py-3 shadow-sm">
     <div class="container">
       <div class="logo text-decoration-none" href="#">Stay<span>cation.</span>
       </div>
@@ -8,18 +8,18 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-4 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active text-primary" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Browse by</a>
+            <a class="nav-link active text-primary" aria-current="page" href="#">Header</a>
           </li>
        
           <li class="nav-item">
-            <a class="nav-link" href="#">Stories</a>
+            <a class="nav-link" href="#">Most Picked</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="#">Agents</a>
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Feadback</a>
           </li>
           <li class="nav-item ms-3 fw-bolder text-secondryColor">
             <a class="nav-link" routerLink="/auth/signin">Sign In</a>
@@ -28,8 +28,8 @@
        
       </div>
       <div [class]="_HelperService.textDir === 'ltr'?'ms-5':'me-5'">
-        <button (click)="onChangeLang('en')">En</button>
-        <button (click)="onChangeLang('ar')">Ar</button>
+        <button class="outline-primary" (click)="onChangeLang('en')">En</button>
+        <button class="outline-primary" (click)="onChangeLang('ar')">Ar</button>
       </div>
       
     </div>

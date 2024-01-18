@@ -176,5 +176,13 @@ li {
 
 
 .ant-alert, body, h1, h2, h3, h4, h5, h6 {
-  color: none;
+  color: none !important;
+}
+
+.paragraph{
+  font-family: 'poppins';
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 27.2px;
+  color: #B0B0B0;
 }
