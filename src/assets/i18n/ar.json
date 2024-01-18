@@ -17,6 +17,12 @@
         "pick a date":"اختر موعدا",
         "How long you will stay?":"كم ستبقي؟",
         "Continue to Book":"اكمل الحجز"
-    }
-    
+    },
+    "features":{
+        "features-work!": "    منازل ذات فناء خلفي جميل  ",
+        "Featurs-title":"فنادق بها غرفة معيشة كبيرة  ",
+        "title" :  " شقق مع مجموعة المطبخ"
+
+   
+}
 }
