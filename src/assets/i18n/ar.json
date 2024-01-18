@@ -8,14 +8,6 @@
         "feadback":""
     },
     "header":{
-        "header works!":"القسم الرئيسي يعمل"
-    },
-
-    "feadback":"عائلة سعيدة",
-    "feadbackContent": "يا لها من رحلة رائعة مع عائلتي ويجب أن أحاول مرة أخرى في المرة القادمة قريبًا ...",
-    "feadbackParagraph": "أنجا، مصممة المنتجات",
-    "feadbackButton": "اقرأ قصتهم"
-
         "header works!":"القسم الرئيسي يعمل",
         "Forget Busy Work,":"انس ضغط العمل",
         "Start Next Vacation":"ابدأ الإجازة",
@@ -25,6 +17,11 @@
         "pick a date":"اختر موعدا",
         "How long you will stay?":"كم ستبقي؟",
         "Continue to Book":"اكمل الحجز"
+    
+    },
+    "feadback":"عائلة سعيدة",
+    "feadbackContent": "يا لها من رحلة رائعة مع عائلتي ويجب أن أحاول مرة أخرى في المرة القادمة قريبًا ...",
+    "feadbackParagraph": "أنجا، مصممة المنتجات",
+    "feadbackButton": "اقرأ قصتهم"        
     }
     
-}
