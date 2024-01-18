@@ -34,6 +34,9 @@ $transitoon: all 0.3s ease-in;
 .text-whiteColor{
   color: $text-whiteColor !important;
 }
+.text-gray{
+  color: $text-lightGrey;
+}
 .bg-main{
   background: $bg-mainColor;
 }
@@ -58,5 +61,7 @@ $transitoon: all 0.3s ease-in;
 }
 .greenColor{
   color: $text-greenColor;
-
+}
+.bg-green{
+  background: $bg-greenColor;
 }

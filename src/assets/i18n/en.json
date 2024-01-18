@@ -5,7 +5,7 @@
         "header":"header",
         "most-picked":"",
         "features":"",
-        "feadback":""
+        "feadback":"feadback"
     },
     "header":{
         "header works!":"header works!",
@@ -26,3 +26,14 @@
     }
 
 }
+
+    "feadback":{
+        "feadback":"Happy Family",
+        "feadbackContent": "What a great trip with my family and <br> I should try again next time soon ...",
+        "feadbackParagraph": "Angga, Product Designer",
+        "feadbackButton": "Read Their Story"
+    }
+
+        
+    }
+
