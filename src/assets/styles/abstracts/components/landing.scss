@@ -39,8 +39,14 @@
 
 #features{
 
-  .paragh{
-    color: $text-secondryColor;
+  .caption{
+    h5{
+      color:$text-secondryColor;
+
+    }
+    p{
+      color: $bg-colorGray;
+    }
 
   }
       
