@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HelperService } from 'src/app/Core/services/helper.service';
 
 @Component({
   selector: 'app-feadback',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./feadback.component.scss']
 })
 export class FeadbackComponent {
+
+  constructor(public _HelperService:HelperService) {}
 
 }

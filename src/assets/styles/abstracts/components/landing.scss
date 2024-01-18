@@ -12,20 +12,26 @@
 }
 
 #feadBack {
-  img {
-    border-radius: 5% 5% 20% 5%;
+  .rotate {
+    rotate: y 180deg;
+  }
+ 
+  .image {
+    img {
+      border-radius: 15px 15px 100px 15px;
+    }
     position: relative;
   }
-  &img::after {
+  .image::after {
     content: "";
+    border: 2px solid #E5E5E5;
+    border-radius: 15px 15px 100px 15px;
     width: 356.131px;
     height: 486.75px;
-    flex-shrink: 0;
-    // border: 2px solid #e5e5e5;
-    border: 2px solid blue;
     position: absolute;
-    top: -8px;
-    left: -8px;
+    right: 50px;
+    bottom: 110px;
+    z-index: -2;
   }
 }
 

@@ -5,7 +5,7 @@
         "header":"القسم الرئيسي",
         "most-picked":"",
         "features":"",
-        "feadback":""
+        "feadback":"feadback"
     },
     "header":{
         "header works!":"القسم الرئيسي يعمل",
@@ -19,9 +19,11 @@
         "Continue to Book":"اكمل الحجز"
     
     },
-    "feadback":"عائلة سعيدة",
-    "feadbackContent": "يا لها من رحلة رائعة مع عائلتي ويجب أن أحاول مرة أخرى في المرة القادمة قريبًا ...",
-    "feadbackParagraph": "أنجا، مصممة المنتجات",
-    "feadbackButton": "اقرأ قصتهم"        
+    "feadback": {
+        "feadback":"عائلة سعيدة",
+        "feadbackContent": "يا لها من رحلة رائعة مع عائلتي ويجب أن أحاول مرة أخرى في المرة القادمة قريبًا ...",
+        "feadbackParagraph": "أنجا، مصممة المنتجات",
+        "feadbackButton": "اقرأ قصتهم"   
+    }     
     }
     
