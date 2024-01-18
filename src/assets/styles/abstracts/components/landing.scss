@@ -40,6 +40,7 @@
 #features{
 
   .caption{
+  
     h5{
       color:$text-secondryColor;
 
@@ -47,10 +48,9 @@
     p{
       color: $bg-colorGray;
     }
-
+   
   }
-      
-}
+ 
 
 #most-picked {
 
@@ -134,4 +134,5 @@
     }
   }
 
+}
 }
