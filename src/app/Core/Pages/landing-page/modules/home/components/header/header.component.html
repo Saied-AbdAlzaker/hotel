@@ -5,27 +5,29 @@
             <div class="col-md-7" [class]="_HelperService.textDir === 'ltr'?'me-auto':'ms-auto'">
                 <h2 class="fw-bolder text-secondryColor">{{'header.Forget Busy Work,'|translate}}
                     <br>{{'header.Start Next Vacation'|translate}}</h2>
-                <p class="text-muted">{{'header.We provide what you need to enjoy your holiday with family.'|translate}}
+                <p class="paragraph">{{'header.We provide what you need to enjoy your holiday with family.'|translate}}
                     <br>{{'header.Time to make another memorable moments.'|translate}}
                 </p>
                 <div class="booking-section mt-4">
-                    <h4 class="text-secondryColor fw-bolder">{{'header.Start Booking'|translate}}</h4>
+                    <h4 class="text-secondryColor fw-bolder mb-0">{{'header.Start Booking'|translate}}</h4>
                     <form class="w-75">
                         <div class="form-group mb-3">
-                            <label for="date" class="h5 text-secondryColor">{{'header.pick a date'|translate}}</label>
+                            <label for="date" class="h6 text-secondryColor">{{'header.pick a date'|translate}}</label>
                             <div class="input-group">
-                                <span class="input-group-text bg-main">
+                                <span class="input-group-text bg-main"  [class]="_HelperService.textDir === 'rtl'?'rotate':''">
                                     <i class="fa-solid fa-calendar-days text-white"></i>
                                 </span>
                                 <input id="date" type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="nights" class="h6 text-secondryColor">{{'header.How long you will stay?'|translate}}</label>
+                            <label for="nights" class="h6 text-secondryColor">
+                                {{'header.How long you will stay?'|translate}}
+                            </label>
                             <div class="input-group">
-                                <span class="input-group-text bg-red"><i class="fa-solid fa-minus text-white"></i></span>
+                                <span class="input-group-text bg-red" [class]="_HelperService.textDir === 'rtl'?'rotate':''"><i class="fa-solid fa-minus text-white"></i></span>
                                 <input id="nights" type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
-                                <span class="input-group-text  bg-main"><i class="fa-solid fa-plus text-white"></i></span>
+                                <span [class]="_HelperService.textDir === 'rtl'?'rotate':''" class="input-group-text bg-green"><i class="fa-solid fa-plus text-white"></i></span>
                             </div>
                         </div>
                     
@@ -36,7 +38,7 @@
                 
             </div>
             <div class="col-md-5 mt-4"  [class]="_HelperService.textDir === 'ltr'?'ms-auto':'me-auto'">
-                <div class="image w-75 m-auto">
+                <div class="image w-75 m-auto" [class]="_HelperService.textDir === 'rtl'?'rotate':''">
                   <img src="../../../../../../../../assets/images/header.png" class="w-100">
                 </div>
             </div>

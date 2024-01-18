@@ -55,7 +55,10 @@ body { margin: 0;}
 .dark-theme {
    body {
     background-color: #000;
-    color: #ffffff;
+    color: #ffffff !important;
+    h4,h3,h2{
+      color: #fff !important;
+    }
     .text-muted{
       color: #fff !important;
     }
