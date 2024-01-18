@@ -1,6 +1,11 @@
 {
     "hello":"hello landing page",
-    "nav-land":"",
+    "Signin":"Signin",
+    "nav":{
+        "Home":"Home",
+        "Explore":"Explore",
+        "Reviews":"Reviews"
+    },
     "home-land":{
         "header":"header",
         "most-picked":"",
@@ -16,24 +21,21 @@
         "Start Booking":"Start Booking",
         "pick a date":"pick a date",
         "How long you will stay?":"How long you will stay?",
-        "Continue to Book":"Continue to Book"
+        "Continue to Book":"Continue to Book",
+        "You will pay":"You will pay"
     },
     "features":{
       "features-work!":"Houses with beauty backyard",
      "Featurs-title": "Hotels with large living room",
      "title":"Apartments with kitchen set "
 
-    }
-
-}
-
+    },
     "feadback":{
         "feadback":"Happy Family",
         "feadbackContent": "What a great trip with my family and <br> I should try again next time soon ...",
         "feadbackParagraph": "Angga, Product Designer",
         "feadbackButton": "Read Their Story"
     }
-
-        
-    }
+    
+}
 

@@ -1,6 +1,11 @@
 {
     "hello":"مرحبا",
-    "nav-land":"",
+    "Signin":"تسجيل الدخول",
+    "nav":{
+        "Home":"الرئيسية",
+        "Explore":"تصفح",
+        "Reviews":"تقييم"
+    },
     "home-land":{
         "header":"القسم الرئيسي",
         "most-picked":"",
@@ -16,23 +21,19 @@
         "Start Booking":"ابدأ الحجز",
         "pick a date":"اختر موعدا",
         "How long you will stay?":"كم ستبقي؟",
-        "Continue to Book":"اكمل الحجز"
+        "Continue to Book":"اكمل الحجز",
+        "You will pay":"عليك تسديد"
     },
     "features":{
         "features-work!": "    منازل ذات فناء خلفي جميل  ",
         "Featurs-title":"فنادق بها غرفة معيشة كبيرة  ",
-        "title" :  " شقق مع مجموعة المطبخ"
-
-   
-}
-}
-    
+        "title" :  " شقق مع مجموعة المطبخ"    
     },
     "feadback": {
         "feadback":"عائلة سعيدة",
         "feadbackContent": "يا لها من رحلة رائعة مع عائلتي ويجب أن أحاول مرة أخرى في المرة القادمة قريبًا ...",
         "feadbackParagraph": "أنجا، مصممة المنتجات",
         "feadbackButton": "اقرأ قصتهم"   
-    }     
     }
+}
     
