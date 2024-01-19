@@ -6,11 +6,15 @@ import { Params } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class HomeService {
+  constructor(private _HttpClient: HttpClient) {}
 
-constructor(private _HttpClient:HttpClient) { }
+  onGetRoomDetails(id: string): Observable<any> {
+    return this._HttpClient.get(`portal/rooms/${id}`);
+  }
+
 
     onGetRoomDetails(id:string):Observable<any>{
         return this._HttpClient.get(`portal/rooms/${id}`)
@@ -19,4 +23,9 @@ constructor(private _HttpClient:HttpClient) { }
 getAllRooms(params:any):Observable<any>{
     return this._HttpClient.get('portal/rooms/available',{params:params})
 }
+
+  getAllRooms(params: Params): Observable<any> {
+    return this._HttpClient.get('portal/rooms/available', { params: params });
+  }
+
 }

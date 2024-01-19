@@ -5,7 +5,8 @@
         "header":"header",
         "most-picked":"",
         "features":"",
-        "feadback":"feadback"
+        "feadback":"feadback",
+        "footer": "footer"
     },
     "header":{
         "header works!":"header works!",
@@ -48,6 +49,7 @@
      "Stays-paragh":"Wonosobo, Indonesia"
 
 
+  },
 
     },
     "feadback":{
@@ -59,7 +61,35 @@
 }
 
   
+    },
 
-        
+
+    "footer": {
+            "Stay":" Stay ",
+            "cation":" cation.",
+            "headerOne":" We kaboom your beauty holiday",
+            "headerTwo":" instantly and memorable.",
+
+            "Beginners":" For Beginners. ",
+            "BeginnersHeaderOne":" New Account",
+            "BeginnersHeaderTwo":" Start Booking a Room",
+            "BeginnersHeaderThree":"Use Payments",
+
+            "Explore":" Explore Us. ",
+            "ExploreHeaderOne":" Our Careers",
+            "ExploreHeaderTwo":" Privacy",
+            "ExploreHeaderThree":" Terms & Conditions ",
+
+            "Connect":" Connect Us. ",
+            "ConnectHeaderOne":" support@staycation.id",
+            "ConnectHeaderTwo":" 021 - 2208 - 1996",
+            "ConnectHeaderThree":" Staycation, Kemang, Jakarta",
+
+            "Copyright":"Copyright 2019 • All rights reserved • Staycation"
+       
+    }     
     
+}
+
+
 
