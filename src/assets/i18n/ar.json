@@ -59,5 +59,29 @@
         "feadbackContent": "يا لها من رحلة رائعة مع عائلتي ويجب أن أحاول مرة أخرى في المرة القادمة قريبًا ...",
         "feadbackParagraph": "أنجا، مصممة المنتجات",
         "feadbackButton": "اقرأ قصتهم"   
-    }
+    },
+    "footer": {
+        "Stay":" البقاء ",
+        "cation":" كاتيون.",
+        "headerOne":" نحن نرحب بعطلة سعيدة",
+        "headerTwo":" على الفور ولا تنسى",
+
+        "Beginners":" للمبتدئين. ",
+        "BeginnersHeaderOne":"حساب جديد ",
+        "BeginnersHeaderTwo":"ابدأ بحجز غرفة",
+        "BeginnersHeaderThree":"استخدام المدفوعات",
+
+        "Explore":"استكشفنا",
+        "ExploreHeaderOne":" وظائفنا ",
+        "ExploreHeaderTwo":" الخصوصية",
+        "ExploreHeaderThree":" الشروط والأحكام ",
+
+        "Connect":" اتصل بنا ",
+        "ConnectHeaderOne":" support@staycation.id",
+        "ConnectHeaderTwo":" 021 - 2208 - 1996",
+        "ConnectHeaderThree":" الإقامة، كيمانج، جاكرتا",
+
+        "Copyright":"حقوق الطبع والنشر 2019 • جميع الحقوق محفوظة • الإقامة"
+   
+}
 }
