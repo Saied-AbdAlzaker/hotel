@@ -38,6 +38,13 @@
   }
 }
 
+#features{
+
+  .caption{
+  
+    h5{
+      color:$text-secondryColor;
+
 #features {
   .caption {
     h5 {
@@ -47,14 +54,17 @@
       color: $bg-colorGray;
     }
 
+
     #features {
       .paragh {
         color: $text-secondryColor;
       }
     }
   }
-}
+ 
 
+
+}
 #most-picked {
   .card-item {
     color: white !important;
