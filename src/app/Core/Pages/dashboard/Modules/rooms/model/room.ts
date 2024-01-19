@@ -27,6 +27,7 @@ export interface IRooms {
     facilities: IFacilities[],
     createdAt: string,
     updatedAt: string,
+
 }
 
 

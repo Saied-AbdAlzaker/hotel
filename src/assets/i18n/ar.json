@@ -24,42 +24,14 @@
         "Featurs-title":"فنادق بها غرفة معيشة كبيرة  ",
         "title" :  " شقق مع مجموعة المطبخ"
 
-   
-},
-"feadback": {
-    "feadback":"عائلة سعيدة",
-    "feadbackContent": "يا لها من رحلة رائعة مع عائلتي ويجب أن أحاول مرة أخرى في المرة القادمة قريبًا ...",
-    "feadbackParagraph": "أنجا، مصممة المنتجات",
-    "feadbackButton": "اقرأ قصتهم"   
-},
+
+    },
+    "feadback": {
+        "feadback":"عائلة سعيدة",
+        "feadbackContent": "يا لها من رحلة رائعة مع عائلتي ويجب أن أحاول مرة أخرى في المرة القادمة قريبًا ...",
+        "feadbackParagraph": "أنجا، مصممة المنتجات",
+        "feadbackButton": "اقرأ قصتهم"
+    }
+    }
 
 
-"footer": {
-        "Stay":" البقاء ",
-        "cation":" كاتيون",
-        "headerOne":" نحن نرحب بعطلة المفضلة",
-        "headerTwo":" على الفور ولا تنسى.",
-
-        "Beginners":" للمبتدئين. ",
-        "BeginnersHeaderOne":" حساب جديد",
-        "BeginnersHeaderTwo":" ابدأ بحجز غرفة",
-        "BeginnersHeaderThree":" استخدم المدفوعات",
-
-        "Explore":" اكتشف ",
-        "ExploreHeaderOne":" الوظائف",
-        "ExploreHeaderTwo":" الخصوصية",
-        "ExploreHeaderThree":" البنود و الشروط",
-
-        "Connect":" اتصل بنا. ",
-        "ConnectHeaderOne":" support@staycation.id",
-        "ConnectHeaderTwo":" 021 - 2208 - 1996",
-        "ConnectHeaderThree":" الإقامة، كيمانج، جاكرتا",
-
-        "Copyright":"حقوق الطبع والنشر 2019 • جميع الحقوق محفوظة • الإقامة"
-   
-}     
-
-
-
-    
-}
