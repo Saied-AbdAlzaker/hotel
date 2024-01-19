@@ -2,7 +2,8 @@
 
 #footer {
   span {
-    color: $text-blackColorBtn;
+    color: $text-secondryColor;
+    font-weight: 500;
   }
   .pointer {
     cursor: pointer;
@@ -29,11 +30,11 @@
     content: "";
     border: 2px solid #e5e5e5;
     border-radius: 15px 15px 100px 15px;
-    width: 330.131px;
-    height: 430.75px;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    right: 30px;
-    bottom: 100px;
+    left: -30px;
+    top: -30px;
     z-index: -2;
   }
 }
@@ -129,6 +130,10 @@
     }
   
   }
+}
+.ant-picker-suffix{
+  color: $bg-mainColor !important;
+  font-size: 20px !important;
 }
 
 

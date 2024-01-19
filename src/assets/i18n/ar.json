@@ -1,6 +1,12 @@
 {
     "hello":"مرحبا",
     "Signin":"تسجيل الدخول",
+    "You will pay":"ستدفع",
+    "per":"في",
+    "per night":"في الليلة",
+    "About":"عن",
+    "Rate":"تقييم",
+    "Message":"ارسل رساله",
     "nav":{
         "Home":"الرئيسية",
         "Explore":"تصفح",

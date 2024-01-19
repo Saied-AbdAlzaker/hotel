@@ -1,6 +1,12 @@
 {
     "hello":"hello landing page",
     "Signin":"Signin",
+    "You will pay":"You will pay",
+    "per":"per",
+    "per night":"per night",
+    "About":"About",
+    "Rate":"Rate",
+    "Message":"Message",
     "nav":{
         "Home":"Home",
         "Explore":"Explore",
