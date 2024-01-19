@@ -53,18 +53,13 @@
      "Minimal-paragh":"Bogor, Indonesia",
      "Stays":"Stays Home ",
      "Stays-paragh":"Wonosobo, Indonesia"
-
-
-  
-  },
-
+    },
     "feadback":{
         "feadback":"Happy Family",
         "feadbackContent": "What a great trip with my family and <br> I should try again next time soon ...",
         "feadbackParagraph": "Angga, Product Designer",
         "feadbackButton": "Read Their Story"
     },
-
     "footer": {
             "Stay":" Stay ",
             "cation":" cation.",
@@ -87,14 +82,5 @@
             "ConnectHeaderThree":" Staycation, Kemang, Jakarta",
 
             "Copyright":"Copyright 2019 • All rights reserved • Staycation"
-    }
+    }     
 }
-       
-    
-
-    
-
-
-
-
-
