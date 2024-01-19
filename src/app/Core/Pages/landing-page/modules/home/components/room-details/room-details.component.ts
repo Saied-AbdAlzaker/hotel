@@ -8,6 +8,8 @@ import { HelperService } from 'src/app/Core/services/helper.service';
   styleUrls: ['./room-details.component.scss']
 })
 export class RoomDetailsComponent implements OnInit {
+  roomDetails:any;
+  roomImages:any[]=[];
   constructor(private _HomeService:HomeService,
     public _HelperService:HelperService
     ){}
@@ -17,7 +19,10 @@ export class RoomDetailsComponent implements OnInit {
   getRoomDetails(id:string){
     this._HomeService.onGetRoomDetails(id).subscribe({
       next:(res)=>{
-        console.log(res);
+        this.roomDetails=res.data.room;
+        console.log(this.roomDetails);
+        this.roomImages=res.data.room.images
+        console.log(this.roomImages);
         
       }
     })
