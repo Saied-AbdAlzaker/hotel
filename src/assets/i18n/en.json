@@ -28,28 +28,38 @@
     "features":{
       "features-work!":"Houses with beauty backyard",
      "Featurs-title": "Hotels with large living room",
-     "title":"Apartments with kitchen set "
-
-<<<<<<< HEAD
+     "title":"Apartments with kitchen set ",
+     "town":"Tabby Town",
+     "town-paragh":"Gunung Batu, Indonesia",
+     "Anggana":"Anggana",
+     "Anggana-paragh":"Bogor, Indonesia",
+     "Seattle":"Seattle Rain",
+     "Seattle-paragh":"Jakarta, Indonesia",
+     "Wodden ":"Wodden Pit ",
+     "Wodden-paragh":"Wonosobo, Indonesia",
+     "Park":"Green Park ",
+     "Park-paragh":"Tangerang, Indonesia",
+     "Podo":"Podo Wae",
+     "Podo-paragh":"Madiun, Indonesia",
+     "Silver":"Silver Rain",
+     "Silver-paragh":"Bandung, Indonesia",
+     "Cashville":"Cashville",
+     "Cashville-paragh":"Kemang, Indonesia",
+     "Wood":"PS Wood",
+     "Wood-paragh":"Depok, Indonesia",
+     "Five":"One Five",
+     "Five-paragh":"Jakarta, Indonesia",
+     "Minimal":"Minimal",
+     "Minimal-paragh":"Bogor, Indonesia",
+     "Stays":"Stays Home ",
+     "Stays-paragh":"Wonosobo, Indonesia"
     },
-=======
-
-  },
-
->>>>>>> bdbcd47d845ed87fe513ebdcc11133e4b5d12b09
     "feadback":{
         "feadback":"Happy Family",
         "feadbackContent": "What a great trip with my family and <br> I should try again next time soon ...",
         "feadbackParagraph": "Angga, Product Designer",
         "feadbackButton": "Read Their Story"
-<<<<<<< HEAD
-    }
-    
-}
-=======
     },
-
-
     "footer": {
             "Stay":" Stay ",
             "cation":" cation.",
@@ -72,12 +82,5 @@
             "ConnectHeaderThree":" Staycation, Kemang, Jakarta",
 
             "Copyright":"Copyright 2019 • All rights reserved • Staycation"
-       
     }     
-    
 }
-
-
-
->>>>>>> bdbcd47d845ed87fe513ebdcc11133e4b5d12b09
-
