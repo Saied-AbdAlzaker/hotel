@@ -10,7 +10,8 @@
         "header":"القسم الرئيسي",
         "most-picked":"",
         "features":"",
-        "feadback":"feadback"
+        "feadback":"feadback",
+        "footer":"footer"
     },
     "header":{
         "header works!":"القسم الرئيسي يعمل",
@@ -27,13 +28,27 @@
     "features":{
         "features-work!": "    منازل ذات فناء خلفي جميل  ",
         "Featurs-title":"فنادق بها غرفة معيشة كبيرة  ",
+<<<<<<< HEAD
         "title" :  " شقق مع مجموعة المطبخ"    
+=======
+        "title" :  " شقق مع مجموعة المطبخ"
+
+
+>>>>>>> bdbcd47d845ed87fe513ebdcc11133e4b5d12b09
     },
     "feadback": {
         "feadback":"عائلة سعيدة",
         "feadbackContent": "يا لها من رحلة رائعة مع عائلتي ويجب أن أحاول مرة أخرى في المرة القادمة قريبًا ...",
         "feadbackParagraph": "أنجا، مصممة المنتجات",
+<<<<<<< HEAD
         "feadbackButton": "اقرأ قصتهم"   
     }
 }
     
+=======
+        "feadbackButton": "اقرأ قصتهم"
+    }
+    }
+
+
+>>>>>>> bdbcd47d845ed87fe513ebdcc11133e4b5d12b09
