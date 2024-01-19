@@ -38,33 +38,8 @@
   }
 }
 
-#features{
-
-  .caption{
   
-    h5{
-      color:$text-secondryColor;
-    }}}
 
-#features {
-  .caption {
-    h5 {
-      color: $text-secondryColor;
-    }
-    p {
-      color: $bg-colorGray;
-    }
-
-    #features {
-      .paragh {
-        color: $text-secondryColor;
-      }
-    }
-  }
- 
-
-
-}
 #most-picked {
   .card-item {
     color: white !important;
@@ -143,6 +118,8 @@
       left: 0;
       padding: 20px;
     }
+  
   }
 }
+
 

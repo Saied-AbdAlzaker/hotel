@@ -24,8 +24,5 @@ getAllRooms(params:any):Observable<any>{
     return this._HttpClient.get('portal/rooms/available',{params:params})
 }
 
-//   getAllRooms(params: Params): Observable<any> {
-//     return this._HttpClient.get('portal/rooms/available', { params: params });
-//   }
 
 }
