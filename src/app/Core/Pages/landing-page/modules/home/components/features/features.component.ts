@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../../services/home.service';
-import { IRoomsUser, IRoomsUserDetails } from '../../models/home';
+import { IRoomsUserDetails, IRoomsUser } from '../../models/home';
 
 @Component({
   selector: 'app-features',
@@ -8,25 +8,28 @@ import { IRoomsUser, IRoomsUserDetails } from '../../models/home';
   styleUrls: ['./features.component.scss']
 })
 export class FeaturesComponent implements OnInit {
-  size:number=10;
-  page:number=1;
-  roomResponse:IRoomsUserDetails|undefined;
-  rooms: IRoomsUser[] | any;
-
+ 
+  roomRespnse: IRoomsUserDetails | undefined;
+  roomsData: IRoomsUser[] | any;
+  pageNumber: number = 1;
+  pageSize: number = 5;
 constructor(private _HomeService:HomeService){}
+
   ngOnInit(): void {
     this.getAllRooms();
   }
   getAllRooms(){
     let params={
-       size:this.size,
-       page:this.page
+       size:this.pageSize,
+       page:this.pageNumber
     }
     this._HomeService.getAllRooms(params).subscribe({
       next:(res)=>{
-        console.log(res);
-        this.roomResponse=res.data;
-        this.rooms=this.roomResponse?.data.rooms;
+        // console.log(res);
+        this.roomRespnse=res;
+        this.roomsData=this.roomRespnse?.data.rooms;
+        console.log(this.roomsData);
+        
         
       }     
     })
