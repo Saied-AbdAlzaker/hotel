@@ -2,7 +2,7 @@ import { IUserAdmin } from 'src/app/Shared/models/iuser-admin';
 import { IRoom } from '../../rooms/model/room';
 
 export interface IAdsResponse {
-  success: true;
+  success: boolean;
   message: string;
   data: IAdsData;
 }

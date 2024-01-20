@@ -15,7 +15,7 @@ export const userGuard: CanActivateFn = (state) => {
   } else
   {
     authService.getProfile();
-    route.navigate(['/dashboard']);
+    route.navigate(['/landingPage/home']);
     return false;
   }
 };
