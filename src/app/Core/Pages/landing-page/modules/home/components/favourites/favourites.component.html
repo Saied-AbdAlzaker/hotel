@@ -29,7 +29,7 @@
       >
         <h5>{{ item.discount }}$ <span> per night</span></h5>
         <div class="links">
-          <a><i class="fa-solid text-danger fa-2x fa-heart"></i></a>
+          <a (click)="openDeleteDialog(item)"><i class="fa-solid text-danger fa-2x fa-heart"></i></a>
           <a
             class="text-white"
             [routerLink]="['/landingPage/home/rooms', item._id]"
