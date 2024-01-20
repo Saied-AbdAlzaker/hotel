@@ -1,9 +1,14 @@
 @import "/src/assets/styles/abstracts/variables";
 
 #room-details{
-    // .rotate{
-    //     rotate: y 180deg;
-    // }
+    .rotate{
+        rotate: y 180deg;
+    }
+    .ant-picker-suffix{
+        // display: none !important;
+        background: #000 !important;
+        color: aqua !important;
+    }
     .image{
         // width: 85%;
         img{
