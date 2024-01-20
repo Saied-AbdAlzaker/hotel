@@ -1,6 +1,7 @@
 @import "/src/assets/styles/abstracts/_variables.scss";
 
 #footer {
+  box-shadow: -12px 0rem 1rem 1px rgb(74 74 74 / 10%);
   span {
     color: $text-blackColorBtn;
   }
@@ -52,7 +53,7 @@
   }
 }
 
-#most-picked {
+#most-picked,#myFavourite{
   .card-item {
     color: white !important;
     position: relative;
