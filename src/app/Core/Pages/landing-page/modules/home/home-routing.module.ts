@@ -8,6 +8,7 @@ import { authGuard } from 'src/app/Core/Guards/auth.guard';
 
 const routes: Routes = [
   {path:'',component:HomeLandComponent},
+  {path:'rooms/:id',component:RoomDetailsComponent},
   {path:'rooms/:id',component:RoomDetailsComponent,data: { title: 'Room' },
 },
   {path:'favourites',component:FavouritesComponent,canActivate:[authGuard,userGuard],data: { title: 'Your Favourites' }}

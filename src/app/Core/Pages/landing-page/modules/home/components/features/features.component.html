@@ -1,11 +1,16 @@
 <section id="features">
     <div class="container">
 
-        <div class="row my-5 " >
+        <div class="row my-5" >
             <h3>{{'features.features-work!'|translate}}</h3>
-            <div class="col-md-3" *ngFor="let item of roomsData">
+            <div  *ngFor="let item of roomsData" class="col-md-3 card-item">
+                <img [src]="item.images[0]" class="w-100" alt=""/>
+                    <div class="links">
+                              <a><i class="fa-regular fa-2x fa-heart"></i></a>
 
-                    <img [src]="item.images[0]" class="w-100" alt=""/>
+
+                              <a  [routerLink]="['/landingPage/home/rooms', roomsData[0]._id]"  ><i class="fa-regular fa-2x fa-eye"></i></a>
+                      </div>
                    <div>
 
                     <h5 class="$text-secondryColor">{{'features.town'|translate}}</h5>
@@ -46,8 +51,6 @@
                         </div>
 
             </div>
-            </div>
-         <div class="row my-5 "  > 
             <h3>{{'features.Featurs-title'|translate}}</h3>
             <div class="col-md-3" *ngFor="let item of roomsData">
                 
@@ -87,8 +90,7 @@
                 </div>
             </div>
         </div>
-        </div>
-    <div class="row ">
+        
         <h3>{{'features.title'|translate}}</h3>
 
         <div class="col-md-3" *ngFor="let item of roomsData">
@@ -127,7 +129,7 @@
             
                 </div>
             </div>
-    </div>  
+</div>
 </div>
 </section>
 
