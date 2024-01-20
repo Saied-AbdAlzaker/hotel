@@ -54,8 +54,8 @@ export class FavouritesComponent implements OnInit {
       }
     });
   }
-  deleteFavouriteById(roomId: any) {
-    this._favouriteService.deleteFavourite(roomId).subscribe({
+  deleteFavouriteById(roomId: string) {
+    return this._favouriteService.deleteFavourite(roomId).subscribe({
       next: (res) => {
         console.log(res);
       },

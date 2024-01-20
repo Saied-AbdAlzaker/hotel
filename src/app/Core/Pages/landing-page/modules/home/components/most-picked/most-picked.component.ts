@@ -63,7 +63,7 @@ export class MostPickedComponent implements OnInit {
     });
   }
   addFavouriteById(roomId: string) {
-    this._favouriteService.addFavourite(roomId).subscribe({
+    return this._favouriteService.addFavourite(roomId).subscribe({
       next: (res) => {
         console.log(res);
       },
@@ -71,7 +71,7 @@ export class MostPickedComponent implements OnInit {
         if (
           err.error.message == `Room is already in your favorite: ${roomId}`
         ) {
-          this._toastrService.error(err.error.message, 'You must Log in');
+          this._toastrService.error('Room is already in your favorite');
         } else {
           this._toastrService.error('You must Log in');
           this._router.navigate(['/auth/signin']);

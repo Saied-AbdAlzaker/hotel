@@ -13,10 +13,10 @@ export class FavouriteService {
   }
 
   addFavourite(roomId: string): Observable<any> {
-    return this._HttpClient.post('portal/favorite-rooms', roomId);
+    return this._HttpClient.post('portal/favorite-rooms', {roomId});
   }
-  deleteFavourite(roomId: any): Observable<any> {
-    return this._HttpClient.delete(`portal/favorite-rooms/${roomId}`);
+  deleteFavourite(roomId: string): Observable<any> {
+    return this._HttpClient.delete(`portal/favorite-rooms/${roomId}`,{});
 
   }
 }
