@@ -6,8 +6,8 @@
             </div>
         <div class="row">
             <div class="col-md-6" *ngFor="let image of roomImages">
-                <img *ngIf="roomImages==null" src="../../../../../../../../assets/images/dummy.jpg" class="w-100 mb-2 d-block rounded-4"/>
-                <img  [src]="image" class="w-100 mb-2 d-block rounded-4" alt="">
+                <img *ngIf="!roomImages" src="../../../../../../../../assets/images/dummy.jpg" class="w-100 mb-2 d-block rounded-4"/>
+                <img *ngIf="roomImages" [src]="image" class="w-100 mb-2 d-block rounded-4" alt="">
             </div>
             
         </div>

@@ -7,8 +7,8 @@
                 <div >
 
                 
-                        <img    [src]="item.images[0]" class="img-fluid w-100 h-100" appHideMissing alt=""/>
-                        <img *ngIf="item.images[0]==null" class="img-fluid w-100 h-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+                        <img *ngIf="item.images[0]" [src]="item.images[0]" class="img-fluid w-100 h-100" appHideMissing alt=""/>
+                        <img *ngIf="!item.images[0]" class="img-fluid w-100 h-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
                     <div class=" text-center d-flex justify-content-center align-items-center">
                         <div>
 
@@ -37,8 +37,8 @@
             <div class="col" *ngFor="let item of roomsData">
                 
                 <div >
-                    <img [src]="item.images[0]" class= "img-fluid w-100 h-100" alt=""/>
-                    <img *ngIf="item.images[0]==null" class="img-fluid w-100 h-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+                    <img *ngIf="item.images[0]" [src]="item.images[0]" class= "img-fluid w-100 h-100" alt=""/>
+                    <img *ngIf="!item.images[0]" class="img-fluid w-100 h-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
                     <div class=" text-center  d-flex justify-content-center align-items-center">
                         <a class><i class="fa-regular fa-2x fa-heart"></i></a>
 
@@ -61,8 +61,8 @@
         <div class="col"  *ngFor="let item of roomsData">
             <div>
                 <div class="vh-25" >
-                    <img [src]="item.images[0]" class=" img-fluid  " alt=""/>
-                    <img *ngIf="item.images[0]==null" class="img-fluid w-100 h-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+                    <img *ngIf="item.images[0]" [src]="item.images[0]" class=" img-fluid  " alt=""/>
+                    <img *ngIf="!item.images[0]" class="img-fluid w-100 h-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
                 </div>
 
                 <div class=" text-center d-flex justify-content-center align-items-center">

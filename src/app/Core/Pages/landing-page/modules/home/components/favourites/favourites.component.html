@@ -35,12 +35,12 @@
             ><i class="fa-regular fa-2x fa-eye"></i
           ></a>
         </div>
-        <img
+        <img *ngIf="item.images[0]"
           [src]="item.images[0]"
           alt="most picked"
           class="img-fluid h-100 w-100"
         />
-        <img *ngIf="item.images[0]==null" class="img-fluid w-100 h-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+        <img *ngIf="!item.images[0]" class="img-fluid w-100 h-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
         <div class="caption-item">
           <h5>{{ item.roomsNumber }}</h5>
           <p>{{ item.price }}</p>
