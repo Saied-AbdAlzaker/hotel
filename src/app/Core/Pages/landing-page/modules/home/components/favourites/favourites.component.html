@@ -26,7 +26,7 @@
         class="col-lg-3 .col-md-6 card-item p-0 mb-2"
         *ngFor="let item of favouriteItems"
       >
-        <h5>{{ item.discount }}$ <span> per night</span></h5>
+        <h5>{{ item.price }}$ <span> per night</span></h5>
         <div class="links">
           <a (click)="openDeleteDialog(item)"><i class="fa-solid text-danger fa-2x fa-heart"></i></a>
           <a
@@ -42,8 +42,8 @@
         />
         <img *ngIf="!item.images[0]" class="img-fluid w-100 h-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
         <div class="caption-item">
-          <h5>{{ item.roomsNumber }}</h5>
-          <p>{{ item.price }}</p>
+          <h5>{{ item.roomNumber }}</h5>
+          <p>{{ item.discount }} $</p>
         </div>
       </div>
     </div>

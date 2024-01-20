@@ -90,11 +90,14 @@ th {
 tbody > tr {
   transition: all 0.1s ease;
 }
-tbody > tr:hover {
+.users-dash,.facilites-dash,.rooms-dash,.ads-dash,.booking-dash
+{
+ tr:hover {
   box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0,
     0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
   z-index: 2;
   position: relative;
+}
 }
 
 td {
@@ -185,4 +188,9 @@ li {
   font-size: 16px;
   line-height: 27.2px;
   color: #B0B0B0;
+}
+
+
+.cursor-pointer{
+  cursor: pointer;
 }

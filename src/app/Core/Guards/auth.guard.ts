@@ -7,9 +7,9 @@ export const authGuard: CanActivateFn = ( state) => {
   if(token !== null)
   {
     return true
-  } else 
+  } else
   {
-    route.navigate(['/auth']);
+    route.navigate(['/landingPage/home']);
     return false;
   }
 };

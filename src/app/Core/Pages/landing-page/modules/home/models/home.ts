@@ -5,7 +5,7 @@ export interface IRoomsUserDetails {
   size: number;
   data: {
     rooms: IRoomsUser[];
-  totalCount: number
+    totalCount: number
   };
 }
 export interface IRoomsUser {

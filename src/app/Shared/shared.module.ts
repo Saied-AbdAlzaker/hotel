@@ -30,9 +30,10 @@ import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { MatMenuModule} from '@angular/material/menu';
-
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 
 import { TranslateModule } from '@ngx-translate/core';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports: [
@@ -61,7 +62,8 @@ import { TranslateModule } from '@ngx-translate/core';
     NzTimelineModule,
     NzSelectModule,
     TranslateModule,
-    MatMenuModule
+    MatMenuModule,
+    NzPopconfirmModule
   ],
   exports: [
     FormsModule,
@@ -95,7 +97,8 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule,
     NzTimelineModule,
     NzSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    NzPopconfirmModule
   ],
   declarations: [
     SidebarComponent,
@@ -104,6 +107,7 @@ import { TranslateModule } from '@ngx-translate/core';
     LogOutComponent,
     DeleteDialogComponent,
     DarkComponent,
+    NotFoundComponent,
   ],
 })
 export class SharedModule {}
