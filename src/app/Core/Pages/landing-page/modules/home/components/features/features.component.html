@@ -1,155 +1,133 @@
 <section id="features">
     <div class="container">
 
-        <div class="row my-5">
+        <div class="row my-5 " >
             <h3>{{'features.features-work!'|translate}}</h3>
-            <div class="col-md-3">
-                <div >
-                    <img src="../../../../../../../../assets/images/Town.png" class="w-100" alt="">
-                      
-                </div>
-                <div class="caption">
-                    <h5>Tabby Town</h5>
-                          <p>Gunung Batu, Indonesia</p>
+            <div class="col-md-3" *ngFor="let item of roomsData">
 
-                </div>
+                    <img [src]="item.images[0]" class="w-100" alt=""/>
+                   <div>
+
+                    <h5 class="$text-secondryColor">{{'features.town'|translate}}</h5>
+                          <p class="$bg-colorGray">{{'features.town-paragh'|translate}}</p>
+                        </div>
             </div>
-            <div class="col-md-3">
-                <div>
-                    <img src="../../../../../../../../assets/images/Anggana.png" class="w-100" alt="">
 
-                </div>
-                    
-                <div class="caption">
-                        <h5>Anggana</h5>
-                              <p>Bogor, Indonesia</p>
-    
-                    </div>
+            <div class="col-md-3 " *ngFor="let item of roomsData">
+                    <img [src]="item.images[0]" class="w-100" alt=""/>
+                    <div>
+
+                        <h5 class="$text-secondryColor">{{'features.Anggana'|translate}}</h5>
+                              <p class="$bg-colorGray">{{'features.Anggana-paragh'|translate}}</p>
+                            </div>
+
 
 
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3 " *ngFor="let item of roomsData" >
+
+                        <img [src]="item.images[0]" class="w-100" alt=""/>
+                    <div>
+
+                    <h5 class="$text-secondryColor">{{'features.Seattle'|translate}}</h5>
+                          <p class="$bg-colorGray">{{'features.Seattle-paragh'|translate}}</p>
+                        </div>
+
+                </div>
+
+
+            <div class="col-md-3 "  *ngFor="let item of roomsData">
+                    <img [src]="item.images[0]" class="w-100" alt=""/>
+
                 <div>
 
-                    <img src="../../../../../../../../assets/images/Seattle.png" class="w-100" alt="">
-                </div>
-                <div class="caption">
-                    <h5>Seattle Rain</h5>
-                          <p>Jakarta, Indonesia</p>
-
-                </div>
-
+                    <h5 class="$text-secondryColor">{{'features.Wodden'|translate}}</h5>
+                          <p class="$bg-colorGray">{{'features.Wodden-paragh'|translate}}</p>
+                        </div>
 
             </div>
-            <div class="col-md-3">
+            </div>
+         <div class="row my-5 "  > 
+            <h3>{{'features.Featurs-title'|translate}}</h3>
+            <div class="col-md-3" *ngFor="let item of roomsData">
+                
+                    <img [src]="item.images[0]" class="w-100" alt=""/>
                 <div>
-                    <img src="../../../../../../../../assets/images/Wodden.png" class="w-100" alt="">
+                    <h5 class="$text-secondryColor">{{'features.Park'|translate}}</h5>
+                          <p class="$bg-colorGray">{{'features.Park-paragh'|translate}}</p>
 
                 </div>
+            </div>
+             <div class="col-md-3"  *ngFor="let item of roomsData">
+                
+                    <img [src]="item.images[0]" class="w-100" alt=""/>
 
-                <div class="caption">
-                    <h5>Wodden Pit</h5>
-                          <p>Wonosobo, Indonesia</p>
+                <div>
+                    <h5 class="$text-secondryColor">{{'features.Podo'|translate}}</h5>
+                          <p class="$bg-colorGray">{{'features.Podo-paragh'|translate}}</p>
+
+                </div>
+            </div>
+            <div class="col-md-3" *ngFor="let item of roomsData">
+                
+                    <img [src]="item.images[0]" class="w-100" alt=""/>
+                <div>
+                    <h5 class="$text-secondryColor">{{'features.Silver'|translate}}</h5>
+                          <p class="$bg-colorGray">{{'features.Silver-paragh'|translate}}</p>
+
+                </div>
+            </div>
+            <div class="col-md-3"  *ngFor="let item of roomsData">
+                <div>
+                        <img [src]="item.images[0]" class="w-100" alt=""/>
+                <div>
+                    <h5 class="$text-secondryColor">{{'features.Cashville'|translate}}</h5>
+                          <p class="$bg-colorGray">{{'features.Cashville-paragh'|translate}}</p>
 
                 </div>
             </div>
         </div>
-        <div class="row my-5">
-            <h3>{{'features.Featurs-title'|translate}}</h3>
-            <div class="col-md-3">
-                <div>
-                    <img src="../../../../../../../../assets/images/Park.png" class="w-100" alt="">
-
-                </div>
-                <div class="caption">
-                    <h5>Green Park</h5>
-                          <p>Tangerang, Indonesia</p>
-
-                </div>
-            </div>
-             <div class="col-md-3">
-                <div>
-                    <img src="../../../../../../../../assets/images/podo.png" class="w-100" alt="">
-
-                </div>
-
-                <div class="caption">
-                    <h5>Podo Wae</h5>
-                          <p>Madiun, Indonesia</p>
-
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div>
-                    <img src="../../../../../../../../assets/images/Silver.png" class="w-100" alt="">
-
-                </div>
-                <div class="caption">
-                    <h5>Silver Rain</h5>
-                          <p>Bandung, Indonesia</p>
-
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div>
-                    <img src="../../../../../../../../assets/images/Cashville.png" class="w-100" alt="">
-
-                </div>
-                <div class="caption">
-                    <h5>Cashville</h5>
-                          <p>Kemang, Indonesia</p>
-
-                </div>
-            </div>
         </div>
     <div class="row ">
         <h3>{{'features.title'|translate}}</h3>
 
-        <div class="col-md-3">
-            <div >
-                <img src="../../../../../../../../assets/images/Wood.png" class="w-100" alt="">
-            </div>
-            <div class="caption">
-                <h5>PS Wood</h5>
-                      <p>Depok, Indonesia</p>
+        <div class="col-md-3" *ngFor="let item of roomsData">
+            
+                <img [src]="item.images[0]" class="w-100" alt=""/>
+            <div>
+                <h5 class="$text-secondryColor">{{'features.Wood'|translate}}</h5>
+                      <p class="$bg-colorGray">{{'features.Wood-paragh'|translate}}</p>
 
             </div>
         </div>
-<div class="col-md-3">
+<div class="col-md-3"  *ngFor="let item of roomsData">
+    
+        <img [src]="item.images[0]" class="w-100" alt=""/>
     <div>
-        <img src="../../../../../../../../assets/images/Five.png" class="w-100" alt="">
-
-    </div>
-    <div class="caption">
-        <h5>One Five</h5>
-              <p>Jakarta, Indonesia</p>
+        <h5 class="$text-secondryColor">{{'features.Five'|translate}}</h5>
+              <p class="$bg-colorGray">{{'features.Five-paragh'|translate}}</p>
 
     </div>
 </div>
-            <div class="col-md-3">
+            <div class="col-md-3"  *ngFor="let item of roomsData" >
+                    <img [src]="item.images[0]" class="w-100" alt=""/>
                 <div>
-                    <img src="../../../../../../../../assets/images/Minimal.png" class="w-100" alt="">
-
-                </div>
-                <div class="caption">
-                    <h5>Minimal</h5>
-                          <p>Bogor, Indonesia</p>
+                    <h5 class="$text-secondryColor">{{'features.Minimal'|translate}}</h5>
+                          <p class="$bg-colorGray">{{'features.Minimal-paragh'|translate}}</p>
             
                 </div>
             
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" 
+            *ngFor="let item of roomsData" >
+                    <img [src]="item.images[0]" class="w-100" alt=""/>
                 <div>
-                    <img src="../../../../../../../../assets/images/Stays.png" class="w-100" alt="">
-
-                </div>
-                <div class="caption">
-                    <h5>Stays Home</h5>
-                          <p>Wonosobo, Indonesia</p>
+                    <h5 class="$text-secondryColor">{{'features.Stays'|translate}}</h5>
+                          <p class="$bg-colorGray">{{'features.Stays-paragh'|translate}}</p>
             
                 </div>
             </div>
-    </div>
-
-    </div>
+    </div>  
+</div>
 </section>
+

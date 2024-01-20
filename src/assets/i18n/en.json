@@ -1,11 +1,17 @@
 {
     "hello":"hello landing page",
-    "nav-land":"",
+    "Signin":"Signin",
+    "nav":{
+        "Home":"Home",
+        "Explore":"Explore",
+        "Reviews":"Reviews"
+    },
     "home-land":{
         "header":"header",
         "most-picked":"",
         "features":"",
-        "feadback":"feadback"
+        "feadback":"feadback",
+        "footer": "footer"
     },
     "header":{
         "header works!":"header works!",
@@ -16,23 +22,65 @@
         "Start Booking":"Start Booking",
         "pick a date":"pick a date",
         "How long you will stay?":"How long you will stay?",
-        "Continue to Book":"Continue to Book"
+        "Continue to Book":"Continue to Book",
+        "You will pay":"You will pay"
     },
     "features":{
       "features-work!":"Houses with beauty backyard",
      "Featurs-title": "Hotels with large living room",
-     "title":"Apartments with kitchen set "
-
-
-  },
-
+     "title":"Apartments with kitchen set ",
+     "town":"Tabby Town",
+     "town-paragh":"Gunung Batu, Indonesia",
+     "Anggana":"Anggana",
+     "Anggana-paragh":"Bogor, Indonesia",
+     "Seattle":"Seattle Rain",
+     "Seattle-paragh":"Jakarta, Indonesia",
+     "Wodden ":"Wodden Pit ",
+     "Wodden-paragh":"Wonosobo, Indonesia",
+     "Park":"Green Park ",
+     "Park-paragh":"Tangerang, Indonesia",
+     "Podo":"Podo Wae",
+     "Podo-paragh":"Madiun, Indonesia",
+     "Silver":"Silver Rain",
+     "Silver-paragh":"Bandung, Indonesia",
+     "Cashville":"Cashville",
+     "Cashville-paragh":"Kemang, Indonesia",
+     "Wood":"PS Wood",
+     "Wood-paragh":"Depok, Indonesia",
+     "Five":"One Five",
+     "Five-paragh":"Jakarta, Indonesia",
+     "Minimal":"Minimal",
+     "Minimal-paragh":"Bogor, Indonesia",
+     "Stays":"Stays Home ",
+     "Stays-paragh":"Wonosobo, Indonesia"
+    },
     "feadback":{
         "feadback":"Happy Family",
         "feadbackContent": "What a great trip with my family and <br> I should try again next time soon ...",
         "feadbackParagraph": "Angga, Product Designer",
         "feadbackButton": "Read Their Story"
-    }
+    },
+    "footer": {
+            "Stay":" Stay ",
+            "cation":" cation.",
+            "headerOne":" We kaboom your beauty holiday",
+            "headerTwo":" instantly and memorable.",
 
+            "Beginners":" For Beginners. ",
+            "BeginnersHeaderOne":" New Account",
+            "BeginnersHeaderTwo":" Start Booking a Room",
+            "BeginnersHeaderThree":"Use Payments",
 
-    }
+            "Explore":" Explore Us. ",
+            "ExploreHeaderOne":" Our Careers",
+            "ExploreHeaderTwo":" Privacy",
+            "ExploreHeaderThree":" Terms & Conditions ",
 
+            "Connect":" Connect Us. ",
+            "ConnectHeaderOne":" support@staycation.id",
+            "ConnectHeaderTwo":" 021 - 2208 - 1996",
+            "ConnectHeaderThree":" Staycation, Kemang, Jakarta",
+
+            "Copyright":"Copyright 2019 • All rights reserved • Staycation"
+    }     
+}

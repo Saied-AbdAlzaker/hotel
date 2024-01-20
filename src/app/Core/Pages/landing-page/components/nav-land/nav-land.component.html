@@ -6,23 +6,21 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-4 mb-lg-0">
+        <ul class="navbar-nav mb-4 mb-lg-0" [class]="_HelperService.textDir === 'ltr'?'ms-auto':'me-auto'">
           <li class="nav-item">
-            <a class="nav-link active text-primary" aria-current="page" href="#">Header</a>
+            <a class="nav-link active text-primary" aria-current="page" href="#">{{'nav.Home'|translate}}</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Most Picked</a>
+            <a class="nav-link" href="#">{{'nav.Explore'|translate}}</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">{{'nav.Reviews'|translate}}</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Feadback</a>
-          </li>
-          <li class="nav-item ms-3 fw-bolder text-secondryColor"  *ngIf="userName == null">
-            <a class="nav-link" routerLink="/auth/signin">Sign In</a>
+
+          <li class="nav-item fw-bolder text-secondryColor" *ngIf="userName == null" [class]="_HelperService.textDir === 'ltr'?'ms-5':'me-3'">
+            <button class="nav-link btn primary" routerLink="/auth/signin">{{'Signin'|translate}}</button>
           </li>
           <li class="d-flex">
             <ng-container *ngIf="userName">
@@ -50,7 +48,7 @@
         </ul>
 
       </div>
-      <div [class]="_HelperService.textDir === 'ltr'?'ms-5':'me-5'">
+      <div [class]="_HelperService.textDir === 'ltr'?'ms-4':'me-4'">
         <button class="outline-primary" (click)="onChangeLang('en')">En</button>
         <button class="outline-primary" (click)="onChangeLang('ar')">Ar</button>
       </div>
