@@ -29,6 +29,7 @@ import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { MatMenuModule} from '@angular/material/menu';
 
 
 import { TranslateModule } from '@ngx-translate/core';
@@ -59,7 +60,8 @@ import { TranslateModule } from '@ngx-translate/core';
     NzAlertModule,
     NzTimelineModule,
     NzSelectModule,
-    TranslateModule
+    TranslateModule,
+    MatMenuModule
   ],
   exports: [
     FormsModule,
@@ -93,6 +95,7 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule,
     NzTimelineModule,
     NzSelectModule,
+    MatMenuModule
   ],
   declarations: [
     SidebarComponent,

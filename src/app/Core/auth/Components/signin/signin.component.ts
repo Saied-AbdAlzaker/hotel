@@ -37,14 +37,13 @@ export class SigninComponent implements OnInit {
       }, error: (err) => {
         this.toastr.error(err.error.message, 'Error!')
       }, complete: () => {
-        // if(localStorage.getItem('role')=='admin'){
+        if(localStorage.getItem('role')=='admin'){
           this.router.navigate(['/dashboard'])
-        // }
-        // else{
-        //   this.router.navigate(['/home']);
-        // }
+         }
+         else{
+          this.router.navigate(['/landingPage/home']);
+         }
 
-        this.router.navigate(['/dashboard']);
         this.toastr.success('Logged In', 'Successfully')
       }
     })
