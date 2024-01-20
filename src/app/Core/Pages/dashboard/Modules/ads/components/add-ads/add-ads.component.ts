@@ -86,8 +86,7 @@ export class AddAdsComponent {
            this.toastr.error(err.error.message, 'Error!');
          }, complete: () => {
            this.toastr.success('Add Successfully');
-           this.router.navigate(['/admin/dashboard/ads'])
-           // this.getAllAds();
+           this.onNoClick();
          }
        })
      }

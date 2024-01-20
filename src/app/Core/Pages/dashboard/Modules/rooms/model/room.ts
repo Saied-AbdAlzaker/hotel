@@ -20,17 +20,4 @@ export interface IRoomsDetails {
 }
 
 
-// export interface IRooms {
-//     _id:string,
-//     roomNumber: string,
-//     images: string,
-//     price: number,
-//     capacity: string,
-//     discount: number,
-//     facilities: IFacilities[],
-//     createdAt: string,
-//     updatedAt: string,
-
-// }
-
 
