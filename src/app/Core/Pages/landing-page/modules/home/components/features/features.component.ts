@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { HomeService } from '../../services/home.service';
 import { IRoomsUserDetails, IRoomsUser } from '../../models/home';
+import { IAdsUser, IAdsUserDetails } from '../../models/Ads';
 
 @Component({
   selector: 'app-features',
@@ -11,13 +12,23 @@ export class FeaturesComponent implements OnInit {
  
   roomRespnse: IRoomsUserDetails | undefined;
   roomsData: IRoomsUser[] | any;
+  AdsResponse:IAdsUserDetails|undefined;
+  AdsData:IAdsUser[]|any;
   pageNumber: number = 1;
   pageSize: number = 5;
-constructor(private _HomeService:HomeService){}
+constructor(private _HomeService:HomeService,private el: ElementRef){}
+
+@HostListener("error")
+private onError() {
+  this.el.nativeElement.style.display = "none";
+}
 
   ngOnInit(): void {
     this.getAllRooms();
+    this.getAllads();
   }
+  
+  
   getAllRooms(){
     let params={
        size:this.pageSize,
@@ -35,4 +46,17 @@ constructor(private _HomeService:HomeService){}
     })
   }
  
+  getAllads(){
+    this._HomeService.getAllAds().subscribe({
+      next:(res)=>{
+        // console.log(res);
+        this.AdsResponse=res;
+        this.AdsData=this.AdsResponse?.data.ads;
+        console.log(this.AdsData);
+        
+
+        
+      }
+    })
+  }
 }
