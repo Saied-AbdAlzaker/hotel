@@ -28,7 +28,7 @@ export class AdsService {
     return this._httpClient.post('admin/ads', data)
   }
   // Edit Ads
-  onEditAds(data:any,id:any):Observable<any>
+  onEditAds(data:any,id:string):Observable<any>
   {
     return this._httpClient.put(`admin/ads/${id}`, data)
   }

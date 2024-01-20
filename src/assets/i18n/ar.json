@@ -1,87 +1,82 @@
 {
-    "hello":"مرحبا",
-    "Signin":"تسجيل الدخول",
-    "nav":{
-        "Home":"الرئيسية",
-        "Explore":"تصفح",
-        "Reviews":"تقييم"
+    "hello": "مرحبا",
+    "Signin": "تسجيل الدخول",
+    "nav": {
+        "Home": "الرئيسية",
+        "Explore": "تصفح",
+        "Reviews": "تقييم"
     },
-    "home-land":{
-        "header":"القسم الرئيسي",
-        "most-picked":"",
-        "features":"",
-        "feadback":"feadback",
-        "footer":"footer"
+    "home-land": {
+        "header": "القسم الرئيسي",
+        "most-picked": "",
+        "features": "",
+        "feadback": "feadback",
+        "footer": "footer"
     },
-    "header":{
-        "header works!":"القسم الرئيسي يعمل",
-        "Forget Busy Work,":"انس ضغط العمل",
-        "Start Next Vacation":"ابدأ الإجازة",
-        "We provide what you need to enjoy your holiday with family.":"نحن نقدم لك ما تحتاجه للاستمتاع بإجازتك مع العائلة.",
-        "Time to make another memorable moments.":"الوقت لجعل لحظات أخرى لا تنسى.",
-        "Start Booking":"ابدأ الحجز",
-        "pick a date":"اختر موعدا",
-        "How long you will stay?":"كم ستبقي؟",
-        "Continue to Book":"اكمل الحجز",
-        "You will pay":"عليك تسديد"
+    "header": {
+        "header works!": "القسم الرئيسي يعمل",
+        "Forget Busy Work,": "انس ضغط العمل",
+        "Start Next Vacation": "ابدأ الإجازة",
+        "We provide what you need to enjoy your holiday with family.": "نحن نقدم لك ما تحتاجه للاستمتاع بإجازتك مع العائلة.",
+        "Time to make another memorable moments.": "الوقت لجعل لحظات أخرى لا تنسى.",
+        "Start Booking": "ابدأ الحجز",
+        "pick a date": "اختر موعدا",
+        "How long you will stay?": "كم ستبقي؟",
+        "Continue to Book": "اكمل الحجز",
+        "You will pay": "عليك تسديد"
     },
-    "features":{
+    "features": {
         "features-work!": "    منازل ذات فناء خلفي جميل  ",
-        "Featurs-title":"فنادق بها غرفة معيشة كبيرة  ",
-        "title" :  " شقق مع مجموعة المطبخ",
-
-        "town":"مدينة تابي",
-        "town-paragh":"جونونج باتو، إندونيسيا ",
-        "Anggana":"أنجانا",
-        "Anggana-paragh":"بوجور، إندونيسيا ",
-        "Seattle":"سياتل المطر ",
-        "Seattle-paragh":"جاكرتا، أندونيسيا",
-        "Wodden":"وعاء خشبي",
-        "Wodden-paragh":"وونوسوبو، إندونيسيا ",
-        "Park":"الحديقة الخضراء",
-        "Park-paragh":"تانجيرانج، إندونيسيا ",
-        "Podo":"بودو واي ",
-        "Podo-paragh":"ماديون، إندونيسيا ",
-        "Silver":"مطر فضي ",
-        "Silver-paragh":"باندونج، إندونيسيا ",
-        "Cashville":"كاشفيل",
-        "Cashville-paragh":"كيمانج، إندونيسيا ",
-        "Wood":"بي اس وود ",
-        "Wood-paragh":"ديبوك، إندونيسيا ",
-        "Five":"واحد خمسة",
-        "Five-paragh":"جاكرتا، أندونيسيا ",
-        "Minimal":"الحد الأدنى",
-        "Minimal-paragh" :"بوجور، إندونيسيا ",
-        "Stays":"يبقى في المنزل ",
-        "Stays-paragh":"وونوسوبو، إندونيسيا "
+        "Featurs-title": "فنادق بها غرفة معيشة كبيرة  ",
+        "title": " شقق مع مجموعة المطبخ",
+        "town": "مدينة تابي",
+        "town-paragh": "جونونج باتو، إندونيسيا ",
+        "Anggana": "أنجانا",
+        "Anggana-paragh": "بوجور، إندونيسيا ",
+        "Seattle": "سياتل المطر ",
+        "Seattle-paragh": "جاكرتا، أندونيسيا",
+        "Wodden": "وعاء خشبي",
+        "Wodden-paragh": "وونوسوبو، إندونيسيا ",
+        "Park": "الحديقة الخضراء",
+        "Park-paragh": "تانجيرانج، إندونيسيا ",
+        "Podo": "بودو واي ",
+        "Podo-paragh": "ماديون، إندونيسيا ",
+        "Silver": "مطر فضي ",
+        "Silver-paragh": "باندونج، إندونيسيا ",
+        "Cashville": "كاشفيل",
+        "Cashville-paragh": "كيمانج، إندونيسيا ",
+        "Wood": "بي اس وود ",
+        "Wood-paragh": "ديبوك، إندونيسيا ",
+        "Five": "واحد خمسة",
+        "Five-paragh": "جاكرتا، أندونيسيا ",
+        "Minimal": "الحد الأدنى",
+        "Minimal-paragh": "بوجور، إندونيسيا ",
+        "Stays": "يبقى في المنزل ",
+        "Stays-paragh": "وونوسوبو، إندونيسيا "
     },
     "feadback": {
-        "feadback":"عائلة سعيدة",
+        "feadback": "عائلة سعيدة",
         "feadbackContent": "يا لها من رحلة رائعة مع عائلتي ويجب أن أحاول مرة أخرى في المرة القادمة قريبًا ...",
         "feadbackParagraph": "أنجا، مصممة المنتجات",
-        "feadbackButton": "اقرأ قصتهم"   
+        "feadbackButton": "اقرأ قصتهم"
     },
     "footer": {
-        "Stay":" البقاء ",
-        "cation":" كاتيون.",
-        "headerOne":" نحن نرحب بعطلة سعيدة",
-        "headerTwo":" على الفور ولا تنسى",
-
-        "Beginners":" للمبتدئين. ",
-        "BeginnersHeaderOne":"حساب جديد ",
-        "BeginnersHeaderTwo":"ابدأ بحجز غرفة",
-        "BeginnersHeaderThree":"استخدام المدفوعات",
-
-        "Explore":"استكشفنا",
-        "ExploreHeaderOne":" وظائفنا ",
-        "ExploreHeaderTwo":" الخصوصية",
-        "ExploreHeaderThree":" الشروط والأحكام ",
-
-        "Connect":" اتصل بنا ",
-        "ConnectHeaderOne":" support@staycation.id",
-        "ConnectHeaderTwo":" 021 - 2208 - 1996",
-        "ConnectHeaderThree":" الإقامة، كيمانج، جاكرتا",
-
-        "Copyright":"حقوق الطبع والنشر 2019 • جميع الحقوق محفوظة • الإقامة"
-}
+        "Stay": " البقاء ",
+        "cation": " كاتيون.",
+        "headerOne": " نحن نرحب بعطلة سعيدة",
+        "headerTwo": " على الفور ولا تنسى",
+        "Beginners": " للمبتدئين. ",
+        "BeginnersHeaderOne": "حساب جديد ",
+        "BeginnersHeaderTwo": "ابدأ بحجز غرفة",
+        "BeginnersHeaderThree": "استخدام المدفوعات",
+        "Explore": "استكشفنا",
+        "ExploreHeaderOne": " وظائفنا ",
+        "ExploreHeaderTwo": " الخصوصية",
+        "ExploreHeaderThree": " الشروط والأحكام ",
+        "Connect": " اتصل بنا ",
+        "ConnectHeaderOne": " support@staycation.id",
+        "ConnectHeaderTwo": " 021 - 2208 - 1996",
+        "ConnectHeaderThree": " الإقامة، كيمانج، جاكرتا",
+        "Copyright": "حقوق الطبع والنشر 2019 • جميع الحقوق محفوظة • الإقامة"
+    }
 }

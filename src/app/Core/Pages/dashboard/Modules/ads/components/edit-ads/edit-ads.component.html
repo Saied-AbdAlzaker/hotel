@@ -1,8 +1,7 @@
 <section class="p-5">
 
     <h4 class="d-flex align-items-center justify-content-between mb-3">
-        <span *ngIf="!data._id">Add</span>
-        <span *ngIf="data._id">Edit</span>
+        <span>Edit</span>
         <span (click)="onNoClick()">
             <i
                 class="pointer fa-regular fa-circle-xmark text-danger fa-1x position-absolute top-0 right-0 my-4"></i></span>
@@ -16,9 +15,9 @@
                         <label>Room Numbwe</label>
                         <select *ngIf="!data._id" formControlName="room" type="text" class="form-control form-select"
                             aria-label="Small select example">
-                            <ng-container *ngFor="let item of tableData">
+                            <!-- <ng-container *ngFor="let item of tableData">
                                 <option *ngIf="item.discount === 0" [ngValue]="item._id">{{item.roomNumber}}</option>
-                            </ng-container>
+                            </ng-container> -->
                         </select>
 
                         <input type="text" *ngIf="data._id" formControlName="roomNumber" [(ngModel)]="data.room.roomNumber"  class="form-control">
