@@ -20,7 +20,6 @@ constructor(private _HttpClient:HttpClient) {
 getProfile(){
   let encoded: any = localStorage.getItem('userToken');
   let decoded: any = jwtDecode(encoded)  
-  localStorage.setItem('role' , decoded.role);
   this.getRole()
   
 }

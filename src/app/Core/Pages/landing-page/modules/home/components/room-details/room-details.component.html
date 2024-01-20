@@ -67,10 +67,33 @@
                 <div class="booking-section w-75 p-5 mx-auto border rounded">
                     <h4 class="text-secondryColor fw-bolder ">{{'header.Start Booking'|translate}}</h4>
                     <p class="fs-2 paragraph"><span class="greenColor">{{roomDetails?.price}}$ </span>{{'per night'|translate}}</p>
-                    <label class="h6 text-secondryColor">{{'header.pick a date'|translate}}</label>
-                    <nz-range-picker class="p-2 w-100" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>                    
-                    <nz-input-number [(ngModel)]="toFixedValue" nzPlaceHolder="toFixed"></nz-input-number>
-                    <button (click)="bookingRoom(date)" class="btn primary w-100 mt-3">{{'header.Continue to Book'|translate}}</button>
+                    <form [formGroup]="bookingForm" (ngSubmit)="bookingRoom(bookingForm)">
+                        <div class="form-group mb-3">
+                            <label for="date" class="h6 text-secondryColor">{{'header.pick a date'|translate}}</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-main"  [class]="_HelperService.textDir === 'rtl'?'rotate':''">
+                                    <i class="fa-solid fa-calendar-days text-white"></i>
+                                </span>
+                                <nz-date-picker
+                                [nzDisabledDate]="disabledStartDate"
+                                nzFormat="yyyy-MM-dd"
+                                formControlName="startDate"
+                                nzPlaceHolder="Start"
+                                (nzOnOpenChange)="handleStartOpenChange($event)"
+                                ></nz-date-picker>
+                                <nz-date-picker
+                                #endDatePicker
+                                [nzDisabledDate]="disabledEndDate"
+                                nzFormat="yyyy-MM-dd"
+                                formControlName="endDate"
+                                nzPlaceHolder="End"
+                                (nzOnOpenChange)="handleEndOpenChange($event)"
+                                ></nz-date-picker>
+                            </div>
+                        </div>
+                        <button (click)="bookingRoom" class="btn primary w-100 mt-3">{{'header.Continue to Book'|translate}}</button>
+                    </form>
+                    
                 </div>
             </div>
         </div>

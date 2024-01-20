@@ -29,10 +29,11 @@ export class SigninComponent implements OnInit {
       next: (res:any) => {
         console.log(res);
         localStorage.setItem('userToken', res.data.token)
-        localStorage.setItem('role',res.data.role)
+        localStorage.setItem('role',res.data.user.role)
         localStorage.setItem('userName',res.data.user.userName)
         localStorage.setItem('email',res.data.user.email)
         localStorage.setItem('userId',res.data.user._id)
+
 
       }, error: (err) => {
         this.toastr.error(err.error.message, 'Error!')
