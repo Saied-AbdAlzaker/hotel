@@ -9,6 +9,7 @@ import { MostPickedComponent } from './components/most-picked/most-picked.compon
 import { FeaturesComponent } from './components/features/features.component';
 import { FeadbackComponent } from './components/feadback/feadback.component';
 import { RoomDetailsComponent } from './components/room-details/room-details.component';
+import { FavouritesComponent } from './components/favourites/favourites.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { RoomDetailsComponent } from './components/room-details/room-details.com
     MostPickedComponent,
     FeaturesComponent,
     FeadbackComponent,
-    RoomDetailsComponent
+    RoomDetailsComponent,
+    FavouritesComponent
   ],
   imports: [
     CommonModule,

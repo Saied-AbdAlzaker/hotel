@@ -1,8 +1,8 @@
 import { IUserAdmin } from 'src/app/Shared/models/iuser-admin';
-import { IRoom, IRooms } from '../../rooms/model/room';
+import { IRoom } from '../../rooms/model/room';
 
 export interface IAdsResponse {
-  success: true;
+  success: boolean;
   message: string;
   data: IAdsData;
 }
@@ -14,16 +14,16 @@ export interface IAdsData {
 export interface IAds {
   _id: string;
   isActive: boolean;
-  room: IRooms;
+  room: IRoom;
   discount: number,
   createdBy: IUserAdmin;
   createdAt: string;
   updatedAt: string;
 }
 
-export interface IAddAds {
-  room: IRooms,
-  discount: number,
-  isActive: boolean
-}
+// export interface IAddAds {
+//   room: IRooms,
+//   discount: number,
+//   isActive: boolean
+// }
 
