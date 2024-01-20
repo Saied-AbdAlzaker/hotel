@@ -1,10 +1,16 @@
 {
-    "hello": "مرحبا",
-    "Signin": "تسجيل الدخول",
-    "nav": {
-        "Home": "الرئيسية",
-        "Explore": "تصفح",
-        "Reviews": "تقييم"
+    "hello":"مرحبا",
+    "Signin":"تسجيل الدخول",
+    "You will pay":"ستدفع",
+    "per":"في",
+    "per night":"في الليلة",
+    "About":"عن",
+    "Rate":"تقييم",
+    "Message":"ارسل رساله",
+    "nav":{
+        "Home":"الرئيسية",
+        "Explore":"تصفح",
+        "Reviews":"تقييم"
     },
     "home-land": {
         "header": "القسم الرئيسي",
