@@ -6,7 +6,6 @@ import { IAds, IAdsData, IAdsResponse } from '../../models/ads';
 import { Subject, debounceTime } from 'rxjs';
 import { ViewAdsComponent } from '../view-ads/view-ads.component';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
-import { AddEditComponent } from '../add-edit-ads/add-edit-ads.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AddAdsComponent } from '../add-ads/add-ads.component';
 
@@ -76,8 +75,7 @@ export class AdsComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(result);
 
-      // this.onAddNewAds(result);
-      // this.getAllAds();
+      this.getAllAds();
     });
   }
 
@@ -94,7 +92,6 @@ export class AdsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      // this.onEditNewAds(adsData, result.id);
       this.getAllAds();
     });
   }

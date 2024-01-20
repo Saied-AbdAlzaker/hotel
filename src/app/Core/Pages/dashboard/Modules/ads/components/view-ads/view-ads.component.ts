@@ -16,4 +16,5 @@ export class ViewAdsComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
 }
