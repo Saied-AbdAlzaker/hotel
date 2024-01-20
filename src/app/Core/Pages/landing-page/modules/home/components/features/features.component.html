@@ -3,13 +3,13 @@
 
         <div class="row mb-5" >
             <h3>{{'features.features-work!'|translate}}</h3>
-            <div   class="col-md-3 my-3  " *ngFor="let item of roomsData">
-                <div class="card-item">
+            <div  class="col"  *ngFor="let item of roomsData">
+                <div >
 
                 
-                        <img    [src]="item.images[0]" class="w-100 h-100" appHideMissing alt=""/>
+                        <img    [src]="item.images[0]" class="img-fluid w-100 h-100" appHideMissing alt=""/>
                     
-                    <div class="links text-center d-flex justify-content-center align-items-center">
+                    <div class=" text-center d-flex justify-content-center align-items-center">
                         <div>
 
                             <a><i class="fa-regular fa-2x fa-heart"></i></a>
@@ -34,12 +34,12 @@
 
           
             <h3>{{'features.Featurs-title'|translate}}</h3>
-            <div class="col-md-3 my-3" *ngFor="let item of roomsData">
+            <div class="col" *ngFor="let item of roomsData">
                 
-                <div class="card-item">
-                    <img [src]="item.images[0]" class= "w-100 h-100" alt=""/>
-                    <div class="links">
-                        <a><i class="fa-regular fa-2x fa-heart"></i></a>
+                <div >
+                    <img [src]="item.images[0]" class= "img-fluid w-100 h-100" alt=""/>
+                    <div class=" text-center  d-flex justify-content-center align-items-center">
+                        <a class><i class="fa-regular fa-2x fa-heart"></i></a>
 
 
                         <a  [routerLink]="['/landingPage/home/rooms', roomsData[0]._id]"  ><i class="fa-regular fa-2x fa-eye"></i></a>
@@ -57,14 +57,18 @@
         
         <h3>{{'features.title'|translate}}</h3>
 
-        <div class="col-md-3 my-3 " *ngFor="let item of roomsData">
-            <div class="card-item">
-                <img [src]="item.images[0]" class="w-100 h-100" alt=""/>
-                <div class="links">
+        <div class="col"  *ngFor="let item of roomsData">
+            <div>
+                <div class="vh-25" >
+                    <img [src]="item.images[0]" class=" img-fluid  " alt=""/>
+
+                </div>
+
+                <div class=" text-center d-flex justify-content-center align-items-center">
                     <a><i class="fa-regular fa-2x fa-heart"></i></a>
 
 
-                    <a  [routerLink]="['/landingPage/home/rooms', roomsData[0]._id]"  ><i class="fa-regular fa-2x fa-eye"></i></a>
+                    <a  [routerLink]="['/landingPage/home/rooms', item._id]"  ><i class="fa-regular fa-2x fa-eye"></i></a>
             </div>
 
             </div>
