@@ -5,13 +5,17 @@ import { CommonModule } from '@angular/common';
 import { AdsComponent } from './components/ads/ads.component';
 import { ViewAdsComponent } from './components/view-ads/view-ads.component';
 import { AddEditComponent } from './components/add-edit-ads/add-edit-ads.component';
+import { AddAdsComponent } from './components/add-ads/add-ads.component';
+import { EditAdsComponent } from './components/edit-ads/edit-ads.component';
 
 
 @NgModule({
   declarations: [
     AdsComponent,
     ViewAdsComponent,
-    AddEditComponent
+    AddEditComponent,
+    AddAdsComponent,
+    EditAdsComponent
   ],
   imports: [
     CommonModule,

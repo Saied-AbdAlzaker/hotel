@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IFacilities, IRooms } from '../../model/room';
+import { IFacilities, IRoom } from '../../model/room';
 import { RoomsService } from '../../services/rooms.service';
 import { ViewRoomsComponent } from '../view-rooms/view-rooms.component';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
@@ -22,7 +22,7 @@ export class RoomsComponent implements OnInit {
   private searchSubject: Subject<string> = new Subject<string>();
 
   tableResponse: any;
-  tableData: IRooms[] = [];
+  tableData: IRoom[] = [];
   facilities: IFacilities[] | undefined = [];
   facilityId: IFacilities[] = [];
   // facilityId: any;
