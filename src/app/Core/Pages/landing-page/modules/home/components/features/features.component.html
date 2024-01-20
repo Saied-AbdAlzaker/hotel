@@ -1,17 +1,28 @@
 <section id="features">
-    <div class="container-fluid">
+    <div class="container">
 
-        <div class="row" >
+        <div class="row mb-5" >
             <h3>{{'features.features-work!'|translate}}</h3>
-            <div   class="col-md-3  " *ngFor="let item of roomsData">
-                <img [src]="item.images" class="w-75" alt=""/>
-                    <div class="links">
-                              <a><i class="fa-regular fa-2x fa-heart"></i></a>
+            <div   class="col-md-3 my-3  " *ngFor="let item of roomsData">
+                <div class="card-item">
 
+                
+                        <img    [src]="item.images[0]" class="w-100 h-100" appHideMissing alt=""/>
+                    
+                    <div class="links text-center d-flex justify-content-center align-items-center">
+                        <div>
 
-                              <a  [routerLink]="['/landingPage/home/rooms', roomsData[0]._id]"  ><i class="fa-regular fa-2x fa-eye"></i></a>
+                            <a><i class="fa-regular fa-2x fa-heart"></i></a>
+                        </div>
+
+                <div>
+
+         <a  [routerLink]="['/landingPage/home/rooms', roomsData[0]._id]"  ><i class="fa-regular fa-2x fa-eye"></i></a>
+          </div>
                       </div>
-                   <div>
+                </div>
+              
+                   <div >
 
                     <h5 class="$text-secondryColor">{{'features.town'|translate}}</h5>
                           <p class="$bg-colorGray">{{'features.town-paragh'|translate}}</p>
@@ -23,14 +34,17 @@
 
           
             <h3>{{'features.Featurs-title'|translate}}</h3>
-            <div class="col-md-3" *ngFor="let item of roomsData">
+            <div class="col-md-3 my-3" *ngFor="let item of roomsData">
                 
-                    <img [src]="item.images" class="w-75" alt=""/>
+                <div class="card-item">
+                    <img [src]="item.images[0]" class= "w-100 h-100" alt=""/>
                     <div class="links">
                         <a><i class="fa-regular fa-2x fa-heart"></i></a>
 
 
                         <a  [routerLink]="['/landingPage/home/rooms', roomsData[0]._id]"  ><i class="fa-regular fa-2x fa-eye"></i></a>
+                </div>
+
                 </div>
                 <div>
                     <h5 class="$text-secondryColor">{{'features.Park'|translate}}</h5>
@@ -43,14 +57,16 @@
         
         <h3>{{'features.title'|translate}}</h3>
 
-        <div class="col-md-3" *ngFor="let item of roomsData">
-            
-                <img [src]="item.images" class="w-75" alt=""/>
+        <div class="col-md-3 my-3 " *ngFor="let item of roomsData">
+            <div class="card-item">
+                <img [src]="item.images[0]" class="w-100 h-100" alt=""/>
                 <div class="links">
                     <a><i class="fa-regular fa-2x fa-heart"></i></a>
 
 
                     <a  [routerLink]="['/landingPage/home/rooms', roomsData[0]._id]"  ><i class="fa-regular fa-2x fa-eye"></i></a>
+            </div>
+
             </div>
             <div>
                 <h5 class="$text-secondryColor">{{'features.Wood'|translate}}</h5>

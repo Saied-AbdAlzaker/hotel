@@ -39,16 +39,7 @@
   }
 }
 
-#features {
-  .caption {
-    h5 {
-      color: $text-secondryColor;
-    }
-    p {
-      color: $bg-colorGray;
-    }
-  }
-}
+
 
 #most-picked,#myFavourite{
   .card-item {
@@ -134,123 +125,6 @@
 
   }
 
-  #features{
-    .card-item {
-      color: white !important;
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      transition: $transitoon;
-      &::before {
-        position: absolute;
-        content: "";
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0) 50%,
-          rgba(0, 0, 0, 0.5) 99.91%
-        );
-      }
-      &:hover::after {
-        position: absolute;
-        content: "";
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(32, 63, 199, 0.21);
-      }
-      img {
-        opacity: 0.9;
-        transition: $transitoon;
-      }
-      &:hover img {
-        opacity: 1;
-        transform: scale(1.1);
-      }
-      .links {
-        display: none;
-        transition: $transitoon;
-        a:hover {
-          color: $text-mainColor;
-        }
-      }
-      &:hover .links {
-        position: absolute;
-        display: flex;
-        z-index: 1000;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        gap: 1rem;
-        top: 0;
-        left: 0;
-        justify-content: center;
-      }
-      & > h5 {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 10px 20px 10px 20px;
-        background-color: $bg-pinkColor;
-        border-bottom-left-radius: 20px;
-        z-index: 20;
-        span {
-          font-size: 1rem;
-          font-style: normal;
-          font-weight: 300;
-          line-height: 170%;
-        }
-      }
-      .caption-item {
-        position: absolute;
-        z-index: 20;
-        bottom: 0;
-        left: 0;
-        padding: 20px;
-      }
-    
-    }
-    &:hover::after {
-      position: absolute;
-      content: "";
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(32, 63, 199, 0.21);
-    }
-    img {
-      opacity: 0.9;
-      transition: $transitoon;
-    }
-    &:hover img {
-      opacity: 1;
-      transform: scale(1.1);
-    }
-    .links {
-      display: none;
-      transition: $transitoon;
-      a:hover {
-        color: $text-mainColor;
-      }
-    }
-    &:hover .links {
-      position: absolute;
-      display: flex;
-      z-index: 1000;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      gap: 1rem;
-      top: 0;
-      left: 0;
-      justify-content: center;
-    }
-  }
 }
 
 
