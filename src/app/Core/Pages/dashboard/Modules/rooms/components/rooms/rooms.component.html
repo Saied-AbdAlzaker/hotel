@@ -61,7 +61,10 @@
         <tbody>
           <tr *ngFor="let item of tableData">
             <td class="rounded-start">{{item.roomNumber || '--'}}</td>
-            <td><img crossorigin="anonymous" class="imgTable" [src]=" item.images[0] " /></td>
+            <td>
+              <img crossorigin="anonymous" class="imgTable" [src]=" item.images[0] " />
+              <img *ngIf="item.images==null" crossorigin="anonymous" class="imgTable" src="../../../../../../../../assets/images/dummy.jpg" />
+            </td>
             <td>{{item.price |currency:'L.E'}}</td>
             <td>{{item.discount}}</td>
             <td>{{item.capacity}}</td>

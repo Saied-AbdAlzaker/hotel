@@ -6,13 +6,10 @@
             </div>
         <div class="row">
             <div class="col-md-6" *ngFor="let image of roomImages">
-                <!-- <img src="../../../../../../../../assets/images/detail-1.png" class="w-100 h-100 rounded"> -->
+                <img *ngIf="roomImages==null" src="../../../../../../../../assets/images/dummy.jpg" class="w-100 mb-2 d-block rounded-4"/>
                 <img  [src]="image" class="w-100 mb-2 d-block rounded-4" alt="">
             </div>
-            <!-- <div class="col-md-5">
-                <img src="../../../../../../../../assets/images/detail-2.png" class="w-100 h-50 mb-2">
-                <img src="../../../../../../../../assets/images/detail-3.png" class="w-100 h-50">
-            </div> -->
+            
         </div>
     </div>
 </section>
@@ -66,7 +63,8 @@
             <div class="col-md-5">
                 <div class="booking-section w-75 p-5 mx-auto border rounded">
                     <h4 class="text-secondryColor fw-bolder ">{{'header.Start Booking'|translate}}</h4>
-                    <p class="fs-2 paragraph"><span class="greenColor">{{roomDetails?.price}}$ </span>{{'per night'|translate}}</p>
+                    <p class="fs-2 paragraph mb-2"><span class="greenColor">{{roomDetails?.price}}$ </span>{{'per night'|translate}}</p>
+                    <p class="text-redColor">Discount {{roomDetails?.discount}}% Off </p>
                     <form [formGroup]="bookingForm" (ngSubmit)="bookingRoom(bookingForm)">
                         <div class="form-group mb-3">
                             <label for="date" class="h6 text-secondryColor">{{'header.pick a date'|translate}}</label>
@@ -93,7 +91,6 @@
                         </div>
                         <button (click)="bookingRoom" class="btn primary w-100 mt-3">{{'header.Continue to Book'|translate}}</button>
                     </form>
-                    
                 </div>
             </div>
         </div>

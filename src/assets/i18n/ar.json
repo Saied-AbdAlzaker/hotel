@@ -29,7 +29,8 @@
         "pick a date": "اختر موعدا",
         "How long you will stay?": "كم ستبقي؟",
         "Continue to Book": "اكمل الحجز",
-        "You will pay": "عليك تسديد"
+        "You will pay": "عليك تسديد",
+        "Capacity":"السعة"
     },
     "features": {
         "features-work!": "    منازل ذات فناء خلفي جميل  ",
