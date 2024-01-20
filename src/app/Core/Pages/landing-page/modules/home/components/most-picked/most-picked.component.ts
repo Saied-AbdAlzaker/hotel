@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HelperService } from 'src/app/Core/services/helper.service';
 import { HomeService } from '../../services/home.service';
 import { IRoomsUser, IRoomsUserDetails } from '../../models/home';
+import { IAds, IAdsData, IAdsResponse } from 'src/app/Core/Pages/dashboard/Modules/ads/models/ads';
 
 @Component({
   selector: 'app-most-picked',
@@ -11,6 +12,9 @@ import { IRoomsUser, IRoomsUserDetails } from '../../models/home';
 export class MostPickedComponent implements OnInit {
   roomRespnse: IRoomsUserDetails | undefined;
   roomsData: IRoomsUser[] | any;
+  adsRespnse: IAdsResponse | undefined;
+  adsData: IAdsData | any;
+  adsItems: IAds[] | undefined;
   pageNumber: number = 1;
   pageSize: number = 5;
   constructor(
@@ -19,6 +23,7 @@ export class MostPickedComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.getAllRooms();
+    // this.getAllAds();
   }
 
   getAllRooms() {
@@ -32,6 +37,19 @@ export class MostPickedComponent implements OnInit {
         this.roomRespnse= res;
         this.roomsData= this.roomRespnse?.data.rooms
         console.log(this.roomsData);
+
+      },
+    });
+  }
+  getAllAds() {
+
+    return this._homeService.getAllAds().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.adsRespnse= res;
+        this.adsData= this.adsRespnse?.data;
+        this.adsItems= this.adsData.ads;
+        console.log(this.adsItems);
 
       },
     });

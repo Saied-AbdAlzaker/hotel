@@ -71,6 +71,7 @@
         rgba(0, 0, 0, 0) 50%,
         rgba(0, 0, 0, 0.5) 99.91%
       );
+      z-index: 20;
     }
     &:hover::after {
       position: absolute;
@@ -91,9 +92,11 @@
     }
     .links {
       display: none;
+      opacity: .9;
       transition: $transitoon;
       a:hover {
-        color: $text-mainColor;
+        // color: $text-mainColor;
+        opacity: 1;
       }
     }
     &:hover .links {
