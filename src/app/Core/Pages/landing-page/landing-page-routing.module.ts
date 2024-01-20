@@ -11,6 +11,7 @@ const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
         path: 'home',
+        data: { title: 'Home' },
         loadChildren: () =>
           import('../landing-page/modules/home/home.module').then(
             (mod) => mod.HomeModule
@@ -18,11 +19,13 @@ const routes: Routes = [
       },
       {
         path: 'booking',
+        data: { title: 'Booking' },
+
         loadChildren: () =>
           import('../landing-page/modules/booking/booking.module').then(
             (mod) => mod.BookingModule
           ),
-      },
+      }
     ],
   },
 ];

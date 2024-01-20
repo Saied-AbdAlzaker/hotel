@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { HelperService } from 'src/app/Core/services/helper.service';
+import { LogOutComponent } from 'src/app/Shared/navbar/components/log-out/log-out.component';
 
 @Component({
   selector: 'app-nav-land',
@@ -7,8 +9,21 @@ import { HelperService } from 'src/app/Core/services/helper.service';
   styleUrls: ['./nav-land.component.scss']
 })
 export class NavLandComponent {
-  constructor(public _HelperService:HelperService){}
+  userName: any = localStorage.getItem('userName');
+  constructor(public _HelperService:HelperService,public dialog: MatDialog,
+    ){}
   onChangeLang(lang:string){
     this._HelperService.onchangeLang(lang)
+  }
+  openDialogLogOut(): void {
+    const dialogRef = this.dialog.open(LogOutComponent, {
+      data: {},
+      width: '30%',
+      // height: '100%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+    });
   }
 }

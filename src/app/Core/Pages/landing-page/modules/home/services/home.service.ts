@@ -15,14 +15,11 @@ export class HomeService {
     return this._HttpClient.get(`portal/rooms/${id}`);
   }
 
+  getAllRooms(params: Params): Observable<any> {
+    return this._HttpClient.get('portal/rooms/available', { params: params });
+  }
 
-    // onGetRoomDetails(id:string):Observable<any>{
-    //     return this._HttpClient.get(`portal/rooms/${id}`)
-    // }
-
-getAllRooms(params:any):Observable<any>{
-    return this._HttpClient.get('portal/rooms/available',{params:params})
-}
-
-
+  getAllAds(): Observable<any> {
+    return this._HttpClient.get('portal/ads');
+  }
 }
