@@ -5,7 +5,8 @@ import { RoomDetailsComponent } from './components/room-details/room-details.com
 
 const routes: Routes = [
   {path:'',component:HomeLandComponent},
-  {path:'rooms/:id',component:RoomDetailsComponent}
+  {path:'rooms/:id',component:RoomDetailsComponent},
+
 ];
 
 @NgModule({
