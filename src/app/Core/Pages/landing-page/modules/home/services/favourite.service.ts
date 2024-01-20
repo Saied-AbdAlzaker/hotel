@@ -13,4 +13,8 @@ export class FavouriteService {
   getMyFavourites(): Observable<any> {
     return this._HttpClient.get('portal/favorite-rooms');
   }
+
+  addFavourite(roomId:string): Observable<any> {
+    return this._HttpClient.post('portal/favorite-rooms',roomId);
+  }
 }

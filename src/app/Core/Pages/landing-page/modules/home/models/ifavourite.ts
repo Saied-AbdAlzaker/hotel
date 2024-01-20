@@ -20,3 +20,6 @@ export interface IUser {
   _id: string;
   userName: string;
 }
+export interface IAddFavourite {
+  roomId:string;
+}
