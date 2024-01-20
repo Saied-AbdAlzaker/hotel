@@ -1,6 +1,7 @@
 @import "/src/assets/styles/abstracts/_variables.scss";
 
 #footer {
+  box-shadow: -12px 0rem 1rem 1px rgb(74 74 74 / 10%);
   span {
     color: $text-blackColorBtn;
   }
@@ -48,8 +49,8 @@
     }
   }
 }
-  
-#most-picked {
+
+#most-picked,#myFavourite{
   .card-item {
     color: white !important;
     position: relative;
@@ -68,6 +69,7 @@
         rgba(0, 0, 0, 0) 50%,
         rgba(0, 0, 0, 0.5) 99.91%
       );
+      z-index: 20;
     }
     &:hover::after {
       position: absolute;
@@ -88,9 +90,11 @@
     }
     .links {
       display: none;
+      opacity: .9;
       transition: $transitoon;
       a:hover {
-        color: $text-mainColor;
+        // color: $text-mainColor;
+        opacity: 1;
       }
     }
     &:hover .links {
@@ -127,7 +131,7 @@
       left: 0;
       padding: 20px;
     }
-  
+
   }
 }
 
