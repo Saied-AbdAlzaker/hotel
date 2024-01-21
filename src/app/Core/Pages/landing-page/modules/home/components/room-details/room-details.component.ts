@@ -141,7 +141,7 @@ export class RoomDetailsComponent implements OnInit {
               console.log(res);
               
             },error:(err)=>{
-      
+              this.toastr.error('Login First','Error')
             },complete:()=>{
               this.toastr.success('Commented Successfully')
               this.getAllComments()
