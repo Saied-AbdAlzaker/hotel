@@ -64,8 +64,6 @@
               <img *ngIf="item.images[0]" crossorigin="anonymous" class="imgTable" [src]=" item.images[0] " />
               <img *ngIf="!item.images[0]" crossorigin="anonymous" class="imgTable" src="../../../../../../../../assets/images/dummy.jpg" />
             </td>
-            <td><img crossorigin="anonymous" class="imgTable" [src]=" item.images[0] || 'assets/images/profile.jpg' " /></td>
-
             <td>{{item.price |currency:'L.E'}}</td>
             <td>{{item.discount}}</td>
             <td>{{item.capacity}}</td>

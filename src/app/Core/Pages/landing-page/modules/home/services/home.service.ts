@@ -22,7 +22,7 @@ export class HomeService {
   getAllAds(): Observable<any> {
     return this._HttpClient.get('portal/ads');
   }
-  getAllComment(id:string):Observable<any>{
+  getAllComments(id:string):Observable<any>{
      
     return this._HttpClient.get(`portal/room-comments/${id}`)
 }
