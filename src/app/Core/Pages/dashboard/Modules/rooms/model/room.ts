@@ -1,7 +1,7 @@
 export interface IRoom {
     _id: string,
     roomNumber: string,
-    imgs: string,
+    images: string,
     price: string,
     capacity: string,
     discount: number,

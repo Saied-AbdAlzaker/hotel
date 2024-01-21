@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HomeService } from '../../services/home.service';
 import { HelperService } from 'src/app/Core/services/helper.service';
-import { ActivatedRoute } from '@angular/router';
-import { getISOWeek } from 'date-fns';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserBookingService } from '../../../booking/services/userBooking.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NzDatePickerComponent } from 'ng-zorro-antd/date-picker';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -12,54 +14,78 @@ import { UserBookingService } from '../../../booking/services/userBooking.servic
   styleUrls: ['./room-details.component.scss']
 })
 export class RoomDetailsComponent implements OnInit {
+  roomId:string=this._ActivatedRoute.snapshot.params['id']
   roomDetails:any;
   roomImages:any[]=[];
   roomFacilities:any[]=[];
-  roomId:string='';
+  bookingId:string='';
+  startValue: Date | null = null;
+  endValue: Date | null = null;
+  @ViewChild('endDatePicker') endDatePicker!: NzDatePickerComponent;
+  bookingForm = new FormGroup({
+    startDate: new FormControl(null,[Validators.required]),
+    endDate: new FormControl(null,[Validators.required]),
+    room: new FormControl(this.roomId),
+    totalPrice: new FormControl(6000)
+  })
   constructor(private _HomeService:HomeService,
     public _HelperService:HelperService,
     private _ActivatedRoute:ActivatedRoute,
-    private _UserBookingService:UserBookingService
-    ){
-      this.roomId=this._ActivatedRoute.snapshot.params['id']
-    }
-  ngOnInit(): void {
+    private _UserBookingService:UserBookingService,
+    private toastr:ToastrService,
+    private Router:Router
+    ){ }
+    
+  ngOnInit(): void {    
     this.getRoomDetails(this.roomId)
   }
   getRoomDetails(id:string){
     this._HomeService.onGetRoomDetails(id).subscribe({
       next:(res)=>{
         this.roomDetails=res.data.room;
-        console.log(this.roomDetails);
         this.roomImages=res.data.room.images
-        this.roomFacilities=this.roomDetails.facilities              
+        this.roomFacilities=this.roomDetails.facilities      
       }
     })
   }
 
-  bookingRoom(date:any){
-    this._UserBookingService.onBookingRoom(date).subscribe({
+  bookingRoom(date:FormGroup){
+    this._UserBookingService.onBookingRoom(date.value).subscribe({
       next:(res)=>{
-        console.log(res);
+      },error:(err)=>{
+        this.toastr.error(err.error.message,'Error!')
+      },complete:()=>{
+        this.toastr.success('pay now to complete booking process','Success!');
+        this.Router.navigate(['/landingPage/booking'])
       }
     })
   }
 
-  date = null;
+  disabledStartDate = (startValue: Date): boolean => {
+    if (!startValue || !this.endValue) {
+      return false;
+    }
+    return startValue.getTime() > this.endValue.getTime();
+  };
 
-  onChange(result: Date[]): void {
-    console.log('onChange: ', result);
+  disabledEndDate = (endValue: Date): boolean => {
+    if (!endValue || !this.startValue) {
+      return false;
+    }
+    return endValue.getTime() <= this.startValue.getTime();
+  };
+
+  handleStartOpenChange(open: boolean): void {
+    if (!open) {
+      this.endDatePicker.open();
+    }
+    console.log('handleStartOpenChange', open);
   }
 
-  getWeek(result: Date[]): void {
-    console.log('week: ', result.map(getISOWeek));
+  handleEndOpenChange(open: boolean): void {
+    console.log('handleEndOpenChange', open);
   }
-  toFixedValue = 2;
-  cutValue = 2;
-  customFnValue = 2;
-  precision = 2;
-  customPrecisionFn(value: string | number, precision?: number): number {
-    return +Number(value).toFixed(precision! + 1);
+  totalCount(){
+    this.startValue
   }
-
 }
