@@ -14,11 +14,11 @@ import { HomeService } from '../../services/home.service';
 })
 export class RoomDetailsComponent implements OnInit {
   roomDetails: any;
-  roomId: string | any= this._ActivatedRoute.snapshot.params['id'];
+  roomId: string | any = this._ActivatedRoute.snapshot.params['id'];
   roomImages: any[] = [];
   roomFacilities: any[] = [];
   bookingId: string = '';
-  comments:any;
+  comments: any;
   startValue: Date | any = null;
   endValue: Date | any = null;
   dateRange: Date[] = [];
@@ -31,7 +31,8 @@ export class RoomDetailsComponent implements OnInit {
     room: new FormControl(null),
     totalPrice: new FormControl(null),
   });
-  AddComment = new FormGroup ({
+
+  AddComment = new FormGroup({
     roomId: new FormControl(this.roomId),
     comment: new FormControl(null),
   })
