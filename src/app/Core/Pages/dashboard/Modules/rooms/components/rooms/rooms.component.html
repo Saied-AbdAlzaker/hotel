@@ -62,8 +62,7 @@
         <tbody>
           <tr *ngFor="let item of tableData">
             <td class="rounded-start">{{item.roomNumber || '--'}}</td>
-            <td><img crossorigin="anonymous" class="imgTable" [src]=" item.imgs[0] " /></td>
-            <td><img crossorigin="anonymous" class="imgTable" /></td>
+            <td><img crossorigin="anonymous" class="imgTable" [src]=" item.images[0] " /></td>
             <td>{{item.price |currency:'L.E'}}</td>
             <td>{{item.discount}}</td>
             <td>{{item.capacity}}</td>
@@ -96,7 +95,7 @@
 
 
     <div class="p-3 w-50 m-auto">
-      <mat-paginator [length]="tableResponse?.totalCount" [pageSizeOptions]="[10, 50, 100]"
+      <mat-paginator [length]="tableResponse?.totalCount" [pageSizeOptions]="[5, 10, 50, 100]"
         [pageSize]="tableResponse?.size" (page)="handlePageEvent($event)" [pageIndex]="pageIndex"
         aria-label="Select page">
       </mat-paginator>
