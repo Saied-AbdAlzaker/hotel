@@ -6,7 +6,7 @@ import { IBookings, IBookingsTable } from '../../../bookings/model/booking';
 import { AdsService } from '../../../ads/services/ads.service';
 import { IAds, IAdsData, IAdsResponse } from '../../../ads/models/ads';
 import { FacilitiesService } from '../../../facilities/Services/facilities.service';
-import { IRooms } from '../../../rooms/model/room';
+import { IRoom } from '../../../rooms/model/room';
 import { RoomsService } from '../../../rooms/services/rooms.service';
 import { UsersService } from '../../../users/services/users.service';
 import { IlistTable, IlistUser } from '../../../users/model/users';
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
   facilitesResponse: any;
   facilitesData: any;
   roomsResponse: any;
-  roomsData: IRooms[] = [];
+  roomsData: IRoom[] = [];
   listUses: IlistUser[] | any;
    usersResponse:  IlistTable = {
      totalCount: 2,

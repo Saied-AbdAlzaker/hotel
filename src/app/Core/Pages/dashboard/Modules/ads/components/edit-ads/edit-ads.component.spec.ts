@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddEditComponent } from './add-edit-ads.component';
+import { EditAdsComponent } from './edit-ads.component';
 
-describe('AddEditComponent', () => {
-  let component: AddEditComponent;
-  let fixture: ComponentFixture<AddEditComponent>;
+describe('EditAdsComponent', () => {
+  let component: EditAdsComponent;
+  let fixture: ComponentFixture<EditAdsComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AddEditComponent]
+      declarations: [EditAdsComponent]
     });
-    fixture = TestBed.createComponent(AddEditComponent);
+    fixture = TestBed.createComponent(EditAdsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

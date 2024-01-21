@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { EditAdsComponent } from './../edit-ads/edit-ads.component';
+import { Component, Inject, OnInit } from '@angular/core';
 import { AdsService } from '../../services/ads.service';
 import { ToastrService } from 'ngx-toastr';
-import { IAddAds, IAds, IAdsData, IAdsResponse } from '../../models/ads';
+import { IAds, IAdsData, IAdsResponse } from '../../models/ads';
 import { Subject, debounceTime } from 'rxjs';
-import { RoomsService } from '../../../rooms/services/rooms.service';
 import { ViewAdsComponent } from '../view-ads/view-ads.component';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
-import { IFacilities } from '../../../rooms/model/room';
-import { AddEditComponent } from '../add-edit-ads/add-edit-ads.component';
+import { MatDialog } from '@angular/material/dialog';
+import { AddAdsComponent } from '../add-ads/add-ads.component';
 
 @Component({
   selector: 'app-ads',
@@ -19,24 +18,24 @@ export class AdsComponent implements OnInit {
   pageIndex: number = 0;
   pageSize: number = 5;
   pageNumber: number = 1;
-  totalCount: number=0;
+  totalCount: number = 0;
 
   tableResponse: IAdsResponse | undefined;
   tableData: IAdsData | undefined;
   adsItems: IAds[] | undefined;
-  facilities: IFacilities[] | undefined = [];
   searchValue: string = '';
-  adsData: IAddAds | any;
   private searchSubject: Subject<string> = new Subject<string>();
 
   constructor(
     private dialog: MatDialog,
     private _adsService: AdsService,
-    private _toastrService: ToastrService,
-    private _roomsService: RoomsService ) { }
+    private _toastrService: ToastrService,) { 
+    this.getAllAds();
+
+     }
 
   ngOnInit() {
-    this.getAllAds();
+    // this.getAllAds();
     this.searchSubject.pipe(debounceTime(1000)).subscribe({
       next: (res) => {
         console.log(res);
@@ -44,7 +43,7 @@ export class AdsComponent implements OnInit {
       },
     });
   }
-// All Ads
+  // All Ads
   getAllAds() {
     let parms = {
       totalCount: this.totalCount,
@@ -67,7 +66,7 @@ export class AdsComponent implements OnInit {
   }
   // Add 
   openAddDialog(): void {
-    const dialogRef = this.dialog.open(AddEditComponent, {
+    const dialogRef = this.dialog.open(AddAdsComponent, {
       data: {},
       width: '40%',
     });
@@ -76,30 +75,16 @@ export class AdsComponent implements OnInit {
       console.log('The dialog was closed');
       console.log(result);
 
-      this.onAddNewAds(result);
+      this.getAllAds();
     });
   }
 
-   onAddNewAds(data: any) {
-    this._adsService.onAddAds(data).subscribe({
-      next: (res) => {
-        console.log(res);
 
-      }, error: (err) => {
-        this._toastrService.error(err.error.message, 'Error!');
-      }, complete: () => {
-        this._toastrService.success('Ads Added Successfully');
-        this.getAllAds();
-      }
-    })
-  }
-
- 
   // Edit 
   openEditDialog(adsData: any): void {
     console.log(adsData);
 
-    const dialogRef = this.dialog.open(AddEditComponent, {
+    const dialogRef = this.dialog.open(EditAdsComponent, {
       data: adsData,
       width: '40%',
 
@@ -107,23 +92,8 @@ export class AdsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.onEditNewAds(adsData, result._id);
+      this.getAllAds();
     });
-  }
-
-   onEditNewAds(data: String, _id: string) {
-    this._adsService.onEditAds(data, _id).subscribe({
-      next: (res) => {
-        console.log(res);
-
-      }, error: (err) => {
-
-        this._toastrService.error(err.error.message, 'failed');
-      }, complete: () => {
-        this._toastrService.success('Rooms Updated Successfully');
-        this.getAllAds();
-      }
-    })
   }
 
   // Delete 
@@ -160,20 +130,22 @@ export class AdsComponent implements OnInit {
     });
   }
   // View
- openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, adsItems: IAds): void {
-  this.dialog.open(ViewAdsComponent,
-    {
-      data: adsItems,
-      width: '40%',
-      enterAnimationDuration,
-      exitAnimationDuration,
-    });
-}
+  openViewDialog(enterAnimationDuration: string, exitAnimationDuration: string, adsItems: IAds): void {
+    this.dialog.open(ViewAdsComponent,
+      {
+        data: adsItems,
+        width: '40%',
+        enterAnimationDuration,
+        exitAnimationDuration,
+      });
+  }
 
-handlePageEvent(e: any) {    
-  this.pageSize = e.pageSize;
-  this.pageNumber = e.pageIndex + 1;
-  this.getAllAds();
-}
+  handlePageEvent(e: any) {
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex + 1;
+    this.getAllAds();
+  }
+
+
 
 }

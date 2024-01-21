@@ -26,7 +26,8 @@
           <div class="input-group-prepend">
             <label class="input-group-text" for="inputGroupSelect01">Capicity</label>
           </div>
-          <select [(ngModel)]="capacityName" (change)="getAllRooms()" class="form-select" aria-label="Default select example">
+          <select [(ngModel)]="capacityName" (change)="getAllRooms()" class="form-select"
+            aria-label="Default select example">
             <option selected>All</option>
             <option *ngFor="let item of tableData" [value]="item.capacity">{{item.capacity}}</option>
           </select>
@@ -66,42 +67,60 @@
           <td>{{item.discount}}</td>
           <td>{{item.capacity}}</td>
           <td>{{item.facilities[0]?.name}}</td>
+      <table>
+        <thead>
+          <tr>
+            <th class="rounded-start">Room Number</th>
+            <th>Image</th>
+            <th>Price</th>
+            <th>Discount</th>
+            <th>Capacity</th>
+            <th>Facilities</th>
+            <th class="rounded-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of tableData">
+            <td class="rounded-start">{{item.roomNumber || '--'}}</td>
+            <td><img crossorigin="anonymous" class="imgTable" [src]=" item.imgs[0] " /></td>
+            <td><img crossorigin="anonymous" class="imgTable" /></td>
+            <td>{{item.price |currency:'L.E'}}</td>
+            <td>{{item.discount}}</td>
+            <td>{{item.capacity}}</td>
+            <td>{{item.facilities[0]?.name}}</td>
 
-          <td class="nav-item dropdown rounded-end">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa-solid fa-ellipsis"></i>
-            </a>
-            <ul class="dropdown-menu">
+            <td class="nav-item dropdown rounded-end">
+              <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-ellipsis"></i>
+              </a>
+              <ul class="dropdown-menu">
                 <li>
-                  <a [routerLink]="['/dashboard/rooms/view/', item._id]"
-                   class="dropdown-item pointer">
-                   <i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
+                  <a [routerLink]="['/dashboard/rooms/view/', item._id]" class="dropdown-item pointer">
+                    <i class="fa-regular fa-eye mx-2 bg-icon"></i>View</a>
                 </li>
                 <li>
-                  <a [routerLink]="['/dashboard/rooms/edit/', item._id]"
-                   class="dropdown-item pointer">
-                   <i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
+                  <a [routerLink]="['/dashboard/rooms/edit/', item._id]" class="dropdown-item pointer">
+                    <i class="fa-solid fa-pen-to-square mx-2 bg-icon"></i>Edit</a>
 
                 </li>
                 <li>
-                  <a (click)="openDeleteDialog(item)"
-                  class="dropdown-item">
-                  <i class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
+                  <a (click)="openDeleteDialog(item)" class="dropdown-item">
+                    <i class="fa-solid fa-trash-can mx-2 bg-icon"></i>Delete</a>
                 </li>
-            </ul>
-          </td>
-        </tr>
-      </tbody>
-  </table>
-</div>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
 
-  <div class="p-3 w-50 m-auto">
-    <mat-paginator [length]="tableResponse?.totalCount" [pageSizeOptions]="[10, 50, 100]"
-      [pageSize]="tableResponse?.size" (page)="handlePageEvent($event)" [pageIndex]="pageIndex"
-      aria-label="Select page">
-    </mat-paginator>
-  </div>
+    <div class="p-3 w-50 m-auto">
+      <mat-paginator [length]="tableResponse?.totalCount" [pageSizeOptions]="[10, 50, 100]"
+        [pageSize]="tableResponse?.size" (page)="handlePageEvent($event)" [pageIndex]="pageIndex"
+        aria-label="Select page">
+      </mat-paginator>
+    </div>
 
   </div>
 </section>
