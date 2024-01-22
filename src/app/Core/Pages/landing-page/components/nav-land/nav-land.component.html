@@ -19,11 +19,11 @@
             <a class="nav-link" >{{'nav.Reviews'|translate}}</a>
           </li>
 
-          <li class="nav-item fw-bolder text-secondryColor" *ngIf="userName == null" [class]="_HelperService.textDir === 'ltr'?'ms-5':'me-3'">
+          <li class="nav-item fw-bolder text-secondryColor" *ngIf="userRole != 'user'" [class]="_HelperService.textDir === 'ltr'?'ms-5':'me-3'">
             <button class="nav-link btn primary" routerLink="/auth/signin">{{'Signin'|translate}}</button>
           </li>
           <li class="d-flex">
-            <ng-container *ngIf="userName">
+            <ng-container *ngIf="userRole == 'user'">
               <a class="nav-link text-secondryColor" >Hello,{{userName}} </a>
                 <button mat-icon-button [matMenuTriggerFor]="menu" class="p-0" aria-label="Example icon-button with a menu">
                   <mat-icon>expand_more</mat-icon>
