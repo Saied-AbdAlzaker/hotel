@@ -34,6 +34,7 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 
 
 import { TranslateModule } from '@ngx-translate/core';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   imports: [
@@ -107,6 +108,7 @@ import { TranslateModule } from '@ngx-translate/core';
     LogOutComponent,
     DeleteDialogComponent,
     DarkComponent,
+    NotFoundComponent,
   ],
 })
 export class SharedModule {}
