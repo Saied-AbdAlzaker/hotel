@@ -29,6 +29,7 @@ export class RoomDetailsComponent implements OnInit {
   totalPrice: number | any;
   priceRoom: number | any = 0;
   Reviews:any;
+  rate:number=0;
   @ViewChild('endDatePicker') endDatePicker!: NzDatePickerComponent;
   bookingForm = new FormGroup({
     startDate: new FormControl(null, [Validators.required]),
@@ -43,7 +44,7 @@ export class RoomDetailsComponent implements OnInit {
   })
   Addreview = new FormGroup({
     roomId: new FormControl(this.roomId),
-    rating:new FormControl(null),
+    rating:new FormControl(this.rate),
     review: new FormControl(null),
   })
   
@@ -62,6 +63,7 @@ export class RoomDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getRoomDetails(this.roomId);
     this.getAllComments()
+    this.getAllReviews()
   }
   getRoomDetails(id: string) {
     this._HomeService.onGetRoomDetails(id).subscribe({
@@ -93,11 +95,12 @@ export class RoomDetailsComponent implements OnInit {
     });
   }
   
-  getAllReview(){
+  getAllReviews(){
     this._HomeService.getAllReviews(this.roomId).subscribe({
       next:(res)=>{
         console.log(res);
         this.Reviews=res.data.roomReviews;
+        this.rate=this.Reviews[0]?.rating        
       }
       
     })
@@ -108,10 +111,10 @@ export class RoomDetailsComponent implements OnInit {
         console.log(res);
         
       },error:(err)=>{
-        this.toastr.error('Login First','Error')
+        this.toastr.error(err.error.message,'Error')
       },complete:()=>{
         this.toastr.success('Reviewed Successfully')
-        this.getAllReview()
+        this.getAllReviews()
       }
     })
   }

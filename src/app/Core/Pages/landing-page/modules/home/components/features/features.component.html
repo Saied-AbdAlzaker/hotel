@@ -37,8 +37,15 @@
                 <owl-carousel-o [options]="customOptions">
                     <ng-template *ngFor="let adsItem of AdsData" carouselSlide>
                         <a class="vh-25" [routerLink]="['/landingPage/home/rooms', adsItem._id]">
-                            <h5 class="card-disc text-whiteColor">{{adsItem.room.discount | currency: 'USD'}} <span>{{'per night'|translate}}</span></h5>
-                            <img [src]="adsItem.room.images[0] || 'assets/images/most-picked-2.jpg' " class="w-100 h-75 " alt="" />
+                            <h5 class="card-disc text-whiteColor">
+                                {{adsItem.room.discount | currency: 'USD'}} 
+                                <span>{{'per night'|translate}}</span>
+                            </h5>
+                            <img *ngIf="adsItem.room.images[0]" [src]="adsItem.room.images[0]" 
+                            class="img-fluid w-100 vh-50"/>
+                            <img *ngIf="!adsItem.room.images[0]" 
+                            src="../../../../../../../../assets/images/dummy-img.png" 
+                            class="img-fluid w-100 vh-50"/>
                         </a>
                         <div class="my-3">
                             <h5>{{adsItem.room.roomNumber}}</h5>
