@@ -27,8 +27,8 @@ export class BookingsComponent implements OnInit {
   }
   getAllBookings(){
     let params ={
-      pageNumber: this.pageNumber,
-      pageSize: this.pageSize
+      page: this.pageNumber,
+      size: this.pageSize
     }
     this._BookingService.onGetAllBookings(params).subscribe({
       next:(res)=>{
@@ -73,11 +73,7 @@ export class BookingsComponent implements OnInit {
       },
     });
   }
-  handlePageEvent(e: any) {
-    this.pageSize = e.pageSize;
-    this.pageNumber = e.pageIndex + 1;
-    this.getAllBookings();
-  }
+  
   openViewDialog(bookingData:any){
     console.log(bookingData);
 
@@ -89,5 +85,11 @@ export class BookingsComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
     });
+  }
+
+  handlePageEvent(e: any) {
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex + 1;
+    this.getAllBookings();
   }
 }

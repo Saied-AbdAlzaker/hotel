@@ -10,6 +10,7 @@ import { FeaturesComponent } from './components/features/features.component';
 import { FeadbackComponent } from './components/feadback/feadback.component';
 import { RoomDetailsComponent } from './components/room-details/room-details.component';
 import { FavouritesComponent } from './components/favourites/favourites.component';
+import { ExploreRoomsComponent } from './components/explore-rooms/explore-rooms.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FavouritesComponent } from './components/favourites/favourites.componen
     FeaturesComponent,
     FeadbackComponent,
     RoomDetailsComponent,
-    FavouritesComponent
+    FavouritesComponent,
+    ExploreRoomsComponent
   ],
   imports: [
     CommonModule,

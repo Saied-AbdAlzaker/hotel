@@ -10,6 +10,7 @@ import {
 import { FavouriteService } from '../../services/favourite.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-most-picked',
@@ -30,7 +31,8 @@ export class MostPickedComponent implements OnInit {
     private _homeService: HomeService,
     private _favouriteService: FavouriteService,
     private _toastrService: ToastrService,
-    private _router: Router
+    private _router: Router,
+    private nzMessageService: NzMessageService
   ) {}
   ngOnInit(): void {
     this.getAllRooms();
@@ -61,6 +63,13 @@ export class MostPickedComponent implements OnInit {
         console.log(this.adsItems);
       },
     });
+  }
+  cancel(): void {
+    this.nzMessageService.info('click cancel');
+  }
+
+  confirm(): void {
+    this.nzMessageService.info('click confirm');
   }
   addFavouriteById(roomId: string) {
     return this._favouriteService.addFavourite(roomId).subscribe({

@@ -6,7 +6,11 @@
           <div class="card-item">
             <h5>{{roomsData[0].discount}}$ <span> per night</span></h5>
             <div class="links">
-              <a (click)="addFavouriteById(roomsData[0]._id)"><i class="fa-regular fa-2x fa-heart"></i></a>
+              <a nz-popconfirm
+              nzPopconfirmTitle="truley Love or not? ❤️"
+              nzPopconfirmPlacement="bottom"
+              (nzOnConfirm)="addFavouriteById(roomsData[0]._id)"
+              (nzOnCancel)="cancel()"><i class="fa-regular fa-2x fa-heart"></i></a>
               <a class="text-white" [routerLink]="['/landingPage/home/rooms', roomsData[0]._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
             </div>
             <img
@@ -16,7 +20,7 @@
             />
             <img *ngIf="roomsData[0].images[0]==null" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
             <div class="caption-item">
-              <h5>{{ roomsData[0].roomsNumber }}</h5>
+              <h5>{{ roomsData[0].roomNumber }}</h5>
               <p>{{ roomsData[0].price }}</p>
             </div>
           </div>
@@ -25,7 +29,11 @@
           <div class="h-100 card-item">
             <h5>{{ roomsData[1].discount }}$<span> per night</span></h5>
             <div class="links">
-              <a (click)="addFavouriteById(roomsData[1]._id)"><i class="fa-regular fa-2x fa-heart"></i></a>
+              <a nz-popconfirm
+              nzPopconfirmTitle="truley Love or not? ❤️"
+              nzPopconfirmPlacement="bottom"
+              (nzOnConfirm)="addFavouriteById(roomsData[1]._id)"
+              (nzOnCancel)="cancel()"><i class="fa-regular fa-2x fa-heart"></i></a>
               <a class="text-white" [routerLink]="['/landingPage/home/rooms/', roomsData[1]._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
             </div>
             <img
@@ -42,7 +50,11 @@
           <div class="h-100 card-item">
             <h5>{{ roomsData[2].discount }}$<span> per night</span></h5>
             <div class="links">
-              <a (click)="addFavouriteById(roomsData[2]._id)" ><i class="fa-regular fa-2x fa-heart"></i></a>
+              <a nz-popconfirm
+              nzPopconfirmTitle="truley Love or not? ❤️"
+              nzPopconfirmPlacement="bottom"
+              (nzOnConfirm)="addFavouriteById(roomsData[2]._id)"
+              (nzOnCancel)="cancel()"><i class="fa-regular fa-2x fa-heart"></i></a>
               <a class="text-white" [routerLink]="['/landingPage/home/rooms/', roomsData[2]._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
             </div>
             <img
@@ -61,7 +73,13 @@
           <div class="h-100 card-item">
             <h5>{{ roomsData[3].discount }}$<span> per night</span></h5>
             <div class="links">
-              <a (click)="addFavouriteById(roomsData[3]._id)"><i class="fa-regular fa-2x fa-heart"></i></a>
+              <a nz-popconfirm
+              nzPopconfirmTitle="truley Love or not? ❤️"
+              nzPopconfirmPlacement="bottom"
+              (nzOnConfirm)="addFavouriteById(roomsData[3]._id)"
+              (nzOnCancel)="cancel()"><i class="fa-regular fa-2x fa-heart"></i>
+
+            </a>
               <a class="text-white" [routerLink]="['/landingPage/home/rooms/', roomsData[3]._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
             </div>
             <img
@@ -78,7 +96,11 @@
           <div class="h-100 card-item">
             <h5>{{roomsData[4].discount }}$<span> per night</span></h5>
             <div class="links">
-              <a (click)="addFavouriteById(roomsData[4]._id)"><i class="fa-regular fa-2x fa-heart"></i></a>
+              <a nz-popconfirm
+              nzPopconfirmTitle="truley Love or not? ❤️"
+              nzPopconfirmPlacement="bottom"
+              (nzOnConfirm)="addFavouriteById(roomsData[4]._id)"
+              (nzOnCancel)="cancel()"><i class="fa-regular fa-2x fa-heart"></i></a>
               <a class="text-white" [routerLink]="['/landingPage/home/rooms/', roomsData[4]._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
             </div>
             <img
@@ -88,7 +110,7 @@
             />
             <img *ngIf="roomsData[4].images[0]==null" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
             <div class="caption-item">
-              <h5>{{roomsData[4].Number }}</h5>
+              <h5>{{roomsData[4].roomNumber }}</h5>
               <p>{{roomsData[4].price }}</p>
             </div>
           </div>

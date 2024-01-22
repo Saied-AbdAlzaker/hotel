@@ -16,7 +16,7 @@ export class FavouriteService {
     return this._HttpClient.post('portal/favorite-rooms', {roomId});
   }
   deleteFavourite(roomId: string): Observable<any> {
-    return this._HttpClient.delete(`portal/favorite-rooms/${roomId}`,{});
+    return this._HttpClient.delete(`portal/favorite-rooms/${roomId}`,{body:{'roomId':roomId}});
 
   }
 }
