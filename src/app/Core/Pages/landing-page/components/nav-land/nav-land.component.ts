@@ -10,6 +10,7 @@ import { LogOutComponent } from 'src/app/Shared/navbar/components/log-out/log-ou
 })
 export class NavLandComponent {
   userName: any = localStorage.getItem('userName');
+  userRole:any = localStorage.getItem('role')
   constructor(public _HelperService:HelperService,public dialog: MatDialog,
     ){}
   onChangeLang(lang:string){

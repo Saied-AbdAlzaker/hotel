@@ -3,6 +3,19 @@
         <div class="header text-center">
                 <h2 class="fw-bolder text-secondryColor">Village Angga</h2>
                 <p class="paragraph">Bogor, Indonesia</p>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a
+                        routerLink="/landingPage/home"
+                        >Home</a
+                      >
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      Room
+                    </li>
+                  </ol>
+                </nav>
             </div>
         <div class="row">
             <div class="col-md-6" *ngFor="let image of roomImages">
@@ -25,43 +38,20 @@
                     <br>Such trends saw the demise of the soul-infused techno that typified the original Detroit sound. Robert Hood has noted that he and Daniel Bell both realized something was missing from techno in the post-rave era.
                     <br>Design is a plan or specification for the construction of an object or system or for the implementation of an activity or process, or the result of that plan or specification in the form of a prototype, product or process. The national agency for design: enabling Singapore to use design for economic growth and to make lives better.
                 </p>
+                <h4 class="text-secondryColor mb-3">{{'Facilities'|translate}}:<span class="text-mainColor"></span></h4>
+
                 <div class="icons row">
+                  <ng-container *ngFor="let facility of roomFacilities">
+
                     <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-1.png" class="w-25">
-                        <P><span class="fw-bold">5</span><span class="paragraph">{{roomFacilities[0]?.name}}</span></P>
+                        <img src="../../../../../../../../assets/images/facility.png" class="w-25">
+                        <P><span class="fw-bold"></span><span class="paragraph">{{facility.name}}</span></P>
                     </div>
-                    <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-2.png" class="w-25">
-                        <P><span class="fw-bold">1</span><span class="paragraph">{{roomFacilities[1]?.name}}</span></P>
-                    </div>
-                    <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-3.png" class="w-25">
-                        <P><span class="fw-bold">3</span><span class="paragraph">{{roomFacilities[2]?.name||'Unavailable'}}</span></P>
-                    </div>
-                    <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-4.png" class="w-25">
-                        <P><span class="fw-bold">1</span><span class="paragraph">{{roomFacilities[3]?.name||'Unavailable'}}</span></P>
-                    </div>
+
+                  </ng-container>
+
                 </div>
-                <div class="icons row my-3">
-                    <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-5.png" class="w-25">
-                        <P><span class="fw-bold"></span><span class="paragraph">{{roomFacilities[4]?.name||'Unavailable'}}</span></P>
-                    </div>
-                    <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-6.png" class="w-25">
-                        <P><span class="fw-bold">7</span><span class="paragraph"> unit ready</span></P>
-                    </div>
-                    <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-7.png" class="w-25">
-                        <P><span class="fw-bold">2</span><span class="paragraph"> refigrator</span></P>
-                    </div>
-                    <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-8.png" class="w-25">
-                        <P><span class="fw-bold">4</span><span class="paragraph"> television</span></P>
-                    </div>
-                    
-                </div>
+
             </div>
             <div class="col-md-5">
                 <div class="booking-section w-75 p-5 mx-auto border rounded">
@@ -74,26 +64,39 @@
                                 <span class="input-group-text bg-main"  [class]="_HelperService.textDir === 'rtl'?'rotate':''">
                                     <i class="fa-solid fa-calendar-days text-white"></i>
                                 </span>
-                                <nz-date-picker
-                                [nzDisabledDate]="disabledStartDate"
-                                nzFormat="yyyy-MM-dd"
-                                formControlName="startDate"
-                                nzPlaceHolder="Start"
-                                (nzOnOpenChange)="handleStartOpenChange($event)"
+                                  <nz-date-picker
+                                  [nzDisabledDate]="disabledStartDate"
+                                  formControlName="startDate"
+                                  nzShowTime
+                                  nzFormat="yyyy-MM-dd"
+                                  [(ngModel)]="startValue"
+                                  nzPlaceHolder="Start"
+                                  (nzOnOpenChange)="handleStartOpenChange($event)"
                                 ></nz-date-picker>
                                 <nz-date-picker
-                                #endDatePicker
-                                [nzDisabledDate]="disabledEndDate"
-                                nzFormat="yyyy-MM-dd"
-                                formControlName="endDate"
-                                nzPlaceHolder="End"
-                                (nzOnOpenChange)="handleEndOpenChange($event)"
+                                  #endDatePicker
+                                  formControlName="endDate"
+                                  [nzDisabledDate]="disabledEndDate"
+                                  nzShowTime
+                                  nzFormat="yyyy-MM-dd"
+                                  [(ngModel)]="endValue"
+                                  nzPlaceHolder="End"
+                                  (nzOnOpenChange)="handleEndOpenChange($event)"
                                 ></nz-date-picker>
-                            </div>
+                                </div>
+                            <!-- just for explain code -->
+
+                            <p><span class="text-danger">{{priceRoom}} </span> price room for one day</p>
+                            <p><span class="text-danger">{{dateRange.length}} </span> booking Days
+                              <ul>
+                                <li *ngFor="let item of dateRange"> {{item | date :'yyyy-MM-dd'}}</li>
+                              </ul>
+                            <p> <span class="text-danger" > {{totalPrice}} </span>total price for booking</p>
+
                         </div>
                         <button (click)="bookingRoom" class="btn primary w-100 mt-3">{{'header.Continue to Book'|translate}}</button>
                     </form>
-                    
+
                 </div>
             </div>
         </div>
@@ -140,7 +143,7 @@
 <section id="feadBack" class="my-4">
     <div class="container">
         <div class="row">
-            
+
 
             <div class="col-md-6" [class]="_HelperService.textDir === 'ltr'?'me-auto':'ms-auto'">
                 <div class="me-5">
@@ -154,7 +157,7 @@
                     <textarea class="w-100 rounded" name="" id="" rows="4"></textarea>
                     <button class="btn primary w-50 p-2">Rate</button>
                 </div>
-                
+
             </div>
             <div class="col-md-6" [class]="_HelperService.textDir === 'ltr'?'ms-auto':'me-auto'">
                 <div class="ms-5">
@@ -162,7 +165,7 @@
                     <textarea class="w-100 rounded" name="" id="" rows="4"></textarea>
                     <button class="btn primary w-50 p-2">Send</button>
                 </div>
-                
+
             </div>
 
         </div>

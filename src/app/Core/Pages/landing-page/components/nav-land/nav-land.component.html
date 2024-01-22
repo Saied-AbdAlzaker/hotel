@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-white py-3 shadow-sm">
     <div class="container">
-      <div class="logo text-decoration-none" >Stay<span>cation.</span>
+      <div class="logo text-decoration-none cursor-pointer" [routerLink]="['/landingPage/home']" >Stay<span>cation.</span>
       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,11 +19,11 @@
             <a class="nav-link" routerLink="/landingPage/home/feadback" >{{'nav.Reviews'|translate}}</a>
           </li>
 
-          <li class="nav-item fw-bolder text-secondryColor" *ngIf="userName == null" [class]="_HelperService.textDir === 'ltr'?'ms-5':'me-3'">
+          <li class="nav-item fw-bolder text-secondryColor" *ngIf="userRole != 'user'" [class]="_HelperService.textDir === 'ltr'?'ms-5':'me-3'">
             <button class="nav-link btn primary" routerLink="/auth/signin">{{'Signin'|translate}}</button>
           </li>
           <li class="d-flex">
-            <ng-container *ngIf="userName">
+            <ng-container *ngIf="userRole == 'user'">
               <a class="nav-link text-secondryColor" >Hello,{{userName}} </a>
                 <button mat-icon-button [matMenuTriggerFor]="menu" class="p-0" aria-label="Example icon-button with a menu">
                   <mat-icon>expand_more</mat-icon>
