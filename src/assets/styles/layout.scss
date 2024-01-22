@@ -2,13 +2,14 @@
 @import "~ng-zorro-antd/calendar/style/index.min.css";
 @import "~ng-zorro-antd/timeline/style/index.min.css";
 @import "~ng-zorro-antd/select/style/index.min.css";
+@import "~ng-zorro-antd/popconfirm/style/index.min.css";
 
 @import "./abstracts/components/auth.scss";
 @import "./abstracts/components/home.scss";
 @import "./abstracts/components/sidebar.scss";
 @import "./abstracts/components/dashboardHome.scss";
 @import "./abstracts/components/landing.scss";
-
+@import "./abstracts/components/notFound.scss";
 
 @import "./abstracts/_utilites.scss";
 @import "./abstracts/_variables.scss";
