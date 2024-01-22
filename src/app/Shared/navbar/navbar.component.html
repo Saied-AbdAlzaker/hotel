@@ -5,10 +5,10 @@
           class="col-4  d-flex justify-content-end align-items-center ms-auto" >
           <div class="d-flex align-items-center ">
             <a class="user-avater bg-profile">
-              <!-- <img class=""
-              *ngIf="currentUser?.imagePath"
-              [src]="'https://upskilling-egypt.com/'+currentUser?.imagePath" /> -->
-              <img
+              <img class=""
+              *ngIf="userData?.profileImage"
+              [src]="'https://upskilling-egypt.com/'+userData?.profileImage" />
+              <img *ngIf="userData?.profileImage==null"
               src="../../../assets/images/profile.png"
               />
             </a>

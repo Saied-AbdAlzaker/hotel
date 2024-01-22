@@ -19,13 +19,10 @@
             </div>
         <div class="row">
             <div class="col-md-6" *ngFor="let image of roomImages">
-                <!-- <img src="../../../../../../../../assets/images/detail-1.png" class="w-100 h-100 rounded"> -->
+                <img *ngIf="roomImages==null" src="../../../../../../../../assets/images/dummy.jpg" class="w-100 mb-2 d-block rounded-4"/>
                 <img  [src]="image" class="w-100 mb-2 d-block rounded-4" alt="">
             </div>
-            <!-- <div class="col-md-5">
-                <img src="../../../../../../../../assets/images/detail-2.png" class="w-100 h-50 mb-2">
-                <img src="../../../../../../../../assets/images/detail-3.png" class="w-100 h-50">
-            </div> -->
+            
         </div>
     </div>
 </section>
@@ -56,11 +53,12 @@
             <div class="col-md-5">
                 <div class="booking-section w-75 p-5 mx-auto border rounded">
                     <h4 class="text-secondryColor fw-bolder ">{{'header.Start Booking'|translate}}</h4>
-                    <p class="fs-2 paragraph"><span class="greenColor">{{roomDetails?.price}}$ </span>{{'per night'|translate}}</p>
+                    <p class="fs-2 paragraph mb-2"><span class="greenColor">{{roomDetails?.price}}$ </span>{{'per night'|translate}}</p>
+                    <p class="text-redColor">Discount {{roomDetails?.discount}}% Off </p>
                     <form [formGroup]="bookingForm" (ngSubmit)="bookingRoom(bookingForm)">
                         <div class="form-group mb-3">
                             <label for="date" class="h6 text-secondryColor">{{'header.pick a date'|translate}}</label>
-                            <div class="input-group">
+                            <div class="input-group flex-nowrap">
                                 <span class="input-group-text bg-main"  [class]="_HelperService.textDir === 'rtl'?'rotate':''">
                                     <i class="fa-solid fa-calendar-days text-white"></i>
                                 </span>
@@ -161,9 +159,12 @@
             </div>
             <div class="col-md-6" [class]="_HelperService.textDir === 'ltr'?'ms-auto':'me-auto'">
                 <div class="ms-5">
-                    <h2 class="my-5">{{'Add your comment' | translate}}</h2>
-                    <textarea class="w-100 rounded" name="" id="" rows="4"></textarea>
-                    <button class="btn primary w-50 p-2">Send</button>
+                    <form [formGroup]="AddComment" (ngSubmit)="Addcomment(AddComment)" >
+                        <h2  class="my-5">{{'Add your comment' | translate}}</h2>
+                        <textarea placeholder="reason"   formControlName="reason" class="w-100 rounded" name="" id="" rows="4"></textarea>
+                        <button type="submit"  class="btn primary w-50 p-2">Send</button>
+
+                    </form>
                 </div>
 
             </div>

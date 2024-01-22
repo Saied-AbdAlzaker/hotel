@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
     private _UsersService:UsersService
   ) {}
   ngOnInit(): void {
-    // this.getUserProfile(this.userData._id)
+    this.getUserProfile(this.currentUserId)
   }
   
   openDialogCahngePassword(): void {
@@ -69,6 +69,7 @@ export class NavbarComponent implements OnInit {
     this._UsersService.onGetUserProfile(id).subscribe({
       next:(res:any)=>{
         this.userData=res.data
+        // console.log(res.data.profileImage);
       }
     })
   }
