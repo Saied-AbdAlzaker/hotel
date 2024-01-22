@@ -8,6 +8,20 @@
                 <div   [routerLink]="['/landingPage/home/rooms',item._id]" >
 
                 
+                        <img    [src]="item.images[0]" class="img-fluid w-100 h-100" appHideMissing alt=""/>
+                        <img *ngIf="item.images[0]==null" class="img-fluid w-100 h-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+                    <div class=" text-center d-flex justify-content-center align-items-center">
+                        <div>
+
+                            <a><i class="fa-regular fa-2x fa-heart"></i></a>
+                        </div>
+
+                <div>
+
+         <a  [routerLink]="['/landingPage/home/rooms', roomsData[0]._id]"  ><i class="fa-regular fa-2x fa-eye"></i></a>
+          </div>
+                      </div>
+
                         <img    [src]="item.images[0]" class="  border-3 rounded-5   " appHideMissing alt=""/>
                     
                    
@@ -27,6 +41,15 @@
             <h3>{{'features.Featurs-title'|translate}}</h3>
             <div class="col" *ngFor="let item of roomsData">
                 
+                <div >
+                    <img [src]="item.images[0]" class= "img-fluid w-100 h-100" alt=""/>
+                    <img *ngIf="item.images[0]==null" class="img-fluid w-100 h-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+                    <div class=" text-center  d-flex justify-content-center align-items-center">
+                        <a class><i class="fa-regular fa-2x fa-heart"></i></a>
+
+
+                        <a  [routerLink]="['/landingPage/home/rooms', roomsData[0]._id]"  ><i class="fa-regular fa-2x fa-eye"></i></a>
+
                 <div   [routerLink]="['/landingPage/home/rooms',item._id]" >
                     <img [src]="item.images[0]" class= "border-3 rounded-5  " alt=""/>
                   
@@ -38,6 +61,7 @@
                 <div class="my-3">
                     <h5>{{item.roomNumber}}</h5>
                     <p class="text-muted">{{item.facilities[0].name}}</p>
+
                 </div>
             </div>
 
@@ -68,8 +92,15 @@
 
         <div class="col"  *ngFor="let item of roomsData">
             <div>
+
+                <div class="vh-25" >
+                    <img [src]="item.images[0]" class=" img-fluid  " alt=""/>
+                    <img *ngIf="item.images[0]==null" class="img-fluid w-100 h-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+                </div>
+
                 <div  [routerLink]="['/landingPage/home/rooms',item._id]"  >
                     <img [src]="item.images[0]" class=" border-3 rounded-5  " alt=""/>
+
 
             </div>
         </div>
@@ -95,7 +126,7 @@
 
             </div> -->
         </div>
-=======
+
             </div>
         </div>
 

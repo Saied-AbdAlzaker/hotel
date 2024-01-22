@@ -56,10 +56,13 @@ export class RoomDetailsComponent implements OnInit {
     private _UserBookingService:UserBookingService,
     private toastr:ToastrService,
     private Router:Router,
+    private fb: FormBuilder
+    ){}
+    
     ){ 
 
     }
-   
+
   ngOnInit(): void {    
     this.getRoomDetails(this.roomId)
 
@@ -95,6 +98,16 @@ export class RoomDetailsComponent implements OnInit {
     });
   }
 
+  bookingRoom(data:FormGroup){
+    this._UserBookingService.onBookingRoom(data.value).subscribe({
+      next:(res)=>{
+      },error:(err)=>{
+        this.toastr.error(err.error.message,'Error!')
+      },complete:()=>{
+        this.toastr.success('pay now to complete booking process','Success!');
+        this.Router.navigate(['/landingPage/booking'])
+      }
+    })
   bookingRoom(date: FormGroup) {
     this._UserBookingService.onBookingRoom(date.value).subscribe({
       next: (res) => {
@@ -116,7 +129,7 @@ export class RoomDetailsComponent implements OnInit {
     if (!startValue || !this.endValue) {
       return false;
     }
-    return startValue.getTime() > this.endValue.getTime();
+    return startValue.getTime() > this.endValue.getTime();  
   };
 
   disabledEndDate = (endValue: Date): boolean => {
@@ -129,13 +142,23 @@ export class RoomDetailsComponent implements OnInit {
     if (!open) {
       this.endDatePicker.open();
     }
-    console.log('handleStartOpenChange', open);
+    console.log('handleStartOpenChange', open);    
   }
 
   handleEndOpenChange(open: boolean): void {
     this.generateDateRange();
     console.log('handleEndOpenChange', open);
   }
+  
+  calculateNumberOfDays(): number | null {
+    const startDate: any = this.bookingForm.value.startDate;
+    const endDate: any = this.bookingForm.value.endDate;
+    if (startDate && endDate) {
+      const timeDifference = endDate.getTime() - startDate.getTime();
+      const daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
+      return daysDifference;
+    }
+    return null;
 
   generateDateRange(): void {
     const startDate = this.startValue;
