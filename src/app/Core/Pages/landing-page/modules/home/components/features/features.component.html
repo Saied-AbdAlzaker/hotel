@@ -1,10 +1,10 @@
 <section id="explore" class="mb-3">
-    <div class="container">
+    <div class="container" >
 
         <div class="row mb-3">
             <h3>{{'features.features-work!'|translate}}</h3>
             <div class="col position-relative" *ngFor="let item of roomsData">
-                <a [routerLink]="['/landingPage/home/rooms', item._id]">
+                <a [routerLink]="['/landingPage/home/rooms', item._id]" [class]="_HelperService.textDir === 'rtl'?'rotate':''">
                     <h5 class="card-disc text-whiteColor">{{item.discount | currency: 'USD'}} <span>{{'pernight'|translate}}</span></h5>
                     <img [src]="item.images[0] || 'assets/images/most-picked-2.jpg' " class="w-100 h-75 " alt="" />
                 </a>
