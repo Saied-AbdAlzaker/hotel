@@ -31,7 +31,6 @@ import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { MatMenuModule} from '@angular/material/menu';
 
-
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({

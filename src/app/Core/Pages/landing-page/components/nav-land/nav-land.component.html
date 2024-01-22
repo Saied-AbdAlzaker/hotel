@@ -8,15 +8,15 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mb-4 mb-lg-0" [class]="_HelperService.textDir === 'ltr'?'ms-auto':'me-auto'">
           <li class="nav-item">
-            <a class="nav-link active text-primary" aria-current="page" >{{'nav.Home'|translate}}</a>
+            <a class="nav-link active text-primary" routerLink="/landingPage/home" aria-current="page" >{{'nav.Home'|translate}}</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" routerLink="/landingPage/rooms">{{'nav.Explore'|translate}}</a>
+            <a class="nav-link" routerLink="/landingPage/home/rooms">{{'nav.Explore'|translate}}</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" >{{'nav.Reviews'|translate}}</a>
+            <a class="nav-link" routerLink="/landingPage/home/feadback" >{{'nav.Reviews'|translate}}</a>
           </li>
 
           <li class="nav-item fw-bolder text-secondryColor" *ngIf="userName == null" [class]="_HelperService.textDir === 'ltr'?'ms-5':'me-3'">
