@@ -67,7 +67,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     TranslateModule,
     MatMenuModule,
     NzPopconfirmModule,
-    CarouselModule
+    CarouselModule,
     NzRateModule 
   ],
   exports: [
@@ -104,7 +104,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     NzSelectModule,
     MatMenuModule,
     NzPopconfirmModule,
-    CarouselModule
+    CarouselModule,
     NzRateModule 
   ],
   declarations: [
