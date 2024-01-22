@@ -1,9 +1,9 @@
+import { HomeService } from './../../services/home.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { HomeService } from '../../services/home.service';
 import { HelperService } from 'src/app/Core/services/helper.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserBookingService } from '../../../booking/services/userBooking.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NzDatePickerComponent } from 'ng-zorro-antd/date-picker';
 import { ToastrService } from 'ngx-toastr';
 
@@ -16,6 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 export class RoomDetailsComponent implements OnInit {
   roomId:string=this._ActivatedRoute.snapshot.params['id']
   roomDetails:any;
+  comment:any;
   roomImages:any[]=[];
   roomFacilities:any[]=[];
   bookingId:string='';
@@ -28,14 +29,19 @@ export class RoomDetailsComponent implements OnInit {
     room: new FormControl(this.roomId),
     totalPrice: new FormControl(6000)
   })
+  AddComment = new FormGroup ({
+    reason: new FormControl(this.roomId),
+  })
   constructor(private _HomeService:HomeService,
     public _HelperService:HelperService,
     private _ActivatedRoute:ActivatedRoute,
     private _UserBookingService:UserBookingService,
     private toastr:ToastrService,
-    private Router:Router
-    ){ }
-    
+    private Router:Router,
+    ){ 
+
+    }
+   
   ngOnInit(): void {    
     this.getRoomDetails(this.roomId)
   }
@@ -88,4 +94,29 @@ export class RoomDetailsComponent implements OnInit {
   totalCount(){
     this.startValue
   }
+
+  getAllComment(id:string){
+    this._HomeService.getAllComment(id).subscribe({
+       next:(res)=>{
+        console.log(res);
+        this.comment=res.data.roomComments;
+        
+       }
+    })
+  }
+  Addcomment(data:FormGroup){
+      this._HomeService.Addcomment(data.value).subscribe({
+        next:(res)=>{
+          console.log(res);
+          
+        },error:(err)=>{
+  
+        },complete:()=>{
+          this.toastr.success('sss','suss')
+        }
+      })
+    
+
+    }
+
 }
