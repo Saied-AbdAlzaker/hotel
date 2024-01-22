@@ -1,0 +1,24 @@
+<section id="explore" class="my-2">
+  <div class="container">
+    <h2 class="text-secondryColor text-center">{{'Explore ALL Rooms' | translate}} </h2>
+    <div class="row g-3">
+      <h4 class="text-secondryColor">{{'All Rooms' | translate}}</h4>
+      <div class="col-md-4 position-relative" *ngFor="let item of roomsData">
+        <a [routerLink]="['/landingPage/home/rooms/', item._id]">
+          <h5 class="card-disc text-whiteColor">{{item.discount | currency: 'USD'}} <span>{{'per night'|translate}}</span></h5>
+          <img [src]="item.images[0] || 'assets/images/most-picked-2.jpg'" class="w-100 h-100 " alt="">
+          <div class="caption-item" [class]="_HelperService.textDir === 'rtl'?'caption-edit':''">
+            <h5>{{item.roomNumber}}</h5>
+            <h5>{{item.facilities[0].name}}</h5>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="p-3 w-50 m-auto">
+      <mat-paginator [length]="roomsData?.totalCount" [pageSizeOptions]="[5, 10, 50, 100]"
+        (page)="handlePageEvent($event)" [pageSize]="roomRespnse?.size" [pageIndex]="pageIndex" aria-label="Select page">
+      </mat-paginator>
+    </div>
+  </div>
+</section>
