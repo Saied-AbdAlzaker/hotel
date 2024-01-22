@@ -9,53 +9,54 @@ import { IAdsUser, IAdsUserDetails } from '../../models/Ads';
   styleUrls: ['./features.component.scss']
 })
 export class FeaturesComponent implements OnInit {
- 
+
   roomRespnse: IRoomsUserDetails | undefined;
   roomsData: IRoomsUser[] | any;
-  AdsResponse:IAdsUserDetails|undefined;
-  AdsData:IAdsUser[]|any;
+  AdsResponse: IAdsUserDetails | undefined;
+  AdsData: IAdsUser[] | any;
   pageNumber: number = 1;
   pageSize: number = 5;
-constructor(private _HomeService:HomeService,private el: ElementRef){}
 
-@HostListener("error")
-private onError() {
-  this.el.nativeElement.style.display = "none";
-}
+  constructor(private _HomeService: HomeService, private el: ElementRef ) { }
+
+  @HostListener("error")
+  private onError() {
+    this.el.nativeElement.style.display = "none";
+  }
 
   ngOnInit(): void {
     this.getAllRooms();
     this.getAllads();
   }
-  
-  
-  getAllRooms(){
-    let params={
-       size:this.pageSize,
-       page:this.pageNumber
+
+
+  getAllRooms() {
+    let params = {
+      size: this.pageSize,
+      page: this.pageNumber
     }
     this._HomeService.getAllRooms(params).subscribe({
-      next:(res)=>{
+      next: (res) => {
         // console.log(res);
-        this.roomRespnse=res;
-        this.roomsData=this.roomRespnse?.data.rooms;
+        this.roomRespnse = res;
+        this.roomsData = this.roomRespnse?.data.rooms;
         console.log(this.roomsData);
-        
-        
-      }     
+
+
+      }
     })
   }
- 
-  getAllads(){
-    this._HomeService.getAllAds().subscribe({
-      next:(res)=>{
-        // console.log(res);
-        this.AdsResponse=res;
-        this.AdsData=this.AdsResponse?.data.ads;
-        console.log(this.AdsData);
-        
 
-        
+  getAllads() {
+    this._HomeService.getAllAds().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.AdsResponse = res;
+        this.AdsData = this.AdsResponse?.data.ads;
+        console.log(this.AdsData);
+
+
+
       }
     })
   }
