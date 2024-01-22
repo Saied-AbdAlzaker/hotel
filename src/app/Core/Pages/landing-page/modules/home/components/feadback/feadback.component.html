@@ -1,8 +1,8 @@
 <section id="feadBack" class="py-5">
     <div class="container">
-        <div id="carouselExample" class="carousel slide">
+        <div id="carouselExample"  class="carousel slide">
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                <div  class="carousel-item active">
                     <div class="row p-5">
                         <div class="col-md-4" [class]="_HelperService.textDir === 'ltr'?'ms-auto':'me-auto'">
                             <div class="image" [class]="_HelperService.textDir === 'rtl'?'rotate':''">
@@ -18,7 +18,10 @@
                                 <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
                                 <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
                                 <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
-                                <h5 class="my-2">{{'feadback.feadbackContent' | translate}}</h5>
+                             <span *ngFor="let item of comment">
+
+                                <h5 (click)="getAllComment(roomId)" class="my-2">{{item}}</h5>
+                             </span>
                                 <h5 class="my-2">{{'feadback.feadbackContentOne' | translate}}</h5>
                                 <p class="mb-5 text-muted">{{'feadback.feadbackParagraph'| translate}}</p>
                                 <div class="my-3">
@@ -84,9 +87,12 @@
                                 <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
                                 <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
                                 <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
-                                <h5 class="my-2">{{'feadback.feadbackContent' | translate}}</h5>
-                                <h5 class="my-2">{{'feadback.feadbackContentOne' | translate}}</h5>
-                                <p class="mb-5 text-muted">{{'feadback.feadbackParagraph'| translate}}</p>
+                                <div *ngFor="let item of comment">
+
+                                    <h5 (click)="getAllComment(roomId)" class="my-2">{{item.id}}</h5>
+                                </div>
+                                <!-- <h5 class="my-2">{{'feadback.feadbackContentOne' | translate}}</h5> -->
+                                <!-- <p class="mb-5 text-muted">{{'feadback.feadbackParagraph'| translate}}</p> -->
                                 <div class="my-3">
                                     <i class="fa-regular fa-circle-left fa-3x" style="color: #203FC7;"
                                         data-bs-target="#carouselExample" data-bs-slide="prev"

@@ -22,4 +22,14 @@ export class HomeService {
   getAllAds(): Observable<any> {
     return this._HttpClient.get('portal/ads');
   }
+  getAllComment(id:string):Observable<any>{
+     
+    return this._HttpClient.get(`portal/room-comments/${id}`)
+}
+//create
+Addcomment(data:any):Observable<any>{
+  
+  return this._HttpClient.post('portal/room-comments',data)
+
+}
 }
