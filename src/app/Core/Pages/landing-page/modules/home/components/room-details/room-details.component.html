@@ -62,7 +62,7 @@
                     <h4 class="text-secondryColor fw-bolder ">{{'header.Start Booking'|translate}}</h4>
                     <p class="fs-2 paragraph mb-2"><span class="greenColor">{{roomDetails?.price}}$ </span>{{'per
                         night'|translate}}</p>
-                    <p class="text-redColor">Discount {{roomDetails?.discount}}% Off </p>
+                    <p class="text-redColor">Discount {{roomDetails?.discount}}$ Off </p>
                     <form [formGroup]="bookingForm" (ngSubmit)="bookingRoom(bookingForm)">
                         <div class="form-group mb-3">
                             <label for="date" class="h6 text-secondryColor">{{'header.pick a date'|translate}}</label>
@@ -80,9 +80,7 @@
                                     (nzOnOpenChange)="handleEndOpenChange($event)"></nz-date-picker>
                             </div>
                             <!-- just for explain code -->
-
-                            <p><span class="text-danger">{{priceRoom}} </span> price room for one day</p>
-                            <p><span class="text-danger">{{dateRange.length}} </span> booking Days
+                            <p class="mt-2"><span class="text-danger">{{dateRange.length}} </span> booking Days
                             <ul>
                                 <li *ngFor="let item of dateRange"> {{item | date :'yyyy-MM-dd'}}</li>
                             </ul>
@@ -157,20 +155,20 @@
                 </div>
 
             </div>
-            <div class="col-md-6" [class]="_HelperService.textDir === 'ltr'?'ms-auto':'me-auto'">
-                <div class="ms-5">
+            <div class="col-md-6 d-flex flex-column justify-content-between" [class]="_HelperService.textDir === 'ltr'?'ms-auto':'me-auto'">
+                <h2  class="my-2">{{'Comment' | translate}} </h2>
                     <form [formGroup]="AddComment" (ngSubmit)="Addcomment(AddComment)">
-                            <h2  class="my-3">{{'Comments' | translate}} </h2>
-                            <p *ngFor="let item of comments">
+                        <ng-container *ngFor="let item of comments; let i=index">
+                            <p *ngIf="i<2">
                                 <i class="fa-regular fa-comment text-secondryColor"></i>
                                 {{item?.comment}}
                             </p>
-                            <textarea placeholder="{{'Add your comment' | translate}}" 
+                        </ng-container>
+                            <textarea placeholder="Add your comment" 
                               formControlName="comment" class="w-100 rounded" name="" id="" rows="4">
                             </textarea>
                             <button type="submit"  class="btn primary w-50 p-2">Send</button>                        
                     </form>
-                </div>
 
             </div>
 

@@ -3,6 +3,7 @@ import { HomeService } from '../../services/home.service';
 import { IRoomsUserDetails, IRoomsUser } from '../../models/home';
 import { IAdsUser, IAdsUserDetails } from '../../models/Ads';
 import { HelperService } from 'src/app/Core/services/helper.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-features',
@@ -58,5 +59,30 @@ export class FeaturesComponent implements OnInit {
 
       }
     })
+  }
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
   }
 }

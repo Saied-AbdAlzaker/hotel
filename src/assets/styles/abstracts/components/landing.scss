@@ -124,6 +124,11 @@
     }
   }
 }
+#most-picked{
+  img{
+    max-height: 500px;
+  }
+}
 .ant-picker-suffix{
   // color: $bg-mainColor !important;
   // font-size: 20px !important;
