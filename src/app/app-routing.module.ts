@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from './Core/Guards/auth.guard';
 import { adminGuard } from './Core/Guards/admin.guard';
+import { userGuard } from './Core/Guards/user.guard';
 
 const routes: Routes = [
   {path:'', redirectTo: 'landingPage', pathMatch:'full'},

@@ -3,6 +3,19 @@
         <div class="header text-center">
                 <h2 class="fw-bolder text-secondryColor">Village Angga</h2>
                 <p class="paragraph">Bogor, Indonesia</p>
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a
+                        routerLink="/landingPage/home"
+                        >Home</a
+                      >
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                      Room
+                    </li>
+                  </ol>
+                </nav>
             </div>
         <div class="row">
             <div class="col-md-6" *ngFor="let image of roomImages">
@@ -25,43 +38,20 @@
                     <br>Such trends saw the demise of the soul-infused techno that typified the original Detroit sound. Robert Hood has noted that he and Daniel Bell both realized something was missing from techno in the post-rave era.
                     <br>Design is a plan or specification for the construction of an object or system or for the implementation of an activity or process, or the result of that plan or specification in the form of a prototype, product or process. The national agency for design: enabling Singapore to use design for economic growth and to make lives better.
                 </p>
+                <h4 class="text-secondryColor mb-3">{{'Facilities'|translate}}:<span class="text-mainColor"></span></h4>
+
                 <div class="icons row">
+                  <ng-container *ngFor="let facility of roomFacilities">
+
                     <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-1.png" class="w-25">
-                        <P><span class="fw-bold">5</span><span class="paragraph">{{roomFacilities[0]?.name}}</span></P>
-                    </div>
-                    <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-2.png" class="w-25">
-                        <P><span class="fw-bold">1</span><span class="paragraph">{{roomFacilities[1]?.name}}</span></P>
-                    </div>
-                    <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-3.png" class="w-25">
-                        <P><span class="fw-bold">3</span><span class="paragraph">{{roomFacilities[2]?.name||'Unavailable'}}</span></P>
-                    </div>
-                    <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-4.png" class="w-25">
-                        <P><span class="fw-bold">1</span><span class="paragraph">{{roomFacilities[3]?.name||'Unavailable'}}</span></P>
-                    </div>
-                </div>
-                <div class="icons row my-3">
-                    <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-5.png" class="w-25">
-                        <P><span class="fw-bold"></span><span class="paragraph">{{roomFacilities[4]?.name||'Unavailable'}}</span></P>
-                    </div>
-                    <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-6.png" class="w-25">
-                        <P><span class="fw-bold">7</span><span class="paragraph"> unit ready</span></P>
-                    </div>
-                    <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-7.png" class="w-25">
-                        <P><span class="fw-bold">2</span><span class="paragraph"> refigrator</span></P>
-                    </div>
-                    <div class="col-3">
-                        <img src="../../../../../../../../assets/images/icon-8.png" class="w-25">
-                        <P><span class="fw-bold">4</span><span class="paragraph"> television</span></P>
+                        <img src="../../../../../../../../assets/images/facility.png" class="w-25">
+                        <P><span class="fw-bold"></span><span class="paragraph">{{facility.name}}</span></P>
                     </div>
 
+                  </ng-container>
+
                 </div>
+
             </div>
             <div class="col-md-5">
                 <div class="booking-section w-75 p-5 mx-auto border rounded">
