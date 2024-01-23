@@ -38,6 +38,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -68,7 +69,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatMenuModule,
     NzPopconfirmModule,
     CarouselModule,
-    NzRateModule 
+    NzRateModule,
   ],
   exports: [
     FormsModule,
@@ -105,7 +106,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatMenuModule,
     NzPopconfirmModule,
     CarouselModule,
-    NzRateModule 
+    NzRateModule,
   ],
   declarations: [
     SidebarComponent,

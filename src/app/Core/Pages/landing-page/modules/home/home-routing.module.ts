@@ -15,6 +15,7 @@ const routes: Routes = [
   {path:'rooms/:id',component:RoomDetailsComponent,data: { title: 'Room' }},
   {path:'feadback',component:FeadbackComponent,data: { title: 'Feadback' }},
   {path:'rooms',component:ExploreRoomsComponent, data: { title: 'Rooms' }},
+  {path:'exploreRooms/:params',component:ExploreRoomsComponent, data: { title: 'Rooms' }},
   {path:'favourites',component:FavouritesComponent,canActivate:[authGuard,userGuard],data: { title: 'Your Favourites' }}
 
 ];
