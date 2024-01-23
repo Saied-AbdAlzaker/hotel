@@ -19,9 +19,4 @@ export interface IAdsUserDetails{
     createdAt:Date;
     updatedAt:Date;
     images: string[];
-  
-  
-  
-  
-  
   }
