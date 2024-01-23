@@ -41,7 +41,7 @@
 }
 
 #most-picked,
-#myFavourite {
+#myFavourite,#features {
   .card-item {
     color: white !important;
     position: relative;
@@ -134,15 +134,15 @@
   .card-disc {
     position: absolute;
     top: 0;
-    right: 7px;
-    padding: 10px 20px 10px 20px;
+    right: 8px;
+    padding: 5px 10px 5px 10px;
     background-color: $bg-pinkColor;
     border-bottom-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-right-radius: 18px;
     color: #fff;
     z-index: 20;
     span {
-      font-size: 1rem;
+      font-size: .9rem;
       font-style: normal;
       font-weight: 300;
       line-height: 170%;

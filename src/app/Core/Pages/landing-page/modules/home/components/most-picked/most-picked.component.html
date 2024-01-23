@@ -13,11 +13,12 @@
               (nzOnCancel)="cancel()"><i class="fa-regular fa-2x fa-heart"></i></a>
               <a class="text-white" [routerLink]="['/landingPage/home/rooms', roomsData[0]._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
             </div>
-            <img
+            <img *ngIf="roomsData[0].images[0]"
               [src]="roomsData[0].images[0]"
               alt="most picked"
               class="img-fluid h-100 w-100"
             />
+            <img *ngIf="!roomsData[0].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
             <div class="caption-item">
               <h5>{{ roomsData[0].roomNumber }}</h5>
               <p>{{ roomsData[0].price }}</p>
@@ -35,11 +36,12 @@
               (nzOnCancel)="cancel()"><i class="fa-regular fa-2x fa-heart"></i></a>
               <a class="text-white" [routerLink]="['/landingPage/home/rooms/', roomsData[1]._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
             </div>
-            <img
+            <img *ngIf="roomsData[1].images[0]"
               [src]="roomsData[1].images[0]"
               alt="most picked"
               class="img-fluid h-100 w-100"
             />
+            <img *ngIf="!roomsData[1].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
             <div class="caption-item">
               <h5>{{ roomsData[1].roomNumber }}</h5>
               <p>{{ roomsData[1].price }}</p>
@@ -55,11 +57,12 @@
               (nzOnCancel)="cancel()"><i class="fa-regular fa-2x fa-heart"></i></a>
               <a class="text-white" [routerLink]="['/landingPage/home/rooms/', roomsData[2]._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
             </div>
-            <img
+            <img *ngIf="roomsData[2].images[0]"
             [src]="roomsData[2].images[0]"
             alt="most picked"
               class="img-fluid h-100"
             />
+            <img *ngIf="!roomsData[2].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
             <div class="caption-item">
               <h5>{{ roomsData[2].roomNumber }}</h5>
               <p>{{ roomsData[2].price }}</p>
@@ -79,11 +82,12 @@
             </a>
               <a class="text-white" [routerLink]="['/landingPage/home/rooms/', roomsData[3]._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
             </div>
-            <img
+            <img *ngIf="roomsData[3].images[0]"
             [src]="roomsData[3].images[0]"
             alt="most picked"
               class="img-fluid h-100"
             />
+            <img *ngIf="!roomsData[3].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
             <div class="caption-item">
               <h5>{{ roomsData[3].roomNumber }}</h5>
               <p>{{ roomsData[3].price }}</p>
@@ -99,11 +103,12 @@
               (nzOnCancel)="cancel()"><i class="fa-regular fa-2x fa-heart"></i></a>
               <a class="text-white" [routerLink]="['/landingPage/home/rooms/', roomsData[4]._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
             </div>
-            <img
+            <img *ngIf="roomsData[4].images[0]"
             [src]="roomsData[4].images[0]"
               alt="most picked"
               class="img-fluid h-100"
             />
+            <img *ngIf="!roomsData[4].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
             <div class="caption-item">
               <h5>{{roomsData[4].roomNumber }}</h5>
               <p>{{roomsData[4].price }}</p>

@@ -14,23 +14,28 @@ import { NzDatePickerComponent } from 'ng-zorro-antd/date-picker';
 })
 export class RoomDetailsComponent implements OnInit {
   roomDetails: any;
-  roomId: string | any;
+  roomId: string | any = this._ActivatedRoute.snapshot.params['id'];
   roomImages: any[] = [];
   roomFacilities: any[] = [];
   bookingId: string = '';
+  comments: any;
   startValue: Date | any = null;
   endValue: Date | any = null;
   dateRange: Date[] = [];
   totalPrice: number | any;
   priceRoom: number | any = 0;
   @ViewChild('endDatePicker') endDatePicker!: NzDatePickerComponent;
-
   bookingForm = new FormGroup({
     startDate: new FormControl(null, [Validators.required]),
     endDate: new FormControl(null, [Validators.required]),
     room: new FormControl(null),
     totalPrice: new FormControl(null),
   });
+
+  AddComment = new FormGroup({
+    roomId: new FormControl(this.roomId),
+    comment: new FormControl(null),
+  })
   constructor(
     private _HomeService: HomeService,
     public _HelperService: HelperService,
@@ -45,6 +50,7 @@ export class RoomDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRoomDetails(this.roomId);
+    this.getAllComments()
   }
   getRoomDetails(id: string) {
     this._HomeService.onGetRoomDetails(id).subscribe({
@@ -121,6 +127,27 @@ export class RoomDetailsComponent implements OnInit {
       totalPrice: this.totalPrice
     });
   }
-
+  getAllComments(){
+        this._HomeService.getAllComments(this.roomId).subscribe({
+           next:(res)=>{
+            console.log(res);
+            this.comments=res.data.roomComments;
+           }
+        })
+      }
+      Addcomment(data:FormGroup){
+          this._HomeService.Addcomment(data.value).subscribe({
+            next:(res)=>{
+              console.log(res);
+              
+            },error:(err)=>{
+      
+            },complete:()=>{
+              this.toastr.success('Commented Successfully')
+              this.getAllComments()
+            }
+          })
+        }
+        
 
 }
