@@ -16,7 +16,7 @@
     },
     "home-land":{
         "header":"header",
-        "most-picked":"",
+        "most-picked":"Most Picked",
         "features":"",
         "feadback":"feadback",
         "footer": "footer"
@@ -91,5 +91,5 @@
             "ConnectHeaderThree":" Staycation, Kemang, Jakarta",
 
             "Copyright":"Copyright 2019 • All rights reserved • Staycation"
-    }     
+    }
 }
