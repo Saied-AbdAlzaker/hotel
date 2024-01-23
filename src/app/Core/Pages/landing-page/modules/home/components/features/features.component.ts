@@ -52,11 +52,9 @@ export class FeaturesComponent implements OnInit {
     this._HomeService.getAllAds().subscribe({
       next: (res) => {
         console.log(res);
-        this.AdsResponse = res;
-        this.AdsData = this.AdsResponse?.data.ads;
+        this.AdsResponse = res.data.ads;
+        this.AdsData = this.AdsResponse;
         console.log(this.AdsData);
-
-
 
       }
     })

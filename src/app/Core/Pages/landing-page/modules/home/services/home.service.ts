@@ -9,27 +9,30 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class HomeService {
-  constructor(private _HttpClient: HttpClient) {}
-
+  constructor(private _HttpClient: HttpClient) { }
+  // Room Details
   onGetRoomDetails(id: string): Observable<any> {
     return this._HttpClient.get(`portal/rooms/${id}`);
   }
-
+  // All Rooms
   getAllRooms(params: Params): Observable<any> {
     return this._HttpClient.get('portal/rooms/available', { params: params });
   }
-
+  // All Ads
   getAllAds(): Observable<any> {
     return this._HttpClient.get('portal/ads');
   }
-  getAllComment(id:string):Observable<any>{
-     
+  // All Comments
+  getAllComment(id:any): Observable<any> {
     return this._HttpClient.get(`portal/room-comments/${id}`)
-}
-//create
-Addcomment(data:any):Observable<any>{
-  
-  return this._HttpClient.post('portal/room-comments',data)
+  }
+  // All Reviews
+  getAllReviews(id:any): Observable<any> {
+    return this._HttpClient.get(`portal/room-reviews/${id}`)
+  }
+  //create comment
+  Addcomment(data: any): Observable<any> {
+    return this._HttpClient.post('portal/room-comments', data)
+  }
 
-}
 }
