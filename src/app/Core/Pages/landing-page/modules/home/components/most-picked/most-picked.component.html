@@ -1,10 +1,10 @@
 <section id="most-picked" class="py-5">
   <div class="container">
-    <h5 class="mb-3">Most Picked</h5>
+    <h5 class="mb-3">{{'home-land.most-picked'|translate}}</h5>
     <div class="row" >
         <div class="col-md-4 gap-4 mb-3  d-flex">
           <div class="card-item">
-            <h5>{{roomsData[0].discount}}$ <span> per night</span></h5>
+            <h5 [class]="_HelperService.textDir === 'ltr'?'ltr':'rtl'">{{roomsData[0].discount}}$ <span>{{'favourites.perNight'|translate}}</span></h5>
             <div class="links">
               <a nz-popconfirm
               nzPopconfirmTitle="truley Love or not? ❤️"
@@ -18,8 +18,11 @@
               alt="most picked"
               class="img-fluid h-100 w-100"
             />
-            <img *ngIf="!roomsData[0].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+            <img *ngIf="!roomsData[0].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy-img.png" alt="">
             <div class="caption-item">
+            <img *ngIf="!roomsData[0].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+            <div class="caption-item"  [class]="_HelperService.textDir === 'ltr'?'':'rtl'">
+              
               <h5>{{ roomsData[0].roomNumber }}</h5>
               <p>{{ roomsData[0].price }}</p>
             </div>
@@ -27,7 +30,7 @@
         </div>
         <div class="d-flex flex-column gap-4 col-md-4 mb-3">
           <div class="h-100 card-item">
-            <h5>{{ roomsData[1].discount }}$<span> per night</span></h5>
+            <h5 [class]="_HelperService.textDir === 'ltr'?'ltr':'rtl'">{{ roomsData[1].discount }}$<span> {{'favourites.perNight'|translate}}</span></h5>
             <div class="links">
               <a nz-popconfirm
               nzPopconfirmTitle="truley Love or not? ❤️"
@@ -41,14 +44,19 @@
               alt="most picked"
               class="img-fluid h-100 w-100"
             />
-            <img *ngIf="!roomsData[1].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+            
+            <img *ngIf="!roomsData[1].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy-img.png" alt="">
             <div class="caption-item">
+
+            <img *ngIf="!roomsData[1].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+            <div class="caption-item"  [class]="_HelperService.textDir === 'ltr'?'':'rtl'">
+
               <h5>{{ roomsData[1].roomNumber }}</h5>
               <p>{{ roomsData[1].price }}</p>
             </div>
           </div>
           <div class="h-100 card-item">
-            <h5>{{ roomsData[2].discount }}$<span> per night</span></h5>
+            <h5 [class]="_HelperService.textDir === 'ltr'?'ltr':'rtl'">{{ roomsData[2].discount }}$<span> {{'favourites.perNight'|translate}}</span></h5>
             <div class="links">
               <a nz-popconfirm
               nzPopconfirmTitle="truley Love or not? ❤️"
@@ -60,10 +68,15 @@
             <img *ngIf="roomsData[2].images[0]"
             [src]="roomsData[2].images[0]"
             alt="most picked"
-              class="img-fluid h-100"
+              class="img-fluid h-100 w-100"
             />
-            <img *ngIf="!roomsData[2].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+
+            <img *ngIf="!roomsData[2].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy-img.png" alt="">
             <div class="caption-item">
+
+            <img *ngIf="!roomsData[2].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+            <div class="caption-item"  [class]="_HelperService.textDir === 'ltr'?'':'rtl'">
+
               <h5>{{ roomsData[2].roomNumber }}</h5>
               <p>{{ roomsData[2].price }}</p>
             </div>
@@ -71,7 +84,7 @@
         </div>
         <div class="d-flex flex-column gap-4 col-md-4 mb-3">
           <div class="h-100 card-item">
-            <h5>{{ roomsData[3].discount }}$<span> per night</span></h5>
+            <h5 [class]="_HelperService.textDir === 'ltr'?'ltr':'rtl'">{{ roomsData[3].discount }}$<span> {{'favourites.perNight'|translate}}</span></h5>
             <div class="links">
               <a nz-popconfirm
               nzPopconfirmTitle="truley Love or not? ❤️"
@@ -85,16 +98,21 @@
             <img *ngIf="roomsData[3].images[0]"
             [src]="roomsData[3].images[0]"
             alt="most picked"
-              class="img-fluid h-100"
+              class="img-fluid h-100 w-100"
             />
-            <img *ngIf="!roomsData[3].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+
+            <img *ngIf="!roomsData[3].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy-img.png" alt="">
             <div class="caption-item">
+
+            <img *ngIf="!roomsData[3].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+            <div class="caption-item"  [class]="_HelperService.textDir === 'ltr'?'':'rtl'">
+
               <h5>{{ roomsData[3].roomNumber }}</h5>
               <p>{{ roomsData[3].price }}</p>
             </div>
           </div>
           <div class="h-100 card-item">
-            <h5>{{roomsData[4].discount }}$<span> per night</span></h5>
+            <h5 [class]="_HelperService.textDir === 'ltr'?'ltr':'rtl'">{{roomsData[4].discount }}$<span> {{'favourites.perNight'|translate}}</span></h5>
             <div class="links">
               <a nz-popconfirm
               nzPopconfirmTitle="truley Love or not? ❤️"
@@ -106,10 +124,15 @@
             <img *ngIf="roomsData[4].images[0]"
             [src]="roomsData[4].images[0]"
               alt="most picked"
-              class="img-fluid h-100"
+              class="img-fluid h-100 w-100"
             />
-            <img *ngIf="!roomsData[4].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+
+            <img *ngIf="!roomsData[4].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy-img.png" alt="">
             <div class="caption-item">
+
+            <img *ngIf="!roomsData[4].images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
+            <div class="caption-item"  [class]="_HelperService.textDir === 'ltr'?'':'rtl'">
+
               <h5>{{roomsData[4].roomNumber }}</h5>
               <p>{{roomsData[4].price }}</p>
             </div>

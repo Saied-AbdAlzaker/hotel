@@ -194,3 +194,8 @@ li {
 .cursor-pointer{
   cursor: pointer;
 }
+
+
+.breadcrumb-item+.breadcrumb-item::before {
+  float: none;
+}
