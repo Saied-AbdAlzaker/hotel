@@ -62,10 +62,11 @@ export class ExploreRoomsComponent implements OnInit {
       },
     });
   }
+  
+  // handlePageEvent(e: any) {
+  //   this.pageSize = e.pageSize;
+  //   this.pageNumber = e.pageIndex + 1;
+  //   this.getAllRooms();
+  // }
 
-  handlePageEvent(e: any) {
-    this.pageSize = e.pageSize;
-    this.pageNumber = e.pageIndex + 1;
-    this.getAllRooms();
-  }
 }
