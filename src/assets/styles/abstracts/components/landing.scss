@@ -103,10 +103,18 @@
     & > h5 {
       position: absolute;
       top: 0;
-      right: 0;
+      &.ltr{
+        right: 0;
+        border-bottom-left-radius: 20px;
+
+      }
+      &.rtl{
+        left: 0;
+        border-bottom-right-radius: 20px;
+
+      }
       padding: 10px 20px 10px 20px;
       background-color: $bg-pinkColor;
-      border-bottom-left-radius: 20px;
       z-index: 20;
       span {
         font-size: 1rem;
@@ -120,6 +128,9 @@
       z-index: 20;
       bottom: 0;
       left: 0;
+      &.rtl{
+        right: 0;
+      }
       padding: 20px;
     }
   }

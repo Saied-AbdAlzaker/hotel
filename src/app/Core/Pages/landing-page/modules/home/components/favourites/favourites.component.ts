@@ -8,6 +8,7 @@ import {
 import { ToastrService } from 'ngx-toastr';
 import { DeleteDialogComponent } from 'src/app/Shared/delete-dialog/delete-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { HelperService } from 'src/app/Core/services/helper.service';
 
 @Component({
   selector: 'app-favourites',
@@ -21,7 +22,9 @@ export class FavouritesComponent implements OnInit {
   constructor(
     private _favouriteService: FavouriteService,
     private dialog: MatDialog,
-    private _toastrService: ToastrService
+    private _toastrService: ToastrService,
+    public _HelperService: HelperService,
+
   ) {}
   ngOnInit(): void {
     this.getAllFavourites();
