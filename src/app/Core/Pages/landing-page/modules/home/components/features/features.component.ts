@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { HomeService } from '../../services/home.service';
 import { IRoomsUserDetails, IRoomsUser } from '../../models/home';
 import { IAdsUser, IAdsUserDetails } from '../../models/Ads';
+import { HelperService } from 'src/app/Core/services/helper.service';
 
 @Component({
   selector: 'app-features',
@@ -17,7 +18,7 @@ export class FeaturesComponent implements OnInit {
   pageNumber: number = 1;
   pageSize: number = 5;
 
-  constructor(private _HomeService: HomeService, private el: ElementRef ) { }
+  constructor(private _HomeService: HomeService, private el: ElementRef, public _HelperService:HelperService ) { }
 
   @HostListener("error")
   private onError() {
@@ -51,11 +52,9 @@ export class FeaturesComponent implements OnInit {
     this._HomeService.getAllAds().subscribe({
       next: (res) => {
         console.log(res);
-        this.AdsResponse = res;
-        this.AdsData = this.AdsResponse?.data.ads;
+        this.AdsResponse = res.data.ads;
+        this.AdsData = this.AdsResponse;
         console.log(this.AdsData);
-
-
 
       }
     })
