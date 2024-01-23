@@ -22,8 +22,7 @@ export class HomeService {
   getAllAds(): Observable<any> {
     return this._HttpClient.get('portal/ads');
   }
-  // All Comments
-  getAllComment(id:any): Observable<any> {
+  getAllComments(id:string):Observable<any>{
     return this._HttpClient.get(`portal/room-comments/${id}`)
   }
   // All Reviews

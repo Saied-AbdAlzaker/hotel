@@ -31,6 +31,7 @@ export class RoomDetailsComponent implements OnInit {
     room: new FormControl(null),
     totalPrice: new FormControl(null),
   });
+
   AddComment = new FormGroup({
     roomId: new FormControl(this.roomId),
     comment: new FormControl(null),
@@ -126,27 +127,27 @@ export class RoomDetailsComponent implements OnInit {
       totalPrice: this.totalPrice
     });
   }
-  getAllComments() {
-    this._HomeService.getAllComment(this.roomId).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.comments = res.data.roomComments;
+  getAllComments(){
+        this._HomeService.getAllComments(this.roomId).subscribe({
+           next:(res)=>{
+            console.log(res);
+            this.comments=res.data.roomComments;
+           }
+        })
       }
-    })
-  }
-  Addcomment(data: FormGroup) {
-    this._HomeService.Addcomment(data.value).subscribe({
-      next: (res) => {
-        console.log(res);
-
-      }, error: (err) => {
-
-      }, complete: () => {
-        this.toastr.success('Commented Successfully')
-        this.getAllComments()
-      }
-    })
-  }
-
+      Addcomment(data:FormGroup){
+          this._HomeService.Addcomment(data.value).subscribe({
+            next:(res)=>{
+              console.log(res);
+              
+            },error:(err)=>{
+      
+            },complete:()=>{
+              this.toastr.success('Commented Successfully')
+              this.getAllComments()
+            }
+          })
+        }
+        
 
 }
