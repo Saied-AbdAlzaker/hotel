@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { IlistUser } from '../../model/users';
 import { ActivatedRoute } from '@angular/router';
+import { IUser } from 'src/app/Shared/models/iuser-admin';
 
 @Component({
   selector: 'app-view-user',
@@ -9,8 +10,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./view-user.component.scss']
 })
 export class ViewUserComponent implements OnInit {
-  userData: any;
-  userId: any;
+  userData: IUser|undefined;
+  userId: string;
   constructor(
     private _UsersService:UsersService,
     private _ActivatedRoute:ActivatedRoute

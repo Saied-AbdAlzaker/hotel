@@ -5,10 +5,13 @@
           class="col-4  d-flex justify-content-end align-items-center ms-auto" >
           <div class="d-flex align-items-center ">
             <a class="user-avater bg-profile">
-              <img class=""
-              *ngIf="userData?.profileImage"
-              [src]="'https://upskilling-egypt.com/'+userData?.profileImage" />
-              <img *ngIf="userData?.profileImage==null"
+              <!-- <img class=""
+              *ngIf="userImage"
+              [src]="userImage" />
+              <img *ngIf="!userImage"
+              src="../../../assets/images/profile.png"
+              /> -->
+              <img
               src="../../../assets/images/profile.png"
               />
             </a>
@@ -25,7 +28,7 @@
                   aria-expanded="false"
                 ></a>
                 <ul class="dropdown-menu mt-4">
-                  <li><a class="dropdown-item pointer" [routerLink]="['/dashboard/users/view/',currentUserId]">
+                  <li><a class="dropdown-item pointer" [routerLink]="['/dashboard/users/view/',userId]">
                     <span><i class="fa-solid fa-user me-2"></i></span> Profile
                   </a></li>
                   <li><a class="dropdown-item pointer" (click)="openDialogCahngePassword()">

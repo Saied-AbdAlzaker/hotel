@@ -32,9 +32,8 @@ getRoomDetails(id:string){
     }
   })
 }
-
-getAllComment(id:any){
-  this._HomeService.getAllComment(id).subscribe({
+getAllComment(id:string){
+  this._HomeService.getAllComments(id).subscribe({
      next:(res)=>{
       console.log(res);
       this.comment=res.data.roomComments;

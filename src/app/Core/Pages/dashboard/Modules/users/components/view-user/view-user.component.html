@@ -8,16 +8,16 @@
                 </div>
                 <div class="row align-items-center mt-3">
                     <div class="col-3 m-auto">
-                        <!-- <img [src]="'http://154.41.228.234:3000'+userData?.profileImage" alt=""> -->
-                        <img src="../../../assets/images/profile.png" class="w-100 rounded-circle shadow-sm bg-profile">
+                        <img *ngIf="userData?.profileImage" [src]="userData?.profileImage"  class="w-100 rounded-circle shadow-sm bg-profile">
+                        <img *ngIf="!userData?.profileImage" src="../../../assets/images/profile.png" class="w-100 rounded-circle shadow-sm bg-profile">
                     </div>
                     <div class="col-8">
-                        <h5>User Name:<span class="text-mainColor fw-bold fs-2"> {{userData.userName}}</span></h5>
-                        <h5>Role: <span class="text-mainColor"> {{userData.role}}</span></h5>
-                        <h5>Country: <span class="text-mainColor">{{userData.country}}</span></h5>
-                        <h5>Phone Number: <span class="text-mainColor">{{userData.phoneNumber}}</span></h5>
-                        <h5>Email: <span class="text-mainColor">{{userData.email}}</span></h5>
-                        <h5>Created At: <span class="text-mainColor">{{userData.createdAt|date:'dd-MM-yyyy'}}</span></h5>
+                        <h5>User Name:<span class="text-mainColor fw-bold fs-2"> {{userData?.userName}}</span></h5>
+                        <h5>Role: <span class="text-mainColor"> {{userData?.role}}</span></h5>
+                        <h5>Country: <span class="text-mainColor">{{userData?.country}}</span></h5>
+                        <h5>Phone Number: <span class="text-mainColor">{{userData?.phoneNumber}}</span></h5>
+                        <h5>Email: <span class="text-mainColor">{{userData?.email}}</span></h5>
+                        <h5>Created At: <span class="text-mainColor">{{userData?.createdAt|date:'dd-MM-yyyy'}}</span></h5>
 
                     </div>
                 </div>

@@ -159,12 +159,10 @@
             </div>
             <div class="col-md-6" [class]="_HelperService.textDir === 'ltr'?'ms-auto':'me-auto'">
                 <div class="ms-5">
-                    <form [formGroup]="AddComment" (ngSubmit)="Addcomment(AddComment)">
-                        <h2 class="my-5">{{'Add your comment' | translate}}</h2>
-                        <textarea placeholder="reason" formControlName="reason" class="w-100 rounded" name="" id=""
-                            rows="4"></textarea>
-                        <button type="submit" class="btn primary w-50 p-2">Send</button>
-
+                    <form [formGroup]="AddComment" (ngSubmit)="Addcomment(AddComment)" >
+                        <h2  class="my-5">{{'Add your comment' | translate}}</h2>
+                        <textarea placeholder="{{comments[0].comment}}"   formControlName="comment" class="w-100 rounded" name="" id="" rows="4"></textarea>
+                        <button type="submit"  class="btn primary w-50 p-2">Send</button>
                     </form>
                 </div>
 

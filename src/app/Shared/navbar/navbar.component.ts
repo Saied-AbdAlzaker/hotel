@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserAdminService } from '../services/user-admin.service';
 import { ToastrService } from 'ngx-toastr';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
-import { IChangePassword } from '../models/iuser-admin';
+import { IChangePassword, IUser } from '../models/iuser-admin';
 import { LogOutComponent } from './components/log-out/log-out.component';
 import { UsersService } from 'src/app/Core/Pages/dashboard/Modules/users/services/users.service';
 
@@ -14,8 +14,9 @@ import { UsersService } from 'src/app/Core/Pages/dashboard/Modules/users/service
 })
 export class NavbarComponent implements OnInit {
   userName: any = localStorage.getItem('userName');
-  userData: any;
-  currentUserId: any = localStorage.getItem('userId')
+  userData: IUser|undefined;
+  userId: any = localStorage.getItem('userId')
+  userImage:string='';
   constructor(
     public dialog: MatDialog,
     private _userAdminService: UserAdminService,
@@ -23,7 +24,7 @@ export class NavbarComponent implements OnInit {
     private _UsersService:UsersService
   ) {}
   ngOnInit(): void {
-    this.getUserProfile(this.currentUserId)
+    this.getUserProfile(this.userId)
   }
   
   openDialogCahngePassword(): void {
@@ -68,8 +69,11 @@ export class NavbarComponent implements OnInit {
   getUserProfile(id:string){
     this._UsersService.onGetUserProfile(id).subscribe({
       next:(res:any)=>{
+        console.log(res);
         this.userData=res.data
-        // console.log(res.data.profileImage);
+        this.userImage=res.data.user.profileImage
+        console.log(this.userImage);
+        
       }
     })
   }
