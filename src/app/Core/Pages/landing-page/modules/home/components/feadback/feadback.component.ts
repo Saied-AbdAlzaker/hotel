@@ -10,19 +10,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FeadbackComponent {
 
-  roomId:string=this._ActivatedRoute.snapshot.params['id']
+  roomId:string | any = this._ActivatedRoute.snapshot.params['id']
   roomDetails:any;
   roomImages:any[]=[];
   roomFacilities:any[]=[];
   comments: any;
 
   comment:any;
-  constructor(public _HelperService:HelperService,private _HomeService:HomeService,private _ActivatedRoute:ActivatedRoute) {
+  constructor(public _HelperService:HelperService,private _HomeService:HomeService,
+    private _ActivatedRoute:ActivatedRoute) {
+
+    this.roomId = this._ActivatedRoute.snapshot.params['id'];
+
   }
 ngOnInit(): void {
   //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
   //Add 'implements OnInit' to the class.
-  // this.getAllComment(this.roomId);
+  this.getAllComments();
 }
 getRoomDetails(id:string){
   this._HomeService.onGetRoomDetails(id).subscribe({
@@ -33,11 +37,14 @@ getRoomDetails(id:string){
     }
   })
 }
+
 getAllComments(){
   this._HomeService.getAllComments(this.roomId).subscribe({
      next:(res)=>{
       console.log(res);
-      this.comments=res.data.roomComments;
+      this.comments = res.data.roomComments;
+      console.log(this.comments);
+
      }
   })
 }

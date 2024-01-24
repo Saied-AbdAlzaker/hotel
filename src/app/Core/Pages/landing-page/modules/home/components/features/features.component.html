@@ -7,6 +7,7 @@
                 <a [routerLink]="['/landingPage/home/rooms', item._id]">
                     <h5 class="card-disc text-whiteColor">{{item.discount | currency: 'USD'}} <span>{{'per night'|translate}}</span></h5>
                     <img [src]="item.images[0] || 'assets/images/most-picked-2.jpg' " class="w-100 h-75 " alt="" />
+                    <!-- <img *ngIf="!item.images[0]" src="assets/images/dummy.jpg" class="w-100 h-75 " alt="" /> -->
                 </a>
                 <div class="my-3">
                     <h5>{{item.roomNumber}}</h5>
@@ -21,11 +22,12 @@
             <div class="col-md position-relative" *ngFor="let item of roomsData">
                 <a [routerLink]="['/landingPage/home/rooms', item._id]">
                     <h5 class="card-disc text-whiteColor">{{item.discount | currency: 'USD'}} <span>{{'per night'|translate}}</span></h5>
-                    <img [src]="item.images[0] || 'assets/images/most-picked-2.jpg' " class="w-100 h-75 " alt="" />
+                    <img [src]="item.images[1] || 'assets/images/most-picked-2.jpg' " class="w-100 h-75 " alt="" />
+                    <!-- <img *ngIf="!item.images[1]" src="assets/images/dummy.jpg" class="w-100 h-75 " alt="" /> -->
                 </a>
                 <div class="my-3">
                     <h5>{{item.roomNumber}}</h5>
-                    <p class="text-muted">{{item.facilities[0].name}}</p>
+                    <p class="text-muted">{{item.facilities[1].name}}</p>
                 </div>
 
             </div>
@@ -37,6 +39,7 @@
                 <a [routerLink]="['/landingPage/home/rooms', adsItem._id]">
                     <h5 class="card-disc text-whiteColor">{{adsItem.room.discount | currency: 'USD'}} <span>{{'per night'|translate}}</span></h5>
                     <img [src]="adsItem.room.images[0] || 'assets/images/most-picked-2.jpg' " class="w-100 h-75 " alt="" />
+                    <!-- <img *ngIf="!adsItem.images[0]" src="assets/images/dummy.jpg" class="w-100 h-75 " alt="" /> -->
                 </a>
                 <div class="my-3">
                     <h5>{{adsItem.room.roomNumber}}</h5>
