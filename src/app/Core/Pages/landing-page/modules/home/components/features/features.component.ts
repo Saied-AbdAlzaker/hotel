@@ -16,7 +16,7 @@ export class FeaturesComponent implements OnInit {
   AdsResponse: IAdsUserDetails | undefined;
   AdsData: IAdsUser[] | any;
   pageNumber: number = 1;
-  pageSize: number = 5;
+  pageSize: number = 4;
 
   constructor(private _HomeService: HomeService, private el: ElementRef, public _HelperService:HelperService ) { }
 
@@ -38,8 +38,8 @@ export class FeaturesComponent implements OnInit {
     }
     this._HomeService.getAllRooms(params).subscribe({
       next: (res) => {
-        this.roomRespnse = res;
-        this.roomsData = this.roomRespnse?.data.rooms;
+        // this.roomRespnse = res;
+        this.roomsData = res.data.rooms;
 
       }
     })
@@ -48,8 +48,8 @@ export class FeaturesComponent implements OnInit {
   getAllads() {
     this._HomeService.getAllAds().subscribe({
       next: (res) => {
-        this.AdsResponse = res.data.ads;
-        this.AdsData = this.AdsResponse;
+        this.AdsData = res.data.ads;
+        // this. = this.AdsResponse;
 
       }
     })

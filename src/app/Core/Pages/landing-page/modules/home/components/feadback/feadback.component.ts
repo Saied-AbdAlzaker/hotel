@@ -26,7 +26,7 @@ export class FeadbackComponent {
 
   }
 ngOnInit(): void {
-  this.getAllComments();
+  // this.getAllComments();
 }
 
 
