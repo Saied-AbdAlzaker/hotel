@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { FormBuilder, UntypedFormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StripeCardElementOptions, StripeElementsOptions } from '@stripe/stripe-js';
 import { injectStripe, StripeCardComponent, StripeElementsDirective, StripeFactoryService} from 'ngx-stripe';
+import { UserBookingService } from '../../services/userBooking.service';
+import { IBooking } from '../../models/booking';
 
 
 @Component({
@@ -12,12 +14,39 @@ import { injectStripe, StripeCardComponent, StripeElementsDirective, StripeFacto
 })
 export class BookingComponent implements OnInit{
   @ViewChild(StripeCardComponent) cardElement!: StripeCardComponent;
-  constructor(private factoryService: StripeFactoryService, private _formBuilder: FormBuilder,
-      private router:Router
-    ) {}
+  bookingId:string='';
+  token:string='';
+  bookingDetails:IBooking|undefined;
+  constructor(
+      private factoryService: StripeFactoryService, 
+      private _formBuilder: FormBuilder,
+      private router:Router,
+      private ActivatedRoute : ActivatedRoute,
+      private _UserBookingService:UserBookingService
+  ){
+      this.ActivatedRoute.queryParams.subscribe((params) => {
+        this.bookingId = params['_id'];
+      });
+    }
   ngOnInit(){
+    this.getBookingDetails()
   }
-  // private readonly fb = inject(UntypedFormBuilder);
+  getBookingDetails(){
+    this._UserBookingService.onGetBookingDetails(this.bookingId).subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.bookingDetails=res.data.booking
+        this.bookingId=res.data.booking._id
+      }
+    })
+  }
+  paySubmit(token:string){
+    this._UserBookingService.onPay(this.bookingId,token).subscribe({
+      next:(res)=>{
+        console.log(res);
+      }
+    })
+  }
   cardOptions: StripeCardElementOptions = {
     style: {
       base: {
@@ -36,12 +65,6 @@ export class BookingComponent implements OnInit{
     locale: 'en'
   };
 
-  // checkoutForm = this.fb.group({
-  //   name: ['', [Validators.required]],
-  //   email: ['', [Validators.required, Validators.email]]
-  // });
-
-  // Replace with your own public key
   stripe = injectStripe('pk_test_51OTjURBQWp069pqTmqhKZHNNd3kMf9TTynJtLJQIJDOSYcGM7xz3DabzCzE7bTxvuYMY0IX96OHBjsysHEKIrwCK006Mu7mKw8');
 
   createToken() {
@@ -52,6 +75,7 @@ export class BookingComponent implements OnInit{
         if (result.token) {
           // Use the token
           console.log(result.token.id);
+          this.token=result.token.id
         } else if (result.error) {
           // Error creating the token
           console.log(result.error.message);

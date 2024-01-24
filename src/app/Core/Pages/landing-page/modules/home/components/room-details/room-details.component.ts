@@ -86,7 +86,7 @@ export class RoomDetailsComponent implements OnInit {
     this._UserBookingService.onBookingRoom(date.value).subscribe({
       next: (res) => {
         console.log(res);
-        this.bookingId=res.data._id
+        this.bookingId=res.data.booking._id
       },
       error: (err) => {
         console.log(err);
@@ -96,8 +96,9 @@ export class RoomDetailsComponent implements OnInit {
       complete: () => {
         this.toastr.success('pay now to complete booking process', 'Success!');
         this.Router.navigate(['/landingPage/booking']
-        // ,{queryParams: { id : this.bookingId },}
+        ,{queryParams: { _id : this.bookingId },}
         );
+        
       },
     });
   }
