@@ -15,10 +15,13 @@
       </div>
     </div>
 
-    <div class="p-3 w-50 m-auto">
-      <mat-paginator [length]="roomsData?.totalCount" [pageSizeOptions]="[5, 10, 50, 100]"
+
+    <div class="p-5 text-center">
+    <nz-pagination [nzPageIndex]="1" [nzTotal]="50"></nz-pagination> 
+
+      <!-- <mat-paginator [length]="roomsData?.totalCount" [pageSizeOptions]="[5, 10, 50, 100]"
         (page)="handlePageEvent($event)" [pageSize]="roomRespnse?.size" [pageIndex]="pageIndex" aria-label="Select page">
-      </mat-paginator>
+      </mat-paginator> -->
     </div>
   </div>
 </section>
