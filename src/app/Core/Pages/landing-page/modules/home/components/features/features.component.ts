@@ -4,7 +4,6 @@ import { IRoomsUserDetails, IRoomsUser } from '../../models/home';
 import { IAdsUser, IAdsUserDetails } from '../../models/Ads';
 import { HelperService } from 'src/app/Core/services/helper.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-
 @Component({
   selector: 'app-features',
   templateUrl: './features.component.html',

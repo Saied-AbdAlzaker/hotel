@@ -32,6 +32,7 @@ import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { MatMenuModule} from '@angular/material/menu';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -68,7 +69,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatMenuModule,
     NzPopconfirmModule,
     CarouselModule,
-    NzRateModule 
+    NzPaginationModule
   ],
   exports: [
     FormsModule,
@@ -105,7 +106,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatMenuModule,
     NzPopconfirmModule,
     CarouselModule,
-    NzRateModule 
+    NzPaginationModule
   ],
   declarations: [
     SidebarComponent,

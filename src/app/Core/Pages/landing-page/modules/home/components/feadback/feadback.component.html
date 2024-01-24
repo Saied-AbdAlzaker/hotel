@@ -11,41 +11,6 @@
                         </div>
 
                         <div class="col-md-8" [class]="_HelperService.textDir === 'ltr'?'me-auto':'ms-auto'">
-                            <div class="mx-5" >
-                                <h2 class="my-5">{{'feadback.feadback' | translate}}</h2>
-                                <i class="fa-solid fa-star fa-2x mx-1" style="color: #FFCC47;"></i>
-                                <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
-                                <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
-                                <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
-                                <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
-                                <!-- <h5 class="my-2">{{'feadback.feadbackContentOne' | translate}}</h5> -->
-                                <h5 class="my-2"></h5>
-                                <p class="mb-5 text-muted">{{'feadback.feadbackParagraph'| translate}}</p>
-                                <div class="my-3">
-                                    <i class="fa-regular fa-circle-left fa-3x" style="color: #203FC7;"
-                                        data-bs-target="#carouselExample" data-bs-slide="prev"
-                                        [class]="_HelperService.textDir === 'rtl'?'rotate':''"></i>
-                                    <i class="fa-regular fa-circle-right fa-3x mx-5 " style="color: #203FC7;"
-                                        data-bs-target="#carouselExample" data-bs-slide="next"
-                                        [class]="_HelperService.textDir === 'rtl'?'rotate':''"></i>
-                                </div>
-                            </div>
-
-                        </div>
-
-                   
-
-                    </div>
-                </div>
-                <div class="carousel-item ">
-                    <div class="row p-5">
-                        <div class="col-md-4" [class]="_HelperService.textDir === 'ltr'?'ms-auto':'me-auto'">
-                            <div class="image" [class]="_HelperService.textDir === 'rtl'?'rotate':''">
-                                <img src="../../../../../../../../assets/images/image 3.png" class="w-100" alt="">
-                            </div>
-                        </div>
-
-                        <div class="col-md-8" [class]="_HelperService.textDir === 'ltr'?'me-auto':'ms-auto'">
                             <div class="mx-5">
                                 <h2 class="my-5">{{'feadback.feadback' | translate}}</h2>
                                 <i class="fa-solid fa-star fa-2x mx-1" style="color: #FFCC47;"></i>
@@ -53,9 +18,52 @@
                                 <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
                                 <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
                                 <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
-                                <h5 class="my-2">{{'feadback.feadbackContent' | translate}}</h5>
+
                                 <h5 class="my-2">{{'feadback.feadbackContentOne' | translate}}</h5>
                                 <p class="mb-5 text-muted">{{'feadback.feadbackParagraph'| translate}}</p>
+                                
+                                <!-- <div *ngFor="let item of comments">
+                                    <h5 class="my-2">{{item?.comment || 'No Comment'}}</h5>
+                                    <h5 class="my-2">{{'feadback.feadbackContentOne' | translate}}</h5>
+                                    <p class="mb-5 text-muted">{{'feadback.feadbackParagraph'| translate}}</p>
+                                </div> -->
+                                <div class="my-3">
+                                    <i class="fa-regular fa-circle-left fa-3x" style="color: #203FC7;"
+                                        data-bs-target="#carouselExample" data-bs-slide="prev"
+                                        [class]="_HelperService.textDir === 'rtl'?'rotate':''"></i>
+                                    <i class="fa-regular fa-circle-right fa-3x mx-5 " style="color: #203FC7;"
+                                        data-bs-target="#carouselExample" data-bs-slide="next"
+                                        [class]="_HelperService.textDir === 'rtl'?'rotate':''"></i>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class="row p-5">
+                        <div class="col-md-4" [class]="_HelperService.textDir === 'ltr'?'ms-auto':'me-auto'">
+                            <div class="image" [class]="_HelperService.textDir === 'rtl'?'rotate':''">
+                                <img src="../../../../../../../../assets/images/image 3.png" class="w-100" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col-md-8" [class]="_HelperService.textDir === 'ltr'?'me-auto':'ms-auto'">
+                            <div class="mx-5">
+                                <h2 class="my-5">{{'feadback.feadback' | translate}}</h2>
+                                <i class="fa-solid fa-star fa-2x mx-1" style="color: #FFCC47;"></i>
+                                <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
+                                <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
+                                <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
+                                <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
+                                <h5 class="my-2">{{'feadback.feadbackContentOne' | translate}}</h5>
+                                <p class="mb-5 text-muted">{{'feadback.feadbackParagraph'| translate}}</p>
+                                <!-- <div *ngFor="let item of comments">
+                                    <h5 class="my-2">{{item?.comment || 'No Comment'}}</h5>
+                                    <h5 class="my-2">{{'feadback.feadbackContentOne' | translate}}</h5>
+                                    <p class="mb-5 text-muted">{{'feadback.feadbackParagraph'| translate}}</p>
+                                </div> -->
                                 <div class="my-3">
                                     <i class="fa-regular fa-circle-left fa-3x" style="color: #203FC7;"
                                         data-bs-target="#carouselExample" data-bs-slide="prev"
@@ -86,6 +94,14 @@
                                 <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
                                 <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
                                 <i class="fa-solid fa-star fa-2x  mx-1" style="color: #FFCC47;"></i>
+                                <h5 class="my-2">{{'feadback.feadbackContentOne' | translate}}</h5>
+                                <p class="mb-5 text-muted">{{'feadback.feadbackParagraph'| translate}}</p>
+
+                                <!-- <div *ngFor="let item of comments">
+                                    <h5 class="my-2">{{item[1].comment || 'No Comment'}}</h5>
+                                    <h5 class="my-2">{{'feadback.feadbackContentOne' | translate}}</h5>
+                                    <p class="mb-5 text-muted">{{'feadback.feadbackParagraph'| translate}}</p>
+                                </div> -->
 
 
                                 <div class="my-3">
