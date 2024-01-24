@@ -23,16 +23,10 @@
             " routerLinkActive="text-whiteColor"><i [class]="item.icon"></i>
             <span [ngClass]="isOpened ? 'd-none' : ''">{{ item.title }}</span></a>
         </li>
-
-
-
+        <li class="pt-0"><app-dark></app-dark><span [ngClass]="isOpened ? 'd-none pt-0 mt-0' : ''">Dark</span></li>
       </ul>
     </div>
 
   </div>
-  <div class="mx-3 my-5">
-    <app-dark></app-dark>
-  </div>
-
 
 </section>

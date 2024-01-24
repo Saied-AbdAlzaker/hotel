@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-white py-3 shadow-sm">
+<nav class="navbar navbar-expand-lg bg-body-white py-3 shadow-sm" id="nav-land">
     <div class="container">
       <div class="logo text-decoration-none cursor-pointer" [routerLink]="['/landingPage/home']" >Stay<span>cation.</span>
       </div>
@@ -52,6 +52,7 @@
         <button class="outline-primary" (click)="onChangeLang('en')">En</button>
         <button class="outline-primary" (click)="onChangeLang('ar')">Ar</button>
       </div>
+      <span class="ms-2"><app-dark></app-dark></span>
 
     </div>
 
