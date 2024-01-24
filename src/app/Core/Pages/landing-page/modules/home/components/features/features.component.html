@@ -3,7 +3,7 @@
 
         <div class="row">
             <h3>{{'features.features-work!'|translate}}</h3>
-            <div class="col-md position-relative" *ngFor="let item of roomsData">
+            <div class="col-md position-relative " *ngFor="let item of roomsData">
                 <a [routerLink]="['/landingPage/home/rooms', item._id]">
                     <h5 class="card-disc text-whiteColor">{{item.discount | currency: 'USD'}} <span>{{'per night'|translate}}</span></h5>
                     <img [src]="item.images[0] || 'assets/images/most-picked-2.jpg' " class="w-100 h-75 " alt="" />
@@ -35,38 +35,26 @@
 
         <div class="row">
             <h3 class="mt-5">{{'features.title'|translate}}</h3>
-            <div class="col-md position-relative" *ngFor="let adsItem of AdsData">
-                <a [routerLink]="['/landingPage/home/rooms', adsItem._id]">
-                    <h5 class="card-disc text-whiteColor">{{adsItem.room.discount | currency: 'USD'}} <span>{{'per night'|translate}}</span></h5>
-                    <img [src]="adsItem.room.images[0] || 'assets/images/most-picked-2.jpg' " class="w-100 h-75 " alt="" />
-                    <!-- <img *ngIf="!adsItem.images[0]" src="assets/images/dummy.jpg" class="w-100 h-75 " alt="" /> -->
-                </a>
-                <div class="my-3">
-                    <h5>{{adsItem.room.roomNumber}}</h5>
-                    <p class="text-muted">{{adsItem.room.price}}</p>
-                </div>
-
+            <div class="col-md position-relative">
+                <owl-carousel-o [options]="customOptions">
+                    <ng-template *ngFor="let adsItem of AdsData" carouselSlide>
+                        <a class="vh-25" [routerLink]="['/landingPage/home/rooms', adsItem._id]">
+                            <h5 class="card-disc text-whiteColor">
+                                {{adsItem.room.discount | currency: 'USD'}} 
+                                <span>{{'per night'|translate}}</span>
+                            </h5>
+                            <img [src]="adsItem.room.images[0] || 'assets/images/most-picked-2.jpg'" 
+                            class="img-fluid w-100 h-100 " alt="" />
+                        </a>
+                        <div class="my-3">
+                            <h5>{{adsItem.room.roomNumber}}</h5>
+                            <p class="text-muted">{{adsItem.room.price}}</p>
+                        </div>
+                    </ng-template>  
+                  </owl-carousel-o>
             </div>
-        </div>
+        </div>
 
+     
     </div>
-
 </section>
-
-
-<!-- <div class="mt-2">
-                <h5 class="$text-secondryColor">{{'features.town'|translate}}</h5>
-                <p class="$bg-colorGray">{{'features.town-paragh'|translate}}</p>
-            </div> -->
-
-
-<!-- <div class="my-2">
-                    <h5 class="$text-secondryColor">{{'features.Park'|translate}}</h5>
-                    <p class="$bg-colorGray">{{'features.Park-paragh'|translate}}</p>
-                </div> -->
-
-
-<!-- <div class="mt-2">
-                    <h5 class="$text-secondryColor">{{'features.Wood'|translate}}</h5>
-                    <p class="$bg-colorGray">{{'features.Wood-paragh'|translate}}</p>
-                </div> -->

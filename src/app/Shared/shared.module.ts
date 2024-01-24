@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NzRateModule } from 'ng-zorro-antd/rate';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -35,6 +36,8 @@ import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 
 @NgModule({
   imports: [
@@ -64,8 +67,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NzSelectModule,
     TranslateModule,
     MatMenuModule,
-    NzPopconfirmModule,
-    NzPaginationModule
+    NzPopconfirmModule
   ],
   exports: [
     FormsModule,
@@ -100,8 +102,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NzTimelineModule,
     NzSelectModule,
     MatMenuModule,
-    NzPopconfirmModule,
-    NzPaginationModule
+    NzPopconfirmModule
   ],
   declarations: [
     SidebarComponent,

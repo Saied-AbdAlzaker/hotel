@@ -6,17 +6,21 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { NzDatePickerComponent } from 'ng-zorro-antd/date-picker';
 import { HomeService } from '../../services/home.service';
+import { IRoomsUser } from '../../models/home';
+import { IFacilities } from 'src/app/Core/Pages/dashboard/Modules/rooms/model/room';
 
 @Component({
   selector: 'app-room-details',
   templateUrl: './room-details.component.html',
+
   styleUrls: ['./room-details.component.scss'],
 })
 export class RoomDetailsComponent implements OnInit {
-  roomDetails: any;
+  roomDetails: IRoomsUser|undefined;
   roomId: string | any = this._ActivatedRoute.snapshot.params['id'];
-  roomImages: any[] = [];
-  roomFacilities: any[] = [];
+  roomImages: string[] = [];
+  roomFacilities: IFacilities[] |undefined= [];
+  roomDiscount: any;
   bookingId: string = '';
   comments: any;
   startValue: Date | any = null;
@@ -24,6 +28,7 @@ export class RoomDetailsComponent implements OnInit {
   dateRange: Date[] = [];
   totalPrice: number | any;
   priceRoom: number | any = 0;
+  Reviews:any;
   @ViewChild('endDatePicker') endDatePicker!: NzDatePickerComponent;
   bookingForm = new FormGroup({
     startDate: new FormControl(null, [Validators.required]),
@@ -36,6 +41,13 @@ export class RoomDetailsComponent implements OnInit {
     roomId: new FormControl(this.roomId),
     comment: new FormControl(null),
   })
+  Addreview = new FormGroup({
+    roomId: new FormControl(this.roomId),
+    rating:new FormControl(null),
+    review: new FormControl(null),
+  })
+  
+
   constructor(
     private _HomeService: HomeService,
     public _HelperService: HelperService,
@@ -45,7 +57,6 @@ export class RoomDetailsComponent implements OnInit {
     private Router: Router
   ) {
     this.roomId = this._ActivatedRoute.snapshot.params['id'];
-
   }
 
   ngOnInit(): void {
@@ -58,8 +69,9 @@ export class RoomDetailsComponent implements OnInit {
         console.log(res);
         this.roomDetails = res.data.room;
         this.roomImages = res.data.room.images;
-        this.roomFacilities = this.roomDetails.facilities;
-        this.priceRoom = this.roomDetails.price;
+        this.roomFacilities = this.roomDetails?.facilities;
+        this.priceRoom = this.roomDetails?.price;
+        this.roomDiscount = this.roomDetails?.discount
       },
     });
   }
@@ -79,6 +91,29 @@ export class RoomDetailsComponent implements OnInit {
         this.Router.navigate(['/landingPage/booking']);
       },
     });
+  }
+  
+  getAllReview(){
+    this._HomeService.getAllReviews(this.roomId).subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.Reviews=res.data.roomReviews;
+      }
+      
+    })
+  }
+  AddReview(data:FormGroup){
+    this._HomeService.Addreview(data.value).subscribe({
+      next:(res)=>{
+        console.log(res);
+        
+      },error:(err)=>{
+        this.toastr.error('Login First','Error')
+      },complete:()=>{
+        this.toastr.success('Reviewed Successfully')
+        this.getAllReview()
+      }
+    })
   }
 
   disabledStartDate = (startValue: Date): boolean => {
@@ -117,7 +152,7 @@ export class RoomDetailsComponent implements OnInit {
     }
 
     console.log(this.dateRange);
-    this.totalPrice = this.dateRange.length * this.priceRoom;
+    this.totalPrice = this.dateRange.length * (this.priceRoom-this.roomDiscount);
     console.log(this.totalPrice);
 
     this.bookingForm.patchValue({

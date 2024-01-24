@@ -3,7 +3,13 @@
 @import "~ng-zorro-antd/timeline/style/index.min.css";
 @import "~ng-zorro-antd/select/style/index.min.css";
 @import "~ng-zorro-antd/popconfirm/style/index.min.css";
+
 @import "~ng-zorro-antd/pagination/style/index.min.css";
+
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import "~ng-zorro-antd/rate/style/index.min.css";
+
 
 @import "./abstracts/components/auth.scss";
 @import "./abstracts/components/home.scss";
