@@ -12,6 +12,7 @@ import { IFacilities } from 'src/app/Core/Pages/dashboard/Modules/rooms/model/ro
 @Component({
   selector: 'app-room-details',
   templateUrl: './room-details.component.html',
+
   styleUrls: ['./room-details.component.scss'],
 })
 export class RoomDetailsComponent implements OnInit {
@@ -27,6 +28,7 @@ export class RoomDetailsComponent implements OnInit {
   dateRange: Date[] = [];
   totalPrice: number | any;
   priceRoom: number | any = 0;
+  Reviews:any;
   @ViewChild('endDatePicker') endDatePicker!: NzDatePickerComponent;
   bookingForm = new FormGroup({
     startDate: new FormControl(null, [Validators.required]),
@@ -39,6 +41,13 @@ export class RoomDetailsComponent implements OnInit {
     roomId: new FormControl(this.roomId),
     comment: new FormControl(null),
   })
+  Addreview = new FormGroup({
+    roomId: new FormControl(this.roomId),
+    rating:new FormControl(null),
+    review: new FormControl(null),
+  })
+  
+
   constructor(
     private _HomeService: HomeService,
     public _HelperService: HelperService,
@@ -82,6 +91,29 @@ export class RoomDetailsComponent implements OnInit {
         this.Router.navigate(['/landingPage/booking']);
       },
     });
+  }
+  
+  getAllReview(){
+    this._HomeService.getAllReviews(this.roomId).subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.Reviews=res.data.roomReviews;
+      }
+      
+    })
+  }
+  AddReview(data:FormGroup){
+    this._HomeService.Addreview(data.value).subscribe({
+      next:(res)=>{
+        console.log(res);
+        
+      },error:(err)=>{
+        this.toastr.error('Login First','Error')
+      },complete:()=>{
+        this.toastr.success('Reviewed Successfully')
+        this.getAllReview()
+      }
+    })
   }
 
   disabledStartDate = (startValue: Date): boolean => {

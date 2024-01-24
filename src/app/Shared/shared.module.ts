@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NzRateModule } from 'ng-zorro-antd/rate';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -67,6 +68,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatMenuModule,
     NzPopconfirmModule,
     CarouselModule
+    NzRateModule 
   ],
   exports: [
     FormsModule,
@@ -103,6 +105,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatMenuModule,
     NzPopconfirmModule,
     CarouselModule
+    NzRateModule 
   ],
   declarations: [
     SidebarComponent,

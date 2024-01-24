@@ -22,6 +22,14 @@ export class AddEditRoomComponent implements OnInit {
   facilityId: any[] | undefined = [];
   roomData: any;
 
+  // Form
+  roomForm = new FormGroup({
+   roomNumber: new FormControl(null, [Validators.required]),
+   price: new FormControl(null, [Validators.required]),
+   capacity: new FormControl(null, [Validators.required]),
+   discount: new FormControl(null, [Validators.required]),
+   facilities: new FormControl(null, [Validators.required]),
+ })
   constructor(
     private _RoomsService: RoomsService,
     private toastr: ToastrService,
@@ -53,15 +61,6 @@ export class AddEditRoomComponent implements OnInit {
 
   }
 
-   // Form
-   roomForm = new FormGroup({
-    roomNumber: new FormControl(null, [Validators.required]),
-    // imgs: new FormControl(null,[Validators.required]),
-    price: new FormControl(null, [Validators.required]),
-    capacity: new FormControl(null, [Validators.required]),
-    discount: new FormControl(null, [Validators.required]),
-    facilities: new FormControl(null, [Validators.required]),
-  })
 
   // Disable Formm
   disableFormControls() {
@@ -95,9 +94,14 @@ export class AddEditRoomComponent implements OnInit {
     myData.append('capacity', data.value.capacity);
     myData.append('discount', data.value.discount);
     for (const f of data.value.facilities) {
-      myData.append('facilities', f);
+      myData.append('facilities', f._id); //not f its f._id
     }
-    myData.append('imgs', this.imgSrc, this.imgSrc.name);
+    // myData.append('imgs', this.imgSrc, this.imgSrc.name);
+    for (const m of this.imgSrc) {
+      myData.append('imgs', m, m.name);
+    }
+    console.log(this.imgSrc)
+    console.log(data.value);
     if (this.RoomsId) {
       this._RoomsService.editRooms(myData, this.RoomsId).subscribe({
         next: (res) => {
@@ -156,13 +160,13 @@ export class AddEditRoomComponent implements OnInit {
           // }
         };
         console.log(this.facilities);
-        this.imgSrc = 'http://upskilling-egypt.com:3000/' + this.roomData?.imgs,
+        this.imgSrc = this.roomData?.images,
         this.roomForm.patchValue({
           roomNumber: this.roomData?.roomNumber,
           price: this.roomData?.price,
           capacity: this.roomData?.capacity,
           discount: this.roomData?.discount,
-          facilities: this.facilities
+          facilities: this.roomData.facilities
         });
       }
     }
@@ -174,7 +178,7 @@ export class AddEditRoomComponent implements OnInit {
 
 onSelect(event:any) {
   console.log(event);
-  this.imgSrc= event.addedFiles[0];
+  this.imgSrc= event.addedFiles;
   this.files.push(...event.addedFiles);
 }
 

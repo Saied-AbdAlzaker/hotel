@@ -65,7 +65,7 @@ export class MostPickedComponent implements OnInit {
     });
   }
   cancel(): void {
-    this.nzMessageService.info('click cancel');
+    // this.nzMessageService.info('click cancel');
   }
 
   confirm(): void {
