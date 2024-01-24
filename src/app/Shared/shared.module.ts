@@ -35,6 +35,8 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 
 @NgModule({
   imports: [
@@ -65,6 +67,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     TranslateModule,
     MatMenuModule,
     NzPopconfirmModule,
+    CarouselModule
     NzRateModule 
   ],
   exports: [
@@ -101,6 +104,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NzSelectModule,
     MatMenuModule,
     NzPopconfirmModule,
+    CarouselModule
     NzRateModule 
   ],
   declarations: [
