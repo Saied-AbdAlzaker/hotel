@@ -67,7 +67,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     NzSelectModule,
     TranslateModule,
     MatMenuModule,
-    NzPopconfirmModule
+    NzPopconfirmModule,
+    CarouselModule,
+    NzPaginationModule
   ],
   exports: [
     FormsModule,
@@ -102,7 +104,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     NzTimelineModule,
     NzSelectModule,
     MatMenuModule,
-    NzPopconfirmModule
+    NzPopconfirmModule,
+    CarouselModule,
+    NzPaginationModule
   ],
   declarations: [
     SidebarComponent,
