@@ -41,7 +41,7 @@ export class HeaderComponent {
     this.count++
   }
   countDown(){
-    if(this.count>=1){
+    if(this.count>1){
       this.count--
     }
   }
