@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NzRateModule } from 'ng-zorro-antd/rate';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -63,7 +64,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NzSelectModule,
     TranslateModule,
     MatMenuModule,
-    NzPopconfirmModule
+    NzPopconfirmModule,
+    NzRateModule 
   ],
   exports: [
     FormsModule,
@@ -98,7 +100,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NzTimelineModule,
     NzSelectModule,
     MatMenuModule,
-    NzPopconfirmModule
+    NzPopconfirmModule,
+    NzRateModule 
   ],
   declarations: [
     SidebarComponent,
