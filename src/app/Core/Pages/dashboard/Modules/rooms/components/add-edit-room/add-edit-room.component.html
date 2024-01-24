@@ -58,7 +58,7 @@
               <label *ngIf="isEditMode || isViewMode" for="facilities">Facilities</label>
               <nz-select class="w-100" formControlName="facilities" nzValue="large" [nzMaxTagCount]="2"
                 [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple" nzPlaceHolder="facilites">
-                <nz-option *ngFor="let item of facilities" [nzLabel]="item.name" [nzValue]="item._id"></nz-option>
+                <nz-option *ngFor="let item of facilities" [nzLabel]="item.name" [nzValue]="item"></nz-option>
               </nz-select>
               <ng-template #tagPlaceHolder let-selectedList>and {{ selectedList.length }} more selected</ng-template>
               <span class="text-danger mb-3" *ngIf="
@@ -101,13 +101,17 @@
                 Upload
               </ngx-dropzone-label>
               <ngx-dropzone-label *ngIf="imgSrc">
-                <img [src]="imgSrc" class="w-50" alt="" />
+                <ng-container  *ngFor="let item of imgSrc" >
+                  <img [src]="item" class="w-25 px-1 img-thumbnail" alt=""/>
+
+                </ng-container>
+
               </ngx-dropzone-label>
               <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
                 [removable]="true" (removed)="onRemove(f)">
               </ngx-dropzone-image-preview>
             </ngx-dropzone>
-    
+
           </div>
           <div class="d-flex justify-content-end align-items-end mt-5">
             <button type="button" routerLink="/dashboard/rooms" class="btn outline-primary w-25">
