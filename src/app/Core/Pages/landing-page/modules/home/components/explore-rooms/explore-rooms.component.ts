@@ -43,13 +43,16 @@ export class ExploreRoomsComponent implements OnInit {
     this.pageSize = e.pageSize;
     this.pageNumber = e.pageIndex + 1;
     this.getAllRooms();
+
+    console.log(e);
+    
   }
 
 
-  handlePageEvent(e: any) {
-    this.pageSize = e.pageSize;
-    this.pageNumber = e.pageIndex + 1;
-    this.getAllRooms();
-  }
+  // handlePageEvent(e: any) {
+  //   this.pageSize = e.pageSize;
+  //   this.pageNumber = e.pageIndex + 1;
+  //   this.getAllRooms();
+  // }
 
 }
