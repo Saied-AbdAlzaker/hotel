@@ -25,7 +25,7 @@ export class HomeService {
   getAllComments(id:string):Observable<any>{
     return this._HttpClient.get(`portal/room-comments/${id}`)
   }
-  
+
   //create comment
   Addcomment(data: any): Observable<any> {
     return this._HttpClient.post('portal/room-comments', data)
@@ -38,5 +38,10 @@ export class HomeService {
   }
   Addreview(data: any): Observable<any> {
     return this._HttpClient.post('portal/room-reviews', data)
+  }
+
+  //get user profile
+  getUserById(id: string): Observable<any> {
+    return this._HttpClient.get(`portal/users//${id}`)
   }
 }
