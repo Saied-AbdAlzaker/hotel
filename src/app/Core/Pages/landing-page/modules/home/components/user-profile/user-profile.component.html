@@ -1,0 +1,98 @@
+<section id="user-pro">
+  <div class="container-fluid">
+    <div class="back-ground">
+      <img
+        src="../../../../../../../../assets/images/cover-profile.jpeg"
+        class="img-fluid"
+        alt=""
+      />
+    </div>
+    <div class="container px-5">
+      <div class="user-details d-flex flex-column flex-md-row gap-5">
+        <div class="">
+          <img
+            src="../../../../../../../../assets/images/avatar-dummy.jpg"
+            class="img-fluid rounded-circle shadow-sm"
+            alt=""
+          />
+          <!-- <img
+          *ngIf="!userProfile?.profileImage"
+            src="../../../../../../../../assets/images/avatar-dummy.jpg"
+            class="img-fluid rounded-circle shadow-sm"
+            alt=""
+          />
+          <img
+          *ngIf="userProfile?.profileImage"
+          [src]="userProfile.profileImage"
+          class="img-fluid rounded-circle shadow-sm"
+          alt=""
+        /> -->
+        </div>
+        <div class="align-self-end mb-5">
+          <h3>{{ userProfile.userName }}</h3>
+          <p>Welcome in Your profile, see your activites</p>
+          <!-- <div class="d-flex gap-2">
+            <p>email</p>
+            <p>phoneNumber</p>
+            <p>country</p>
+          </div> -->
+        </div>
+      </div>
+      <div>
+        <div class="row my-5 justify-content-between">
+          <div class="col-lg-3 card-profile py-5 px-4">
+            <p><i class="fa-solid fa-envelope text-secondryColor p-2"></i> <span class="p-1"> {{ userProfile.email }} </span></p>
+            <p>
+              <i class="fa-solid fa-phone text-secondryColor p-2"></i> <span class="p-1"> {{ '0'+userProfile.phoneNumber }} </span>
+            </p>
+            <p><i class="fa-solid fa-globe text-secondryColor p-2"></i> <span class="p-1"> {{ userProfile.country }} </span></p>
+
+            <button
+              class="primary btn w-100"
+              (click)="openDialogCahngePassword()"
+            >
+              <span><i class="fa-solid fa-lock me-2"></i></span> Change Password
+            </button>
+          </div>
+          <div class="col-lg-6 card-profile p-5">
+
+            <div>
+              <h4>Your Bookings:</h4>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non
+                nulla ea similique ipsum. Quisquam, qui corrupti quasi ratione
+                rem maxime error culpa dolores voluptatem debitis totam facere
+                atque illo nobis.
+              </p>
+            </div>
+            <div>
+              <h4>Your Rates:</h4>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non
+                nulla ea similique ipsum. Quisquam, qui corrupti quasi ratione
+                rem maxime error culpa dolores voluptatem debitis totam facere
+                atque illo nobis.
+              </p>
+            </div>
+            <div>
+              <h4>Your Reviews:</h4>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non
+                nulla ea similique ipsum. Quisquam, qui corrupti quasi ratione
+                rem maxime error culpa dolores voluptatem debitis totam facere
+                atque illo nobis.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-2 card-profile p-5">
+            <h4>Our Ads:</h4>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non
+              nulla ea similique ipsum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
