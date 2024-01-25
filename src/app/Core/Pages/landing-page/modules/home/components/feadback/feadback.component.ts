@@ -15,6 +15,8 @@ export class FeadbackComponent {
   roomImages:any[]=[];
   roomFacilities:any[]=[];
   comments: any;
+  Reviews:any;
+  rate:number=0;
 
   comment:any;
   constructor(public _HelperService:HelperService,private _HomeService:HomeService,
@@ -24,19 +26,9 @@ export class FeadbackComponent {
 
   }
 ngOnInit(): void {
-  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-  //Add 'implements OnInit' to the class.
   this.getAllComments();
 }
-getRoomDetails(id:string){
-  this._HomeService.onGetRoomDetails(id).subscribe({
-    next:(res)=>{
-      this.roomDetails=res.data.room;
-      this.roomImages=res.data.room.images
-      this.roomFacilities=this.roomDetails.facilities      
-    }
-  })
-}
+
 
 getAllComments(){
   this._HomeService.getAllComments(this.roomId).subscribe({
@@ -46,6 +38,17 @@ getAllComments(){
       console.log(this.comments);
 
      }
+  })
+}
+
+getAllReviews(){
+  this._HomeService.getAllReviews(this.roomId).subscribe({
+    next:(res)=>{
+      console.log(res);
+      this.Reviews=res.data.roomReviews;
+      this.rate=this.Reviews[0]?.rating        
+    }
+    
   })
 }
 

@@ -18,19 +18,19 @@ export class ExploreRoomsComponent implements OnInit {
   roomRespnse: IRoomsUserDetails | undefined;
   roomsData: IRoomsUser[] | any;
 
-    constructor(private _homeService: HomeService, private toastr:ToastrService, public _HelperService:HelperService) { }
+  constructor(private _homeService: HomeService, private toastr: ToastrService, public _HelperService: HelperService) { }
 
   ngOnInit() {
     this.getAllRooms();
   }
 
-  getAllRooms(){
+  getAllRooms() {
     let Params = {
       page: this.pageNumber,
       size: this.pageSize,
     }
     this._homeService.getAllRooms(Params).subscribe({
-      next: (res)=>{
+      next: (res) => {
         this.roomRespnse = res.data;
         this.roomsData = res.data.rooms;
         console.log(this.roomsData);
@@ -38,12 +38,18 @@ export class ExploreRoomsComponent implements OnInit {
     })
   }
 
-  
 
-  // handlePageEvent(e: any) {
-  //   this.pageSize = e.pageSize;
-  //   this.pageNumber = e.pageIndex + 1;
-  //   this.getAllRooms();
-  // }
+  onPageIndexChange(e: any) {
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex + 1;
+    this.getAllRooms();
+  }
+
+
+  handlePageEvent(e: any) {
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex + 1;
+    this.getAllRooms();
+  }
 
 }
