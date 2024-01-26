@@ -1,37 +1,56 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { IChangePassword } from 'src/app/Shared/models/iuser-admin';
 import { ChangePasswordComponent } from 'src/app/Shared/navbar/components/change-password/change-password.component';
 import { HomeService } from '../../services/home.service';
-import { IUserProfile } from '../../models/home';
+import {
+  IMyBookings,
+  IRoomsUser,
+  IUserProfile,
+  MyBookingsResponse,
+} from '../../models/home';
 import { UsersService } from 'src/app/Core/Pages/dashboard/Modules/users/services/users.service';
+import { RoomDetailsComponent } from '../room-details/room-details.component';
+import { IFacilities } from 'src/app/Core/Pages/dashboard/Modules/rooms/model/room';
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss'],
 })
-export class UserProfileComponent implements OnInit{
+export class UserProfileComponent implements OnInit,AfterViewInit {
   userId: any = localStorage.getItem('userId');
   userProfile: IUserProfile | any;
-
+  mybookingsResponse: MyBookingsResponse | any;
+  mybookingsData: IMyBookings[] | any;
+  bookingsId: string[] =[];
+  roomDetails: IRoomsUser|undefined;
+  roomImages: string[] = [];
+  roomFacilities: IFacilities[] |undefined= [];
+  roomDiscount: any;
+  // @ViewChild(RoomDetailsComponent) roomDetails: RoomDetailsComponent | any;
   constructor(
     public dialog: MatDialog,
     private toastr: ToastrService,
     private _homeService: HomeService,
-    private _UsersService:UsersService,
-
+    private _UsersService: UsersService
   ) {}
 
   ngOnInit(): void {
     this.getUserProfile(this.userId);
+    this.getAllMyBookings();
+    // this.mybookingsData.forEach((element: IMyBookings) => {
+      // });
+    }
+    ngAfterViewInit() {
+    // this.roomDetails.getRoomDetails(this.mybookingsData[0].roomId)
+    // child is set
   }
-
   getUserProfile(id: string) {
     this._homeService.getUserById(id).subscribe({
       next: (res) => {
-        this.userProfile= res.data.user;
+        this.userProfile = res.data.user;
         console.log(this.userProfile);
       },
     });
@@ -46,23 +65,51 @@ export class UserProfileComponent implements OnInit{
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       if (result) {
-        this.changePasswordAdmin(result);
+        console.log(result)
       }
     });
   }
 
-  changePasswordAdmin(data: IChangePassword) {
-    // this._userAdminService.onChangePassword(data).subscribe({
-    //   next: (res) => {
-    //     console.log(res);
-    //   },
-    //   error: (err: any) => {
-    //     console.log(err.error.message);
-    //     this.toastr.error(err.error.message, 'error!');
-    //   },
-    //   complete: () => {
-    //     this.toastr.success('Password has been updated successfully', 'Done');
-    //   },
-    // });
+
+  getAllMyBookings() {
+    return this._homeService.getAllMyBookings().subscribe({
+      next: (res) => {
+        this.mybookingsResponse = res;
+        this.mybookingsData = this.mybookingsResponse.data.myBooking;
+        this.mybookingsData.forEach((booking: IMyBookings) => {
+          this._homeService.onGetRoomDetails(booking.room).subscribe({
+            next:(res)=>{
+              this.roomDetails = res.data.room;
+              this.roomImages = res.data.room.images;
+              booking.roomImage= this.roomImages;
+              console.log(booking.roomImage);
+              this.roomFacilities = this.roomDetails?.facilities;
+              this.roomDiscount = this.roomDetails?.discount
+            }
+          })
+        });
+        console.log(this.mybookingsData);
+        console.log(this.bookingsId);
+
+      },
+    });
+  }
+  getBookingDetails(bookingId: string) {
+    return this._homeService.getBookingDetails(bookingId).subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+    });
+  }
+  getRoomDetails(id: string) {
+    this._homeService.onGetRoomDetails(id).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.roomDetails = res.data.room;
+        this.roomImages = res.data.room.images;
+        this.roomFacilities = this.roomDetails?.facilities;
+        this.roomDiscount = this.roomDetails?.discount
+      },
+    });
   }
 }

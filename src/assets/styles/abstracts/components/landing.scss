@@ -218,11 +218,22 @@
     .card-profile {
       background-color: $bg-whiteColorTable;
       border-radius: 20px;
+      @media (min-width: 999px) {
+      &.position-z{
+          position: sticky;
+          top: 20px;
+          z-index: 20;
+        }
+      }
       p{
         span{
           border-left: 2px solid rgba($text-secondryColor,.7);
         }
       }
+      .card{
+        border-radius: 20px;
+      }
+
     }
   }
 }

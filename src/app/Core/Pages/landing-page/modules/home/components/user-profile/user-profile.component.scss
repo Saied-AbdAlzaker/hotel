@@ -1,1 +1,4 @@
 @import "/src/assets/styles/layout.scss";
+.ant-picker-input>input[disabled]{
+  color: aqua;
+}
