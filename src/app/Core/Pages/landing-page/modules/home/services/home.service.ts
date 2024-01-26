@@ -16,7 +16,7 @@ export class HomeService {
     return this._HttpClient.get(`portal/rooms/${id}`);
   }
   // All Rooms
-  getAllRooms(params: Params): Observable<any> {
+  getAllRooms(params: any): Observable<any> {
     return this._HttpClient.get('portal/rooms/available', { params: params });
   }
   // All Ads

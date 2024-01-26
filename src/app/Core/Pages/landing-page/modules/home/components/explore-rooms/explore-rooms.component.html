@@ -3,19 +3,22 @@
     <h2 class="text-secondryColor text-center">{{'Explore ALL Rooms' | translate}} </h2>
     <div class="row g-3">
       <h4 class="text-secondryColor">{{'All Rooms' | translate}}</h4>
-      <div class="col-md-4 position-relative" *ngFor="let item of roomsData">
-        <a [routerLink]="['/landingPage/home/rooms/', item._id]">
-          <h5 class="card-disc text-whiteColor">{{item.discount | currency: 'USD'}} <span>{{'per night'|translate}}</span></h5>
-          <img [src]="item.images[0] || 'assets/images/most-picked-2.jpg'" class="w-100 h-100 " alt="">
-          <div class="caption-item" [class]="_HelperService.textDir === 'rtl'?'caption-edit':''">
-            <h5>{{item.roomNumber}}</h5>
-            <h5>{{item.facilities[0].name}}</h5>
-          </div>
-        </a>
-      </div>
+      <ng-container *ngFor="let item of roomsData">
+          <div class="col-md-4 position-relative">
+          <a [routerLink]="['/landingPage/home/rooms/', item._id]">
+            <h5 class="card-disc text-whiteColor">{{item.discount | currency: 'USD'}} <span>{{'per night'|translate}}</span></h5>
+            <img *ngIf="item.images[0]" [src]="item.images[0]" class="w-100 h-100 " alt="">
+            <img *ngIf="!item.images[0]" src="../../../../../../../../assets/images/dummy.jpg" class="w-100 h-100 " alt="">
+            <div class="caption-item" [class]="_HelperService.textDir === 'rtl'?'caption-edit':''">
+              <h5>{{item.roomNumber}}</h5>
+              <h5>{{item.facilities[0].name}}</h5>
+            </div>
+          </a>
+        </div>
+      </ng-container>
+      
+      
     </div>
-
-
     <div class="p-5 text-center">
     <nz-pagination [nzPageIndex]="1" [nzTotal]="50"></nz-pagination> 
 

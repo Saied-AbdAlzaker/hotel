@@ -12,7 +12,7 @@ import { ViewBookingComponent } from './components/view-booking/view-booking/vie
   imports: [
     CommonModule,
     BookingsRoutingModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class BookingsModule { }

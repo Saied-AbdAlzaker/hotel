@@ -33,12 +33,12 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" id="ads">
             <h3 class="mt-5">{{'features.title'|translate}}</h3>
             <div class="col-md position-relative">
                 <owl-carousel-o [options]="customOptions">
                     <ng-template *ngFor="let adsItem of AdsData" carouselSlide>
-                        <a class="vh-25" [routerLink]="['/landingPage/home/rooms', adsItem._id]">
+                        <a [routerLink]="['/landingPage/home/rooms', adsItem._id]">
                             <h5 class="card-disc text-whiteColor">
                                 {{adsItem.room.discount | currency: 'USD'}} 
                                 <span>{{'per night'|translate}}</span>

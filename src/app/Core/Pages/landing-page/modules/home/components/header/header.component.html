@@ -1,16 +1,101 @@
 <section id="header" class="mt-4">
+
+  <!-- [class]="_HelperService.textDir === 'ltr'?'ms-5':'me-5'" -->
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-md-7"
+        [class]="_HelperService.textDir === 'ltr' ? 'me-auto' : 'ms-auto'"
+      >
+        <h2 class="fw-bolder text-secondryColor">
+          {{ "header.Forget Busy Work," | translate }} <br />{{
+            "header.Start Next Vacation" | translate
+          }}
+        </h2>
+        <p class="paragraph">
+          {{
+            "header.We provide what you need to enjoy your holiday with family."
+              | translate
+          }}
+          <br />{{
+            "header.Time to make another memorable moments." | translate
+          }}
+        </p>
+        <div class="booking-section mt-4">
+          <h4 class="text-secondryColor fw-bolder mb-0">
+            {{ "header.Start Booking" | translate }}
+          </h4>
+          <form class="w-50">
+            <div class="form-group mb-3">
+              <label for="date" class="h6 text-secondryColor">{{
+                "header.pick a date" | translate
+              }}</label>
+              <div class="input-group w-100 flex-nowrap">
+                <span
+                  class="input-group-text bg-main"
+                  [class]="_HelperService.textDir === 'rtl' ? 'rotate' : ''"
+                >
+                  <i class="fa-solid fa-calendar-days text-white"></i>
+                </span>
+                <nz-date-picker
+                  class="w-50 py-2"
+                  [nzDisabledDate]="disabledStartDate"
+                  nzFormat="yyyy-MM-dd"
+                  formControlName="startDate"
+                  nzPlaceHolder="Start"
+                  (nzOnOpenChange)="handleStartOpenChange($event)"
+                ></nz-date-picker>
+                <nz-date-picker
+                  class="w-50 py-2"
+                  #endDatePicker
+                  [nzDisabledDate]="disabledEndDate"
+                  nzFormat="yyyy-MM-dd"
+                  formControlName="endDate"
+                  nzPlaceHolder="End"
+                  (nzOnOpenChange)="handleEndOpenChange($event)"
+                ></nz-date-picker>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label for="nights" class="h6 text-secondryColor">
+                {{ "header.Capacity" | translate }}
+              </label>
+              <div class="input-group">
+                <span
+                  class="input-group-text bg-red pointer"
+                  (click)="countDown()"
+                  [class]="_HelperService.textDir === 'rtl' ? 'rotate' : ''"
+                  ><i class="fa-solid fa-minus text-white"></i
+                ></span>
+                <input
+                  id="nights"
+                  type="number"
+                  class="form-control"
+                  [placeholder]="count + ' person'"
+                  aria-label="Dollar amount (with dot and two decimal places)"
+                />
+                <span
+                  (click)="countUp()"
+                  [class]="_HelperService.textDir === 'rtl' ? 'rotate' : ''"
+                  class="input-group-text bg-green pointer"
+                  ><i class="fa-solid fa-plus text-white"></i
+                ></span>
+              </div>
     <!-- [class]="_HelperService.textDir === 'ltr'?'ms-5':'me-5'" -->
     <div class="container">
         <div class="row">
-            <div class="col-md-7" [class]="_HelperService.textDir === 'ltr'?'me-auto':'ms-auto'">
-                <h2 class="fw-bolder text-secondryColor">{{'header.Forget Busy Work,'|translate}}
-                    <br>{{'header.Start Next Vacation'|translate}}</h2>
-                <p class="paragraph">{{'header.We provide what you need to enjoy your holiday with family.'|translate}}
-                    <br>{{'header.Time to make another memorable moments.'|translate}}
-                </p>
-                <div class="booking-section mt-4">
+            <div class="col-md-6 d-flex flex-column justify-content-between" [class]="_HelperService.textDir === 'ltr'?'me-auto':'ms-auto'">
+                <div class="mt-4">
+                    <h2 class="fw-bolder fs-1 mb-2 text-secondryColor">{{'header.Forget Busy Work,'|translate}}
+                        <br>{{'header.Start Next Vacation'|translate}}</h2>
+                    <p class="paragraph">{{'header.We provide what you need to enjoy your holiday with family.'|translate}}
+                        <br>{{'header.Time to make another memorable moments.'|translate}}
+                    </p>
+                </div>
+                
+                <div class="booking-section">
                     <h4 class="text-secondryColor fw-bolder mb-0">{{'header.Start Booking'|translate}}</h4>
-                    <form class="w-50">
+                    <form [formGroup]="exploreForm" (ngSubmit)="explore(exploreForm)" class="w-75">
                         <div class="form-group mb-3">
                             <label for="date" class="h6 text-secondryColor">{{'header.pick a date'|translate}}</label>
                             <div class="input-group  w-100 flex-nowrap">
@@ -41,9 +126,17 @@
                                 {{'header.Capacity'|translate}}
                             </label>
                             <div class="input-group">
-                                <span class="input-group-text bg-red pointer" (click)="countDown()" [class]="_HelperService.textDir === 'rtl'?'rotate':''"><i class="fa-solid fa-minus text-white"></i></span>
-                                <input id="nights" type="number" class="form-control" [placeholder]="count+' person'" aria-label="Dollar amount (with dot and two decimal places)">
-                                <span (click)="countUp()" [class]="_HelperService.textDir === 'rtl'?'rotate':''" class="input-group-text bg-green pointer"><i class="fa-solid fa-plus text-white"></i></span>
+                                <span class="input-group-text bg-red pointer" 
+                                  (click)="countDown()"
+                                  [class]="_HelperService.textDir === 'rtl'?'rotate':''">
+                                  <i class="fa-solid fa-minus text-white"></i>
+                                </span>
+                                <input formControlName="capacity" id="nights" type="number"
+                                 class="form-control" [placeholder]="capacity">
+                                <span (click)="countUp()" 
+                                  [class]="_HelperService.textDir === 'rtl'?'rotate':''"
+                                  class="input-group-text bg-green pointer"><i class="fa-solid fa-plus text-white"></i>
+                                </span>
                             </div>
                         </div>
                         <button class="btn primary mx-2 my-3 w-50">{{'nav.Explore'|translate}}</button>
@@ -51,12 +144,31 @@
                 </div>
                 
             </div>
-            <div class="col-md-5 mt-3"  [class]="_HelperService.textDir === 'ltr'?'ms-auto':'me-auto'">
+            <div class="col-md-6 mt-3"  [class]="_HelperService.textDir === 'ltr'?'ms-auto':'me-auto'">
                 <div class="image m-auto" [class]="_HelperService.textDir === 'rtl'?'rotate':''">
                   <img src="../../../../../../../../assets/images/header.png" class="w-100">
                 </div>
             </div>
+            <button class="btn primary mx-2 my-3 w-50">
+              {{ "nav.Explore" | translate }}
+            </button>
+          </form>
         </div>
+      </div>
+      <div
+        class="col-md-5 mt-3"
+        [class]="_HelperService.textDir === 'ltr' ? 'ms-auto' : 'me-auto'"
+      >
+        <div
+          class="image m-auto"
+          [class]="_HelperService.textDir === 'rtl' ? 'rotate' : ''"
+        >
+          <img
+            src="../../../../../../../../assets/images/header.png"
+            class="w-100"
+          />
+        </div>
+      </div>
     </div>
-    
+  </div>
 </section>
