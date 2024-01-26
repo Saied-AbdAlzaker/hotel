@@ -53,7 +53,6 @@ export class RoomsComponent implements OnInit {
       facilityId: this.facilityId,
       capacity: this.capacityName,
     };
-
     this._roomsService.onGetAllRooms(parms).subscribe({
       next: (res) => {
         console.log(res);

@@ -41,7 +41,8 @@
 }
 
 #most-picked,
-#myFavourite,#features {
+#myFavourite,
+#features {
   .card-item {
     color: white !important;
     position: relative;
@@ -103,15 +104,13 @@
     & > h5 {
       position: absolute;
       top: 0;
-      &.ltr{
+      &.ltr {
         right: 0;
         border-bottom-left-radius: 20px;
-
       }
-      &.rtl{
+      &.rtl {
         left: 0;
         border-bottom-right-radius: 20px;
-
       }
       padding: 10px 20px 10px 20px;
       background-color: $bg-pinkColor;
@@ -128,15 +127,24 @@
       z-index: 20;
       bottom: 0;
       left: 0;
-      &.rtl{
+      &.rtl {
         right: 0;
       }
       padding: 20px;
     }
   }
+  #ads{
+    a{
+      height: 300px !important;
+      margin-right: 10px !important;
+      img{
+        height: 100% !important;
+      }
+    }
+  }
 }
 
-.ant-picker-suffix{
+.ant-picker-suffix {
   // color: $bg-mainColor !important;
   // font-size: 20px !important;
   display: none !important;
@@ -154,7 +162,7 @@
     color: #fff;
     z-index: 20;
     span {
-      font-size: .9rem;
+      font-size: 0.9rem;
       font-style: normal;
       font-weight: 300;
       line-height: 170%;
@@ -183,10 +191,47 @@
       line-height: normal;
     }
   }
-  .caption-edit{
+  .caption-edit {
     position: absolute;
     z-index: 20;
     bottom: 0;
     right: 0;
+  }
+}
+
+#user-pro {
+  .back-ground {
+    background-color: #ffdee9;
+    background-image: linear-gradient(27deg, #ffdee9 0%, #b5fffc 100%);
+    max-height: 250px;
+    overflow: hidden;
+    img {
+      opacity: 0.3;
+    }
+
+    // background-image: url(../../../images/cover-profile.jpeg);
+  }
+  .container {
+    .user-details {
+      margin-top: -8rem;
+      position: relative;
+      z-index: 20;
+      > div {
+        img {
+          border: 0.5rem solid white;
+          width: 17rem;
+          height: 17rem;
+        }
+      }
+    }
+    .card-profile {
+      background-color: $bg-whiteColorTable;
+      border-radius: 20px;
+      p{
+        span{
+          border-left: 2px solid rgba($text-secondryColor,.7);
+        }
+      }
+    }
   }
 }
