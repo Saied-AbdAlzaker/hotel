@@ -13,6 +13,9 @@ import { DatePipe } from '@angular/common';
   providers: [DatePipe],
 })
 export class HeaderComponent implements OnInit {
+  chart: any = [];
+
+  count:number=1;
   startDate: Date | null | string = null;
   endDate: Date | null = null;
   capacity: number = 1;
@@ -26,6 +29,14 @@ export class HeaderComponent implements OnInit {
     capacity: new FormControl(null),
   });
   @ViewChild('endDatePicker') endDatePicker!: NzDatePickerComponent;
+ 
+
+  constructor(public _HelperService:HelperService){}
+  ngOnInit(): void {
+    
+   
+  }
+  
   constructor(
     public _HelperService: HelperService,
     private _HomeService: HomeService,
