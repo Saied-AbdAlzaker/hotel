@@ -1,0 +1,35 @@
+<section id="change-password" class="p-4">
+  <div class="container-fluid">
+    <div class="card-auth">
+      <div class="d-flex justify-content-between gap-5">
+        <div class="header-auth logo mb-0">
+          <h2 class="mb-0">Please register or sign in to continue.</h2>
+          <p >Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div >
+          <span (click)="onNoClick()"><i class="pointer fa-regular fa-circle-xmark text-danger fa-2x position-absolute top-0 right-0 my-4" ></i></span>
+         </div>
+      </div>
+      <div class="inputs-auth my-3 d-flex justify-content-around flex-md-row flex-column">
+
+          <button
+            type="submit"
+            class="primary btn px-5 "
+            (click)="onNoClick()"
+            [routerLink]="['/auth/signin']"
+          >
+            Sign in
+          </button>
+          <button
+          type="submit"
+          class=" btn px-5 outline-primary"
+          (click)="onNoClick()"
+          [routerLink]="['/auth/signup']"
+
+        >
+          Sign up
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

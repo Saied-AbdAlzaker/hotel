@@ -5,7 +5,7 @@ export interface IRoomsUserDetails {
   size: number;
   data: {
     rooms: IRoomsUser[];
-    totalCount: number
+    totalCount: number;
   };
 }
 export interface IRoomsUser {
@@ -19,4 +19,17 @@ export interface IRoomsUser {
   createdAt: Date;
   updatedAt: Date;
   isBooked: boolean;
+}
+
+export interface IUserProfile {
+  country: string;
+  createdAt: Date;
+  email: string;
+  phoneNumber: number;
+  profileImage: string;
+  role: string;
+  updatedAt: Date;
+  userName: string;
+  verified: boolean;
+  _id: string;
 }
