@@ -39,6 +39,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { MustSignComponent } from './must-sign/must-sign.component';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -69,6 +70,7 @@ import { MustSignComponent } from './must-sign/must-sign.component';
     MatMenuModule,
     NzPopconfirmModule,
     CarouselModule,
+    NzRateModule,
     NzPaginationModule
   ],
   exports: [
@@ -106,6 +108,7 @@ import { MustSignComponent } from './must-sign/must-sign.component';
     MatMenuModule,
     NzPopconfirmModule,
     CarouselModule,
+    NzRateModule,
     NzPaginationModule
   ],
   declarations: [
