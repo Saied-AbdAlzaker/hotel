@@ -5,6 +5,7 @@ $text-whiteColor: #FDFFFC;
 $text-greenColor: #1ABC9C;
 $text-blackColor: black;
 $text-blackColorBtn: #1F263E;
+$text-grayColor: #F5F6F8;
 
 $bg-mainColor: #3252DF;
 $bg-secondryColor: #152C5B;
@@ -64,4 +65,7 @@ $transitoon: all 0.3s ease-in;
 }
 .bg-green{
   background: $bg-greenColor;
+}
+.bg-gray{
+  background-color: $text-grayColor;
 }

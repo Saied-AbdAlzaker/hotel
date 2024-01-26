@@ -6,6 +6,7 @@ import {
   StripeElementsDirective,
   StripePaymentElementComponent
 } from 'ngx-stripe';
+
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
