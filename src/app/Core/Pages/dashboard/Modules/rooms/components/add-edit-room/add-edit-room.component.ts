@@ -24,12 +24,12 @@ export class AddEditRoomComponent implements OnInit {
 
   // Form
   roomForm = new FormGroup({
-   roomNumber: new FormControl(null, [Validators.required]),
-   price: new FormControl(null, [Validators.required]),
-   capacity: new FormControl(null, [Validators.required]),
-   discount: new FormControl(null, [Validators.required]),
-   facilities: new FormControl(null, [Validators.required]),
- })
+    roomNumber: new FormControl(null, [Validators.required]),
+    price: new FormControl(null, [Validators.required]),
+    capacity: new FormControl(null, [Validators.required]),
+    discount: new FormControl(null, [Validators.required]),
+    facilities: new FormControl(null, [Validators.required]),
+  })
   constructor(
     private _RoomsService: RoomsService,
     private toastr: ToastrService,
@@ -161,13 +161,13 @@ export class AddEditRoomComponent implements OnInit {
         };
         console.log(this.facilities);
         this.imgSrc = this.roomData?.images,
-        this.roomForm.patchValue({
-          roomNumber: this.roomData?.roomNumber,
-          price: this.roomData?.price,
-          capacity: this.roomData?.capacity,
-          discount: this.roomData?.discount,
-          facilities: this.roomData.facilities
-        });
+          this.roomForm.patchValue({
+            roomNumber: this.roomData?.roomNumber,
+            price: this.roomData?.price,
+            capacity: this.roomData?.capacity,
+            discount: this.roomData?.discount,
+            facilities: this.roomData.facilities
+          });
       }
     }
     )
@@ -176,26 +176,26 @@ export class AddEditRoomComponent implements OnInit {
   // ngx-dropzone
 
 
-onSelect(event:any) {
-  console.log(event);
-  this.imgSrc= event.addedFiles;
-  this.files.push(...event.addedFiles);
-}
-
-onRemove(event:any) {
-  console.log(event);
-  this.files.splice(this.files.indexOf(event), 1);
-}
-onFileChange(event: any) {
-  const file=event.target.files[0];
-  const reader = new FileReader();
-  reader.onloadend = () =>{
-    const base64String = reader.result as string;
-    console.log(base64String);
-
-  };
-  if(file){
-    reader.readAsDataURL(file);
+  onSelect(event: any) {
+    console.log(event);
+    this.imgSrc = event.addedFiles;
+    this.files.push(...event.addedFiles);
   }
-}
+
+  onRemove(event: any) {
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
+  }
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const base64String = reader.result as string;
+      console.log(base64String);
+
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
 }

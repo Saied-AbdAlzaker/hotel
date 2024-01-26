@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NzDatePickerComponent } from 'ng-zorro-antd/date-picker';
 import { HelperService } from 'src/app/Core/services/helper.service';
 
@@ -7,12 +7,21 @@ import { HelperService } from 'src/app/Core/services/helper.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  chart: any = [];
+
   count:number=1;
   startValue: Date | null = null;
   endValue: Date | null = null;
   @ViewChild('endDatePicker') endDatePicker!: NzDatePickerComponent;
+ 
+
   constructor(public _HelperService:HelperService){}
+  ngOnInit(): void {
+    
+   
+  }
+  
   disabledStartDate = (startValue: Date): boolean => {
     if (!startValue || !this.endValue) {
       return false;
