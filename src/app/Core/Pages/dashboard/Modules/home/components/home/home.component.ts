@@ -27,7 +27,6 @@ import { AuthService } from 'src/app/Core/auth/Services/auth.service';
 //   length: any;
 // }
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -35,7 +34,7 @@ import { AuthService } from 'src/app/Core/auth/Services/auth.service';
 })
 export class HomeComponent implements OnInit {
   chart: any = [];
-  data:any;
+  data: any;
   bookingResponse: IBookingsTable | undefined;
   listBookings: IBookings[] = [];
   selectedValue = new Date();
@@ -48,17 +47,17 @@ export class HomeComponent implements OnInit {
   roomsResponse: any;
   roomsData: IRoom[] = [];
   listUses: IlistUser[] | any;
-   usersResponse:  IlistTable = {
-     totalCount: 2,
-     listuser: []
-   };
+  usersResponse: IlistTable = {
+    totalCount: 2,
+    listuser: [],
+  };
   allDates: any[] = [];
   createdDate: TimelineCreatedDate[] = [];
   updatedDate: TimelineUpdatedDate[] = [];
   startedBokkingDate: TimelineStartedDate[] = [];
   endedBookingData: TimelineEndedDate[] = [];
   showMore = true;
-  showMore2=true;
+  showMore2 = true;
   userName: any = localStorage.getItem('userName');
 
   // menu: IMenu[] = [
@@ -100,9 +99,6 @@ export class HomeComponent implements OnInit {
 
   // countUser: number | undefined;
   constructor(
-
-
-
     private _BookingService: BookingService,
     private _adsService: AdsService,
     private dialog: MatDialog,
@@ -110,11 +106,8 @@ export class HomeComponent implements OnInit {
     private _toastrService: ToastrService,
     private _roomsService: RoomsService,
     private _UsersService: UsersService,
-    private  _AuthService:AuthService
-
-  ) {
-
-  }
+    private _AuthService: AuthService
+  ) {}
 
   ngOnInit() {
     this.getAllData();
@@ -128,56 +121,58 @@ export class HomeComponent implements OnInit {
     // console.log(this.updatedDate);
     // console.log(this.startedBokkingDate);
     // console.log(this.endedBookingData);
-    
   }
 
-  getAllData(){
-this._AuthService.ogGetAlldata().subscribe({
-  next:(res)=>{
-    console.log(res);
-    this.data=res.data;
-    console.log(this.data);
-    
-
-    
-  },error:(err)=>{
-    console.log(err);
-    
-    
-  },complete:()=>{
-    this.chart = new Chart('canvas', {
-      type: 'radar',
-      data : {
-        labels: [
-          'users',
-          'admin',
-          'facilities',
-          'bookings-pending',
-          'bookings-complete',
-          'ads',
-          'rooms',
-          
-        ],
-        datasets: [{
-          label: 'My First Dataset',
-          data: [this?.data?.users.user,this?.data?.users.admin,this.data?.facilities,this.data?.bookings.pending,this.data?.bookings.completed,this.data?.ads,this.data?.rooms],
-          fill: true,
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgb(255, 99, 132)',
-          pointBackgroundColor: 'rgb(255, 99, 132)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgb(255, 99, 132)'
-         }]
+  getAllData() {
+    this._AuthService.ogGetAlldata().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.data = res.data;
+        console.log(this.data);
       },
-   
-    
-     
-    })
-
-  }
-  
-})
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        this.chart = new Chart('canvas', {
+          type: 'polarArea',
+          data: {
+            labels: [
+              'users',
+              'admin',
+              'facilities',
+              'bookings-pending',
+              'bookings-complete',
+              'ads',
+              'rooms',
+            ],
+            datasets: [
+              {
+                label: 'My First Dataset',
+                data: [
+                  this?.data?.users.user,
+                  this?.data?.users.admin,
+                  this.data?.facilities,
+                  this.data?.bookings.pending,
+                  this.data?.bookings.completed,
+                  this.data?.ads,
+                  this.data?.rooms,
+                ],
+                backgroundColor: [
+                  'rgb(255, 99, 132)',
+                  'rgb(238, 130, 238)',
+                  'rgb(255, 205, 86)',
+                  'rgb(201, 203, 207)',
+                  'rgb(54, 162, 235)',
+                  'rgb(106, 90, 205)',
+                  'rgb(255, 0, 0)',
+                ],
+              },
+            ],
+          },
+        });
+      },
+    });
   }
   // getAllBookings() {
   //   let params = {};
