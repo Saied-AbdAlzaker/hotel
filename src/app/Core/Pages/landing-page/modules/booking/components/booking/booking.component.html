@@ -186,6 +186,7 @@
     <mat-stepper headerPosition="top" #stepper >
         <!-- step1 -->
         <mat-step>
+            <ng-template matStepLabel>In Progress</ng-template>
             <ng-template matStepContent>
                 <div class="container text-secondryColor">
 
@@ -266,6 +267,7 @@
         </mat-step>
         <!-- step2 -->
         <mat-step>
+            <ng-template matStepLabel>Waiting</ng-template>
             <ng-template matStepContent>
                 <div class="container text-secondryColor">
 
@@ -327,24 +329,19 @@
         </mat-step>
         <!-- step3 -->
         <mat-step>
-            <div class="text-center">
-                <h3 class="text-secondryColor">Yay! Completed</h3>
-                <img src="../../../../../../../../assets/images/payment-done.png" alt="">
-                <p class="text-muted">We will inform you via email later <br>
-                    once the transaction has been accepted</p>
-                <button class="btn primary w-25 my-3" routerLink="/landingPage/home">Back to Home</button>
-            </div>
+            <ng-template matStepLabel>Done</ng-template>
+            <ng-template matStepContent>
+                <div class="text-center">
+                    <h3 class="text-secondryColor">Yay! Completed</h3>
+                    <img src="../../../../../../../../assets/images/payment-done.png" alt="">
+                    <p class="text-muted">We will inform you via email later <br>
+                        once the transaction has been accepted</p>
+                    <button class="btn primary w-25 my-3" routerLink="/landingPage/home">Back to Home</button>
+                </div>
+            </ng-template>
 
         </mat-step>
     </mat-stepper>
 
 
-
-
-
-
-
-</section>
-
-  </ngx-stripe-elements>
 
