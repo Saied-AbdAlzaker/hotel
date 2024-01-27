@@ -48,4 +48,8 @@ onRestPassword(data:IResetPassword):Observable<any>
   return this._HttpClient.post('portal/users/forgot-password ', {email:data});
 
  }
+ ogGetAlldata():Observable<any>{
+  return this._HttpClient.get('admin/dashboard');
+
+ }
 }

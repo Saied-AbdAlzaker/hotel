@@ -2,10 +2,16 @@
   <div class="container-fluid">
     <div class="row justify-content-around">
       <div class="col-md-7 p-3">
+        <div class="w-50">
+          <canvas id="canvas">{{ chart }}</canvas>
+        </div>
         <div class="items-home">
           <div class="header-auth mb-0">
-            <h2 class="mb-0 text-nowrap">Welcome back <span class="text-mainColor ">{{userName}}</span>👋🏻 </h2>
-            <p >see whats new</p>
+            <h2 class="mb-0 text-nowrap">
+              Welcome back <span class="text-mainColor">{{ userName }}</span
+              >👋🏻
+            </h2>
+            <p>see whats new</p>
           </div>
           <div class="">
             <nz-alert
@@ -14,21 +20,16 @@
               }}"
             ></nz-alert>
 
-              <nz-calendar
-                [nzFullscreen]="false"
-                [(ngModel)]="selectedValue"
-                (nzSelectChange)="selectChange($event)"
-              ></nz-calendar>
-
+            <nz-calendar
+              [nzFullscreen]="false"
+              [(ngModel)]="selectedValue"
+              (nzSelectChange)="selectChange($event)"
+            ></nz-calendar>
           </div>
-
         </div>
         <div class="items-home row mt-3">
-          <ng-container *ngFor="let item of menu">
-            <div
-              class="col-md-4 my-3"
-              [routerLink]="item.link"
-            >
+          <ng-container >
+            <!-- <div class="col-md-4 my-3" [routerLink]="item.link">
               <div class="card-home">
                 <h3>
                   <i [class]="'fa-solid text-mainColor' + ' ' + item.icon"></i>
@@ -40,16 +41,16 @@
                   <p>{{ item.title }}</p>
                 </div>
               </div>
-            </div>
+            </div> -->
           </ng-container>
         </div>
       </div>
       <div class="col-md-4 p-3 items-home mt-3">
         <div class="header-auth logo mb-0">
-          <h4 class="mb-0 text-nowrap">What's happened? </h4>
-          <p >see whats new</p>
+          <h4 class="mb-0 text-nowrap">What's happened?</h4>
+          <p>see whats new</p>
         </div>
-        <div class=" card py-3 px-5">
+        <div class="card py-3 px-5">
           <nz-timeline
             nzColor="green"
             [nzPending]="'More...'"
@@ -64,7 +65,9 @@
             <nz-timeline-item>
               <p class="text-mainColor">what created?</p>
               <ng-container *ngIf="showMore">
-                <ng-container *ngFor="let created of createdDate; let i = index">
+                <ng-container
+                  *ngFor="let created of createdDate; let i = index"
+                >
                   <!-- <ng-container *ngIf="i < 2"> -->
 
                   <p
@@ -78,59 +81,69 @@
                 </ng-container>
               </ng-container>
 
-              <a  (click)="showMore = !showMore" class="text-mainColor"> {{showMore?'-':'+'}} show {{showMore?'less':'more'}}</a>
+              <a (click)="showMore = !showMore" class="text-mainColor">
+                {{ showMore ? "-" : "+" }} show
+                {{ showMore ? "less" : "more" }}</a
+              >
             </nz-timeline-item>
             <nz-timeline-item nzColor="gray">
               <p class="text-mainColor">what Updated?</p>
-            <ng-container *ngIf="showMore2">
-
-              <ng-container *ngFor="let updated of updatedDate; let i = index">
-                <!-- <ng-container *ngIf="i < 2"> -->
-
-                <p
-                  *ngIf="updated.updatedDate.getDate() == selectedValue.getDate()"
+              <ng-container *ngIf="showMore2">
+                <ng-container
+                  *ngFor="let updated of updatedDate; let i = index"
                 >
-                  {{ updated.name }} {{ updated.module }} updated
-                </p>
-                <!-- </ng-container> -->
-              </ng-container>
-            </ng-container>
-            <a  (click)="showMore2 = !showMore2" class="text-mainColor"> {{showMore2?'-':'+'}} show {{showMore2?'less':'more'}}</a>
+                  <!-- <ng-container *ngIf="i < 2"> -->
 
+                  <p
+                    *ngIf="
+                      updated.updatedDate.getDate() == selectedValue.getDate()
+                    "
+                  >
+                    {{ updated.name }} {{ updated.module }} updated
+                  </p>
+                  <!-- </ng-container> -->
+                </ng-container>
+              </ng-container>
+              <a (click)="showMore2 = !showMore2" class="text-mainColor">
+                {{ showMore2 ? "-" : "+" }} show
+                {{ showMore2 ? "less" : "more" }}</a
+              >
             </nz-timeline-item>
             <nz-timeline-item>
               <p class="text-mainColor">what booking started?</p>
-              <ng-container *ngFor="let startBook of startedBokkingDate; let i = index">
+              <ng-container
+                *ngFor="let startBook of startedBokkingDate; let i = index"
+              >
                 <!-- <ng-container *ngIf="i < 2"> -->
 
                 <p
-                  *ngIf="startBook.startedDate.getDate() == selectedValue.getDate()"
+                  *ngIf="
+                    startBook.startedDate.getDate() == selectedValue.getDate()
+                  "
                 >
                   {{ startBook.name }} {{ startBook.module }} started
                 </p>
                 <!-- </ng-container> -->
               </ng-container>
-
-
             </nz-timeline-item>
             <nz-timeline-item nzColor="red">
               <p class="text-mainColor">what booking ended?</p>
-              <ng-container *ngFor="let endedBook of endedBookingData; let i = index">
+              <ng-container
+                *ngFor="let endedBook of endedBookingData; let i = index"
+              >
                 <!-- <ng-container *ngIf="i < 2"> -->
 
                 <p
-                  *ngIf="endedBook.endedDate.getDate() == selectedValue.getDate()"
+                  *ngIf="
+                    endedBook.endedDate.getDate() == selectedValue.getDate()
+                  "
                 >
                   {{ endedBook.name }} {{ endedBook.module }} ended
                 </p>
                 <!-- </ng-container> -->
               </ng-container>
-
-
             </nz-timeline-item>
-
           </nz-timeline>
-
         </div>
       </div>
     </div>

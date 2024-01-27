@@ -3,22 +3,37 @@ import { HomeService } from '../../services/home.service';
 import { IRoomsUserDetails, IRoomsUser } from '../../models/home';
 import { ToastrService } from 'ngx-toastr';
 import { HelperService } from 'src/app/Core/services/helper.service';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-explore-rooms',
   templateUrl: './explore-rooms.component.html',
-  styleUrls: ['./explore-rooms.component.scss']
+  styleUrls: ['./explore-rooms.component.scss'],
 })
 export class ExploreRoomsComponent implements OnInit {
-
-  pageIndex: number = 0;
-  pageSize: number = 5;
+  startDate: Date | null = null;
+  endDate: Date | null = null;
+  capacity: number = 1;
+  pageIndex: number = 1;
+  pageSize: number = 12;
   pageNumber: number | undefined = 1;
   totalCount: number = 0;
   roomRespnse: IRoomsUserDetails | undefined;
-  roomsData: IRoomsUser[] | any;
+  roomsData: IRoomsUser | any;
 
   constructor(private _homeService: HomeService, private toastr: ToastrService, public _HelperService: HelperService) { }
+
+  constructor(
+    private _homeService: HomeService,
+    private toastr: ToastrService,
+    public _HelperService: HelperService,
+    private ActivatedRoute: ActivatedRoute
+  ) {
+    this.ActivatedRoute.queryParams.subscribe((params) => {
+      this.startDate = params['startDate'];
+      this.endDate = params['endDate'];
+      this.capacity = params['capacity'];
+    });
+  }
 
   ngOnInit() {
     this.getAllRooms();
@@ -30,12 +45,34 @@ export class ExploreRoomsComponent implements OnInit {
       size: this.pageSize,
     }
     this._homeService.getAllRooms(Params).subscribe({
+
+    let params = {};
+
+    if (this.startDate == null) {
+      params = {
+        page: this.pageNumber,
+        size: this.pageSize,
+      };
+    } else if (this.startDate !== null) {
+      params = {
+        page: this.pageNumber,
+        size: this.pageSize,
+        startDate: this.startDate,
+        endDate: this.endDate,
+        capacity: this.capacity,
+      };
+    }
+    this._homeService.getAllRooms(params).subscribe({
       next: (res) => {
         this.roomRespnse = res.data;
         this.roomsData = res.data.rooms;
+        this.totalCount = res.data.totalCount;
+        console.log(this.totalCount)
+        console.log(this.pageNumber);
+        console.log(this.pageSize);
         console.log(this.roomsData);
-      }
-    })
+      },
+    });
   }
 
 
@@ -55,4 +92,19 @@ export class ExploreRoomsComponent implements OnInit {
   //   this.getAllRooms();
   // }
 
+  //angular material pagenation
+  handlePageEvent(e: any) {
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex + 1;
+    console.log(e);
+    this.getAllRooms();
+  }
+
+  //ant design pagenation
+  declarePageIndex(pageIndex:number){
+    this.pageNumber = pageIndex;
+    console.log(pageIndex)
+    console.log(this.pageNumber)
+    this.getAllRooms();
+  }
 }
