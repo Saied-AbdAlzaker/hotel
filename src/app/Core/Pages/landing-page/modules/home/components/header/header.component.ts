@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
   startDate: Date | null | string = null;
   endDate: Date | null = null;
   capacity: number = 1;
-  count: number = 1;
   startValue: Date | null = null;
   endValue: Date | null = null;
   params: any;
@@ -28,13 +27,6 @@ export class HeaderComponent implements OnInit {
     capacity: new FormControl(null),
   });
   @ViewChild('endDatePicker') endDatePicker!: NzDatePickerComponent;
- 
-
-  constructor(public _HelperService:HelperService){}
-  ngOnInit(): void {
-    
-   
-  }
   
   constructor(
     public _HelperService: HelperService,
