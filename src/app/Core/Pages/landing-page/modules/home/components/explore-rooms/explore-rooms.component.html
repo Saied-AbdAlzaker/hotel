@@ -23,11 +23,18 @@
 
     </div>
     <div class="p-5 text-center">
+
+    <nz-pagination [nzPageIndex]="1" [nzTotal]="5" [nzPageSize]="5"></nz-pagination> 
+
+    <!-- (nzPageIndexChange)="onPageIndexChange($event)" -->
+
+
          <nz-pagination [(nzPageIndex)]="pageIndex" [nzTotal]="totalCount" [nzPageSize]="pageSize" (click)="declarePageIndex(pageIndex)" [nzShowTotal]="rangeTemplate"></nz-pagination>
         <ng-template #totalTemplate let-total>Total {{ total }} items</ng-template>
         <ng-template #rangeTemplate let-range="range" let-total>
       {{ range[0] }}-{{ range[1] }} of {{ total }} items
         </ng-template>
+      
       <!-- <mat-paginator [length]="roomsData?.totalCount" [pageSizeOptions]="[5, 10, 50, 100]"
         (page)="handlePageEvent($event)" [pageSize]="roomRespnse?.size" [pageIndex]="pageIndex" aria-label="Select page">
       </mat-paginator> -->

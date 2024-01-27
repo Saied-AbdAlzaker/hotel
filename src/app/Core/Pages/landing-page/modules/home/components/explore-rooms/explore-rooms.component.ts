@@ -20,6 +20,8 @@ export class ExploreRoomsComponent implements OnInit {
   roomRespnse: IRoomsUserDetails | undefined;
   roomsData: IRoomsUser | any;
 
+  constructor(private _homeService: HomeService, private toastr: ToastrService, public _HelperService: HelperService) { }
+
   constructor(
     private _homeService: HomeService,
     private toastr: ToastrService,
@@ -38,6 +40,12 @@ export class ExploreRoomsComponent implements OnInit {
   }
 
   getAllRooms() {
+    let Params = {
+      page: this.pageNumber,
+      size: this.pageSize,
+    }
+    this._homeService.getAllRooms(Params).subscribe({
+
     let params = {};
 
     if (this.startDate == null) {
@@ -66,6 +74,23 @@ export class ExploreRoomsComponent implements OnInit {
       },
     });
   }
+
+
+  onPageIndexChange(e: any) {
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex + 1;
+    this.getAllRooms();
+
+    console.log(e);
+    
+  }
+
+
+  // handlePageEvent(e: any) {
+  //   this.pageSize = e.pageSize;
+  //   this.pageNumber = e.pageIndex + 1;
+  //   this.getAllRooms();
+  // }
 
   //angular material pagenation
   handlePageEvent(e: any) {

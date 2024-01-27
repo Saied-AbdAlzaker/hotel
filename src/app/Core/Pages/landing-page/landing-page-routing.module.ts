@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { BookingComponent } from './modules/booking/components/booking/booking.component';
 
 const routes: Routes = [
   {
@@ -17,17 +18,19 @@ const routes: Routes = [
             (mod) => mod.HomeModule
           ),
       },
-      {
-        path: 'booking',
-        data: { title: 'Booking' },
-
-        loadChildren: () =>
-          import('../landing-page/modules/booking/booking.module').then(
-            (mod) => mod.BookingModule
-          ),
-      }
+      
     ],
+    
   },
+  {
+    path: 'booking',
+    data: { title: 'Booking' },
+
+    loadChildren: () =>
+      import('../landing-page/modules/booking/booking.module').then(
+        (mod) => mod.BookingModule
+      ),
+  }
 ];
 
 @NgModule({
