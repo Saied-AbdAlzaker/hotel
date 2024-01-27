@@ -253,6 +253,19 @@
                                 <label class="my-3">Nama Pengirim</label>
                                 <input type="text" class="form-control bg-gray w-100"
                                     placeholder="Please type here ...">
+                                    <ngx-stripe-elements [stripe]="stripe" [elementsOptions]="elementsOptions">
+
+                                        <ngx-stripe-card [options]="cardOptions" />
+                                
+                                    </ngx-stripe-elements>
+                                
+                                 
+                                
+                                    <button class="btn btn-primary" type="submit" (click)="createToken()">
+                                
+                                        CREATE TOKEN
+                                
+                                    </button>
                             </div>
                         </div>
                     </div>
