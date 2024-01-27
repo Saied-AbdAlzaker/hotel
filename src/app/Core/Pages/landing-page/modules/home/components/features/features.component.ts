@@ -38,11 +38,8 @@ export class FeaturesComponent implements OnInit {
     }
     this._HomeService.getAllRooms(params).subscribe({
       next: (res) => {
-        // console.log(res);
         this.roomRespnse = res;
         this.roomsData = this.roomRespnse?.data.rooms;
-        console.log(this.roomsData);
-
 
       }
     })
@@ -51,10 +48,8 @@ export class FeaturesComponent implements OnInit {
   getAllads() {
     this._HomeService.getAllAds().subscribe({
       next: (res) => {
-        console.log(res);
         this.AdsResponse = res.data.ads;
         this.AdsData = this.AdsResponse;
-        console.log(this.AdsData);
 
       }
     })

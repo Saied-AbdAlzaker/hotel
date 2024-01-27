@@ -44,10 +44,8 @@ export class NavbarComponent implements OnInit {
   changePasswordAdmin(data: IChangePassword) {
     this._userAdminService.onChangePassword(data).subscribe({
       next: (res) => {
-        console.log(res);
       },
       error: (err: any) => {
-        console.log(err.error.message);
         this.toastr.error(err.error.message, 'error!');
       },
       complete: () => {
@@ -59,20 +57,16 @@ export class NavbarComponent implements OnInit {
     const dialogRef = this.dialog.open(LogOutComponent, {
       data: {},
       width: '30%',
-      // height: '100%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
     });
   }
   getUserProfile(id:string){
     this._UsersService.onGetUserProfile(id).subscribe({
       next:(res:any)=>{
-        console.log(res);
         this.userData=res.data
         this.userImage=res.data.user.profileImage
-        console.log(this.userImage);
 
       }
     })

@@ -19,7 +19,6 @@ interface IMenu {
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-  // isDarkMode: boolean;
 
   @Output() isOpenedValue = new EventEmitter<boolean>();
   isOpened: boolean = true;
@@ -30,10 +29,7 @@ export class SidebarComponent {
     private toastr: ToastrService,
     private _HelperService:HelperService
 
-  ) {
-    // this.isDarkMode = this._HelperService.isDarkMode();
-
-  }
+  ) {}
   menu: IMenu[] = [
     {
       title: 'Home',
@@ -72,10 +68,5 @@ export class SidebarComponent {
     this.isOpenedValue.emit(this.isOpened);
     console.log(this.isOpened)
   }
-
-  // toggleTheme() {
-  //   this.isDarkMode = !this.isDarkMode;
-  //   this._HelperService.setDarkMode(this.isDarkMode);
-  // }
 
 }

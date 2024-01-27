@@ -4,87 +4,41 @@
       <div class="d-flex justify-content-between gap-5">
         <div class="header-auth logo mb-0">
           <h2 class="mb-0 text-nowrap">Booking Days For </h2>
-          <p > <span class="text-mainColor"> {{bookingDetails.room?.roomNumber || 'not-available room'}}</span></p>
+          <p> <span class="text-mainColor"> {{bookingDetails.room?.roomNumber || 'not-available room'}}</span></p>
         </div>
-        <div >
-          <span (click)="onNoClick()"><i class="pointer fa-regular fa-circle-xmark text-danger fa-2x position-absolute top-0 right-0 my-4" ></i></span>
-         </div>
+        <div>
+          <span (click)="onNoClick()"><i
+              class="pointer fa-regular fa-circle-xmark text-danger fa-2x position-absolute top-0 right-0 my-4"></i></span>
+        </div>
       </div>
-  <!-- <form> -->
-    <div class="row">
-      <div class="col-3 align-self-center">
-        <label class="text-secondryColor">Room Number</label>
-        <input
-          type="text"
-          class="form-control"
-          disabled
-          [value]="bookingDetails.room?.roomNumber  || '---'"
-        />
-        <label class="text-secondryColor">User</label>
-        <input
-          type="text"
-          class="form-control"
-          disabled
-          [value]="bookingDetails.user?.userName || '---'"
-        />
-        <label class="text-secondryColor">Status</label>
-        <input
-          type="text"
-          class="form-control"
-          disabled
-          [value]="bookingDetails.status"
-        />
-        <label class="text-secondryColor">Created at</label>
-        <input
-          type="text"
-          class="form-control"
-          disabled
-          [value]="bookingDetails.createdAt | date : 'dd-MM-yyyy'"
-        />
-        <label class="text-secondryColor">Started at</label>
+      <div class="row">
+        <div class="col-3 align-self-center">
+          <label class="text-secondryColor">Room Number</label>
+          <input type="text" class="form-control" disabled [value]="bookingDetails.room?.roomNumber  || '---'" />
+          <label class="text-secondryColor">User</label>
+          <input type="text" class="form-control" disabled [value]="bookingDetails.user?.userName || '---'" />
+          <label class="text-secondryColor">Status</label>
+          <input type="text" class="form-control" disabled [value]="bookingDetails.status" />
+          <label class="text-secondryColor">Created at</label>
+          <input type="text" class="form-control" disabled [value]="bookingDetails.createdAt | date : 'dd-MM-yyyy'" />
+          <label class="text-secondryColor">Started at</label>
 
-        <input
-          type="text"
-          class="form-control"
-          disabled
-          [value]="bookingDetails.startDate | date : 'dd-MM-yyyy'"
-        />
-        <label class="text-secondryColor">Ended at</label>
+          <input type="text" class="form-control" disabled [value]="bookingDetails.startDate | date : 'dd-MM-yyyy'" />
+          <label class="text-secondryColor">Ended at</label>
 
-        <input
-          type="text"
-          class="form-control"
-          disabled
-          [value]="bookingDetails.endDate | date : 'dd-MM-yyyy'"
-        />
-        <label class="text-secondryColor">Updated at</label>
+          <input type="text" class="form-control" disabled [value]="bookingDetails.endDate | date : 'dd-MM-yyyy'" />
+          <label class="text-secondryColor">Updated at</label>
 
-        <input
-          type="text"
-          class="form-control"
-          disabled
-          [value]="bookingDetails.updatedAt | date : 'dd-MM-yyyy'"
-        />
-      </div>
-      <div class="col-9 align-self-center">
-          <!-- <nz-range-picker
-            nzInline
-            [nzShowTime]="true"
-            [nzDisabled]="true"
-            [(ngModel)]="endaandsratrange"
-            [nzFormat]="'yyyy-MM-dd HH:mm:ss'"
-          ></nz-range-picker> -->
+          <input type="text" class="form-control" disabled [value]="bookingDetails.updatedAt | date : 'dd-MM-yyyy'" />
+        </div>
+        <div class="col-9 align-self-center">
 
 
-            <mat-calendar
-              [minDate]="bookingDetails.startDate"
-              [maxDate]="bookingDetails.endDate"
-            ></mat-calendar>
+          <mat-calendar [minDate]="bookingDetails.startDate" [maxDate]="bookingDetails.endDate"></mat-calendar>
 
 
+        </div>
       </div>
     </div>
-  <!-- </form> -->
-</div>
   </div>
 </section>

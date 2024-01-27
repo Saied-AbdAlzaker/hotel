@@ -20,12 +20,6 @@ import {
   TimelineUpdatedDate,
 } from '../../models/timeline';
 import { AuthService } from 'src/app/Core/auth/Services/auth.service';
-// interface IMenu {
-//   title: string;
-//   icon: string;
-//   link: string;
-//   length: any;
-// }
 
 
 @Component({
@@ -35,7 +29,7 @@ import { AuthService } from 'src/app/Core/auth/Services/auth.service';
 })
 export class HomeComponent implements OnInit {
   chart: any = [];
-  data:any;
+  data: any;
   bookingResponse: IBookingsTable | undefined;
   listBookings: IBookings[] = [];
   selectedValue = new Date();
@@ -48,57 +42,19 @@ export class HomeComponent implements OnInit {
   roomsResponse: any;
   roomsData: IRoom[] = [];
   listUses: IlistUser[] | any;
-   usersResponse:  IlistTable = {
-     totalCount: 2,
-     listuser: []
-   };
+  usersResponse: IlistTable = {
+    totalCount: 2,
+    listuser: []
+  };
   allDates: any[] = [];
   createdDate: TimelineCreatedDate[] = [];
   updatedDate: TimelineUpdatedDate[] = [];
   startedBokkingDate: TimelineStartedDate[] = [];
   endedBookingData: TimelineEndedDate[] = [];
   showMore = true;
-  showMore2=true;
+  showMore2 = true;
   userName: any = localStorage.getItem('userName');
 
-  // menu: IMenu[] = [
-  //   {
-  //     title: 'Users',
-  //     icon: 'fa-solid fa-users',
-  //     link: '/dashboard/users',
-  //      length:localStorage.getItem('usersCount')
-  //   },
-  //   {
-  //     title: 'Rooms',
-  //     icon: 'fa-solid fa-list-check',
-  //     link: '/dashboard/rooms',
-  //     length:localStorage.getItem('roomsCount')
-
-  //   },
-  //   {
-  //     title: 'Facilities',
-  //     icon: 'fa-solid fa-hand-holding-heart',
-  //     link: '/dashboard/Facilities',
-  //     length:localStorage.getItem('facilitsCount')
-
-  //   },
-  //   {
-  //     title: 'Ads',
-  //     icon: 'fa-solid fa-calendar-days',
-  //     link: '/dashboard/ads',
-  //     // length:localStorage.getItem('adsCount')
-
-  //   },
-  //   {
-  //     title: 'Booking',
-  //     icon: 'fa-solid fa-bookmark',
-  //     link: '/dashboard/booking',
-  //     length: localStorage.getItem('bookingCount')
-
-  //   },
-  // ];
-
-  // countUser: number | undefined;
   constructor(
     private _BookingService: BookingService,
     private _adsService: AdsService,
@@ -107,11 +63,9 @@ export class HomeComponent implements OnInit {
     private _toastrService: ToastrService,
     private _roomsService: RoomsService,
     private _UsersService: UsersService,
-    private  _AuthService:AuthService
+    private _AuthService: AuthService
 
-  ) {
-
-  }
+  ) { }
 
   ngOnInit() {
     this.getAllData();
@@ -120,61 +74,49 @@ export class HomeComponent implements OnInit {
     this.getAllFacilities();
     this.onGetAllUsers();
     this.getAllRooms();
-    console.log(this.allDates);
-    console.log(this.createdDate);
-    console.log(this.updatedDate);
-    console.log(this.startedBokkingDate);
-    console.log(this.endedBookingData);
 
   }
 
-  getAllData(){
-this._AuthService.ogGetAlldata().subscribe({
-  next:(res)=>{
-    console.log(res);
-    this.data=res.data;
-    console.log(this.data);
+  getAllData() {
+    this._AuthService.ogGetAlldata().subscribe({
+      next: (res) => {
+        this.data = res.data;
+
+      }, error: (err) => {
 
 
+      }, complete: () => {
+        this.chart = new Chart('canvas', {
+          type: 'radar',
+          data: {
+            labels: [
+              'users',
+              'admin',
+              'facilities',
+              'bookings-pending',
+              'bookings-complete',
+              'ads',
+              'rooms',
 
-  },error:(err)=>{
-    console.log(err);
+            ],
+            datasets: [{
+              label: 'My First Dataset',
+              data: [this?.data?.users.user, this?.data?.users.admin, this.data?.facilities, this.data?.bookings.pending, this.data?.bookings.completed, this.data?.ads, this.data?.rooms],
+              fill: true,
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              borderColor: 'rgb(255, 99, 132)',
+              pointBackgroundColor: 'rgb(255, 99, 132)',
+              pointBorderColor: '#fff',
+              pointHoverBackgroundColor: '#fff',
+              pointHoverBorderColor: 'rgb(255, 99, 132)'
+            }]
+          },
 
+        })
 
-  },complete:()=>{
-    this.chart = new Chart('canvas', {
-      type: 'radar',
-      data : {
-        labels: [
-          'users',
-          'admin',
-          'facilities',
-          'bookings-pending',
-          'bookings-complete',
-          'ads',
-          'rooms',
-
-        ],
-        datasets: [{
-          label: 'My First Dataset',
-          data: [this?.data?.users.user,this?.data?.users.admin,this.data?.facilities,this.data?.bookings.pending,this.data?.bookings.completed,this.data?.ads,this.data?.rooms],
-          fill: true,
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgb(255, 99, 132)',
-          pointBackgroundColor: 'rgb(255, 99, 132)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgb(255, 99, 132)'
-         }]
-      },
-
-
+      }
 
     })
-
-  }
-
-})
   }
   getAllBookings() {
     let params = {};
@@ -182,8 +124,7 @@ this._AuthService.ogGetAlldata().subscribe({
       next: (res) => {
         this.bookingResponse = res.data;
         this.listBookings = res?.data?.booking;
-        let bookingCount:number |any = this.bookingResponse?.totalCount;
-        console.log(bookingCount);
+        let bookingCount: number | any = this.bookingResponse?.totalCount;
         localStorage.setItem('bookingCount', bookingCount?.toLocaleString());
         this.listBookings.forEach((booking) => {
           const createdDate = new Date(booking.createdAt);
@@ -239,8 +180,7 @@ this._AuthService.ogGetAlldata().subscribe({
         this.adsResponse = res;
         this.adsData = this.adsResponse?.data;
         this.adsItems = this.adsData?.ads;
-        let adsCount:number |any = this.adsData?.totalCount;
-        console.log(adsCount);
+        let adsCount: number | any = this.adsData?.totalCount;
         localStorage.setItem('adsCount', adsCount?.toLocaleString());
         this.adsItems.forEach(
           (ad: {
@@ -283,8 +223,7 @@ this._AuthService.ogGetAlldata().subscribe({
       next: (res: any) => {
         this.facilitesResponse = res.data;
         this.facilitesData = this.facilitesResponse?.facilities;
-        let facilitsCount:number |any = this.facilitesResponse?.totalCount;
-        console.log(facilitsCount);
+        let facilitsCount: number | any = this.facilitesResponse?.totalCount;
         localStorage.setItem('facilitsCount', facilitsCount?.toLocaleString());
         this.facilitesData.forEach(
           (facilities: { createdAt: string | number | Date; name: string }) => {
@@ -327,8 +266,7 @@ this._AuthService.ogGetAlldata().subscribe({
       next: (res) => {
         this.roomsResponse = res.data;
         this.roomsData = this.roomsResponse?.rooms;
-        let roomsCount:number |any = this.roomsResponse?.totalCount;
-        console.log(roomsCount);
+        let roomsCount: number | any = this.roomsResponse?.totalCount;
         localStorage.setItem('roomsCount', roomsCount?.toLocaleString());
         this.roomsData.forEach(
           (room) => {
@@ -354,18 +292,18 @@ this._AuthService.ogGetAlldata().subscribe({
               updatedDate: updatedDate,
               module: moduleName,
             });
-      }
+          }
         )
-    }
-  }) }
+      }
+    })
+  }
   onGetAllUsers() {
     let params = {};
     this._UsersService.geAllUsers(params).subscribe({
       next: (res: any) => {
         this.usersResponse = res.data;
         this.listUses = res.data.users;
-        let usersCount:number |any = this.usersResponse?.totalCount;
-        console.log(usersCount);
+        let usersCount: number | any = this.usersResponse?.totalCount;
         localStorage.setItem('usersCount', usersCount?.toLocaleString());
         this.listUses.forEach(
           (user: { createdAt: string | number | Date; userName: string; }) => {
@@ -391,14 +329,13 @@ this._AuthService.ogGetAlldata().subscribe({
               updatedDate: updatedDate,
               module: moduleName,
             });
-      }
+          }
         )
       },
     });
   }
   selectChange(select: Date): void {
-    this.allDates.forEach((date) => {});
-    console.log(`Select value: ${select} `);
+    this.allDates.forEach((date) => { });
   }
   isDateSelected(date: Date): boolean {
     return (

@@ -78,15 +78,6 @@ export class ExploreRoomsComponent implements OnInit {
     
   }
 
-
-  //angular material pagenation
-  // handlePageEvent(e: any) {
-  //   this.pageSize = e.pageSize;
-  //   this.pageNumber = e.pageIndex + 1;
-  //   console.log(e);
-  //   this.getAllRooms();
-  // }
-
   //ant design pagenation
   declarePageIndex(pageIndex:number){
     this.pageNumber = pageIndex;
