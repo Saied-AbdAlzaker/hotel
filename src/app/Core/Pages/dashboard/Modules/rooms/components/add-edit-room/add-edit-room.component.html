@@ -11,169 +11,69 @@
       <div class="inputs-auth">
         <form [formGroup]="roomForm" (ngSubmit)="onSubmit(roomForm)">
           <div class="form-group">
-            <label *ngIf="isEditMode || isViewMode" for="roomNumber"
-              >Room Number</label
-            >
-            <input
-              type="text"
-              formControlName="roomNumber"
-              class="form-control"
-              id="roomNumber"
-              placeholder="Room Number"
-            />
-            <span
-              class="text-danger mb-3"
-              *ngIf="
+            <label *ngIf="isEditMode || isViewMode" for="roomNumber">Room Number</label>
+            <input type="text" formControlName="roomNumber" class="form-control" id="roomNumber"
+              placeholder="Room Number" />
+            <span class="text-danger mb-3" *ngIf="
                 roomForm.get('roomNumber')?.errors &&
                 roomForm.get('roomNumber')?.touched
-              "
-            >
-              <span *ngIf="roomForm.get('roomNumber')?.getError('required')"
-                >roomNumber is required</span
-              >
+              ">
+              <span *ngIf="roomForm.get('roomNumber')?.getError('required')">roomNumber is required</span>
             </span>
           </div>
           <div class="d-flex">
             <div class="form-group w-50 me-3">
               <label *ngIf="isEditMode || isViewMode" for="price">Price</label>
-              <input
-                type="text"
-                formControlName="price"
-                class="form-control"
-                id="price"
-                placeholder="Price"
-              />
-              <span
-                class="text-danger mb-3"
-                *ngIf="
+              <input type="text" formControlName="price" class="form-control" id="price" placeholder="Price" />
+              <span class="text-danger mb-3" *ngIf="
                   roomForm.get('price')?.errors &&
                   roomForm.get('price')?.touched
-                "
-              >
-                <span *ngIf="roomForm.get('price')?.getError('required')"
-                  >price is required</span
-                >
+                ">
+                <span *ngIf="roomForm.get('price')?.getError('required')">price is required</span>
               </span>
             </div>
             <div class="form-group w-50">
-              <label *ngIf="isEditMode || isViewMode" for="capacity"
-                >Capacity</label
-              >
-              <input
-                type="text"
-                formControlName="capacity"
-                class="form-control"
-                id="capacity"
-                placeholder="capacity"
-              />
-              <span
-                class="text-danger mb-3"
-                *ngIf="
+              <label *ngIf="isEditMode || isViewMode" for="capacity">Capacity</label>
+              <input type="text" formControlName="capacity" class="form-control" id="capacity" placeholder="capacity" />
+              <span class="text-danger mb-3" *ngIf="
                   roomForm.get('capacity')?.errors &&
                   roomForm.get('capacity')?.touched
-                "
-              >
-                <span *ngIf="roomForm.get('capacity')?.getError('required')"
-                  >capacity is required</span
-                >
+                ">
+                <span *ngIf="roomForm.get('capacity')?.getError('required')">capacity is required</span>
               </span>
             </div>
           </div>
           <div class="d-flex">
             <div class="form-group w-50 me-3">
-              <label *ngIf="isEditMode || isViewMode" for="discount"
-                >Discount</label
-              >
-              <input
-                type="text"
-                formControlName="discount"
-                class="form-control"
-                id="discount"
-                placeholder="Discount"
-              />
-              <span
-                *ngIf="
+              <label *ngIf="isEditMode || isViewMode" for="discount">Discount</label>
+              <input type="text" formControlName="discount" class="form-control" id="discount" placeholder="Discount" />
+              <span *ngIf="
                   roomForm.get('discount')?.errors &&
                   roomForm.get('discount')?.touched
-                "
-                class="text-danger mb-3"
-              >
-                <span
-                  *ngIf="roomForm.get('discount')?.errors?.['required']"
-                  class="mb-0"
-                  >discount is required</span
-                >
+                " class="text-danger mb-3">
+                <span *ngIf="roomForm.get('discount')?.errors?.['required']" class="mb-0">discount is required</span>
               </span>
             </div>
             <div class="form-group w-50">
-              <label *ngIf="isEditMode || isViewMode" for="facilities"
-                >Facilities</label
-              >
-              <nz-select
-                class="w-100"
-                formControlName="facilities"
-                nzValue="large"
-                [nzMaxTagCount]="2"
-                [nzMaxTagPlaceholder]="tagPlaceHolder"
-                nzMode="multiple"
-                nzPlaceHolder="facilites"
-              >
-                <nz-option
-                  *ngFor="let item of facilities"
-                  [nzLabel]="item.name"
-                  [nzValue]="item"
-                ></nz-option>
+              <label *ngIf="isEditMode || isViewMode" for="facilities">Facilities</label>
+              <nz-select class="w-100" formControlName="facilities" nzValue="large" [nzMaxTagCount]="2"
+                [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple" nzPlaceHolder="facilites">
+                <nz-option *ngFor="let item of facilities" [nzLabel]="item.name" [nzValue]="item"></nz-option>
               </nz-select>
-              <ng-template #tagPlaceHolder let-selectedList
-                >and {{ selectedList.length }} more selected</ng-template
-              >
-              <span
-                class="text-danger mb-3"
-                *ngIf="
+              <ng-template #tagPlaceHolder let-selectedList>and {{ selectedList.length }} more selected</ng-template>
+              <span class="text-danger mb-3" *ngIf="
                   roomForm.get('facilities')?.errors &&
                   roomForm.get('facilities')?.touched
-                "
-              >
-                <span *ngIf="roomForm.get('facilities')?.getError('required')"
-                  >facilities is required</span
-                >
+                ">
+                <span *ngIf="roomForm.get('facilities')?.getError('required')">facilities is required</span>
               </span>
             </div>
-            <!-- <div class="form-group w-50">
-              <mat-form-field class="w-100">
-                <mat-label>Facilities</mat-label>
-                <mat-select formControlName="facilities" multiple>
-                  <mat-option
-                    *ngFor="let item of facilities"
-                    [value]="item._id"
-                    >{{ item.name }}</mat-option
-                  >
-                </mat-select>
-              </mat-form-field>
-              <span
-                class="text-danger mb-3"
-                *ngIf="
-                  roomForm.get('facilities')?.errors &&
-                  roomForm.get('facilities')?.touched
-                "
-              >
-                <span *ngIf="roomForm.get('facilities')?.getError('required')"
-                  >facilities is required</span
-                >
-              </span>
-            </div> -->
+
           </div>
           <div>
-            <ngx-dropzone
-              [disabled]="isViewMode"
-              class="mb-3 dropzone"
-              (change)="onSelect($event)"
-              [multiple]="true"
-            >
+            <ngx-dropzone [disabled]="isViewMode" class="mb-3 dropzone" (change)="onSelect($event)" [multiple]="true">
               <ngx-dropzone-label *ngIf="!imgSrc">
-                <i
-                  class="fa-solid fa-arrow-up-from-bracket d-block fs-2 pb-3"
-                ></i>
+                <i class="fa-solid fa-arrow-up-from-bracket d-block fs-2 pb-3"></i>
                 Drag & Drop or
                 <span class="text-mainColor">Choose a Item Image</span> to
                 Upload
@@ -183,30 +83,17 @@
                   <img [src]="item" class="w-25 px-1 img-thumbnail" alt="" />
                 </ng-container>
               </ngx-dropzone-label>
-              <ngx-dropzone-image-preview
-                ngProjectAs="ngx-dropzone-preview"
-                *ngFor="let f of files"
-                [file]="f"
-                [removable]="true"
-                (removed)="onRemove(f)"
-              >
+              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                [removable]="true" (removed)="onRemove(f)">
               </ngx-dropzone-image-preview>
             </ngx-dropzone>
           </div>
           <div class="d-flex justify-content-end align-items-end mt-5">
-            <button
-              type="button"
-              routerLink="/dashboard/rooms"
-              class="btn outline-primary w-25"
-            >
-            
+            <button type="button" routerLink="/dashboard/rooms" class="btn outline-primary w-25">
+
               Cancle
             </button>
-            <button
-              class="mx-4 btn primary w-25"
-              [ngClass]="{ 'd-none': isViewMode }"
-              [disabled]="roomForm.invalid"
-            >
+            <button class="mx-4 btn primary w-25" [ngClass]="{ 'd-none': isViewMode }" [disabled]="roomForm.invalid">
               Save
             </button>
           </div>

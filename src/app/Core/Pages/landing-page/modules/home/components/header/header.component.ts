@@ -31,8 +31,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     public _HelperService: HelperService,
     private router: Router,
-    private datePipe: DatePipe
-  ) {}
+    private datePipe: DatePipe) {}
   ngOnInit(): void {}
 
   disabledStartDate = (startValue: Date): boolean => {
@@ -53,11 +52,9 @@ export class HeaderComponent implements OnInit {
     if (!open) {
       this.endDatePicker.open();
     }
-    console.log('handleStartOpenChange', open);
   }
 
   handleEndOpenChange(open: boolean): void {
-    console.log('handleEndOpenChange', open);
   }
   countUp() {
     this.capacity++;

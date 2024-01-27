@@ -29,7 +29,6 @@ export class UserProfileComponent implements OnInit,AfterViewInit {
   roomImages: string[] = [];
   roomFacilities: IFacilities[] |undefined= [];
   roomDiscount: any;
-  // @ViewChild(RoomDetailsComponent) roomDetails: RoomDetailsComponent | any;
   constructor(
     public dialog: MatDialog,
     private toastr: ToastrService,
@@ -40,18 +39,15 @@ export class UserProfileComponent implements OnInit,AfterViewInit {
   ngOnInit(): void {
     this.getUserProfile(this.userId);
     this.getAllMyBookings();
-    // this.mybookingsData.forEach((element: IMyBookings) => {
-      // });
+
     }
     ngAfterViewInit() {
-    // this.roomDetails.getRoomDetails(this.mybookingsData[0].roomId)
-    // child is set
+
   }
   getUserProfile(id: string) {
     this._homeService.getUserById(id).subscribe({
       next: (res) => {
         this.userProfile = res.data.user;
-        console.log(this.userProfile);
       },
     });
   }
@@ -65,7 +61,6 @@ export class UserProfileComponent implements OnInit,AfterViewInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       if (result) {
-        console.log(result)
       }
     });
   }
@@ -82,14 +77,12 @@ export class UserProfileComponent implements OnInit,AfterViewInit {
               this.roomDetails = res.data.room;
               this.roomImages = res.data.room.images;
               booking.roomImage= this.roomImages;
-              console.log(booking.roomImage);
               this.roomFacilities = this.roomDetails?.facilities;
               this.roomDiscount = this.roomDetails?.discount
             }
           })
         });
-        console.log(this.mybookingsData);
-        console.log(this.bookingsId);
+
 
       },
     });
@@ -97,14 +90,12 @@ export class UserProfileComponent implements OnInit,AfterViewInit {
   getBookingDetails(bookingId: string) {
     return this._homeService.getBookingDetails(bookingId).subscribe({
       next: (res) => {
-        console.log(res);
       },
     });
   }
   getRoomDetails(id: string) {
     this._homeService.onGetRoomDetails(id).subscribe({
       next: (res) => {
-        console.log(res);
         this.roomDetails = res.data.room;
         this.roomImages = res.data.room.images;
         this.roomFacilities = this.roomDetails?.facilities;

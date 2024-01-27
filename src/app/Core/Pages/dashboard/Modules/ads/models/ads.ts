@@ -21,9 +21,3 @@ export interface IAds {
   updatedAt: string;
 }
 
-// export interface IAddAds {
-//   room: IRooms,
-//   discount: number,
-//   isActive: boolean
-// }
-

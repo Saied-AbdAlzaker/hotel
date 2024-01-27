@@ -49,10 +49,8 @@ export class ChangePasswordComponent {
     if(localStorage.getItem('role')=='user'){
         this._homeService.changePasswordUser(data.value).subscribe({
             next: (res) => {
-              console.log(res);
             },
             error: (err: any) => {
-              console.log(err.error.message);
               this.toastr.error(err.error.message, 'error!');
             },
             complete: () => {
