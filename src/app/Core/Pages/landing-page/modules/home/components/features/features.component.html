@@ -38,16 +38,16 @@
             <div class="col-md position-relative">
                 <owl-carousel-o [options]="customOptions">
                     <ng-template *ngFor="let adsItem of AdsData" carouselSlide>
-                        <a [routerLink]="['/landingPage/home/rooms', adsItem._id]">
+                        <a [routerLink]="['/landingPage/home/rooms', adsItem._id]" style="height: 250px; display: block;margin-right: 10px;">
                             <h5 class="card-disc text-whiteColor">
                                 {{adsItem.room.discount | currency: 'USD'}} 
                                 <span>{{'per night'|translate}}</span>
                             </h5>
                             <img *ngIf="adsItem.room.images[0]" [src]="adsItem.room.images[0]" 
-                            class="img-fluid w-100 vh-50"/>
+                            class="w-100 h-100"/>
                             <img *ngIf="!adsItem.room.images[0]" 
                             src="../../../../../../../../assets/images/dummy-img.png" 
-                            class="img-fluid w-100 vh-50"/>
+                            class="img-fluid w-100 h-100"/>
 
                         </a>
                         <div class="my-3">
