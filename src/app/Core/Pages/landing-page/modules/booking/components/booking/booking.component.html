@@ -1,7 +1,7 @@
 <ngx-stripe-elements [stripe]="stripe" [elementsOptions]="elementsOptions">
-    <ngx-stripe-payment />
-
+    <ngx-stripe-card [options]="cardOptions" />
 </ngx-stripe-elements>
+
 
 <section id="booking">
 
@@ -268,7 +268,7 @@
                     </div>
                     <div class="text-center">
                         <div>
-                            <button mat-button matStepperNext class="btn primary w-25 my-3" [disabled]="">Continue to
+                            <button mat-button matStepperNext class="btn btn-primary" type="submit" (click)="createToken()">Continue to
                                 Book</button>
                         </div>
                         <button mat-button routerLink="/landingPage/home"
@@ -358,3 +358,4 @@
 
 
 
+</section>

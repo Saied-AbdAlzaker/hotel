@@ -7,7 +7,6 @@
                 <a [routerLink]="['/landingPage/home/rooms', item._id]">
                     <h5 class="card-disc text-whiteColor">{{item.discount | currency: 'USD'}} <span>{{'per night'|translate}}</span></h5>
                     <img [src]="item.images[0] || 'assets/images/most-picked-2.jpg' " class="w-100 h-75 " alt="" />
-                    <!-- <img *ngIf="!item.images[0]" src="assets/images/dummy.jpg" class="w-100 h-75 " alt="" /> -->
                 </a>
                 <div class="my-3">
                     <h5>{{item.roomNumber}}</h5>
@@ -23,7 +22,6 @@
                 <a [routerLink]="['/landingPage/home/rooms', item._id]">
                     <h5 class="card-disc text-whiteColor">{{item.discount | currency: 'USD'}} <span>{{'per night'|translate}}</span></h5>
                     <img [src]="item.images[1] || 'assets/images/most-picked-2.jpg' " class="w-100 h-75 " alt="" />
-                    <!-- <img *ngIf="!item.images[1]" src="assets/images/dummy.jpg" class="w-100 h-75 " alt="" /> -->
                 </a>
                 <div class="my-3">
                     <h5>{{item.roomNumber}}</h5>

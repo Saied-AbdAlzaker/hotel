@@ -24,7 +24,6 @@ export class ViewUserComponent implements OnInit {
     this._UsersService.onGetUserProfile(id).subscribe({
       next:(res)=>{        
         this.userData=res.data.user
-        console.log(this.userData);
         
       }
     })

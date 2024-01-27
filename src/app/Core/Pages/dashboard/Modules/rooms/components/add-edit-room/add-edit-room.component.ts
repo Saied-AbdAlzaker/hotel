@@ -65,24 +65,13 @@ export class AddEditRoomComponent implements OnInit {
   // Disable Formm
   disableFormControls() {
     if (this.isViewMode) {
-      this.roomForm.get('roomNumber')?.disable();
-      this.roomForm.get('price')?.disable();
-      this.roomForm.get('capacity')?.disable();
-      this.roomForm.get('discount')?.disable();
-      this.roomForm.get('facilities')?.disable();
-      this.roomForm.get('imgs')?.disable();
+      this.roomForm.disable();
     }
   }
   // Enable Form
   enableFormControls() {
     if (this.isEditMode) {
-      this.roomForm.get('roomNumber')?.enable();
-      this.roomForm.get('price')?.enable();
-      this.roomForm.get('capacity')?.enable();
-      this.roomForm.get('discount')?.enable();
-      this.roomForm.get('facilities')?.enable();
-      this.roomForm.get('imgs')?.enable();
-
+      this.roomForm.enable();
     }
   }
 
@@ -96,7 +85,6 @@ export class AddEditRoomComponent implements OnInit {
     for (const f of data.value.facilities) {
       myData.append('facilities', f._id); //not f its f._id
     }
-    // myData.append('imgs', this.imgSrc, this.imgSrc.name);
     for (const m of this.imgSrc) {
       myData.append('imgs', m, m.name);
     }
@@ -155,9 +143,6 @@ export class AddEditRoomComponent implements OnInit {
           this.roomData.facilities.forEach((facility: any) => {
             return this.facilities.push(facility);
           });
-          // for (let i = 0; i < this.roomData.facilities.length; i++) {
-          //  this.facilities?.push[this.roomData.facilities[i]]
-          // }
         };
         console.log(this.facilities);
         this.imgSrc = this.roomData?.images,
@@ -174,8 +159,6 @@ export class AddEditRoomComponent implements OnInit {
   }
 
   // ngx-dropzone
-
-
   onSelect(event: any) {
     console.log(event);
     this.imgSrc = event.addedFiles;

@@ -29,16 +29,6 @@ constructor(
       localStorage.setItem('lang', lang)
     }
 
-// isDarkMode() {
-//     return this.darkMode;
-//   }
-//   setDarkMode(isDarkMode: boolean) {
-//     this.darkMode = isDarkMode;
-//     if (isDarkMode) {
-//       document.body.classList.add('dark-theme');
-//     } else {
-//       document.body.classList.remove('dark-theme');
-//     }
-//   }
+
   }  
 
