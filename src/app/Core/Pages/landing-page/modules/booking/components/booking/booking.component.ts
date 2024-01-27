@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { StripeElementsOptions } from '@stripe/stripe-js';
-import { injectStripe, StripeElementsDirective, StripeFactoryService} from 'ngx-stripe';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { FormBuilder, UntypedFormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { StripeCardElementOptions, StripeElementsOptions } from '@stripe/stripe-js';
+import { injectStripe, StripeCardComponent, StripeElementsDirective, StripeFactoryService} from 'ngx-stripe';
 
 
 @Component({
@@ -10,41 +11,51 @@ import { injectStripe, StripeElementsDirective, StripeFactoryService} from 'ngx-
   styleUrls: ['./booking.component.scss'],
 })
 export class BookingComponent implements OnInit{
-  @ViewChild(StripeElementsDirective) elements!: StripeElementsDirective;
-
-  constructor(private factoryService: StripeFactoryService, private _formBuilder: FormBuilder) {}
+  @ViewChild(StripeCardComponent) cardElement!: StripeCardComponent;
+  constructor(private factoryService: StripeFactoryService, private _formBuilder: FormBuilder,
+      private router:Router
+    ) {}
   ngOnInit(){
-    console.log(this.elements);
   }
-  // stripe = this.factoryService.create
-  // ('pk_test_51OTjURBQWp069pqTmqhKZHNNd3kMf9TTynJtLJQIJDOSYcGM7xz3DabzCzE7bTxvuYMY0IX96OHBjsysHEKIrwCK006Mu7mKw8');
-  stripe = injectStripe
-  ('pk_test_51OTjURBQWp069pqTmqhKZHNNd3kMf9TTynJtLJQIJDOSYcGM7xz3DabzCzE7bTxvuYMY0IX96OHBjsysHEKIrwCK006Mu7mKw8');
-  elementsOptions: StripeElementsOptions = {
-    locale: 'en',
-    clientSecret: 'sk_test_51OTjURBQWp069pqTHSzxfJPfsXX8dYvBN4F87aAIeUTqNJI92ghD8kszmnIbIfT1QvdrV0MmYMmbHkW6JLWx0grr007BrQjaiF'
+  // private readonly fb = inject(UntypedFormBuilder);
+  cardOptions: StripeCardElementOptions = {
+    style: {
+      base: {
+        iconColor: '#666EE8',
+        color: '#31325F',
+        fontWeight: '300',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSize: '18px',
+        '::placeholder': {
+          color: '#CFD7E0'
+        }
+      }
+    }
   };
-  submit() {
-    // this.elements.submit();
+  elementsOptions: StripeElementsOptions = {
+    locale: 'en'
+  };
+
+  // checkoutForm = this.fb.group({
+  //   name: ['', [Validators.required]],
+  //   email: ['', [Validators.required, Validators.email]]
+  // });
+
+  // Replace with your own public key
+  stripe = injectStripe('pk_test_51OTjURBQWp069pqTmqhKZHNNd3kMf9TTynJtLJQIJDOSYcGM7xz3DabzCzE7bTxvuYMY0IX96OHBjsysHEKIrwCK006Mu7mKw8');
+
+  createToken() {
+    const name = ('sara');
+    this.stripe
+      .createToken(this.cardElement.element, { name })
+      .subscribe((result) => {
+        if (result.token) {
+          // Use the token
+          console.log(result.token.id);
+        } else if (result.error) {
+          // Error creating the token
+          console.log(result.error.message);
+        }
+      });
   }
-
-  // firstFormGroup = this._formBuilder.group({
-  //   upload: ['', Validators.required],
-  // });
-  // secondFormGroup = this._formBuilder.group({
-  //   bank: ['', Validators.required],
-  // });
-  // thiredFormGroup = this._formBuilder.group({
-  //   bukit: ['', Validators.required],
-  // });
-
-
-  // fetchUpdates() {
-  //   this.elements.fetchUpdates();
-  // }
-
-  // submit() {
-  //   this.elements.submit();
-  // }
-
 }
