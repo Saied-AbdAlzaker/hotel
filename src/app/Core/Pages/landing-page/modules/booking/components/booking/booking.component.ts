@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { StripeElementsOptions } from '@stripe/stripe-js';
 import { StripeFactoryService } from 'ngx-stripe';
 import {
@@ -7,6 +8,7 @@ import {
   StripePaymentElementComponent
 } from 'ngx-stripe';
 
+
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -14,7 +16,18 @@ import {
 })
 export class BookingComponent {
 
-  constructor(private factoryService: StripeFactoryService) {}
+  constructor(private factoryService: StripeFactoryService, private _formBuilder: FormBuilder) {}
+
+  // firstFormGroup = this._formBuilder.group({
+  //   upload: ['', Validators.required],
+  // });
+  // secondFormGroup = this._formBuilder.group({
+  //   bank: ['', Validators.required],
+  // });
+  // thiredFormGroup = this._formBuilder.group({
+  //   bukit: ['', Validators.required],
+  // });
+
   
   @ViewChild(StripeElementsDirective) elements!: StripeElementsDirective;
 
