@@ -14,7 +14,6 @@ import { StripeElementsDirective,StripePaymentElementComponent } from 'ngx-strip
   imports: [
     CommonModule,
     BookingRoutingModule,
-    BookingRoutingModule,
     StripeElementsDirective,
     NgxStripeModule.forRoot(
       'pk_test_51OTjURBQWp069pqTmqhKZHNNd3kMf9TTynJtLJQIJDOSYcGM7xz3DabzCzE7bTxvuYMY0IX96OHBjsysHEKIrwCK006Mu7mKw8'
