@@ -53,7 +53,6 @@ export class RoomsComponent implements OnInit {
       facilityId: this.facilityId,
       capacity: this.capacityName,
     };
-
     this._roomsService.onGetAllRooms(parms).subscribe({
       next: (res) => {
         console.log(res);
@@ -131,6 +130,7 @@ export class RoomsComponent implements OnInit {
   handlePageEvent(e: any) {
     this.pageSize = e.pageSize;
     this.pageNumber = e.pageIndex + 1;
+    console.log(e);
     this.getAllRooms();
   }
 }

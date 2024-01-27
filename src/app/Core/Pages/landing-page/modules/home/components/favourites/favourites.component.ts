@@ -30,6 +30,10 @@ export class FavouritesComponent implements OnInit {
     this.getAllFavourites();
   }
   getAllFavourites() {
+    // params = {
+    //   page: this.pageNumber,
+    //   size: this.pageSize,
+    // };
     return this._favouriteService.getMyFavourites().subscribe({
       next: (res: IFavouriteResponse) => {
         console.log(res);

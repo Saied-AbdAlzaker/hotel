@@ -1,6 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
+import { HomeService } from 'src/app/Core/Pages/landing-page/modules/home/services/home.service';
 
 @Component({
   selector: 'app-change-password',
@@ -10,7 +12,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class ChangePasswordComponent {
   hide: boolean = false;
   changeForm = new FormGroup({
-    oldPassword: new FormControl(null, [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
+    oldPassword: new FormControl(null, [Validators.required, Validators.pattern('')]),
     newPassword: new FormControl(null,[Validators.required,
       Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
     confirmPassword: new FormControl(null,[Validators.required,
@@ -21,10 +23,12 @@ export class ChangePasswordComponent {
 
   constructor(
     private dialogRef: MatDialogRef<ChangePasswordComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    private _homeService: HomeService,
+    private toastr: ToastrService,
+
+
   ) {
-    data = this.changeForm;
-    console.log(data)
+
   }
   passwordMatchValidator(control: any) {
     let password =control.get('password');
@@ -41,4 +45,24 @@ export class ChangePasswordComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
+  onSubmit(data:FormGroup){
+    if(localStorage.getItem('role')=='user'){
+        this._homeService.changePasswordUser(data.value).subscribe({
+            next: (res) => {
+              console.log(res);
+            },
+            error: (err: any) => {
+              console.log(err.error.message);
+              this.toastr.error(err.error.message, 'error!');
+            },
+            complete: () => {
+              this.onNoClick();
+              this.toastr.success('Password has been updated successfully', 'Done');
+            },
+          });
+    }
+
+  }
 }
+
+

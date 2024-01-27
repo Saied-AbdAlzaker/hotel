@@ -5,9 +5,10 @@
     "per":"per",
     "per night":"per night",
     "Explore ALL Rooms": "Explore ALL Rooms",
+    "Explore Paaragraph": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis cum, nulla",
     "All Rooms": "All Rooms",
     "About":"About",
-    "Rate":"Rate",
+    "Review":"Review",
     "Message":"Message",
     "Comment":"Comment",
     "nav":{
@@ -68,8 +69,7 @@
         "feadback":"Happy Family",
         "feadbackContent": "What a great trip with my family and ",
         "feadbackContentOne": "I should try again next time soon ...",
-        "feadbackParagraph": "Angga, Product Designer",
-        "feadbackButton": "Read Their Story"
+        "feadbackParagraph": "Angga, Product Designer"
     },
     "footer": {
             "Stay":" Stay ",

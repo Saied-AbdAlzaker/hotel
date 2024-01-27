@@ -1,1 +1,347 @@
-<p>booking works!</p>
+<ngx-stripe-elements [stripe]="stripe" [elementsOptions]="elementsOptions">
+    <ngx-stripe-payment />
+
+</ngx-stripe-elements>
+
+<section id="booking">
+
+    <div class="logo text-decoration-none cursor-pointer text-center shadow-sm py-3"
+        [routerLink]="['/landingPage/home']">Stay<span>cation.</span></div>
+
+    <!-- <nz-steps nzType="navigation" class="my-2" [nzCurrent]="index" (nzIndexChange)="onIndexChange($event)">
+        <nz-step nzStatus="finish" >
+            <div class="container text-secondryColor">
+
+                <div class="text-center">
+                    <h3>Payment</h3>
+                    <p class="text-muted">Kindly follow the instructions below</p>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-4 shadow-sm">
+                        <p>Transfer Pembayaran:</p>
+                        <p>Tax: 10%</p>
+                        <p>Sub total: $480 USD</p>
+                        <p>Total: $580 USD</p>
+
+                        <div class="d-flex my-3">
+                            <div class="me-2">
+                                <img src="../../../../../../../../assets/images/image 4.png" alt="">
+                            </div>
+                            <div>
+                                <p>Bank Central Asia</p>
+                                <p>2208 1996</p>
+                                <p>BuildWith Angga</p>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="me-2">
+                                <img src="../../../../../../../../assets/images/image 5.png" alt="">
+                            </div>
+                            <div>
+                                <p>Bank Mandiri</p>
+                                <p>2208 1996</p>
+                                <p>BuildWith Angga</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 ms-5">
+                            <label class="my-3">Upload Bukti Transfer</label>
+                            <input type="text" class="form-control bg-gray w-100" placeholder="Browse a file ...">
+                            <label class="my-3">Asal Bank</label>
+                            <input type="text" class="form-control bg-gray w-100" placeholder="Please type here ...">
+                            <label class="my-3">Nama Pengirim</label>
+                            <input type="text" class="form-control bg-gray w-100" placeholder="Please type here ...">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div>
+                        <button class="btn primary w-25 my-3">Continue to Book</button>
+                    </div>
+                    <button class="btn outline-primary w-25">Cancel</button>
+                </div>
+
+            </div>
+        </nz-step>
+        <nz-step nzStatus="process">
+            <div class="container text-secondryColor">
+
+
+                <div class="text-center">
+                    <h3>Payment</h3>
+                    <p class="text-muted">Kindly follow the instructions below</p>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-4 shadow-sm">
+                        <p>Transfer Pembayaran:</p>
+                        <p>Tax: 10%</p>
+                        <p>Sub total: $480 USD</p>
+                        <p>Total: $580 USD</p>
+
+                        <div class="d-flex my-3">
+                            <div class="me-2">
+                                <img src="../../../../../../../../assets/images/image 4.png" alt="">
+                            </div>
+                            <div>
+                                <p>Bank Central Asia</p>
+                                <p>2208 1996</p>
+                                <p>BuildWith Angga</p>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="me-2">
+                                <img src="../../../../../../../../assets/images/image 5.png" alt="">
+                            </div>
+                            <div>
+                                <p>Bank Mandiri</p>
+                                <p>2208 1996</p>
+                                <p>BuildWith Angga</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 ms-5">
+                            <label class="my-3">Upload Bukti Transfer</label>
+                            <input type="text" class="form-control bg-gray w-100" placeholder="Browse a file ...">
+                            <label class="my-3">Asal Bank</label>
+                            <input type="text" class="form-control bg-gray w-100" placeholder="Please type here ...">
+                            <label class="my-3">Nama Pengirim</label>
+                            <input type="text" class="form-control bg-gray w-100" placeholder="Please type here ...">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div>
+                        <button class="btn primary w-25 my-3">Continue to Book</button>
+                    </div>
+                    <button class="btn outline-primary w-25">Cancel</button>
+                </div>
+
+            </div>
+        </nz-step>
+        <nz-step nzStatus="wait">
+            <div class="container text-secondryColor">
+
+
+                <div class="text-center">
+                    <h3>Payment</h3>
+                    <p class="text-muted">Kindly follow the instructions below</p>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-4 shadow-sm">
+                        <p>Transfer Pembayaran:</p>
+                        <p>Tax: 10%</p>
+                        <p>Sub total: $480 USD</p>
+                        <p>Total: $580 USD</p>
+
+                        <div class="d-flex my-3">
+                            <div class="me-2">
+                                <img src="../../../../../../../../assets/images/image 4.png" alt="">
+                            </div>
+                            <div>
+                                <p>Bank Central Asia</p>
+                                <p>2208 1996</p>
+                                <p>BuildWith Angga</p>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="me-2">
+                                <img src="../../../../../../../../assets/images/image 5.png" alt="">
+                            </div>
+                            <div>
+                                <p>Bank Mandiri</p>
+                                <p>2208 1996</p>
+                                <p>BuildWith Angga</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 ms-5">
+                            <label class="my-3">Upload Bukti Transfer</label>
+                            <input type="text" class="form-control bg-gray w-100" placeholder="Browse a file ...">
+                            <label class="my-3">Asal Bank</label>
+                            <input type="text" class="form-control bg-gray w-100" placeholder="Please type here ...">
+                            <label class="my-3">Nama Pengirim</label>
+                            <input type="text" class="form-control bg-gray w-100" placeholder="Please type here ...">
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div>
+                        <button class="btn primary w-25 my-3">Continue to Book</button>
+                    </div>
+                    <button class="btn outline-primary w-25">Cancel</button>
+                </div>
+
+            </div>
+        </nz-step>
+    </nz-steps> -->
+
+
+    <!-- Angular Material -->
+    <mat-stepper headerPosition="top" #stepper >
+        <!-- step1 -->
+        <mat-step>
+            <ng-template matStepLabel>In Progress</ng-template>
+            <ng-template matStepContent>
+                <div class="container text-secondryColor">
+
+                    <div class="text-center">
+                        <h3>Payment</h3>
+                        <p class="text-muted">Kindly follow the instructions below</p>
+                    </div>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-4 shadow-sm">
+                            <p>Transfer Pembayaran:</p>
+                            <p>Tax: 10%</p>
+                            <p>Sub total: $480 USD</p>
+                            <p>Total: $580 USD</p>
+
+                            <div class="d-flex">
+                                <div class="me-2">
+                                    <img src="../../../../../../../../assets/images/image 4.png" alt="">
+                                </div>
+                                <div>
+                                    <p>Bank Central Asia</p>
+                                    <p>2208 1996</p>
+                                    <p>BuildWith Angga</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="me-2">
+                                    <img src="../../../../../../../../assets/images/image 5.png" alt="">
+                                </div>
+                                <div>
+                                    <p>Bank Mandiri</p>
+                                    <p>2208 1996</p>
+                                    <p>BuildWith Angga</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="ms-5">
+                                    <!-- <form [formGroup]="firstFormGroup">
+                                        <mat-form-field>
+                                            <mat-label>Upload Bukti Transfer</mat-label>
+                                            <input matInput type="text" class="form-control bg-gray w-100" formControlName="upload"
+                                                placeholder="Browse a file ..." required>
+                                        </mat-form-field>
+                                        <mat-form-field>
+                                            <mat-label>Asal Bank</mat-label>
+                                            <input matInput type="text" class="form-control bg-gray w-100" formControlName="bank"
+                                                placeholder="Please type here ..." required>
+                                        </mat-form-field>
+                                        <mat-form-field>
+                                            <mat-label>Nama Pengirim</mat-label>
+                                            <input matInput type="text" class="form-control bg-gray w-100" formControlName="bukit"
+                                            placeholder="Please type here ..." required>
+                                        </mat-form-field>
+                                    </form> -->
+                                <label class="my-3">Upload Bukti Transfer</label>
+                                <input type="text" class="form-control bg-gray w-100" placeholder="Browse a file ...">
+                                <label class="my-3">Asal Bank</label>
+                                <input type="text" class="form-control bg-gray w-100"
+                                    placeholder="Please type here ...">
+                                <label class="my-3">Nama Pengirim</label>
+                                <input type="text" class="form-control bg-gray w-100"
+                                    placeholder="Please type here ...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div>
+                            <button mat-button matStepperNext class="btn primary w-25 my-3" [disabled]="">Continue to
+                                Book</button>
+                        </div>
+                        <button mat-button routerLink="/landingPage/home"
+                            class="btn outline-primary w-25">Cancel</button>
+                    </div>
+
+                </div>
+            </ng-template>
+        </mat-step>
+        <!-- step2 -->
+        <mat-step>
+            <ng-template matStepLabel>Waiting</ng-template>
+            <ng-template matStepContent>
+                <div class="container text-secondryColor">
+
+                    <div class="text-center">
+                        <h3>Payment</h3>
+                        <p class="text-muted">Kindly follow the instructions below</p>
+                    </div>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-4 shadow-sm">
+                            <p>Transfer Pembayaran:</p>
+                            <p>Tax: 10%</p>
+                            <p>Sub total: $480 USD</p>
+                            <p>Total: $580 USD</p>
+
+                            <div class="d-flex my-3">
+                                <div class="me-2">
+                                    <img src="../../../../../../../../assets/images/image 4.png" alt="">
+                                </div>
+                                <div>
+                                    <p>Bank Central Asia</p>
+                                    <p>2208 1996</p>
+                                    <p>BuildWith Angga</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="me-2">
+                                    <img src="../../../../../../../../assets/images/image 5.png" alt="">
+                                </div>
+                                <div>
+                                    <p>Bank Mandiri</p>
+                                    <p>2208 1996</p>
+                                    <p>BuildWith Angga</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 ms-5">
+                                <label class="my-3">Upload Bukti Transfer</label>
+                                <input type="text" class="form-control bg-gray w-100" placeholder="Browse a file ...">
+                                <label class="my-3">Asal Bank</label>
+                                <input type="text" class="form-control bg-gray w-100"
+                                    placeholder="Please type here ...">
+                                <label class="my-3">Nama Pengirim</label>
+                                <input type="text" class="form-control bg-gray w-100"
+                                    placeholder="Please type here ...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div>
+                            <button mat-button matStepperNext class="btn primary w-25 my-3">Continue to Book</button>
+                        </div>
+                        <button mat-button matStepperPrevious class="btn outline-primary w-25">Cancel</button>
+                    </div>
+
+                </div>
+            </ng-template>
+        </mat-step>
+        <!-- step3 -->
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <ng-template matStepContent>
+                <div class="text-center">
+                    <h3 class="text-secondryColor">Yay! Completed</h3>
+                    <img src="../../../../../../../../assets/images/payment-done.png" alt="">
+                    <p class="text-muted">We will inform you via email later <br>
+                        once the transaction has been accepted</p>
+                    <button class="btn primary w-25 my-3" routerLink="/landingPage/home">Back to Home</button>
+                </div>
+            </ng-template>
+
+        </mat-step>
+    </mat-stepper>
+
+
+

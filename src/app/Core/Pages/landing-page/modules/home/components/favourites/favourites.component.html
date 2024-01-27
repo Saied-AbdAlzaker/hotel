@@ -1,67 +1,78 @@
 <section id="myFavourite" class="mt-3">
   <div class="container">
     <div class="header text-center">
-      <h2 class="fw-bolder text-secondryColor">{{'favourites.title'|translate}}</h2>
+      <h2 class="fw-bolder text-secondryColor">
+        {{ "favourites.title" | translate }}
+      </h2>
       <p class="paragraph">
-        {{'favourites.paragraph'|translate}}
+        {{ "favourites.paragraph" | translate }}
       </p>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a
-              routerLink="/landingPage/home"
-              >{{'favourites.home'|translate}}</a
-            >
+            <a routerLink="/landingPage/home">{{
+              "favourites.home" | translate
+            }}</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            {{'favourites.title'|translate}}
+            {{ "favourites.title" | translate }}
           </li>
         </ol>
       </nav>
     </div>
-    <div class="row mb-5 gap-2 justify-content-center">
-      <h5 class="fw-bolder text-secondryColor">{{'favourites.subTitle'|translate}}</h5>
+    <div class="row gap-2 justify-content-center">
+      <h5 class="fw-bolder text-secondryColor">
+        {{ "favourites.subTitle" | translate }}
+      </h5>
       <div
         class="col-lg-3 .col-md-6 card-item p-0 mb-2"
         *ngFor="let item of favouriteItems"
       >
-        <h5  [class]="_HelperService.textDir === 'ltr'?'ltr':'rtl'">{{ item.price }}$ <span> {{'favourites.perNight'|translate}}</span></h5>
+        <h5 [class]="_HelperService.textDir === 'ltr' ? 'ltr' : 'rtl'">
+          {{ item.price }}$
+          <span> {{ "favourites.perNight" | translate }}</span>
+        </h5>
         <div class="links">
-          <a (click)="openDeleteDialog(item)"><i class="fa-solid text-danger fa-2x fa-heart"></i></a>
+          <a (click)="openDeleteDialog(item)"
+            ><i class="fa-solid text-danger fa-2x fa-heart"></i
+          ></a>
           <a
             class="text-white"
             [routerLink]="['/landingPage/home/rooms', item._id]"
             ><i class="fa-regular fa-2x fa-eye"></i
           ></a>
         </div>
-        <img *ngIf="item.images[0]"
+        <img
+          *ngIf="item.images[0]"
           [src]="item.images[0]"
           alt="most picked"
           class="img-fluid h-100 w-100"
         />
-        <img *ngIf="!item.images[0]" class="img-fluid w-100 h-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
-        <div class="caption-item"  [class]="_HelperService.textDir === 'ltr'?'':'rtl'">
+        <img
+          *ngIf="!item.images[0]"
+          class="img-fluid w-100 h-100"
+          src="../../../../../../../../assets/images/dummy.jpg"
+          alt=""
+        />
+        <div
+          class="caption-item"
+          [class]="_HelperService.textDir === 'ltr' ? '' : 'rtl'"
+        >
           <h5>{{ item.roomNumber }}</h5>
           <p>{{ item.discount }} $</p>
         </div>
       </div>
     </div>
-    <nav aria-label="Page navigation example" class="d-flex justify-content-center my-5">
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-        <li class="page-item"><a class="page-link active">{{'numbers.1'|translate}}</a></li>
-        <li class="page-item"><a class="page-link">{{'numbers.2'|translate}}</a></li>
-        <li class="page-item"><a class="page-link">{{'numbers.3'|translate}}</a></li>
-        <li class="page-item">
-          <a class="page-link" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
+
+    <div class="p-5 text-center">
+      <nz-pagination
+        [nzPageIndex]="1"
+        [nzTotal]="10"
+        [nzPageSize]="5"
+      ></nz-pagination>
+      <!-- <mat-paginator [length]="roomsData?.totalCount" [pageSizeOptions]="[5, 10, 50, 100]"
+     (page)="handlePageEvent($event)" [pageSize]="roomRespnse?.size" [pageIndex]="pageIndex" aria-label="Select page">
+   </mat-paginator> -->
+    </div>
   </div>
 </section>

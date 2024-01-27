@@ -33,10 +33,11 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { MatMenuModule} from '@angular/material/menu';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
-
 import { TranslateModule } from '@ngx-translate/core';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { MustSignComponent } from './must-sign/must-sign.component';
+
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatMenuModule,
     NzPopconfirmModule,
     CarouselModule,
+    NzRateModule,
     NzPaginationModule
   ],
   exports: [
@@ -106,6 +108,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatMenuModule,
     NzPopconfirmModule,
     CarouselModule,
+    NzRateModule,
     NzPaginationModule
   ],
   declarations: [
@@ -116,6 +119,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     DeleteDialogComponent,
     DarkComponent,
     NotFoundComponent,
+    MustSignComponent,
   ],
 })
 export class SharedModule {}

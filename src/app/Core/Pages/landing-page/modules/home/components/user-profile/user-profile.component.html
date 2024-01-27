@@ -1,0 +1,132 @@
+<section id="user-pro">
+  <div class="container-fluid">
+    <div class="back-ground">
+      <img
+        src="../../../../../../../../assets/images/cover-profile.jpeg"
+        class="img-fluid"
+        alt=""
+      />
+    </div>
+    <div class="container px-5">
+      <div class="user-details d-flex flex-column flex-md-row gap-5">
+        <div class="">
+          <img
+            src="../../../../../../../../assets/images/avatar-dummy.jpg"
+            class="img-fluid rounded-circle shadow-sm"
+            alt=""
+          />
+          <!-- <img
+          *ngIf="!userProfile?.profileImage"
+            src="../../../../../../../../assets/images/avatar-dummy.jpg"
+            class="img-fluid rounded-circle shadow-sm"
+            alt=""
+          />
+          <img
+          *ngIf="userProfile?.profileImage"
+          [src]="userProfile.profileImage"
+          class="img-fluid rounded-circle shadow-sm"
+          alt=""
+        /> -->
+        </div>
+        <div class="align-self-end mb-5">
+          <h3>{{ userProfile?.userName }}</h3>
+          <p>Welcome in Your profile, see your activites</p>
+          <!-- <div class="d-flex gap-2">
+            <p>email</p>
+            <p>phoneNumber</p>
+            <p>country</p>
+          </div> -->
+        </div>
+      </div>
+      <div>
+        <div class="row my-5 justify-content-between">
+          <div class="col-lg-3 card-profile py-5 px-4 align-self-start position-z">
+            <p>
+              <i class="fa-solid fa-envelope text-secondryColor p-2"></i>
+              <span class="p-1"> {{ userProfile?.email }} </span>
+            </p>
+            <p>
+              <i class="fa-solid fa-phone text-secondryColor p-2"></i>
+              <span class="p-1"> {{ "0" + userProfile?.phoneNumber }} </span>
+            </p>
+            <p>
+              <i class="fa-solid fa-globe text-secondryColor p-2"></i>
+              <span class="p-1"> {{ userProfile?.country }} </span>
+            </p>
+
+            <button
+              class="primary btn w-100"
+              (click)="openDialogCahngePassword()"
+            >
+              <span><i class="fa-solid fa-lock me-2"></i></span> Change Password
+            </button>
+          </div>
+          <div class="col-lg-6 card-profile p-5">
+              <h4 class="mb-3">Your Bookings:</h4>
+              <ng-container *ngFor="let booking of mybookingsData">
+                  <div class="card  mb-3" [ngClass]="{'border-primary': booking.status=='pending', 'border-success':  booking.status=='complete', 'border-warning': booking.status=='progress'}">
+                    <div class="card-header">check your booking</div>
+                    <div class="d-flex" >
+                      <div class="d-flex cursor-pointer" [routerLink]="['/landingPage/home/rooms', booking.room]" >
+                        <img
+                          [src]="booking.roomImage[0]"
+                          alt=""
+                          class="img-fluid align-self-stretch"
+                          width="600"
+                          height="300"
+                        />
+                      </div>
+                      <div class="card-body text-primary">
+                        <h5 class="card-title">{{ booking.status }}</h5>
+                        <p class="card-text text-muted">
+                          Some quick example text to build on the card title and
+                          make up the bulk of the card's content.
+                        </p>
+                        <div class="input-group  w-100 flex-nowrap my-5">
+                          <span class="input-group-text bg-main" >
+                              <i class="fa-solid fa-calendar-days text-white"></i>
+                          </span>
+                          <nz-date-picker
+                            nzShowTime
+                            nzDisabled
+                            class="w-50 py-2"
+
+                            nzFormat="yyyy-MM-dd"
+                            [(ngModel)]="booking.startDate"
+                            nzPlaceHolder="Start"
+                          ></nz-date-picker>
+                          <nz-date-picker
+                            #endDatePicker
+                            nzDisabled
+                            nzShowTime
+                            class="w-50 py-2"
+
+                            nzFormat="yyyy-MM-dd"
+                            [(ngModel)]="booking.endDate"
+                            nzPlaceHolder="End"
+                          ></nz-date-picker>
+
+                      </div>
+
+                        <p class="text-danger">Total Price: {{ booking.totalPrice | currency:'L.E' }}</p>
+                        <!-- <p>{{ booking.roomId }}</p> -->
+                      </div>
+                    </div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </ng-container>
+
+          </div>
+          <div class="col-lg-2 card-profile p-5 align-self-start">
+            <h4>Our Ads:</h4>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non
+              nulla ea similique ipsum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

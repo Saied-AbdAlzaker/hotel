@@ -5,9 +5,10 @@
     "per":"في",
     "per night":"في الليلة",
     "Explore ALL Rooms": "استكشف جميع الغرف",
+    "Explore Paaragraph": "يوجد ليدنا افضل وامتع الغرف باشكال واحجام واتفاصيل مختلفه تصفح واحجز الآن",
     "All Rooms": "جميع الغرف",
     "About":"عن",
-    "Rate":"تقييم",
+    "Review":"تقييم",
     "Message":"ارسل رساله",
     "Comment":"التعليقات",
     "nav":{
@@ -68,8 +69,7 @@
         "feadback": "عائلة سعيدة",
         "feadbackContent": "يا لها من رحلة رائعة مع عائلتي و",
         "feadbackContentOne": "يجب أن أحاول مرة أخرى في المرة القادمة قريبا",
-        "feadbackParagraph": "أنجا، مصممة المنتجات",
-        "feadbackButton": "اقرأ قصتهم"
+        "feadbackParagraph": "أنجا، مصممة المنتجات"
     },
     "footer": {
         "Stay": " البقاء ",

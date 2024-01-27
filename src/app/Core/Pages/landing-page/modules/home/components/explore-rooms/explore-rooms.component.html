@@ -1,24 +1,39 @@
 <section id="explore" class="my-2">
   <div class="container">
-    <h2 class="text-secondryColor text-center">{{'Explore ALL Rooms' | translate}} </h2>
+    <h2 class="text-secondryColor text-center pt-3">{{'Explore ALL Rooms' | translate}} </h2>
+    <p class="paragraph text-center">
+      {{ "Explore Paaragraph" | translate }}
+    </p>
     <div class="row g-3">
-      <h4 class="text-secondryColor">{{'All Rooms' | translate}}</h4>
-      <div class="col-md-4 position-relative" *ngFor="let item of roomsData">
-        <a [routerLink]="['/landingPage/home/rooms/', item._id]">
-          <h5 class="card-disc text-whiteColor">{{item.discount | currency: 'USD'}} <span>{{'per night'|translate}}</span></h5>
-          <img [src]="item.images[0] || 'assets/images/most-picked-2.jpg'" class="w-100 h-100 " alt="">
-          <div class="caption-item" [class]="_HelperService.textDir === 'rtl'?'caption-edit':''">
-            <h5>{{item.roomNumber}}</h5>
-            <h5>{{item.facilities[0].name}}</h5>
-          </div>
-        </a>
-      </div>
+      <h2 class="text-secondryColor py-3">{{'All Rooms' | translate}}</h2>
+      <ng-container *ngFor="let item of roomsData">
+          <div class="col-md-4 position-relative">
+          <a [routerLink]="['/landingPage/home/rooms/', item._id]">
+            <h5 class="card-disc text-whiteColor">{{item.discount | currency: 'USD'}} <span>{{'per night'|translate}}</span></h5>
+            <img *ngIf="item.images[0]" [src]="item.images[0]" class="w-100 h-100 " alt="">
+            <img *ngIf="!item.images[0]" src="../../../../../../../../assets/images/dummy.jpg" class="w-100 h-100 " alt="">
+            <div class="caption-item" [class]="_HelperService.textDir === 'rtl'?'caption-edit':''">
+              <h5>{{item.roomNumber}}</h5>
+              <h5>{{item.facilities[0].name}}</h5>
+            </div>
+          </a>
+        </div>
+      </ng-container>
+
+
     </div>
-
-
     <div class="p-5 text-center">
-    <nz-pagination [nzPageIndex]="1" [nzTotal]="50"></nz-pagination> 
 
+
+    <!-- (nzPageIndexChange)="onPageIndexChange($event)" -->
+
+
+         <nz-pagination [(nzPageIndex)]="pageIndex" [nzTotal]="totalCount" [nzPageSize]="pageSize" (click)="declarePageIndex(pageIndex)" [nzShowTotal]="rangeTemplate"></nz-pagination>
+        <ng-template #totalTemplate let-total>Total {{ total }} items</ng-template>
+        <ng-template #rangeTemplate let-range="range" let-total>
+      {{ range[0] }}-{{ range[1] }} of {{ total }} items
+        </ng-template>
+      
       <!-- <mat-paginator [length]="roomsData?.totalCount" [pageSizeOptions]="[5, 10, 50, 100]"
         (page)="handlePageEvent($event)" [pageSize]="roomRespnse?.size" [pageIndex]="pageIndex" aria-label="Select page">
       </mat-paginator> -->

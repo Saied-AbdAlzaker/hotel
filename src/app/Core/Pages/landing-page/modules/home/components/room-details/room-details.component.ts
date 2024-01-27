@@ -8,6 +8,8 @@ import { NzDatePickerComponent } from 'ng-zorro-antd/date-picker';
 import { HomeService } from '../../services/home.service';
 import { IRoomsUser } from '../../models/home';
 import { IFacilities } from 'src/app/Core/Pages/dashboard/Modules/rooms/model/room';
+import { MatDialog } from '@angular/material/dialog';
+import { MustSignComponent } from 'src/app/Shared/must-sign/must-sign.component';
 
 @Component({
   selector: 'app-room-details',
@@ -29,6 +31,7 @@ export class RoomDetailsComponent implements OnInit {
   totalPrice: number | any;
   priceRoom: number | any = 0;
   Reviews:any;
+  rate:number=0;
   @ViewChild('endDatePicker') endDatePicker!: NzDatePickerComponent;
   bookingForm = new FormGroup({
     startDate: new FormControl(null, [Validators.required]),
@@ -43,10 +46,10 @@ export class RoomDetailsComponent implements OnInit {
   })
   Addreview = new FormGroup({
     roomId: new FormControl(this.roomId),
-    rating:new FormControl(null),
+    rating:new FormControl(this.rate),
     review: new FormControl(null),
   })
-  
+
 
   constructor(
     private _HomeService: HomeService,
@@ -54,7 +57,9 @@ export class RoomDetailsComponent implements OnInit {
     private _ActivatedRoute: ActivatedRoute,
     private _UserBookingService: UserBookingService,
     private toastr: ToastrService,
-    private Router: Router
+    private Router: Router,
+    public dialog: MatDialog
+
   ) {
     this.roomId = this._ActivatedRoute.snapshot.params['id'];
   }
@@ -62,6 +67,7 @@ export class RoomDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getRoomDetails(this.roomId);
     this.getAllComments()
+    this.getAllReviews()
   }
   getRoomDetails(id: string) {
     this._HomeService.onGetRoomDetails(id).subscribe({
@@ -92,26 +98,27 @@ export class RoomDetailsComponent implements OnInit {
       },
     });
   }
-  
-  getAllReview(){
+
+  getAllReviews(){
     this._HomeService.getAllReviews(this.roomId).subscribe({
       next:(res)=>{
         console.log(res);
         this.Reviews=res.data.roomReviews;
+        this.rate=this.Reviews[0]?.rating
       }
-      
+
     })
   }
   AddReview(data:FormGroup){
     this._HomeService.Addreview(data.value).subscribe({
       next:(res)=>{
         console.log(res);
-        
+
       },error:(err)=>{
-        this.toastr.error('Login First','Error')
+        this.toastr.error(err.error.message,'Error')
       },complete:()=>{
         this.toastr.success('Reviewed Successfully')
-        this.getAllReview()
+        this.getAllReviews()
       }
     })
   }
@@ -171,18 +178,31 @@ export class RoomDetailsComponent implements OnInit {
         })
       }
       Addcomment(data:FormGroup){
+        if (!localStorage.getItem('role')) {
+          this.openDialogMustSign();
+
+        }
           this._HomeService.Addcomment(data.value).subscribe({
             next:(res)=>{
               console.log(res);
-              
+
             },error:(err)=>{
-              this.toastr.error('Login First','Error')
+              // this.toastr.error('Login First','Error')
             },complete:()=>{
               this.toastr.success('Commented Successfully')
               this.getAllComments()
             }
           })
         }
-        
 
+        openDialogMustSign(): void {
+          const dialogRef = this.dialog.open(MustSignComponent, {
+            data: {},
+            width: '40%',
+          });
+
+          dialogRef.afterClosed().subscribe((result) => {
+            console.log('The dialog was closed');
+          });
+        }
 }

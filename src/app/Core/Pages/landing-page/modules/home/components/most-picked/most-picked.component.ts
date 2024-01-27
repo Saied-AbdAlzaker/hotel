@@ -11,6 +11,8 @@ import { FavouriteService } from '../../services/favourite.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { MustSignComponent } from 'src/app/Shared/must-sign/must-sign.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-most-picked',
@@ -32,7 +34,8 @@ export class MostPickedComponent implements OnInit {
     private _favouriteService: FavouriteService,
     private _toastrService: ToastrService,
     private _router: Router,
-    private nzMessageService: NzMessageService
+    private nzMessageService: NzMessageService,
+    public dialog: MatDialog
   ) {}
   ngOnInit(): void {
     this.getAllRooms();
@@ -72,6 +75,11 @@ export class MostPickedComponent implements OnInit {
     this.nzMessageService.info('click confirm');
   }
   addFavouriteById(roomId: string) {
+    if (!localStorage.getItem('role')) {
+      this.openDialogMustSign();
+
+    }
+
     return this._favouriteService.addFavourite(roomId).subscribe({
       next: (res) => {
         console.log(res);
@@ -82,13 +90,24 @@ export class MostPickedComponent implements OnInit {
         ) {
           this._toastrService.error('Room is already in your favorite');
         } else {
-          this._toastrService.error('You must Log in');
-          this._router.navigate(['/auth/signin']);
+          // this._toastrService.error('Error!');
+          // this._router.navigate(['/auth/signin']);
         }
       },
       complete: () => {
         this._toastrService.success('Room added to favorites successfully');
       },
+    });
+  }
+
+  openDialogMustSign(): void {
+    const dialogRef = this.dialog.open(MustSignComponent, {
+      data: {},
+      width: '40%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
     });
   }
 }

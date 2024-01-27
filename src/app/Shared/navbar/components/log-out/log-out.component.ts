@@ -26,8 +26,8 @@ logout(){
   localStorage.removeItem('loglevel')
   this.onNoClick()
   this.toastr.success('You Loged out')
-  window.location.reload()
   this.Router.navigate(['/landingPage'])
+  window.location.reload()
 
 }
 onNoClick(): void {

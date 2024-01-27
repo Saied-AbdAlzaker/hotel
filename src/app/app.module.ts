@@ -17,6 +17,7 @@ import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 
 
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 
@@ -64,7 +65,7 @@ registerLocaleData(en);
       provide:HTTP_INTERCEPTORS,
       useClass:LoadingInterceptor,
       multi: true
-    }
+    },
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

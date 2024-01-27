@@ -26,11 +26,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.getUserProfile(this.userId)
   }
-  
+
   openDialogCahngePassword(): void {
     const dialogRef = this.dialog.open(ChangePasswordComponent, {
       data: {},
-      width: '30%',
+      width: '40%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -73,7 +73,7 @@ export class NavbarComponent implements OnInit {
         this.userData=res.data
         this.userImage=res.data.user.profileImage
         console.log(this.userImage);
-        
+
       }
     })
   }
