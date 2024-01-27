@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NzDatePickerComponent } from 'ng-zorro-antd/date-picker';
 import { HelperService } from 'src/app/Core/services/helper.service';
-import { HomeService } from '../../services/home.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
@@ -39,7 +38,6 @@ export class HeaderComponent implements OnInit {
   
   constructor(
     public _HelperService: HelperService,
-    private _HomeService: HomeService,
     private router: Router,
     private datePipe: DatePipe
   ) {}
