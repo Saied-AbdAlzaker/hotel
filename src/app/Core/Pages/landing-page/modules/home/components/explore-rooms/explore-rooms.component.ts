@@ -13,12 +13,12 @@ export class ExploreRoomsComponent implements OnInit {
   startDate: Date | null = null;
   endDate: Date | null = null;
   capacity: number = 1;
-  pageIndex: number = 0;
-  pageSize: number = 100;
+  pageIndex: number = 1;
+  pageSize: number = 12;
   pageNumber: number | undefined = 1;
   totalCount: number = 0;
   roomRespnse: IRoomsUserDetails | undefined;
-  roomsData: IRoomsUser[] | any;
+  roomsData: IRoomsUser | any;
 
   constructor(
     private _homeService: HomeService,
@@ -58,15 +58,28 @@ export class ExploreRoomsComponent implements OnInit {
       next: (res) => {
         this.roomRespnse = res.data;
         this.roomsData = res.data.rooms;
+        this.totalCount = res.data.totalCount;
+        console.log(this.totalCount)
+        console.log(this.pageNumber);
+        console.log(this.pageSize);
         console.log(this.roomsData);
       },
     });
   }
-  
-  // handlePageEvent(e: any) {
-  //   this.pageSize = e.pageSize;
-  //   this.pageNumber = e.pageIndex + 1;
-  //   this.getAllRooms();
-  // }
 
+  //angular material pagenation
+  handlePageEvent(e: any) {
+    this.pageSize = e.pageSize;
+    this.pageNumber = e.pageIndex + 1;
+    console.log(e);
+    this.getAllRooms();
+  }
+
+  //ant design pagenation
+  declarePageIndex(pageIndex:number){
+    this.pageNumber = pageIndex;
+    console.log(pageIndex)
+    console.log(this.pageNumber)
+    this.getAllRooms();
+  }
 }

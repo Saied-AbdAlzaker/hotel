@@ -13,10 +13,6 @@ import { StripeElementsDirective,StripePaymentElementComponent } from 'ngx-strip
   ],
   imports: [
     CommonModule,
-<<<<<<< HEAD
-=======
-    BookingRoutingModule,
->>>>>>> 922a5e8a9b3dbc24e8bc49fd936ae14592dd1651
     BookingRoutingModule,
     StripeElementsDirective,
     NgxStripeModule.forRoot(
