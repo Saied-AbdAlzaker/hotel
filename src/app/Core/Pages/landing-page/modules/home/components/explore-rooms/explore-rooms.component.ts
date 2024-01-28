@@ -60,10 +60,6 @@ export class ExploreRoomsComponent implements OnInit {
         this.roomRespnse = res.data;
         this.roomsData = res.data.rooms;
         this.totalCount = res.data.totalCount;
-        console.log(this.totalCount)
-        console.log(this.pageNumber);
-        console.log(this.pageSize);
-        console.log(this.roomsData);
       },
     });
   }

@@ -74,9 +74,7 @@ export class HomeComponent implements OnInit {
   getAllData() {
     this._AuthService.ogGetAlldata().subscribe({
       next: (res) => {
-        console.log(res);
         this.data = res.data;
-        console.log(this.data);
       },
       error: (err) => {
         console.log(err);
@@ -126,11 +124,6 @@ export class HomeComponent implements OnInit {
     this.getAllFacilities();
     this.onGetAllUsers();
     this.getAllRooms();
-    console.log(this.allDates);
-    console.log(this.createdDate);
-    console.log(this.updatedDate);
-    console.log(this.startedBokkingDate);
-    console.log(this.endedBookingData);
   }
   getAllBookings() {
     let params = {};
