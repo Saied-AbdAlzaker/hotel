@@ -21,7 +21,6 @@ import {
 } from '../../models/timeline';
 import { AuthService } from 'src/app/Core/auth/Services/auth.service';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -44,6 +43,8 @@ export class HomeComponent implements OnInit {
   listUses: IlistUser[] | any;
   usersResponse: IlistTable = {
     totalCount: 2,
+    listuser: [],
+
     listuser: []
   };
   allDates: any[] = [];
@@ -63,17 +64,86 @@ export class HomeComponent implements OnInit {
     private _toastrService: ToastrService,
     private _roomsService: RoomsService,
     private _UsersService: UsersService,
-    private _AuthService: AuthService
+    private _AuthService: AuthService ) {}
 
   ) { }
 
   ngOnInit() {
     this.getAllData();
+    // this.getAllBookings();
+    // this.getAllAds();
+    // this.getAllFacilities();
+    // this.onGetAllUsers();
+    // this.getAllRooms();
+    // console.log(this.allDates);
+    // console.log(this.createdDate);
+    // console.log(this.updatedDate);
+    // console.log(this.startedBokkingDate);
+    // console.log(this.endedBookingData);
+  }
+
+  getAllData() {
+    this._AuthService.ogGetAlldata().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.data = res.data;
+        console.log(this.data);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        this.chart = new Chart('canvas', {
+          type: 'polarArea',
+          data: {
+            labels: [
+              'users',
+              'admin',
+              'facilities',
+              'bookings-pending',
+              'bookings-complete',
+              'ads',
+              'rooms',
+            ],
+            datasets: [
+              {
+                label: 'My First Dataset',
+                data: [
+                  this?.data?.users.user,
+                  this?.data?.users.admin,
+                  this.data?.facilities,
+                  this.data?.bookings.pending,
+                  this.data?.bookings.completed,
+                  this.data?.ads,
+                  this.data?.rooms,
+                ],
+                backgroundColor: [
+                  'rgb(255, 99, 132)',
+                  'rgb(238, 130, 238)',
+                  'rgb(255, 205, 86)',
+                  'rgb(201, 203, 207)',
+                  'rgb(54, 162, 235)',
+                  'rgb(106, 90, 205)',
+                  'rgb(255, 0, 0)',
+                ],
+              },
+            ],
+          },
+        });
+      },
+    });
     this.getAllBookings();
     this.getAllAds();
     this.getAllFacilities();
     this.onGetAllUsers();
     this.getAllRooms();
+    console.log(this.allDates);
+    console.log(this.createdDate);
+    console.log(this.updatedDate);
+    console.log(this.startedBokkingDate);
+    console.log(this.endedBookingData);
+  }
+
 
   }
 
@@ -125,6 +195,8 @@ export class HomeComponent implements OnInit {
         this.bookingResponse = res.data;
         this.listBookings = res?.data?.booking;
         let bookingCount: number | any = this.bookingResponse?.totalCount;
+        console.log(bookingCount);
+
         localStorage.setItem('bookingCount', bookingCount?.toLocaleString());
         this.listBookings.forEach((booking) => {
           const createdDate = new Date(booking.createdAt);
@@ -181,6 +253,8 @@ export class HomeComponent implements OnInit {
         this.adsData = this.adsResponse?.data;
         this.adsItems = this.adsData?.ads;
         let adsCount: number | any = this.adsData?.totalCount;
+        console.log(adsCount);
+
         localStorage.setItem('adsCount', adsCount?.toLocaleString());
         this.adsItems.forEach(
           (ad: {
@@ -224,6 +298,8 @@ export class HomeComponent implements OnInit {
         this.facilitesResponse = res.data;
         this.facilitesData = this.facilitesResponse?.facilities;
         let facilitsCount: number | any = this.facilitesResponse?.totalCount;
+        console.log(facilitsCount);
+
         localStorage.setItem('facilitsCount', facilitsCount?.toLocaleString());
         this.facilitesData.forEach(
           (facilities: { createdAt: string | number | Date; name: string }) => {
@@ -267,26 +343,33 @@ export class HomeComponent implements OnInit {
         this.roomsResponse = res.data;
         this.roomsData = this.roomsResponse?.rooms;
         let roomsCount: number | any = this.roomsResponse?.totalCount;
+        console.log(roomsCount);
+
         localStorage.setItem('roomsCount', roomsCount?.toLocaleString());
-        this.roomsData.forEach(
-          (room) => {
-            const createdDate = new Date(room.createdAt);
-            const roomName = room.roomNumber || 'no room name';
-            const moduleName = 'room';
+        this.roomsData.forEach((room) => {
+          const createdDate = new Date(room.createdAt);
+          const roomName = room.roomNumber || 'no room name';
+          const moduleName = 'room';
 
-            this.createdDate.push({
-              name: roomName,
-              createdDate: createdDate,
-              module: moduleName,
-            });
-          }
-        );
-        this.roomsData.forEach(
-          (room) => {
-            const updatedDate = new Date(room.updatedAt);
-            const roomName = room.roomNumber || 'no room name';
-            const moduleName = 'room';
+          this.createdDate.push({
+            name: roomName,
+            createdDate: createdDate,
+            module: moduleName,
+          });
+        });
+        this.roomsData.forEach((room) => {
+          const updatedDate = new Date(room.updatedAt);
+          const roomName = room.roomNumber || 'no room name';
+          const moduleName = 'room';
 
+          this.updatedDate.push({
+            name: roomName,
+            updatedDate: updatedDate,
+            module: moduleName,
+          });
+        });
+      },
+    });
             this.updatedDate.push({
               name: roomName,
               updatedDate: updatedDate,
@@ -304,9 +387,11 @@ export class HomeComponent implements OnInit {
         this.usersResponse = res.data;
         this.listUses = res.data.users;
         let usersCount: number | any = this.usersResponse?.totalCount;
+        console.log(usersCount);
+
         localStorage.setItem('usersCount', usersCount?.toLocaleString());
         this.listUses.forEach(
-          (user: { createdAt: string | number | Date; userName: string; }) => {
+          (user: { createdAt: string | number | Date; userName: string }) => {
             const createdDate = new Date(user.createdAt);
             const userName = user.userName || 'no user name';
             const moduleName = 'user';
@@ -319,7 +404,7 @@ export class HomeComponent implements OnInit {
           }
         );
         this.listUses.forEach(
-          (user: { updatedAt: string | number | Date; userName: string; }) => {
+          (user: { updatedAt: string | number | Date; userName: string }) => {
             const updatedDate = new Date(user.updatedAt);
             const userName = user.userName || 'no user name';
             const moduleName = 'user';
@@ -330,6 +415,7 @@ export class HomeComponent implements OnInit {
               module: moduleName,
             });
           }
+        );
         )
       },
     });

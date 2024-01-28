@@ -2,7 +2,8 @@
   <div class="container-fluid">
     <div class="row justify-content-around">
       <div class="col-md-7 p-3">
-        <div class="w-50">
+        <div class="w-50 mx-auto">
+          <h3 class="text-center">Progress</h3>
           <canvas id="canvas">{{ chart }}</canvas>
         </div>
         <div class="items-home">
@@ -20,6 +21,24 @@
             <nz-calendar [nzFullscreen]="false" [(ngModel)]="selectedValue"
               (nzSelectChange)="selectChange($event)"></nz-calendar>
           </div>
+        </div>
+
+        <div class="items-home row mt-3">
+          <ng-container>
+            <!-- <div class="col-md-4 my-3" [routerLink]="item.link">
+              <div class="card-home">
+                <h3>
+                  <i [class]="'fa-solid text-mainColor' + ' ' + item.icon"></i>
+                </h3>
+                <div
+                  class="d-flex flex-column justify-content-between align-items-center"
+                >
+                  <h5 class="mb-0">{{ item.length }}</h5>
+                  <p>{{ item.title }}</p>
+                </div>
+              </div>
+            </div> -->
+          </ng-container>
         </div>
 
       </div>
