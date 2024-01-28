@@ -1,130 +1,222 @@
 <section id="most-picked" class="py-5">
   <div class="container">
-    <h5 class="mb-3">{{'home-land.most-picked'|translate}}</h5>
-    <div class="row" >
-        <div class="col-md-4 gap-4 mb-3  d-flex">
-          <div class="card-item">
-            <h5 [class]="_HelperService.textDir === 'ltr'?'ltr':'rtl'">{{roomsData[0]?.discount}}$ <span>{{'favourites.perNight'|translate}}</span></h5>
-            <div class="links">
-              <a nz-popconfirm
+    <h5 class="mb-3">{{ "home-land.most-picked" | translate }}</h5>
+    <div class="row">
+      <div class="col-md-4 gap-4 mb-3 d-flex">
+        <div class="card-item">
+          <h5 [class]="_HelperService.textDir === 'ltr' ? 'ltr' : 'rtl'">
+            {{ roomsData[0]?.discount }}$
+            <span>{{ "favourites.perNight" | translate }}</span>
+          </h5>
+          <div class="links">
+            <a
+              nz-popconfirm
               nzPopconfirmTitle="truley Love or not? ❤"
               nzPopconfirmPlacement="bottom"
               (nzOnConfirm)="addFavouriteById(roomsData[0]?._id)"
-              (nzOnCancel)="cancel()"><i class="fa-regular fa-2x fa-heart"></i></a>
-              <a class="text-white" [routerLink]="['/landingPage/home/rooms', roomsData[0]?._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
-            </div>
-            <img *ngIf="roomsData[0]?.images[0]"
-              [src]="roomsData[0]?.images[0]"
-              alt="most picked"
-              class="img-fluid h-100 w-100"
-            />
-            <img *ngIf="!roomsData[0]?.images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
-            <div class="caption-item"  [class]="_HelperService.textDir === 'ltr'?'':'rtl'">
-
-              <h5>{{ roomsData[0]?.roomNumber }}</h5>
-              <p>{{ roomsData[0]?.price }}</p>
-            </div>
+              (nzOnCancel)="cancel()"
+              ><i class="fa-regular fa-2x fa-heart"></i
+            ></a>
+            <a
+              class="text-white"
+              [routerLink]="['/landingPage/home/rooms', roomsData[0]?._id]"
+            >
+              <i class="fa-regular fa-2x fa-eye"></i
+            ></a>
+          </div>
+          <img
+            *ngIf="roomsData[0]?.images[0]"
+            [src]="roomsData[0]?.images[0]"
+            alt="most picked"
+            class="img-fluid h-100 w-100"
+          />
+          <img
+            *ngIf="!roomsData[0]?.images[0]"
+            class="img-fluid h-100 w-100"
+            src="../../../../../../../../assets/images/dummy.jpg"
+            alt=""
+          />
+          <div
+            class="caption-item"
+            [class]="_HelperService.textDir === 'ltr' ? '' : 'rtl'"
+          >
+            <h5>{{ roomsData[0]?.roomNumber }}</h5>
+            <p>{{ roomsData[0]?.price }}</p>
           </div>
         </div>
-        <div class="d-flex flex-column gap-4 col-md-4 mb-3">
-          <div class="h-100 card-item">
-            <h5 [class]="_HelperService.textDir === 'ltr'?'ltr':'rtl'">{{ roomsData[1]?.discount }}$<span> {{'favourites.perNight'|translate}}</span></h5>
-            <div class="links">
-              <a nz-popconfirm
+      </div>
+      <div class="d-flex flex-column gap-4 col-md-4 mb-3">
+        <div class="h-100 card-item">
+          <h5 [class]="_HelperService.textDir === 'ltr' ? 'ltr' : 'rtl'">
+            {{ roomsData[1]?.discount }}$<span>
+              {{ "favourites.perNight" | translate }}</span
+            >
+          </h5>
+          <div class="links">
+            <a
+              nz-popconfirm
               nzPopconfirmTitle="truley Love or not? ❤"
               nzPopconfirmPlacement="bottom"
               (nzOnConfirm)="addFavouriteById(roomsData[1]?._id)"
-              (nzOnCancel)="cancel()"><i class="fa-regular fa-2x fa-heart"></i></a>
-              <a class="text-white" [routerLink]="['/landingPage/home/rooms/', roomsData[1]._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
-            </div>
-            <img *ngIf="roomsData[1]?.images[0]"
-              [src]="roomsData[1]?.images[0]"
-              alt="most picked"
-              class="img-fluid h-100 w-100"
-            />
-
-            <img *ngIf="!roomsData[1]?.images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
-            <div class="caption-item"  [class]="_HelperService.textDir === 'ltr'?'':'rtl'">
-
-              <h5>{{ roomsData[1]?.roomNumber }}</h5>
-              <p>{{ roomsData[1]?.price }}</p>
-            </div>
+              (nzOnCancel)="cancel()"
+              ><i class="fa-regular fa-2x fa-heart"></i
+            ></a>
+            <a
+              class="text-white"
+              [routerLink]="['/landingPage/home/rooms/', roomsData[1]?._id]"
+              ><i class="fa-regular fa-2x fa-eye"></i
+            ></a>
           </div>
-          <div class="h-100 card-item">
-            <h5 [class]="_HelperService.textDir === 'ltr'?'ltr':'rtl'">{{ roomsData[2]?.discount }}$<span> {{'favourites.perNight'|translate}}</span></h5>
-            <div class="links">
-              <a nz-popconfirm
+          <img
+            *ngIf="roomsData[1]?.images[0]"
+            [src]="roomsData[1]?.images[0]"
+            alt="most picked"
+            class="img-fluid h-100 w-100"
+          />
+
+          <img
+            *ngIf="!roomsData[1]?.images[0]"
+            class="img-fluid h-100 w-100"
+            src="../../../../../../../../assets/images/dummy.jpg"
+            alt=""
+          />
+          <div
+            class="caption-item"
+            [class]="_HelperService.textDir === 'ltr' ? '' : 'rtl'"
+          >
+            <h5>{{ roomsData[1]?.roomNumber }}</h5>
+            <p>{{ roomsData[1]?.price }}</p>
+          </div>
+        </div>
+        <div class="h-100 card-item">
+          <h5 [class]="_HelperService.textDir === 'ltr' ? 'ltr' : 'rtl'">
+            {{ roomsData[2]?.discount }}$<span>
+              {{ "favourites.perNight" | translate }}</span
+            >
+          </h5>
+          <div class="links">
+            <a
+              nz-popconfirm
               nzPopconfirmTitle="truley Love or not? ❤"
               nzPopconfirmPlacement="bottom"
               (nzOnConfirm)="addFavouriteById(roomsData[2]?._id)"
-              (nzOnCancel)="cancel()"><i class="fa-regular fa-2x fa-heart"></i></a>
-              <a class="text-white" [routerLink]="['/landingPage/home/rooms/', roomsData[2]?._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
-            </div>
-            <img *ngIf="roomsData[2]?.images[0]"
+              (nzOnCancel)="cancel()"
+              ><i class="fa-regular fa-2x fa-heart"></i
+            ></a>
+            <a
+              class="text-white"
+              [routerLink]="['/landingPage/home/rooms/', roomsData[2]?._id]"
+              ><i class="fa-regular fa-2x fa-eye"></i
+            ></a>
+          </div>
+          <img
+            *ngIf="roomsData[2]?.images[0]"
             [src]="roomsData[2]?.images[0]"
             alt="most picked"
-              class="img-fluid h-100 w-100"
-            />
-            <img *ngIf="!roomsData[2]?.images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
-            <div class="caption-item"  [class]="_HelperService.textDir === 'ltr'?'':'rtl'">
-
-              <h5>{{ roomsData[2]?.roomNumber }}</h5>
-              <p>{{ roomsData[2]?.price }}</p>
-            </div>
+            class="img-fluid h-100 w-100"
+          />
+          <img
+            *ngIf="!roomsData[2]?.images[0]"
+            class="img-fluid h-100 w-100"
+            src="../../../../../../../../assets/images/dummy.jpg"
+            alt=""
+          />
+          <div
+            class="caption-item"
+            [class]="_HelperService.textDir === 'ltr' ? '' : 'rtl'"
+          >
+            <h5>{{ roomsData[2]?.roomNumber }}</h5>
+            <p>{{ roomsData[2]?.price }}</p>
           </div>
         </div>
-        <div class="d-flex flex-column gap-4 col-md-4 mb-3">
-          <div class="h-100 card-item">
-            <h5 [class]="_HelperService.textDir === 'ltr'?'ltr':'rtl'">{{ roomsData[3]?.discount }}$<span> {{'favourites.perNight'|translate}}</span></h5>
-            <div class="links">
-              <a nz-popconfirm
+      </div>
+      <div class="d-flex flex-column gap-4 col-md-4 mb-3">
+        <div class="h-100 card-item">
+          <h5 [class]="_HelperService.textDir === 'ltr' ? 'ltr' : 'rtl'">
+            {{ roomsData[3]?.discount }}$<span>
+              {{ "favourites.perNight" | translate }}</span
+            >
+          </h5>
+          <div class="links">
+            <a
+              nz-popconfirm
               nzPopconfirmTitle="truley Love or not? ❤"
               nzPopconfirmPlacement="bottom"
               (nzOnConfirm)="addFavouriteById(roomsData[3]?._id)"
-              (nzOnCancel)="cancel()"><i class="fa-regular fa-2x fa-heart"></i>
-
+              (nzOnCancel)="cancel()"
+              ><i class="fa-regular fa-2x fa-heart"></i>
             </a>
-              <a class="text-white" [routerLink]="['/landingPage/home/rooms/', roomsData[3]?._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
-            </div>
-            <img *ngIf="roomsData[3]?.images[0]"
+            <a
+              class="text-white"
+              [routerLink]="['/landingPage/home/rooms/', roomsData[3]?._id]"
+              ><i class="fa-regular fa-2x fa-eye"></i
+            ></a>
+          </div>
+          <img
+            *ngIf="roomsData[3]?.images[0]"
             [src]="roomsData[3]?.images[0]"
             alt="most picked"
-              class="img-fluid h-100 w-100"
-            />
+            class="img-fluid h-100 w-100"
+          />
 
-
-            <img *ngIf="!roomsData[3]?.images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy.jpg" alt="">
-            <div class="caption-item"  [class]="_HelperService.textDir === 'ltr'?'':'rtl'">
-
-              <h5>{{ roomsData[3]?.roomNumber }}</h5>
-              <p>{{ roomsData[3]?.price }}</p>
-            </div>
+          <img
+            *ngIf="!roomsData[3]?.images[0]"
+            class="img-fluid h-100 w-100"
+            src="../../../../../../../../assets/images/dummy.jpg"
+            alt=""
+          />
+          <div
+            class="caption-item"
+            [class]="_HelperService.textDir === 'ltr' ? '' : 'rtl'"
+          >
+            <h5>{{ roomsData[3]?.roomNumber }}</h5>
+            <p>{{ roomsData[3]?.price }}</p>
           </div>
-          <div class="h-100 card-item">
-            <h5 [class]="_HelperService.textDir === 'ltr'?'ltr':'rtl'">{{roomsData[4]?.discount }}$<span> {{'favourites.perNight'|translate}}</span></h5>
-            <div class="links">
-              <a nz-popconfirm
+        </div>
+        <div class="h-100 card-item">
+          <h5 [class]="_HelperService.textDir === 'ltr' ? 'ltr' : 'rtl'">
+            {{ roomsData[4]?.discount }}$<span>
+              {{ "favourites.perNight" | translate }}</span
+            >
+          </h5>
+          <div class="links">
+            <a
+              nz-popconfirm
               nzPopconfirmTitle="truley Love or not? ❤"
               nzPopconfirmPlacement="bottom"
               (nzOnConfirm)="addFavouriteById(roomsData[4]?._id)"
-              (nzOnCancel)="cancel()"><i class="fa-regular fa-2x fa-heart"></i></a>
-              <a class="text-white" [routerLink]="['/landingPage/home/rooms/', roomsData[4]?._id]"><i class="fa-regular fa-2x fa-eye"></i></a>
-            </div>
-            <img *ngIf="roomsData[4]?.images[0]"
+              (nzOnCancel)="cancel()"
+              ><i class="fa-regular fa-2x fa-heart"></i
+            ></a>
+            <a
+              class="text-white"
+              [routerLink]="['/landingPage/home/rooms/', roomsData[4]?._id]"
+              ><i class="fa-regular fa-2x fa-eye"></i
+            ></a>
+          </div>
+          <img
+            *ngIf="roomsData[4]?.images[0]"
             [src]="roomsData[4]?.images[0]"
-              alt="most picked"
-              class="img-fluid h-100 w-100"
-            />
+            alt="most picked"
+            class="img-fluid h-100 w-100"
+          />
 
-            <img *ngIf="!roomsData[4]?.images[0]" class="img-fluid h-100 w-100" src="../../../../../../../../assets/images/dummy-img.png" alt="">
+          <img
+            *ngIf="!roomsData[4]?.images[0]"
+            class="img-fluid h-100 w-100"
+            src="../../../../../../../../assets/images/dummy-img.png"
+            alt=""
+          />
 
-            <div class="caption-item"  [class]="_HelperService.textDir === 'ltr'?'':'rtl'">
-
-              <h5>{{roomsData[4]?.roomNumber }}</h5>
-              <p>{{roomsData[4]?.price }}</p>
-            </div>
+          <div
+            class="caption-item"
+            [class]="_HelperService.textDir === 'ltr' ? '' : 'rtl'"
+          >
+            <h5>{{ roomsData[4]?.roomNumber }}</h5>
+            <p>{{ roomsData[4]?.price }}</p>
           </div>
         </div>
+      </div>
     </div>
   </div>
 </section>

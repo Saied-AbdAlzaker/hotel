@@ -9,16 +9,16 @@ export interface IRoomsUserDetails {
   };
 }
 export interface IRoomsUser {
-  _id: string;
-  roomNumber: string;
-  images: string[];
-  price: number;
-  capacity: number;
-  discount: number;
-  facilities: IFacilities[];
-  createdAt: Date;
-  updatedAt: Date;
-  isBooked: boolean;
+  _id: string,
+  roomNumber: string,
+  images: string[],
+  price: number,
+  capacity: number,
+  discount: number,
+  facilities: IFacilities[],
+  createdAt: Date,
+  updatedAt: Date,
+  isBooked: boolean,
 }
 
 export interface IUserProfile {

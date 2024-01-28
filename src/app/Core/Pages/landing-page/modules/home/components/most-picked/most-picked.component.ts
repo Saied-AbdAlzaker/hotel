@@ -2,11 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HelperService } from 'src/app/Core/services/helper.service';
 import { HomeService } from '../../services/home.service';
 import { IRoomsUser, IRoomsUserDetails } from '../../models/home';
-import {
-  IAds,
-  IAdsData,
-  IAdsResponse,
-} from 'src/app/Core/Pages/dashboard/Modules/ads/models/ads';
 import { FavouriteService } from '../../services/favourite.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
@@ -21,10 +16,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class MostPickedComponent implements OnInit {
   roomRespnse: IRoomsUserDetails | undefined;
-  roomsData: IRoomsUser[] | any;
-  adsRespnse: IAdsResponse | undefined;
-  adsData: IAdsData | any;
-  adsItems: IAds[] | undefined;
+  roomsData: IRoomsUser[] | any=[];
   pageNumber: number = 1;
   pageSize: number = 5;
 
@@ -37,7 +29,7 @@ export class MostPickedComponent implements OnInit {
     private nzMessageService: NzMessageService,
     public dialog: MatDialog
   ) {}
-  ngOnInit(): void {
+  ngOnInit(){
     this.getAllRooms();
   }
 
@@ -49,16 +41,7 @@ export class MostPickedComponent implements OnInit {
     return this._homeService.getAllRooms(params).subscribe({
       next: (res) => {
         this.roomRespnse = res;
-        this.roomsData = this.roomRespnse?.data.rooms;
-      },
-    });
-  }
-  getAllAds() {
-    return this._homeService.getAllAds().subscribe({
-      next: (res) => {
-        this.adsRespnse = res;
-        this.adsData = this.adsRespnse?.data;
-        this.adsItems = this.adsData.ads;
+        this.roomsData = res.data.rooms;        
       },
     });
   }
