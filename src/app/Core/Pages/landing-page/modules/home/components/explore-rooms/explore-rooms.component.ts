@@ -70,15 +70,12 @@ export class ExploreRoomsComponent implements OnInit {
     this.pageNumber = e.pageIndex + 1;
     this.getAllRooms();
 
-    console.log(e);
     
   }
 
   //ant design pagenation
   declarePageIndex(pageIndex:number){
     this.pageNumber = pageIndex;
-    console.log(pageIndex)
-    console.log(this.pageNumber)
     this.getAllRooms();
   }
 }

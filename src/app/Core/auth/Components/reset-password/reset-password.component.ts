@@ -45,10 +45,8 @@ export class ResetPasswordComponent implements OnInit{
     }
   }
   onSubmit(data:FormGroup){
-    console.log(data);
      this._AuthService.onRestPassword(data.value).subscribe({
       next:(res:any)=>{
-        console.log(res);
         this.Message=res.message;
         
       },error:(err)=>{

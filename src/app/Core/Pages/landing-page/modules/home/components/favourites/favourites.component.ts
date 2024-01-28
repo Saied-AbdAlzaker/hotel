@@ -46,7 +46,6 @@ export class FavouritesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
       if (result) {
         this.deleteFavouriteById(result._id);
       }

@@ -17,7 +17,6 @@ Message:string=''
 onSubmit(data:string){
   this._AuthService.onForgetPassword(data).subscribe({
     next:(res)=>{
-      console.log(res);
       
     },error:(err)=>{
 

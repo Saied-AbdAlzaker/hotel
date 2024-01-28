@@ -77,7 +77,6 @@ export class HomeComponent implements OnInit {
         this.data = res.data;
       },
       error: (err) => {
-        console.log(err);
       },
       complete: () => {
         this.chart = new Chart('canvas', {

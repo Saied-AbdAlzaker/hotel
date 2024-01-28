@@ -34,7 +34,6 @@ export class BookingComponent implements OnInit{
   getBookingDetails(){
     this._UserBookingService.onGetBookingDetails(this.bookingId).subscribe({
       next:(res)=>{
-        console.log(res);
         this.bookingDetails=res.data.booking
         this.bookingId=res.data.booking._id
       }
@@ -43,7 +42,6 @@ export class BookingComponent implements OnInit{
   paySubmit(token:string){
     this._UserBookingService.onPay(this.bookingId,token).subscribe({
       next:(res)=>{
-        console.log(res);
       }
     })
   }
@@ -74,11 +72,9 @@ export class BookingComponent implements OnInit{
       .subscribe((result) => {
         if (result.token) {
           // Use the token
-          console.log(result.token.id);
           this.token=result.token.id
         } else if (result.error) {
           // Error creating the token
-          console.log(result.error.message);
         }
       });
   }

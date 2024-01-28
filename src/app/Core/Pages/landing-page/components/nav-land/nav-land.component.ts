@@ -20,7 +20,6 @@ export class NavLandComponent {
     const dialogRef = this.dialog.open(LogOutComponent, {
       data: {},
       width: '30%',
-      // height: '100%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {

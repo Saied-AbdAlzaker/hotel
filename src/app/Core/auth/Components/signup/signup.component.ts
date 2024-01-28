@@ -56,7 +56,6 @@ export class SignupComponent {
     myData.append('profileImage', this.imgSrc, this.imgSrc['name']);
     this._AuthService.onSignUp(myData).subscribe({
       next:(res:any)=>{
-        console.log(res);
       },error:(err)=>{
         this.toastr.error(err.error.message,'error')
       },complete:()=>{
@@ -67,12 +66,10 @@ export class SignupComponent {
   }
 
   onSelect(event: any) {
-    console.log(event);
     this.imgSrc = event.addedFiles[0];
     this.files.push(...event.addedFiles);
   }
   onRemove(event: any) {
-    console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
   }
 
