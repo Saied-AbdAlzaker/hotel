@@ -2,11 +2,13 @@
   <div class="container-fluid">
     <div class="row justify-content-around">
       <div class="col-md-7 p-3">
-        <div class="w-50 mx-auto">
+        <div class="items-home d-flex flex-column align-items-center">
           <h3 class="text-center">Progress</h3>
-          <canvas id="canvas">{{ chart }}</canvas>
+          <div>
+            <canvas id="canvas">{{ chart }}</canvas>
+          </div>
         </div>
-        <div class="items-home">
+        <div class="items-home mt-3 sticky">
           <div class="header-auth mb-0">
             <h2 class="mb-0 text-nowrap">
               Welcome back <span class="text-mainColor">{{ userName }}</span>👋🏻
