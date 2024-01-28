@@ -18,10 +18,10 @@ import { MustSignComponent } from 'src/app/Shared/must-sign/must-sign.component'
   styleUrls: ['./room-details.component.scss'],
 })
 export class RoomDetailsComponent implements OnInit {
-  roomDetails: IRoomsUser|undefined;
+  roomDetails: IRoomsUser | undefined;
   roomId: string | any = this._ActivatedRoute.snapshot.params['id'];
   roomImages: string[] = [];
-  roomFacilities: IFacilities[] |undefined= [];
+  roomFacilities: IFacilities[] | undefined = [];
   roomDiscount: any;
   bookingId: string = '';
   comments: any;
@@ -30,8 +30,8 @@ export class RoomDetailsComponent implements OnInit {
   dateRange: Date[] = [];
   totalPrice: number | any;
   priceRoom: number | any = 0;
-  Reviews:any;
-  rate:number=0;
+  Reviews: any;
+  rate: number = 0;
   @ViewChild('endDatePicker') endDatePicker!: NzDatePickerComponent;
   bookingForm = new FormGroup({
     startDate: new FormControl(null, [Validators.required]),
@@ -43,13 +43,12 @@ export class RoomDetailsComponent implements OnInit {
   AddComment = new FormGroup({
     roomId: new FormControl(this.roomId),
     comment: new FormControl(null),
-  })
+  });
   Addreview = new FormGroup({
     roomId: new FormControl(this.roomId),
-    rating:new FormControl(this.rate),
+    rating: new FormControl(this.rate),
     review: new FormControl(null),
-  })
-
+  });
 
   constructor(
     private _HomeService: HomeService,
@@ -59,15 +58,14 @@ export class RoomDetailsComponent implements OnInit {
     private toastr: ToastrService,
     private Router: Router,
     public dialog: MatDialog
-
   ) {
     this.roomId = this._ActivatedRoute.snapshot.params['id'];
   }
 
   ngOnInit(): void {
     this.getRoomDetails(this.roomId);
-    this.getAllComments()
-    this.getAllReviews()
+    this.getAllComments();
+    this.getAllReviews();
   }
   getRoomDetails(id: string) {
     this._HomeService.onGetRoomDetails(id).subscribe({
@@ -76,7 +74,7 @@ export class RoomDetailsComponent implements OnInit {
         this.roomImages = res.data.room.images;
         this.roomFacilities = this.roomDetails?.facilities;
         this.priceRoom = this.roomDetails?.price;
-        this.roomDiscount = this.roomDetails?.discount
+        this.roomDiscount = this.roomDetails?.discount;
       },
     });
   }
@@ -85,7 +83,7 @@ export class RoomDetailsComponent implements OnInit {
     this._UserBookingService.onBookingRoom(date.value).subscribe({
       next: (res) => {
         console.log(res);
-        this.bookingId=res.data.booking._id
+        this.bookingId = res.data.booking._id;
       },
       error: (err) => {
         console.log(err);
@@ -94,34 +92,32 @@ export class RoomDetailsComponent implements OnInit {
       },
       complete: () => {
         this.toastr.success('pay now to complete booking process', 'Success!');
-        this.Router.navigate(['/landingPage/booking']
-        ,{queryParams: { _id : this.bookingId },}
-        );
-        
+        this.Router.navigate(['/landingPage/booking'], {
+          queryParams: { _id: this.bookingId },
+        });
       },
     });
   }
 
-  getAllReviews(){
+  getAllReviews() {
     this._HomeService.getAllReviews(this.roomId).subscribe({
-      next:(res)=>{
-        this.Reviews=res.data.roomReviews;
-        this.rate=this.Reviews[0]?.rating
-      }
-
-    })
+      next: (res) => {
+        this.Reviews = res.data.roomReviews;
+        this.rate = this.Reviews[0]?.rating;
+      },
+    });
   }
-  AddReview(data:FormGroup){
+  AddReview(data: FormGroup) {
     this._HomeService.Addreview(data.value).subscribe({
-      next:(res)=>{
-
-      },error:(err)=>{
-        this.toastr.error(err.error.message,'Error')
-      },complete:()=>{
-        this.toastr.success('Reviewed Successfully')
-        this.getAllReviews()
-      }
-    })
+      next: (res) => {},
+      error: (err) => {
+        this.toastr.error(err.error.message, 'Error');
+      },
+      complete: () => {
+        this.toastr.success('Reviewed Successfully');
+        this.getAllReviews();
+      },
+    });
   }
 
   disabledStartDate = (startValue: Date): boolean => {
@@ -157,46 +153,43 @@ export class RoomDetailsComponent implements OnInit {
       currentDate.setDate(currentDate.getDate() + 1);
     }
 
-    this.totalPrice = this.dateRange.length * (this.priceRoom-this.roomDiscount);
+    this.totalPrice =
+      this.dateRange.length * (this.priceRoom - this.roomDiscount);
 
     this.bookingForm.patchValue({
       startDate: this.startValue,
       endDate: this.endValue,
       room: this.roomId,
-      totalPrice: this.totalPrice
+      totalPrice: this.totalPrice,
     });
   }
-  getAllComments(){
-        this._HomeService.getAllComments(this.roomId).subscribe({
-           next:(res)=>{
-            this.comments=res.data.roomComments;
-           }
-        })
-      }
-      Addcomment(data:FormGroup){
-        if (!localStorage.getItem('role')) {
-          this.openDialogMustSign();
+  getAllComments() {
+    this._HomeService.getAllComments(this.roomId).subscribe({
+      next: (res) => {
+        this.comments = res.data.roomComments;
+      },
+    });
+  }
+  Addcomment(data: FormGroup) {
+    if (!localStorage.getItem('role')) {
+      this.openDialogMustSign();
+    }
+    this._HomeService.Addcomment(data.value).subscribe({
+      next: (res) => {},
+      error: (err) => {},
+      complete: () => {
+        this.toastr.success('Commented Successfully');
+        this.getAllComments();
+      },
+    });
+  }
 
-        }
-          this._HomeService.Addcomment(data.value).subscribe({
-            next:(res)=>{
+  openDialogMustSign(): void {
+    const dialogRef = this.dialog.open(MustSignComponent, {
+      data: {},
+      width: '40%',
+    });
 
-            },error:(err)=>{
-
-            },complete:()=>{
-              this.toastr.success('Commented Successfully')
-              this.getAllComments()
-            }
-          })
-        }
-
-        openDialogMustSign(): void {
-          const dialogRef = this.dialog.open(MustSignComponent, {
-            data: {},
-            width: '40%',
-          });
-
-          dialogRef.afterClosed().subscribe((result) => {
-          });
-        }
+    dialogRef.afterClosed().subscribe((result) => {});
+  }
 }
