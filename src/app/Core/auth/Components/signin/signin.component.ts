@@ -27,7 +27,6 @@ export class SigninComponent implements OnInit {
   onSubmit(data: FormGroup) {
     this._authServices.onSignin(data.value).subscribe({
       next: (res:any) => {
-        console.log(res);
         localStorage.setItem('userToken', res.data.token)
         localStorage.setItem('role',res.data.user.role)
         localStorage.setItem('userName',res.data.user.userName)

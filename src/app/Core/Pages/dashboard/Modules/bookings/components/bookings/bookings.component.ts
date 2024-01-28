@@ -60,7 +60,6 @@ export class BookingsComponent implements OnInit {
       },
       error: (err:any) => {
         this._toastrService.error(err.error.message, 'Error!');
-        console.log(err);
       },
       complete: () => {
         this._toastrService.success('Booking Deleted Successfully', 'Ok');
@@ -70,7 +69,6 @@ export class BookingsComponent implements OnInit {
   }
   
   openViewDialog(bookingData:any){
-    console.log(bookingData);
 
     const dialogRef = this.dialog.open(ViewBookingComponent, {
       data: bookingData,
@@ -78,7 +76,6 @@ export class BookingsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
     });
   }
 

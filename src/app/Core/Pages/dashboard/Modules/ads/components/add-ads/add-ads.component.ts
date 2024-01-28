@@ -43,7 +43,6 @@ export class AddAdsComponent {
  
      this._roomsService.onGetAllRooms(parms).subscribe({
        next: (res) => {
-         console.log(res);
          this.tableResponse = res.data;
          this.tableData = this.tableResponse?.rooms;
        }
@@ -60,10 +59,8 @@ export class AddAdsComponent {
    }
    this._adsService.getAllAds(parms).subscribe({
      next: (res) => {
-       console.log(res);
        this.tableResponse = res.data;
        this.adsItems = this.tableResponse?.ads;
-       console.log(this.adsItems);
      },
    });
  }
@@ -80,7 +77,6 @@ export class AddAdsComponent {
  
        this._adsService.onAddAds(data.value).subscribe({
          next: (res) => {
-           console.log(res);
  
          }, error: (err) => {
            this.toastr.error(err.error.message, 'Error!');

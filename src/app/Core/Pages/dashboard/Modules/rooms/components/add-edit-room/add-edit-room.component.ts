@@ -88,12 +88,10 @@ export class AddEditRoomComponent implements OnInit {
     for (const m of this.imgSrc) {
       myData.append('imgs', m, m.name);
     }
-    console.log(this.imgSrc)
-    console.log(data.value);
+
     if (this.RoomsId) {
       this._RoomsService.editRooms(myData, this.RoomsId).subscribe({
         next: (res) => {
-          console.log(res);
         }, error: (err) => {
 
           this.toastr.error(err.error.message, 'failed');
@@ -105,7 +103,6 @@ export class AddEditRoomComponent implements OnInit {
     } else {
       this._RoomsService.onAddRoom(myData).subscribe({
         next: (res) => {
-          console.log(res);
         }, error: (err) => {
           this.toastr.error(err.error.message, 'Faild');
         }, complete: () => {
@@ -120,9 +117,7 @@ export class AddEditRoomComponent implements OnInit {
   getFacilities() {
     this._RoomsService.onGetFacilities().subscribe({
       next: (res: any) => {
-        console.log(res);
         this.facilities = res.data?.facilities
-        console.log(this.facilities);
       }
     })
   }
@@ -131,7 +126,6 @@ export class AddEditRoomComponent implements OnInit {
   getRoomById(id: string) {
     this._RoomsService.onGetRoomById(id).subscribe({
       next: (res: any) => {
-        console.log(res);
         this.roomData = res.data.room;
       },
       error: (err) => {
@@ -160,13 +154,11 @@ export class AddEditRoomComponent implements OnInit {
 
   // ngx-dropzone
   onSelect(event: any) {
-    console.log(event);
     this.imgSrc = event.addedFiles;
     this.files.push(...event.addedFiles);
   }
 
   onRemove(event: any) {
-    console.log(event);
     this.files.splice(this.files.indexOf(event), 1);
   }
   onFileChange(event: any) {
@@ -174,7 +166,6 @@ export class AddEditRoomComponent implements OnInit {
     const reader = new FileReader();
     reader.onloadend = () => {
       const base64String = reader.result as string;
-      console.log(base64String);
 
     };
     if (file) {

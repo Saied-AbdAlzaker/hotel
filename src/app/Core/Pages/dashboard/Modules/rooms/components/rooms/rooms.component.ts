@@ -85,7 +85,6 @@ export class RoomsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
       if (result) {
         this.onDeleteRooms(result._id);
       }
@@ -95,7 +94,6 @@ export class RoomsComponent implements OnInit {
   onDeleteRooms(id: string) {
     this._roomsService.ondeletedialog(id).subscribe({
       next: (res) => {
-        console.log(res);
       },
       error: (err) => {
         this.toastr.error(err.error.message, 'Error!');

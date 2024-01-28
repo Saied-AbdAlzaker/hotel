@@ -38,7 +38,6 @@ export class AdsComponent implements OnInit {
     // this.getAllAds();
     this.searchSubject.pipe(debounceTime(1000)).subscribe({
       next: (res) => {
-        console.log(res);
         this.getAllAds();
       },
     });
@@ -70,9 +69,6 @@ export class AdsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
-
       this.getAllAds();
     });
   }
@@ -80,7 +76,6 @@ export class AdsComponent implements OnInit {
 
   // Edit 
   openEditDialog(adsData: any): void {
-    console.log(adsData);
 
     const dialogRef = this.dialog.open(EditAdsComponent, {
       data: adsData,
@@ -89,14 +84,12 @@ export class AdsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.getAllAds();
     });
   }
 
   // Delete 
   openDeleteDialog(roomData: any): void {
-    console.log(roomData);
 
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       data: roomData,
@@ -106,7 +99,6 @@ export class AdsComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       if (result) {
-        console.log(result);
         this.deleteAds(result._id);
       }
     });
@@ -115,11 +107,9 @@ export class AdsComponent implements OnInit {
   deleteAds(id: string) {
     this._adsService.onDeleteAds(id).subscribe({
       next: (res) => {
-        console.log(res);
       },
       error: (err) => {
         this._toastrService.error(err.error.message, 'Error!');
-        console.log(err);
       },
       complete: () => {
         this._toastrService.success('Ads Deleted Successfully', 'Ok');

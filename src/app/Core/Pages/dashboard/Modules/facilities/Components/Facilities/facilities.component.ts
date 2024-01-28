@@ -29,7 +29,6 @@ export class FacilitiesComponent {
     this.getAllFacilities();
     this.searchSubject.pipe(debounceTime(1000)).subscribe({
       next: (res) =>{
-        console.log(res);
         this.getAllFacilities();
       }
     })
@@ -90,7 +89,6 @@ export class FacilitiesComponent {
       data: FacilitiesData,
       width: '40%',
     });
-    console.log(FacilitiesData.name);
 
 
     dialogRef.afterClosed().subscribe(result => {
@@ -124,7 +122,6 @@ export class FacilitiesComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
       if (result) {
         this.onDeleteFacilities(result._id);
       }
@@ -137,7 +134,6 @@ export class FacilitiesComponent {
       },
       error: (err:any) => {
         this._toastrService.error(err.error.message, 'Error!');
-        console.log(err);
       },
       complete: () => {
         this._toastrService.success('Facility Deleted Successfully', 'Ok');

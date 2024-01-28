@@ -19,7 +19,6 @@ export class ViewBookingComponent implements OnInit {
     public dialogRef: MatDialogRef<ViewBookingComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    console.log(data);
     this.bookingDetails = data;
     this.generateDateRange();
     this.endAnddate();
@@ -41,7 +40,6 @@ export class ViewBookingComponent implements OnInit {
       currentDate.setDate(currentDate.getDate() + index);
       this.dateRange.push(currentDate);
     });
-    console.log(this.dateRange);
 
   }
 endAnddate():void{
@@ -49,7 +47,6 @@ endAnddate():void{
   const endDate = new Date(this.bookingDetails.endDate);
   this.endaandsratrange.push(startDate);
   this.endaandsratrange.push(endDate);
-  console.log(this.endaandsratrange);
 }
   onValueChange(value: Date): void {
     value=this.bookingDetails.startDate;
@@ -58,8 +55,7 @@ endAnddate():void{
 
   onPanelChange(change: { date: Date; mode: string }): void {
     change.date= this.bookingDetails.endDate;
-    console.log(`Current value: ${change.date}`);
-    console.log(`Current mode: ${change.mode}`);
+
   }
 
 
@@ -74,11 +70,9 @@ endAnddate():void{
 
   onChange(result: Date): void {
 
-    console.log('onChange: ', result);
   }
 
   getWeek(result: Date): void {
-    console.log('week: ', getISOWeek(result));
   }
 
 }

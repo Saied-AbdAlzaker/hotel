@@ -84,12 +84,9 @@ export class RoomDetailsComponent implements OnInit {
   bookingRoom(date: FormGroup) {
     this._UserBookingService.onBookingRoom(date.value).subscribe({
       next: (res) => {
-        console.log(res);
         this.bookingId=res.data.booking._id
       },
       error: (err) => {
-        console.log(err);
-
         this.toastr.error(err.error.message, 'Error!');
       },
       complete: () => {

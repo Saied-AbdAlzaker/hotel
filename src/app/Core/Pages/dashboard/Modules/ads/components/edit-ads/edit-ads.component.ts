@@ -37,7 +37,6 @@ export class EditAdsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    //  this.getAllRooms();
     this.getAllAds();
   }
 
@@ -51,7 +50,6 @@ export class EditAdsComponent implements OnInit {
 
     this._roomsService.onGetAllRooms(parms).subscribe({
       next: (res) => {
-        console.log(res);
         this.tableResponse = res.data;
         this.tableData = this.tableResponse?.rooms;
 
@@ -71,10 +69,8 @@ export class EditAdsComponent implements OnInit {
     }
     this._adsService.getAllAds(parms).subscribe({
       next: (res) => {
-        console.log(res);
         this.tableResponse = res.data;
         this.adsItems = this.tableResponse?.ads;
-        console.log(this.adsItems);
       },
     });
   }
@@ -96,7 +92,6 @@ export class EditAdsComponent implements OnInit {
 
     this._adsService.onEditAds(data.value, this.adsId).subscribe({
       next: (res) => {
-        console.log(res);
 
       }, error: (err) => {
 
