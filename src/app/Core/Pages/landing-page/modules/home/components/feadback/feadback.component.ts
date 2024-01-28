@@ -33,9 +33,7 @@ ngOnInit(): void {
 getAllComments(){
   this._HomeService.getAllComments(this.roomId).subscribe({
      next:(res)=>{
-      console.log(res);
       this.comments = res.data.roomComments;
-      console.log(this.comments);
 
      }
   })
@@ -44,7 +42,6 @@ getAllComments(){
 getAllReviews(){
   this._HomeService.getAllReviews(this.roomId).subscribe({
     next:(res)=>{
-      console.log(res);
       this.Reviews=res.data.roomReviews;
       this.rate=this.Reviews[0]?.rating        
     }

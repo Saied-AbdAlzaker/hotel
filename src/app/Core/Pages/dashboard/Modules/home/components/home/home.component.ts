@@ -20,12 +20,6 @@ import {
   TimelineUpdatedDate,
 } from '../../models/timeline';
 import { AuthService } from 'src/app/Core/auth/Services/auth.service';
-// interface IMenu {
-//   title: string;
-//   icon: string;
-//   link: string;
-//   length: any;
-// }
 
 @Component({
   selector: 'app-home',
@@ -50,6 +44,8 @@ export class HomeComponent implements OnInit {
   usersResponse: IlistTable = {
     totalCount: 2,
     listuser: [],
+
+    listuser: []
   };
   allDates: any[] = [];
   createdDate: TimelineCreatedDate[] = [];
@@ -60,44 +56,6 @@ export class HomeComponent implements OnInit {
   showMore2 = true;
   userName: any = localStorage.getItem('userName');
 
-  // menu: IMenu[] = [
-  //   {
-  //     title: 'Users',
-  //     icon: 'fa-solid fa-users',
-  //     link: '/dashboard/users',
-  //      length:localStorage.getItem('usersCount')
-  //   },
-  //   {
-  //     title: 'Rooms',
-  //     icon: 'fa-solid fa-list-check',
-  //     link: '/dashboard/rooms',
-  //     length:localStorage.getItem('roomsCount')
-
-  //   },
-  //   {
-  //     title: 'Facilities',
-  //     icon: 'fa-solid fa-hand-holding-heart',
-  //     link: '/dashboard/Facilities',
-  //     length:localStorage.getItem('facilitsCount')
-
-  //   },
-  //   {
-  //     title: 'Ads',
-  //     icon: 'fa-solid fa-calendar-days',
-  //     link: '/dashboard/ads',
-  //     // length:localStorage.getItem('adsCount')
-
-  //   },
-  //   {
-  //     title: 'Booking',
-  //     icon: 'fa-solid fa-bookmark',
-  //     link: '/dashboard/booking',
-  //     length: localStorage.getItem('bookingCount')
-
-  //   },
-  // ];
-
-  // countUser: number | undefined;
   constructor(
     private _BookingService: BookingService,
     private _adsService: AdsService,
@@ -106,8 +64,9 @@ export class HomeComponent implements OnInit {
     private _toastrService: ToastrService,
     private _roomsService: RoomsService,
     private _UsersService: UsersService,
-    private _AuthService: AuthService
-  ) {}
+    private _AuthService: AuthService ) {}
+
+  ) { }
 
   ngOnInit() {
     this.getAllData();
@@ -185,6 +144,50 @@ export class HomeComponent implements OnInit {
     console.log(this.endedBookingData);
   }
 
+
+  }
+
+  getAllData() {
+    this._AuthService.ogGetAlldata().subscribe({
+      next: (res) => {
+        this.data = res.data;
+
+      }, error: (err) => {
+
+
+      }, complete: () => {
+        this.chart = new Chart('canvas', {
+          type: 'radar',
+          data: {
+            labels: [
+              'users',
+              'admin',
+              'facilities',
+              'bookings-pending',
+              'bookings-complete',
+              'ads',
+              'rooms',
+
+            ],
+            datasets: [{
+              label: 'My First Dataset',
+              data: [this?.data?.users.user, this?.data?.users.admin, this.data?.facilities, this.data?.bookings.pending, this.data?.bookings.completed, this.data?.ads, this.data?.rooms],
+              fill: true,
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              borderColor: 'rgb(255, 99, 132)',
+              pointBackgroundColor: 'rgb(255, 99, 132)',
+              pointBorderColor: '#fff',
+              pointHoverBackgroundColor: '#fff',
+              pointHoverBorderColor: 'rgb(255, 99, 132)'
+            }]
+          },
+
+        })
+
+      }
+
+    })
+  }
   getAllBookings() {
     let params = {};
     this._BookingService.onGetAllBookings(params).subscribe({
@@ -193,6 +196,7 @@ export class HomeComponent implements OnInit {
         this.listBookings = res?.data?.booking;
         let bookingCount: number | any = this.bookingResponse?.totalCount;
         console.log(bookingCount);
+
         localStorage.setItem('bookingCount', bookingCount?.toLocaleString());
         this.listBookings.forEach((booking) => {
           const createdDate = new Date(booking.createdAt);
@@ -250,6 +254,7 @@ export class HomeComponent implements OnInit {
         this.adsItems = this.adsData?.ads;
         let adsCount: number | any = this.adsData?.totalCount;
         console.log(adsCount);
+
         localStorage.setItem('adsCount', adsCount?.toLocaleString());
         this.adsItems.forEach(
           (ad: {
@@ -294,6 +299,7 @@ export class HomeComponent implements OnInit {
         this.facilitesData = this.facilitesResponse?.facilities;
         let facilitsCount: number | any = this.facilitesResponse?.totalCount;
         console.log(facilitsCount);
+
         localStorage.setItem('facilitsCount', facilitsCount?.toLocaleString());
         this.facilitesData.forEach(
           (facilities: { createdAt: string | number | Date; name: string }) => {
@@ -338,6 +344,7 @@ export class HomeComponent implements OnInit {
         this.roomsData = this.roomsResponse?.rooms;
         let roomsCount: number | any = this.roomsResponse?.totalCount;
         console.log(roomsCount);
+
         localStorage.setItem('roomsCount', roomsCount?.toLocaleString());
         this.roomsData.forEach((room) => {
           const createdDate = new Date(room.createdAt);
@@ -363,6 +370,15 @@ export class HomeComponent implements OnInit {
         });
       },
     });
+            this.updatedDate.push({
+              name: roomName,
+              updatedDate: updatedDate,
+              module: moduleName,
+            });
+          }
+        )
+      }
+    })
   }
   onGetAllUsers() {
     let params = {};
@@ -372,6 +388,7 @@ export class HomeComponent implements OnInit {
         this.listUses = res.data.users;
         let usersCount: number | any = this.usersResponse?.totalCount;
         console.log(usersCount);
+
         localStorage.setItem('usersCount', usersCount?.toLocaleString());
         this.listUses.forEach(
           (user: { createdAt: string | number | Date; userName: string }) => {
@@ -399,12 +416,12 @@ export class HomeComponent implements OnInit {
             });
           }
         );
+        )
       },
     });
   }
   selectChange(select: Date): void {
-    this.allDates.forEach((date) => {});
-    console.log(`Select value: ${select} `);
+    this.allDates.forEach((date) => { });
   }
   isDateSelected(date: Date): boolean {
     return (

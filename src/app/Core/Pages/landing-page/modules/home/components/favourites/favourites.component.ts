@@ -30,24 +30,16 @@ export class FavouritesComponent implements OnInit {
     this.getAllFavourites();
   }
   getAllFavourites() {
-    // params = {
-    //   page: this.pageNumber,
-    //   size: this.pageSize,
-    // };
     return this._favouriteService.getMyFavourites().subscribe({
       next: (res: IFavouriteResponse) => {
-        console.log(res);
         this.favouritesResponse = res;
         this.favouriteData = this.favouritesResponse?.data;
         this.favouriteItems = this.favouriteData?.favoriteRooms[0].rooms;
-        console.log(this.favouriteItems);
       },
     });
   }
   // Delete
   openDeleteDialog(roomData: any): void {
-    console.log(roomData);
-
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       data: roomData,
       width: '30%',
@@ -56,7 +48,6 @@ export class FavouritesComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       if (result) {
-        console.log(result);
         this.deleteFavouriteById(result._id);
       }
     });
@@ -64,7 +55,6 @@ export class FavouritesComponent implements OnInit {
   deleteFavouriteById(roomId: string) {
     return this._favouriteService.deleteFavourite(roomId).subscribe({
       next: (res) => {
-        console.log(res);
       },
       error: (err) => {
         this._toastrService.error(err.error.message, '');

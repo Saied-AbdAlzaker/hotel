@@ -13,5 +13,11 @@ constructor(private _HttpClient:HttpClient) { }
     onBookingRoom(data:IBooking):Observable<any>{
         return this._HttpClient.post('portal/booking',data)
     }
+    onGetBookingDetails(id:string):Observable<any>{
+        return this._HttpClient.get(`portal/booking/${id}`)
+    }
+    onPay(id:string,token:string):Observable<any>{
+        return this._HttpClient.post(`portal/booking/${id}/pay`,{token:token})
+    }
 
 }

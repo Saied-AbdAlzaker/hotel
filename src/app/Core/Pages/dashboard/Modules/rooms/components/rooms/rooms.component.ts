@@ -25,7 +25,6 @@ export class RoomsComponent implements OnInit {
   tableData: IRoom[] = [];
   facilities: IFacilities[] | undefined = [];
   facilityId: IFacilities[] = [];
-  // facilityId: any;
   capacityName: string = '';
   constructor(
     private dialog: MatDialog,
@@ -39,7 +38,6 @@ export class RoomsComponent implements OnInit {
 
     this.searchSubject.pipe(debounceTime(1000)).subscribe({
       next: (res) => {
-        console.log(res);
         this.getAllRooms();
       },
     });
@@ -55,7 +53,6 @@ export class RoomsComponent implements OnInit {
     };
     this._roomsService.onGetAllRooms(parms).subscribe({
       next: (res) => {
-        console.log(res);
         this.tableResponse = res.data;
         this.tableData = this.tableResponse?.rooms;
       },
@@ -74,7 +71,6 @@ export class RoomsComponent implements OnInit {
   getFacilities() {
     this._roomsService.onGetFacilities().subscribe({
       next: (res: any) => {
-        console.log(res);
         this.facilities = res.data.facilities;
       },
     });
@@ -82,7 +78,6 @@ export class RoomsComponent implements OnInit {
 
   // Delete Rooms
   openDeleteDialog(roomData: any): void {
-    console.log(roomData);
 
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       data: roomData,
@@ -92,7 +87,6 @@ export class RoomsComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       if (result) {
-        console.log(result);
         this.onDeleteRooms(result._id);
       }
     });
@@ -105,7 +99,6 @@ export class RoomsComponent implements OnInit {
       },
       error: (err) => {
         this.toastr.error(err.error.message, 'Error!');
-        console.log(err);
       },
       complete: () => {
         this.toastr.success('Rooms Deleted Successfully', 'Ok');
@@ -130,7 +123,6 @@ export class RoomsComponent implements OnInit {
   handlePageEvent(e: any) {
     this.pageSize = e.pageSize;
     this.pageNumber = e.pageIndex + 1;
-    console.log(e);
     this.getAllRooms();
   }
 }
