@@ -72,7 +72,6 @@ export class RoomDetailsComponent implements OnInit {
   getRoomDetails(id: string) {
     this._HomeService.onGetRoomDetails(id).subscribe({
       next: (res) => {
-        console.log(res);
         this.roomDetails = res.data.room;
         this.roomImages = res.data.room.images;
         this.roomFacilities = this.roomDetails?.facilities;
@@ -86,6 +85,7 @@ export class RoomDetailsComponent implements OnInit {
     this._UserBookingService.onBookingRoom(date.value).subscribe({
       next: (res) => {
         console.log(res);
+        this.bookingId=res.data.booking._id
       },
       error: (err) => {
         console.log(err);
@@ -94,7 +94,10 @@ export class RoomDetailsComponent implements OnInit {
       },
       complete: () => {
         this.toastr.success('pay now to complete booking process', 'Success!');
-        this.Router.navigate(['/landingPage/booking']);
+        this.Router.navigate(['/landingPage/booking']
+        ,{queryParams: { _id : this.bookingId },}
+        );
+        
       },
     });
   }
@@ -102,7 +105,6 @@ export class RoomDetailsComponent implements OnInit {
   getAllReviews(){
     this._HomeService.getAllReviews(this.roomId).subscribe({
       next:(res)=>{
-        console.log(res);
         this.Reviews=res.data.roomReviews;
         this.rate=this.Reviews[0]?.rating
       }
@@ -112,7 +114,6 @@ export class RoomDetailsComponent implements OnInit {
   AddReview(data:FormGroup){
     this._HomeService.Addreview(data.value).subscribe({
       next:(res)=>{
-        console.log(res);
 
       },error:(err)=>{
         this.toastr.error(err.error.message,'Error')
@@ -140,12 +141,10 @@ export class RoomDetailsComponent implements OnInit {
     if (!open) {
       this.endDatePicker.open();
     }
-    console.log('handleStartOpenChange', open);
   }
 
   handleEndOpenChange(open: boolean): void {
     this.generateDateRange();
-    console.log('handleEndOpenChange', open);
   }
 
   generateDateRange(): void {
@@ -158,9 +157,7 @@ export class RoomDetailsComponent implements OnInit {
       currentDate.setDate(currentDate.getDate() + 1);
     }
 
-    console.log(this.dateRange);
     this.totalPrice = this.dateRange.length * (this.priceRoom-this.roomDiscount);
-    console.log(this.totalPrice);
 
     this.bookingForm.patchValue({
       startDate: this.startValue,
@@ -172,7 +169,6 @@ export class RoomDetailsComponent implements OnInit {
   getAllComments(){
         this._HomeService.getAllComments(this.roomId).subscribe({
            next:(res)=>{
-            console.log(res);
             this.comments=res.data.roomComments;
            }
         })
@@ -184,10 +180,9 @@ export class RoomDetailsComponent implements OnInit {
         }
           this._HomeService.Addcomment(data.value).subscribe({
             next:(res)=>{
-              console.log(res);
 
             },error:(err)=>{
-              // this.toastr.error('Login First','Error')
+
             },complete:()=>{
               this.toastr.success('Commented Successfully')
               this.getAllComments()
@@ -202,7 +197,6 @@ export class RoomDetailsComponent implements OnInit {
           });
 
           dialogRef.afterClosed().subscribe((result) => {
-            console.log('The dialog was closed');
           });
         }
 }

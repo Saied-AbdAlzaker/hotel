@@ -18,12 +18,7 @@ export class LogOutComponent {
 
      ) {}
 logout(){
-  localStorage.removeItem('userToken');
-  localStorage.removeItem('role');
-  localStorage.removeItem('userName');
-  localStorage.removeItem('email');
-  localStorage.removeItem('userId');
-  localStorage.removeItem('loglevel')
+  localStorage.clear()
   this.onNoClick()
   this.toastr.success('You Loged out')
   this.Router.navigate(['/landingPage'])

@@ -19,7 +19,7 @@ export class DarkComponent {
     toggleTheme() {
       this.selectedTheme = (this.selectedTheme === 'light') ? 'dark' : 'light';
 
-      // Call your theme change functions here if needed
+
       if (this.selectedTheme === 'light') {
         this.darkMode =false;
 
@@ -44,10 +44,6 @@ export class DarkComponent {
         this.document.documentElement.classList.remove(DarkComponent.DARK_THEME_CLASS);
         this.theme = DarkComponent.DARK_THEME_LIGHT;
     }
-  // darkMode$: Observable<boolean> = this.darkModeService.darkMode$;
 
-  // onToggle(): void {
-  //   this.darkModeService.toggle();
-  // }
 
 }

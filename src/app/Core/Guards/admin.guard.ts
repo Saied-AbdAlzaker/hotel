@@ -4,7 +4,7 @@ import { AuthService } from '../auth/Services/auth.service';
 
 export const adminGuard: CanActivateFn = (state) => {
   const route = inject(Router);
-  const authService= inject(AuthService);
+  const authService = inject(AuthService);
 
   const token = localStorage.getItem('userToken');
   const role  = localStorage.getItem('role')

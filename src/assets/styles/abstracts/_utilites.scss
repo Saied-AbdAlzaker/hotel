@@ -199,3 +199,7 @@ li {
 .breadcrumb-item+.breadcrumb-item::before {
   float: none;
 }
+.mat-horizontal-stepper-header-container {
+  width:60% !important;
+  margin: auto !important;
+}
