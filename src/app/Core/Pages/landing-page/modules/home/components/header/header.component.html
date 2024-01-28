@@ -40,7 +40,7 @@
                                     <i class="fa-solid fa-minus text-white"></i>
                                 </span>
                                 <input formControlName="capacity" id="nights" type="number" class="form-control"
-                                    [placeholder]="capacity">
+                                    [(ngModel)]="capacity">
                                 <span (click)="countUp()" [class]="_HelperService.textDir === 'rtl'?'rotate':''"
                                     class="input-group-text bg-green pointer"><i
                                         class="fa-solid fa-plus text-white"></i>
