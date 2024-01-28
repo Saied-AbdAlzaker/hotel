@@ -46,7 +46,6 @@ export class FacilitiesComponent {
 
     this._facilitiesService.getAllFacilities(parms).subscribe({
       next: (res:any) => {
-        console.log(res);
         this.tableResponse = res.data;
         this.tableData = this.tableResponse?.facilities;
 
@@ -69,7 +68,6 @@ export class FacilitiesComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.onAddNewFacilities(result.name);
     });
   }
@@ -77,7 +75,6 @@ export class FacilitiesComponent {
   onAddNewFacilities(data: String) {
     this._facilitiesService.addFacilities(data).subscribe({
       next: (res:any) => {
-        console.log(res);
       }, error: (err:any) => {
         this._toastrService.error(err.error.message, 'Error!')
       }, complete: () => {
@@ -99,7 +96,6 @@ export class FacilitiesComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if (result) {
-        console.log(result);
 
         this.onEditNewFacilities(result._id, FacilitiesData.name);
 
@@ -110,7 +106,6 @@ export class FacilitiesComponent {
   onEditNewFacilities(_id: string, data: string) {
     this._facilitiesService.editFacilities(_id, data).subscribe({
       next: (res:any) => {
-        console.log(res);
       }, error: (err:any) => {
         this._toastrService.error(err.error.message, 'Error!')
       }, complete: () => {
@@ -122,7 +117,6 @@ export class FacilitiesComponent {
 
   // Delete Facilities
   openDeleteDialog(facilityData: any): void {
-    console.log(facilityData);
 
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       data: facilityData,
@@ -132,7 +126,6 @@ export class FacilitiesComponent {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       if (result) {
-        console.log(result);
         this.onDeleteFacilities(result._id);
       }
     });
@@ -141,7 +134,6 @@ export class FacilitiesComponent {
   onDeleteFacilities(id: string) {
     this._facilitiesService.ondeletedialog(id).subscribe({
       next: (res:any) => {
-        console.log(res);
       },
       error: (err:any) => {
         this._toastrService.error(err.error.message, 'Error!');

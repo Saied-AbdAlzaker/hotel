@@ -52,11 +52,9 @@ export class AdsComponent implements OnInit {
     }
     this._adsService.getAllAds(parms).subscribe({
       next: (res) => {
-        console.log(res);
         this.tableResponse = res;
         this.tableData = this.tableResponse?.data;
         this.adsItems = this.tableData?.ads
-        console.log(this.adsItems);
       },
     });
   }

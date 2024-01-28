@@ -32,17 +32,14 @@ export class BookingsComponent implements OnInit {
     }
     this._BookingService.onGetAllBookings(params).subscribe({
       next:(res)=>{
-        console.log(res);
         this.tableResponse=res.data
         this.listBookings= res?.data?.booking
-        console.log(this.listBookings);
 
       }
     })
   }
 
   openDeleteDialog(bookingData: any): void {
-    console.log(bookingData);
 
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       data: bookingData,
@@ -52,7 +49,6 @@ export class BookingsComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       if (result) {
-        console.log(result);
         this.onDeleteBooking(result._id);
       }
     });
@@ -61,7 +57,6 @@ export class BookingsComponent implements OnInit {
   onDeleteBooking(id: string) {
     this._BookingService.ondeletedialog(id).subscribe({
       next: (res:any) => {
-        console.log(res);
       },
       error: (err:any) => {
         this._toastrService.error(err.error.message, 'Error!');
