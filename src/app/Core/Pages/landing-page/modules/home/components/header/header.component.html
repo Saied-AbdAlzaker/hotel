@@ -16,7 +16,7 @@
                     <h4 class="text-secondryColor fw-bolder mb-0">{{'header.Start Booking'|translate}}</h4>
                     <form [formGroup]="exploreForm" (ngSubmit)="explore(exploreForm)" class="w-75">
                         <div class="form-group mb-3">
-                            <label for="date" class="h6 text-secondryColor">{{'header.pick a date'|translate}}</label>
+                            <label for="date" class="label h6 text-secondryColor">{{'header.pick a date'|translate}}</label>
                             <div class="input-group  w-100 flex-nowrap">
                                 <span class="input-group-text bg-main"
                                     [class]="_HelperService.textDir === 'rtl'?'rotate':''">
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="nights" class="h6 text-secondryColor">
+                            <label for="nights" class="label h6 text-secondryColor">
                                 {{'header.Capacity'|translate}}
                             </label>
                             <div class="input-group">

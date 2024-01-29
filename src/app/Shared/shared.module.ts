@@ -109,7 +109,8 @@ import { MustSignComponent } from './must-sign/must-sign.component';
     NzPopconfirmModule,
     CarouselModule,
     NzRateModule,
-    NzPaginationModule
+    NzPaginationModule,
+    DarkComponent
   ],
   declarations: [
     SidebarComponent,

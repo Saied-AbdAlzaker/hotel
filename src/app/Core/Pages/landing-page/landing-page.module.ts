@@ -6,12 +6,12 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { NavLandComponent } from './components/nav-land/nav-land.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SharedModule } from 'src/app/Shared/shared.module';
-
+import { DarkComponent } from 'src/app/Shared/dark/dark.component';
 @NgModule({
   declarations: [
     LandingPageComponent,
     NavLandComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     CommonModule,

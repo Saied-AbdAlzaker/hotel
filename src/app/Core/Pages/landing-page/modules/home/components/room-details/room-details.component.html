@@ -1,3 +1,4 @@
+<section id="room">
 <section id="room-details" class="mt-3">
     <div class="container">
         <div class="header text-center">
@@ -147,8 +148,8 @@
                             {{item?.review}}
                         </p> -->
                         <div class="mb-3 border w-50 rounded px-3">
-                            <span class="text-secondryColor fw-bold">
-                                Rate: </span><nz-rate formControlName="rating" 
+                            <span class="rate text-secondryColor fw-bold">
+                                Rate: </span> <nz-rate formControlName="rating" 
                                 [(ngModel)]="rate" class="mb-3" style="color: #FFCC47;"></nz-rate> 
                         </div>
                         <textarea placeholder="{{'Add your Reviews' | translate}}" 
@@ -178,4 +179,5 @@
 
         </div>
     </div>
+</section>
 </section>
