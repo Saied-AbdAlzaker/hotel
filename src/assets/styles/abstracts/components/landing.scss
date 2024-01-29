@@ -75,6 +75,8 @@
     img {
       opacity: 0.9;
       transition: $transitoon;
+      object-fit: cover;
+
     }
     &:hover img {
       opacity: 1;
@@ -133,7 +135,7 @@
       padding: 20px;
     }
   }
-  
+
 }
 
 .ant-picker-suffix {
