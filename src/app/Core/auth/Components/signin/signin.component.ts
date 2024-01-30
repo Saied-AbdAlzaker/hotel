@@ -1,3 +1,4 @@
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { AuthService } from './../../Services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -11,6 +12,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class SigninComponent implements OnInit {
 
+  user:any;
+  loggedIn:any;
+
   hide: boolean = true;
   Message: string = ''
   signinForm = new FormGroup({
@@ -18,9 +22,14 @@ export class SigninComponent implements OnInit {
     password: new FormControl(null, [Validators.required, Validators.pattern('^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,16}$')]),
   })
 
-  constructor(private _authServices: AuthService, private toastr: ToastrService, private router: Router) { }
+  constructor(private _authServices: AuthService, private toastr: ToastrService,
+     private router: Router, private authService: SocialAuthService) { }
 
   ngOnInit() {
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+    });
   }
 
 
@@ -48,5 +57,6 @@ export class SigninComponent implements OnInit {
       }
     })
   }
+  
 
 }
