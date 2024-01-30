@@ -5,7 +5,7 @@
       <div class="col-md-4 gap-4 mb-3 d-flex">
         <div class="card-item">
           <h5 [class]="_HelperService.textDir === 'ltr' ? 'ltr' : 'rtl'">
-            {{ roomsData[0]?.discount }}$
+            {{ roomsData[0]?.price | currency: 'USD' }}
             <span>{{ "favourites.perNight" | translate }}</span>
           </h5>
           <div class="links">
@@ -41,14 +41,14 @@
             [class]="_HelperService.textDir === 'ltr' ? '' : 'rtl'"
           >
             <h5>{{ roomsData[0]?.roomNumber }}</h5>
-            <p>{{ roomsData[0]?.price }}</p>
+            <p>{{ roomsData[0]?.discount | currency: 'USD' }} <span class="text-danger fw-bolder">{{"home-land.off"| translate}}</span></p>
           </div>
         </div>
       </div>
       <div class="d-flex flex-column gap-4 col-md-4 mb-3">
         <div class="h-100 card-item">
           <h5 [class]="_HelperService.textDir === 'ltr' ? 'ltr' : 'rtl'">
-            {{ roomsData[1]?.discount }}$<span>
+            {{ roomsData[1]?.price | currency: 'USD'}}<span>
               {{ "favourites.perNight" | translate }}</span
             >
           </h5>
@@ -85,12 +85,12 @@
             [class]="_HelperService.textDir === 'ltr' ? '' : 'rtl'"
           >
             <h5>{{ roomsData[1]?.roomNumber }}</h5>
-            <p>{{ roomsData[1]?.price }}</p>
+            <p>{{ roomsData[0]?.discount | currency: 'USD' }} <span class="text-danger fw-bolder">{{"home-land.off"| translate}}</span></p>
           </div>
         </div>
         <div class="h-100 card-item">
           <h5 [class]="_HelperService.textDir === 'ltr' ? 'ltr' : 'rtl'">
-            {{ roomsData[2]?.discount }}$<span>
+            {{ roomsData[2]?.price | currency: 'USD' }}<span>
               {{ "favourites.perNight" | translate }}</span
             >
           </h5>
@@ -126,14 +126,14 @@
             [class]="_HelperService.textDir === 'ltr' ? '' : 'rtl'"
           >
             <h5>{{ roomsData[2]?.roomNumber }}</h5>
-            <p>{{ roomsData[2]?.price }}</p>
+            <p>{{ roomsData[0]?.discount | currency: 'USD' }} <span class="text-danger fw-bolder">{{"home-land.off"| translate}}</span></p>
           </div>
         </div>
       </div>
       <div class="d-flex flex-column gap-4 col-md-4 mb-3">
         <div class="h-100 card-item">
           <h5 [class]="_HelperService.textDir === 'ltr' ? 'ltr' : 'rtl'">
-            {{ roomsData[3]?.discount }}$<span>
+            {{ roomsData[3]?.price | currency: 'USD'}}<span>
               {{ "favourites.perNight" | translate }}</span
             >
           </h5>
@@ -170,12 +170,12 @@
             [class]="_HelperService.textDir === 'ltr' ? '' : 'rtl'"
           >
             <h5>{{ roomsData[3]?.roomNumber }}</h5>
-            <p>{{ roomsData[3]?.price }}</p>
+            <p>{{ roomsData[0]?.discount | currency: 'USD' }} <span class="text-danger fw-bolder">{{"home-land.off"| translate}}</span></p>
           </div>
         </div>
         <div class="h-100 card-item">
           <h5 [class]="_HelperService.textDir === 'ltr' ? 'ltr' : 'rtl'">
-            {{ roomsData[4]?.discount }}$<span>
+            {{ roomsData[4]?.price | currency: 'USD' }}<span>
               {{ "favourites.perNight" | translate }}</span
             >
           </h5>
@@ -213,7 +213,7 @@
             [class]="_HelperService.textDir === 'ltr' ? '' : 'rtl'"
           >
             <h5>{{ roomsData[4]?.roomNumber }}</h5>
-            <p>{{ roomsData[4]?.price }}</p>
+            <p>{{ roomsData[0]?.discount | currency: 'USD' }} <span class="text-danger fw-bolder">{{"home-land.off" | translate}}</span></p>
           </div>
         </div>
       </div>

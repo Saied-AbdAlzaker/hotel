@@ -40,15 +40,15 @@
             <h4 class="mb-3">Your Bookings:</h4>
             <ng-container *ngFor="let booking of mybookingsData">
               <div class="card  mb-3"
-                [ngClass]="{'border-primary': booking.status=='pending', 'border-success':  booking.status=='complete', 'border-warning': booking.status=='progress'}">
-                <div class="card-header">check your booking</div>
+                [ngClass]="{'border-primary': booking?.status=='pending', 'border-success':  booking?.status=='completed'}">
+                <div class="card-header">check your booking?</div>
                 <div class="d-flex">
-                  <div class="d-flex cursor-pointer" [routerLink]="['/landingPage/home/rooms', booking.room]">
-                    <img [src]="booking.roomImage[0]" alt="" class="img-fluid align-self-stretch" width="600"
+                  <div class="d-flex cursor-pointer" [routerLink]="['/landingPage/home/rooms', booking?.room]">
+                    <img [src]="booking?.roomImage[0]" alt="" class="img-fluid align-self-stretch" width="600"
                       height="300" />
                   </div>
-                  <div class="card-body text-primary">
-                    <h5 class="card-title">{{ booking.status }}</h5>
+                  <div class="card-body text-primary" [ngClass]="{'text-primary': booking?.status=='pending', 'text-success':  booking?.status=='completed'}">
+                    <h5 class="card-title">{{ booking?.status }}</h5>
                     <p class="card-text text-muted">
                       Some quick example text to build on the card title and
                       make up the bulk of the card's content.
@@ -64,7 +64,7 @@
 
                     </div>
 
-                    <p class="text-danger">Total Price: {{ booking.totalPrice | currency:'L.E' }}</p>
+                    <p class="text-danger">Total Price: {{ booking?.totalPrice | currency:'L.E' }}</p>
                   </div>
                 </div>
                 <div></div>

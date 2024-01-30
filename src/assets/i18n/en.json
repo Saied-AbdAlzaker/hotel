@@ -19,6 +19,7 @@
     "home-land":{
         "header":"header",
         "most-picked":"Most Picked",
+        "off":"OFF",
         "features":"",
         "feadback":"feadback",
         "footer": "footer"

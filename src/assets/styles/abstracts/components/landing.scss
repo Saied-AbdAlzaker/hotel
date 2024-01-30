@@ -75,6 +75,8 @@
     img {
       opacity: 0.9;
       transition: $transitoon;
+      object-fit: cover;
+
     }
     &:hover img {
       opacity: 1;
@@ -133,13 +135,7 @@
       padding: 20px;
     }
   }
-  .rotate{
-    transform: 1534 !important;
-}
-  // .owl-carousel .owl-stage {
-  //   transform: translate3d(1546px, 0px, 0px) !important;
-  //   transition: all 0s ease 0s;
-  // }
+
 }
 
 .ant-picker-suffix {
