@@ -33,10 +33,11 @@
             </div>
         </div>
 
-        <div class="row" id="ads">
+        <div class="row" id="ads" [class]="_HelperService.textDir === 'rtl'?'d-none':''">
             <h3 class="mt-5">{{'features.title'|translate}}</h3>
-            <div class="col-md position-relative">
-                <owl-carousel-o [options]="customOptions">
+            <div class="col-md position-relative" >
+                <owl-carousel-o [options]="customOptions" 
+                >
                     <ng-template *ngFor="let adsItem of AdsData" carouselSlide>
                         <a [routerLink]="['/landingPage/home/rooms', adsItem._id]"
                             style="height: 250px; display: block;margin-right: 10px;">
