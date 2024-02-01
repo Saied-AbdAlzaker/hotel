@@ -20,6 +20,7 @@ import {
   TimelineUpdatedDate,
 } from '../../models/timeline';
 import { AuthService } from 'src/app/Core/auth/Services/auth.service';
+import { HomeService } from '../../services/home.service';
 
 @Component({
   selector: 'app-home',
@@ -59,7 +60,8 @@ export class HomeComponent implements OnInit {
     private _toastrService: ToastrService,
     private _roomsService: RoomsService,
     private _UsersService: UsersService,
-    private _AuthService: AuthService
+    private _AuthService: AuthService,
+    private _HomeService: HomeService
   ) {}
 
   ngOnInit() {
@@ -72,7 +74,7 @@ export class HomeComponent implements OnInit {
   }
 
   getAllData() {
-    this._AuthService.ogGetAlldata().subscribe({
+    this._HomeService.ogGetAlldata().subscribe({
       next: (res) => {
         console.log(res);
         this.data = res.data;

@@ -2,28 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs';
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   title = 'hotel';
+  user: any;
+  loggedIn: any;
   constructor(
     private router: Router,
     private titleService: Title,
     public translate: TranslateService
-
   ) {
-
     translate.setDefaultLang('en');
 
-    this.onchangeLang('en')
-    if(localStorage.getItem('lang')==null){
-      localStorage.setItem('lang','en')
-    }    
+    this.onchangeLang('en');
+    if (localStorage.getItem('lang') == null) {
+      localStorage.setItem('lang', 'en');
+    }
   }
 
   ngOnInit() {
@@ -48,10 +49,9 @@ export class AppComponent implements OnInit {
         }
       });
   }
-  onchangeLang(lang:string){    
+  onchangeLang(lang: string) {
     this.translate.setDefaultLang(lang);
     this.translate.use(lang);
-    localStorage.setItem('lang', lang)
+    localStorage.setItem('lang', lang);
   }
-  
 }

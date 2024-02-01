@@ -1,4 +1,12 @@
-<div [dir]="translate.currentLang=='en'?'ltr':'rtl'">
-    <router-outlet></router-outlet>
-    <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<div [dir]="translate.currentLang == 'en' ? 'ltr' : 'rtl'">
+  <router-outlet></router-outlet>
+  <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+</div>
+<asl-google-sigin-button *ngIf="!user"></asl-google-sigin-button>
+
+<div *ngIf="user">
+  <div>
+    <h4>{{ user.name }}</h4>
+    <h4>{{ user.email }}</h4>
+  </div>
 </div>

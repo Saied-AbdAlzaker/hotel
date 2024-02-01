@@ -5,51 +5,46 @@ import { IResetPassword, ISignin } from '../Model/auth';
 import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  role: string | null = '';
 
-  role: string|null = ''
-
-constructor(private _HttpClient:HttpClient) {
-  if(localStorage.getItem('role') !== null){
-    this.getProfile();
+  constructor(private _HttpClient: HttpClient) {
+    if (localStorage.getItem('role') !== null) {
+      this.getProfile();
+    }
   }
- }
 
-getProfile(){
-  let encoded: any = localStorage.getItem('userToken');
-  let decoded: any = jwtDecode(encoded)  
-  this.getRole()
-  
-}
-
-getRole(){
-  if (localStorage.getItem('userToken') !== null && localStorage.getItem('role')) {
-    this.role = localStorage.getItem('role')
+  getProfile() {
+    let encoded: any = localStorage.getItem('userToken');
+    let decoded: any = jwtDecode(encoded);
+    this.getRole();
   }
-}
 
-onSignUp(data:any):Observable<any>{
-    return this._HttpClient.post('portal/users',data)
+  getRole() {
+    if (
+      localStorage.getItem('userToken') !== null &&
+      localStorage.getItem('role')
+    ) {
+      this.role = localStorage.getItem('role');
+    }
   }
- 
-onSignin(data:ISignin):Observable<ISignin>
- {
-  return this._HttpClient.post<ISignin>('portal/users/login', data)
- }
 
-onRestPassword(data:IResetPassword):Observable<any>
- {
-  return this._HttpClient.post('portal/users/reset-password', data)
- }
- onForgetPassword(data:string):Observable<any>
- {
-  return this._HttpClient.post('portal/users/forgot-password ', {email:data});
+  onSignUp(data: any): Observable<any> {
+    return this._HttpClient.post('portal/users', data);
+  }
 
- }
- ogGetAlldata():Observable<any>{
-  return this._HttpClient.get('admin/dashboard');
+  onSignin(data: ISignin): Observable<ISignin> {
+    return this._HttpClient.post<ISignin>('portal/users/login', data);
+  }
 
- }
+  onRestPassword(data: IResetPassword): Observable<any> {
+    return this._HttpClient.post('portal/users/reset-password', data);
+  }
+  onForgetPassword(data: string): Observable<any> {
+    return this._HttpClient.post('portal/users/forgot-password ', {
+      email: data,
+    });
+  }
 }
