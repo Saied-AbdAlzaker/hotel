@@ -9,7 +9,7 @@
                     <div class="header-auth">
                         <h2>Sign up</h2>
                         <p>If you already have an account register You can
-                         <span class="text-danger pointer" routerLink="/auth/signin"> Login here !</span>
+                            <span class="text-danger pointer" routerLink="/auth/signin"> Login here !</span>
                         </p>
                     </div>
 
@@ -17,55 +17,67 @@
                         <form [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm)">
                             <div class="d-flex justify-content-center mb-4">
                                 <ngx-dropzone (change)="onSelect($event)" [multiple]="false" class="circle-preview">
-                                <ngx-dropzone-label class="text-main p-3">
-                                    <i class="fa-solid fa-upload fa-3x mb-3"></i>
-                                    <div>
-                                    choose your profile image
-                                    </div>
-                                </ngx-dropzone-label>
-                                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" class="img-fluid" [removable]="true"
-                                    (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
-                                </ngx-dropzone-image-preview>
+                                    <ngx-dropzone-label class="text-main p-3">
+                                        <i class="fa-solid fa-upload fa-3x mb-3"></i>
+                                        <div>
+                                            choose your profile image
+                                        </div>
+                                    </ngx-dropzone-label>
+                                    <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" class="img-fluid"
+                                        [removable]="true" (removed)="onRemove(f)" *ngFor="let f of files" [file]="f">
+                                    </ngx-dropzone-image-preview>
                                 </ngx-dropzone>
                             </div>
                             <div class="d-flex">
                                 <div class="form-group w-50 me-3">
                                     <label for="userName">User Name</label>
-                                    <input type="text" formControlName="userName" class="form-control" id="userName" placeholder="Please type here">
+                                    <input type="text" formControlName="userName" class="form-control" id="userName"
+                                        placeholder="Please type here">
                                     <span class="text-danger  mb-3" *ngIf="signupForm.get('userName')?.errors &&
                                         signupForm.get('userName')?.touched">
-                                        <span *ngIf="signupForm.get('userName')?.getError('required')">userName is required</span>
-                                        <span *ngIf="signupForm.get('userName')?.getError('pattern')">userName must contains at least 3 letters</span>
+                                        <span *ngIf="signupForm.get('userName')?.getError('required')">userName is
+                                            required</span>
+                                        <span *ngIf="signupForm.get('userName')?.getError('pattern')">userName must
+                                            contains at least 3 letters</span>
                                     </span>
                                 </div>
                                 <div class="form-group w-50">
                                     <label for="email">Email address</label>
-                                    <input type="email" formControlName="email" class="form-control" id="email" placeholder="Please type here">
+                                    <input type="email" formControlName="email" class="form-control" id="email"
+                                        placeholder="Please type here">
                                     <small id="emailHelp" class="form-text text-danger" *ngIf="signupForm.controls.email.errors &&
                                         signupForm.controls.email.touched">
-                                        <p *ngIf="signupForm.get('email')?.getError('required')" class="mb-0">Email Is Required</p>
-                                        <p *ngIf="signupForm.get('email')?.getError('email')" class="mb-0">Email Is Invalid</p>
+                                        <p *ngIf="signupForm.get('email')?.getError('required')" class="mb-0">Email Is
+                                            Required</p>
+                                        <p *ngIf="signupForm.get('email')?.getError('email')" class="mb-0">Email Is
+                                            Invalid</p>
                                     </small>
                                 </div>
-                                </div>
-                                <div class="d-flex">
+                            </div>
+                            <div class="d-flex">
                                 <div class="form-group w-50 me-3">
                                     <label for="phoneNumber">Phone Number</label>
-                                    <input type="text" formControlName="phoneNumber" class="form-control" id="phoneNumber" placeholder="Please type here">
-                                    <span *ngIf="signupForm.get('phoneNumber')?.errors && signupForm.get('phoneNumber')?.touched "
+                                    <input type="text" formControlName="phoneNumber" class="form-control"
+                                        id="phoneNumber" placeholder="Please type here">
+                                    <span
+                                        *ngIf="signupForm.get('phoneNumber')?.errors && signupForm.get('phoneNumber')?.touched "
                                         class="text-danger  mb-3">
-                                        <span *ngIf="signupForm.get('phoneNumber')?.errors?.['required']" class="mb-0">phoneNumber is
-                                        required</span>
-                                        <span *ngIf="signupForm.get('phoneNumber')?.errors?.['pattern']" class="mb-0">phoneNumber starts with
-                                        011/012/015/010 and length 11 number </span>
+                                        <span *ngIf="signupForm.get('phoneNumber')?.errors?.['required']"
+                                            class="mb-0">phoneNumber is
+                                            required</span>
+                                        <span *ngIf="signupForm.get('phoneNumber')?.errors?.['pattern']"
+                                            class="mb-0">phoneNumber starts with
+                                            011/012/015/010 and length 11 number </span>
                                     </span>
                                 </div>
                                 <div class="form-group w-50">
                                     <label for="country">Country</label>
-                                    <input type="text" formControlName="country" class="form-control" id="country" placeholder="Please type here">
+                                    <input type="text" formControlName="country" class="form-control" id="country"
+                                        placeholder="Please type here">
                                     <span class="text-danger  mb-3"
-                                    *ngIf="signupForm.get('country')?.errors && signupForm.get('country')?.touched">
-                                        <span *ngIf="signupForm.get('country')?.getError('required')">country is required</span>
+                                        *ngIf="signupForm.get('country')?.errors && signupForm.get('country')?.touched">
+                                        <span *ngIf="signupForm.get('country')?.getError('required')">country is
+                                            required</span>
                                     </span>
                                 </div>
                             </div>
@@ -73,36 +85,43 @@
                                 <div class="form-group w-50 me-3">
                                     <div class="pass position-relative">
                                         <label for="password">Password</label>
-                                        <input [type]="hide?'password':'text'" formControlName="password" class="form-control" id="password" placeholder="Please type here">
-                                        <span (click)="hide=!hide" class="eye-icon pointer"><i class="fa-solid pointer" [class]="hide?'fa-eye-slash':'fa-eye'"></i></span>
+                                        <input [type]="hide?'password':'text'" formControlName="password"
+                                            class="form-control" id="password" placeholder="Please type here">
+                                        <span (click)="hide=!hide" class="eye-icon pointer"><i class="fa-solid pointer"
+                                                [class]="hide?'fa-eye-slash':'fa-eye'"></i></span>
                                     </div>
                                     <span *ngIf="signupForm.get('password')?.errors &&
                                         signupForm.get('password')?.touched " class="text-danger mb-3">
                                         <span *ngIf="signupForm.get('password')?.errors?.['required']">
-                                        password is required
+                                            password is required
                                         </span>
                                         <span *ngIf="signupForm.get('password')?.errors?.['pattern']">
-                                        Password must have capital,small letters,sympols,number and pass length(8-16)
+                                            Password must have capital,small letters,sympols,number and pass
+                                            length(8-16)
                                         </span>
                                     </span>
                                 </div>
                                 <div class="form-group w-50">
                                     <div class="pass position-relative">
                                         <label for="confirmPassword">Confirm Password</label>
-                                        <input [type]="hideConfirm?'password':'text'" formControlName="confirmPassword" class="form-control" id="confirmPassword" placeholder="Password">
-                                        <span class="eye-icon pointer" (click)="hideConfirm=!hideConfirm"><i class="fa-solid" [class]="hideConfirm?'fa-eye-slash':'fa-eye'"></i></span>
+                                        <input [type]="hideConfirm?'password':'text'" formControlName="confirmPassword"
+                                            class="form-control" id="confirmPassword" placeholder="Password">
+                                        <span class="eye-icon pointer" (click)="hideConfirm=!hideConfirm"><i
+                                                class="fa-solid"
+                                                [class]="hideConfirm?'fa-eye-slash':'fa-eye'"></i></span>
                                     </div>
 
                                     <span class="text-danger mb-3" *ngIf="signupForm.get('confirmPassword')?.errors &&
                                         signupForm.get('confirmPassword')?.touched ">
                                         <span *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">
-                                        confirmPassword is required
+                                            confirmPassword is required
                                         </span>
                                         <span *ngIf="signupForm.get('confirmPassword')?.errors?.['pattern']">
-                                        confirmPassword must have capital,small letters,sympols,number and pass length(8-16)
+                                            confirmPassword must have capital,small letters,sympols,number and pass
+                                            length(8-16)
                                         </span>
                                         <span *ngIf="signupForm.get('confirmPassword')?.errors?.['invalid']">
-                                        password and confirm password not match
+                                            password and confirm password not match
                                         </span>
                                     </span>
                                 </div>
@@ -113,7 +132,7 @@
                 </div>
 
             </div>
-            <div class="col-md-6 cover d-none d-md-flex flex-column justify-content-end col-md-6 p-5">
+            <div class="col-md-6 cover d-none d-md-flex flex-column justify-content-end p-5">
                 <div class="caption">
                     <h2>Sign up to Roamhome</h2>
                     <p>Homes as unique as you.</p>
